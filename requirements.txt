@@ -1,0 +1,6 @@
+pandas
+everypolitician
+numpy
+pyjanitor
+tqdm
+pycountry
