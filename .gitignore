@@ -10,7 +10,6 @@ Copy*.ipynb
 scratch/*
 *xlsx
 **/*.tar.gz
-**/*.csv*
 **/*.xls
 **/*.xlsx
 # Created by https://www.toptal.com/developers/gitignore/api/python
