@@ -520,3 +520,5 @@ TSWLatexianTemp*
 *.glstex
 
 # End of https://www.toptal.com/developers/gitignore/api/tex
+/data/india/delhi_hibp
+/data/india/up_hibp
