@@ -1,4 +1,4 @@
-data/ls_hibp/
+/data/ls_hibp/
 .DS_Store
 /scripts/.ipynb_checkpoints
 scripts/hibp_key
@@ -8,10 +8,8 @@ scripts/hibp_key
 venv*
 Copy*.ipynb
 scratch/*
-*xlsx
 **/*.tar.gz
 **/*.xls
-**/*.xlsx
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
@@ -522,3 +520,4 @@ TSWLatexianTemp*
 # End of https://www.toptal.com/developers/gitignore/api/tex
 /data/india/delhi_hibp
 /data/india/up_hibp
+/data/everypol/everypol_hibp
