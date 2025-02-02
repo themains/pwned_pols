@@ -1,1 +1,26 @@
-[{"Name":"OnlinerSpambot"},{"Name":"VerificationsIO"},{"Name":"db8151dd"},{"Name":"LeadHunter"},{"Name":"Cit0day"},{"Name":"NetGalley"},{"Name":"NotSOCRadar"},{"Name":"Hopamedia"}]
+[
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "LeadHunter"
+  },
+  {
+    "Name": "Cit0day"
+  },
+  {
+    "Name": "NetGalley"
+  },
+  {
+    "Name": "NotSOCRadar"
+  },
+  {
+    "Name": "Hopamedia"
+  }
+]

@@ -1,1 +1,29 @@
-[{"Name":"MySpace"},{"Name":"AntiPublic"},{"Name":"OnlinerSpambot"},{"Name":"Apollo"},{"Name":"Adapt"},{"Name":"VerificationsIO"},{"Name":"PDL"},{"Name":"Cit0day"},{"Name":"NotSOCRadar"}]
+[
+  {
+    "Name": "MySpace"
+  },
+  {
+    "Name": "AntiPublic"
+  },
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "Apollo"
+  },
+  {
+    "Name": "Adapt"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "Cit0day"
+  },
+  {
+    "Name": "NotSOCRadar"
+  }
+]

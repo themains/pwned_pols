@@ -1,1 +1,17 @@
-[{"Name":"OnlinerSpambot"},{"Name":"VerificationsIO"},{"Name":"PDL"},{"Name":"db8151dd"},{"Name":"Cit0day"}]
+[
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "Cit0day"
+  }
+]

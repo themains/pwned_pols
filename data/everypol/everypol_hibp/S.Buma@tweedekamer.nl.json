@@ -1,1 +1,26 @@
-[{"Name":"LinkedIn"},{"Name":"Exactis"},{"Name":"Apollo"},{"Name":"YouveBeenScraped"},{"Name":"VerificationsIO"},{"Name":"PDL"},{"Name":"db8151dd"},{"Name":"LinkedInScrape"}]
+[
+  {
+    "Name": "LinkedIn"
+  },
+  {
+    "Name": "Exactis"
+  },
+  {
+    "Name": "Apollo"
+  },
+  {
+    "Name": "YouveBeenScraped"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "LinkedInScrape"
+  }
+]

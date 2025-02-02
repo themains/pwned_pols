@@ -1,1 +1,11 @@
-[{"Name":"Apollo"},{"Name":"Intelimost"},{"Name":"PDL"}]
+[
+  {
+    "Name": "Apollo"
+  },
+  {
+    "Name": "Intelimost"
+  },
+  {
+    "Name": "PDL"
+  }
+]

@@ -1,1 +1,29 @@
-[{"Name":"LinkedIn"},{"Name":"TrikSpamBotnet"},{"Name":"Apollo"},{"Name":"YouveBeenScraped"},{"Name":"VerificationsIO"},{"Name":"PDL"},{"Name":"Cit0day"},{"Name":"LinkedInScrape"},{"Name":"DemandScience"}]
+[
+  {
+    "Name": "LinkedIn"
+  },
+  {
+    "Name": "TrikSpamBotnet"
+  },
+  {
+    "Name": "Apollo"
+  },
+  {
+    "Name": "YouveBeenScraped"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "Cit0day"
+  },
+  {
+    "Name": "LinkedInScrape"
+  },
+  {
+    "Name": "DemandScience"
+  }
+]

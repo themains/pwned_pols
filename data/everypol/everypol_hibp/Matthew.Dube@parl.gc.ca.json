@@ -1,1 +1,14 @@
-[{"Name":"Adobe"},{"Name":"VerificationsIO"},{"Name":"PDL"},{"Name":"FairVoteCanada"}]
+[
+  {
+    "Name": "Adobe"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "FairVoteCanada"
+  }
+]

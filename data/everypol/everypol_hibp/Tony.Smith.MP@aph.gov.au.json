@@ -1,1 +1,26 @@
-[{"Name":"OnlinerSpambot"},{"Name":"Bitly"},{"Name":"VerificationsIO"},{"Name":"Evite"},{"Name":"db8151dd"},{"Name":"Cit0day"},{"Name":"Twitter200M"},{"Name":"NotSOCRadar"}]
+[
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "Bitly"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "Evite"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "Cit0day"
+  },
+  {
+    "Name": "Twitter200M"
+  },
+  {
+    "Name": "NotSOCRadar"
+  }
+]

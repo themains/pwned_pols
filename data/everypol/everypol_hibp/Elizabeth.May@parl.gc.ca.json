@@ -1,1 +1,23 @@
-[{"Name":"Dropbox"},{"Name":"VerificationsIO"},{"Name":"PDL"},{"Name":"db8151dd"},{"Name":"Gravatar"},{"Name":"Luxottica"},{"Name":"FairVoteCanada"}]
+[
+  {
+    "Name": "Dropbox"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "Gravatar"
+  },
+  {
+    "Name": "Luxottica"
+  },
+  {
+    "Name": "FairVoteCanada"
+  }
+]

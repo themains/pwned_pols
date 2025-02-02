@@ -1,1 +1,17 @@
-[{"Name":"Apollo"},{"Name":"Adapt"},{"Name":"PDL"},{"Name":"LinkedInScrape"},{"Name":"FairVoteCanada"}]
+[
+  {
+    "Name": "Apollo"
+  },
+  {
+    "Name": "Adapt"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "LinkedInScrape"
+  },
+  {
+    "Name": "FairVoteCanada"
+  }
+]

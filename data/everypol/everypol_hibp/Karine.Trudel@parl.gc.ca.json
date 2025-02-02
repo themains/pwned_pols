@@ -1,1 +1,11 @@
-[{"Name":"NemoWeb"},{"Name":"PDL"},{"Name":"FairVoteCanada"}]
+[
+  {
+    "Name": "NemoWeb"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "FairVoteCanada"
+  }
+]

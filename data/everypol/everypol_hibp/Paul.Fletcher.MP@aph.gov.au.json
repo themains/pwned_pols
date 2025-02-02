@@ -1,1 +1,26 @@
-[{"Name":"OnlinerSpambot"},{"Name":"Adapt"},{"Name":"VerificationsIO"},{"Name":"Canva"},{"Name":"db8151dd"},{"Name":"Cit0day"},{"Name":"BrandNewTube"},{"Name":"NotSOCRadar"}]
+[
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "Adapt"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "Canva"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "Cit0day"
+  },
+  {
+    "Name": "BrandNewTube"
+  },
+  {
+    "Name": "NotSOCRadar"
+  }
+]

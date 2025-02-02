@@ -1,1 +1,11 @@
-[{"Name":"Ticketfly"},{"Name":"Apollo"},{"Name":"FairVoteCanada"}]
+[
+  {
+    "Name": "Ticketfly"
+  },
+  {
+    "Name": "Apollo"
+  },
+  {
+    "Name": "FairVoteCanada"
+  }
+]

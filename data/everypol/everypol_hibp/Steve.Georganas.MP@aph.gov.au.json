@@ -1,1 +1,20 @@
-[{"Name":"ExploitIn"},{"Name":"OnlinerSpambot"},{"Name":"Collection1"},{"Name":"VerificationsIO"},{"Name":"Cit0day"},{"Name":"NotSOCRadar"}]
+[
+  {
+    "Name": "ExploitIn"
+  },
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "Collection1"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "Cit0day"
+  },
+  {
+    "Name": "NotSOCRadar"
+  }
+]

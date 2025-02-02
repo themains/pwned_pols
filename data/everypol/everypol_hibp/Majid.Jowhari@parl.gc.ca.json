@@ -1,1 +1,17 @@
-[{"Name":"Canva"},{"Name":"PDL"},{"Name":"db8151dd"},{"Name":"LinkedInScrape"},{"Name":"FairVoteCanada"}]
+[
+  {
+    "Name": "Canva"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "LinkedInScrape"
+  },
+  {
+    "Name": "FairVoteCanada"
+  }
+]

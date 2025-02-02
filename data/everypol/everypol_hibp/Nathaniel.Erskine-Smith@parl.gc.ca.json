@@ -1,1 +1,17 @@
-[{"Name":"Apollo"},{"Name":"PDL"},{"Name":"LinkedInScrape"},{"Name":"ShopperPlus"},{"Name":"DemandScience"}]
+[
+  {
+    "Name": "Apollo"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "LinkedInScrape"
+  },
+  {
+    "Name": "ShopperPlus"
+  },
+  {
+    "Name": "DemandScience"
+  }
+]

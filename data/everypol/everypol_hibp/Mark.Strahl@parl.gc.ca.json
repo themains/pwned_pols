@@ -1,1 +1,14 @@
-[{"Name":"Apollo"},{"Name":"VerificationsIO"},{"Name":"FairVoteCanada"},{"Name":"DemandScience"}]
+[
+  {
+    "Name": "Apollo"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "FairVoteCanada"
+  },
+  {
+    "Name": "DemandScience"
+  }
+]

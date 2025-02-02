@@ -1,1 +1,14 @@
-[{"Name":"Apollo"},{"Name":"PDL"},{"Name":"LinkedInScrape"},{"Name":"BVD"}]
+[
+  {
+    "Name": "Apollo"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "LinkedInScrape"
+  },
+  {
+    "Name": "BVD"
+  }
+]

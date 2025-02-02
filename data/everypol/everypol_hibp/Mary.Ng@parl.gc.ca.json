@@ -1,1 +1,14 @@
-[{"Name":"Adapt"},{"Name":"YouveBeenScraped"},{"Name":"PDL"},{"Name":"DemandScience"}]
+[
+  {
+    "Name": "Adapt"
+  },
+  {
+    "Name": "YouveBeenScraped"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "DemandScience"
+  }
+]

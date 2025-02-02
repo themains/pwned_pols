@@ -1,1 +1,23 @@
-[{"Name":"OnlinerSpambot"},{"Name":"Bitly"},{"Name":"VerificationsIO"},{"Name":"Canva"},{"Name":"PDL"},{"Name":"db8151dd"},{"Name":"TunedGlobal"}]
+[
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "Bitly"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "Canva"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "TunedGlobal"
+  }
+]

@@ -1,1 +1,11 @@
-[{"Name":"NemoWeb"},{"Name":"VerificationsIO"},{"Name":"PDL"}]
+[
+  {
+    "Name": "NemoWeb"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "PDL"
+  }
+]

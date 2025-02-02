@@ -1,1 +1,35 @@
-[{"Name":"LinkedIn"},{"Name":"AntiPublic"},{"Name":"ExploitIn"},{"Name":"OnlinerSpambot"},{"Name":"PDL"},{"Name":"db8151dd"},{"Name":"Cit0day"},{"Name":"LinkedInScrape"},{"Name":"BrandNewTube"},{"Name":"TelegramCombolists"},{"Name":"NotSOCRadar"}]
+[
+  {
+    "Name": "LinkedIn"
+  },
+  {
+    "Name": "AntiPublic"
+  },
+  {
+    "Name": "ExploitIn"
+  },
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "Cit0day"
+  },
+  {
+    "Name": "LinkedInScrape"
+  },
+  {
+    "Name": "BrandNewTube"
+  },
+  {
+    "Name": "TelegramCombolists"
+  },
+  {
+    "Name": "NotSOCRadar"
+  }
+]

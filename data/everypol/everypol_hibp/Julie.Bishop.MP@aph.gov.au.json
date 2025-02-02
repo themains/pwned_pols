@@ -1,1 +1,41 @@
-[{"Name":"LinkedIn"},{"Name":"MySpace"},{"Name":"AntiPublic"},{"Name":"OnlinerSpambot"},{"Name":"KayoMoe"},{"Name":"VerificationsIO"},{"Name":"8fit"},{"Name":"PDL"},{"Name":"db8151dd"},{"Name":"Cit0day"},{"Name":"LinkedInScrape"},{"Name":"TelegramCombolists"},{"Name":"NotSOCRadar"}]
+[
+  {
+    "Name": "LinkedIn"
+  },
+  {
+    "Name": "MySpace"
+  },
+  {
+    "Name": "AntiPublic"
+  },
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "KayoMoe"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "8fit"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "Cit0day"
+  },
+  {
+    "Name": "LinkedInScrape"
+  },
+  {
+    "Name": "TelegramCombolists"
+  },
+  {
+    "Name": "NotSOCRadar"
+  }
+]

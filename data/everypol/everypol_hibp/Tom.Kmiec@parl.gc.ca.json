@@ -1,1 +1,11 @@
-[{"Name":"Canva"},{"Name":"PDL"},{"Name":"LinkedInScrape"}]
+[
+  {
+    "Name": "Canva"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "LinkedInScrape"
+  }
+]

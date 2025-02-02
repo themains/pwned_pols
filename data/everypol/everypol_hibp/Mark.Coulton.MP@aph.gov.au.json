@@ -1,1 +1,23 @@
-[{"Name":"OnlinerSpambot"},{"Name":"2844Breaches"},{"Name":"VerificationsIO"},{"Name":"PDL"},{"Name":"Cit0day"},{"Name":"BrandNewTube"},{"Name":"NotSOCRadar"}]
+[
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "2844Breaches"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "Cit0day"
+  },
+  {
+    "Name": "BrandNewTube"
+  },
+  {
+    "Name": "NotSOCRadar"
+  }
+]

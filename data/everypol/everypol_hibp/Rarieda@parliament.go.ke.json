@@ -1,1 +1,11 @@
-[{"Name":"LinkedIn"},{"Name":"Exactis"},{"Name":"PDL"}]
+[
+  {
+    "Name": "LinkedIn"
+  },
+  {
+    "Name": "Exactis"
+  },
+  {
+    "Name": "PDL"
+  }
+]

@@ -1,1 +1,11 @@
-[{"Name":"OnlinerSpambot"},{"Name":"VerificationsIO"},{"Name":"Intelimost"}]
+[
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "Intelimost"
+  }
+]

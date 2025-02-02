@@ -1,1 +1,14 @@
-[{"Name":"OnlinerSpambot"},{"Name":"VerificationsIO"},{"Name":"Evite"},{"Name":"PDL"}]
+[
+  {
+    "Name": "OnlinerSpambot"
+  },
+  {
+    "Name": "VerificationsIO"
+  },
+  {
+    "Name": "Evite"
+  },
+  {
+    "Name": "PDL"
+  }
+]

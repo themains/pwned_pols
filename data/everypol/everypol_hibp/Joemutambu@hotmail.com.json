@@ -1,1 +1,11 @@
-[{"Name":"RiverCityMedia"},{"Name":"Apollo"},{"Name":"VerificationsIO"}]
+[
+  {
+    "Name": "RiverCityMedia"
+  },
+  {
+    "Name": "Apollo"
+  },
+  {
+    "Name": "VerificationsIO"
+  }
+]

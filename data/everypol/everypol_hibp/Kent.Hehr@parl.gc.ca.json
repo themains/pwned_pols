@@ -1,1 +1,17 @@
-[{"Name":"Apollo"},{"Name":"Adapt"},{"Name":"db8151dd"},{"Name":"FairVoteCanada"},{"Name":"DemandScience"}]
+[
+  {
+    "Name": "Apollo"
+  },
+  {
+    "Name": "Adapt"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "FairVoteCanada"
+  },
+  {
+    "Name": "DemandScience"
+  }
+]

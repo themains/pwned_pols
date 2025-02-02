@@ -1,1 +1,14 @@
-[{"Name":"PDL"},{"Name":"db8151dd"},{"Name":"Zacks"},{"Name":"FairVoteCanada"}]
+[
+  {
+    "Name": "PDL"
+  },
+  {
+    "Name": "db8151dd"
+  },
+  {
+    "Name": "Zacks"
+  },
+  {
+    "Name": "FairVoteCanada"
+  }
+]
