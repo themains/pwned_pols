@@ -1,9 +1,7 @@
 /data/ls_hibp/
 .DS_Store
 /scripts/.ipynb_checkpoints
-scripts/hibp_key
-/data/everypol_hibp
-/data/bihar_hibp
+/scripts/hibp_key
 
 venv*
 Copy*.ipynb
@@ -518,13 +516,4 @@ TSWLatexianTemp*
 *.glstex
 
 # End of https://www.toptal.com/developers/gitignore/api/tex
-/data/india/delhi_hibp
-/data/india/up_hibp
-/data/everypol/everypol_hibp
-/data/india/bihar_hibp
-/data/india/hp_hibp
-/data/india/tn_hibp
-/data/dk_hibp
-/data/india/ls_hibp
-/data/no_hibp
-/data/india/ls_hibp_07_2023
+
