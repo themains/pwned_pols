@@ -10,13 +10,13 @@ Compromised political elites are a problem. To assess how common it is, we check
 		* [Download CSVs](scripts/02_everypol_download_csvs.ipynb)
 	* [Danish Parliament (2025)](data/)
 	* [Norwegian Parliament (2025)](data/)
-	* [Indian Parliament (1999--2025)](data/)
-	* [Indian State Legislatures (2025)]
+	* [Indian Parliament (1999--2025)](data/india/)
+	* Indian State Legislatures (2025)
 		* [Bihar](data/india/bihar/)
 		* [UP](data/india/up/)
-		* [Himachal Pradesh](data/india)
-		* [Tamil Nadu](data/india/tn)
-		* [Delhi](data/india/)
+		* [Himachal Pradesh](data/india/)
+		* [Tamil Nadu](data/india/tn/)
+		* [Delhi](data/india/delhi/)
 * [Get HIBP Data](scripts/03_download_hibp_everypol_india_eur_breaches.ipynb)
 * [Combine and Analyze](scripts/04_hibp_everypol_ind_eur_combine.ipynb)
 
