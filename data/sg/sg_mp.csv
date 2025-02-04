@@ -1,100 +1,630 @@
-name,rank,constituency,email,phone,address
-SEAH Kian Peng,Speaker of Parliament,,seah_kian_peng@parl.gov.sg,63325500,
-Ms TAN Zhi Yi Chloe,Personal Assistant to the Speaker of Parliament,,chloe_tan@parl.gov.sg,63325500,
-Lawrence WONG,"Prime Minister, Minister for Finance (Marsiling-Yew Tee*)",Marsiling-Yew Tee,Lawrence_wong@pmo.gov.sg,63327415,Ministry of Finance100 High Street #10-01The TreasurySingapore 179434
-LEE Hsien Loong,Senior Minister (Ang Mo Kio*),Ang Mo Kio,lee_hsien_loong@pmo.gov.sg,63327200,Prime Minister's OfficeIstana AnnexeOrchard RoadSingapore 238823
-GAN Kim Yong,"Deputy Prime Minister, Minister for Trade and Industry (Chua Chu Kang*)",Chua Chu Kang,GAN_Kim_Yong@mti.gov.sg,63327933,Ministry of Trade and Industry 100 High Street #09-01 The Treasury Singapore 179434
-HENG Swee Keat,Deputy Prime Minister (East Coast*),East Coast,HENG_Swee_Keat@pmo.gov.sg,63326703,Prime Minister's OfficeIstana AnnexeOrchard RoadSingapore 238823
-TEO Chee Hean,"Senior Minister, Coordinating Minister for National Security (Pasir Ris-Punggol*)",Pasir Ris-Punggol,teo_chee_hean@pmo.gov.sg,64787090,New Phoenix Park28 Irrawaddy RoadSingapore 329560
-Dr NG Eng Hen,Minister for Defence (Bishan-Toa Payoh*),Bishan-Toa Payoh,ng_eng_hen@mindef.gov.sg,67682121,Ministry of Defence303 Gombak DriveOff Upper Bukit Timah RoadMINDEF BuildingSingapore 669645
-Dr VIVIAN Balakrishnan,Minister for Foreign Affairs (Holland-Bukit Timah*),Holland-Bukit Timah,v.bala@mfa.gov.sg,63798063,Ministry of Foreign AffairsTanglinSingapore 248163
-K SHANMUGAM,"Minister for Home Affairs, Minister for Law (Nee Soon*)",Nee Soon,k_shanmugam@mha.gov.sg; k_shanmugam@mlaw.gov.sg,"64784898, 63328810",Ministry of Home AffairsNew Phoenix Park28 Irrawaddy RoadSingapore 329560Ministry of Law100 High Street #08-02The TreasurySingapore 179434
-Ms Grace FU Hai Yien,"Minister for Sustainability and the Environment, Minister-in-charge of Trade Relations (Yuhua*)",Yuhua,grace_fu@mse.gov.sg,67319411,Ministry of Sustainability and the Environment40 Scotts Road#24-00Environment BuildingSingapore 228231
-CHAN Chun Sing,Minister for Education (Tanjong Pagar*),Tanjong Pagar,chan_chun_sing@moe.gov.sg,68796001,Ministry of Education1 North Buona Vista DriveSingapore 138675
-MASAGOS Zulkifli B M M,"Minister for Social and Family Development, Second Minister for Health, Minister-in-charge of Muslim Affairs (Tampines*)",Tampines,Masagos_Zulkifli@msf.gov.sg,"63548894, 63251556",Ministry of Social and Family DevelopmentMSF Building512 Thomson RoadSingapore 298136Ministry of HealthCollege of Medicine Building16 College RoadSingapore 169854
-ONG Ye Kung,Minister for Health  (Sembawang*),Sembawang,ong_ye_kung@moh.gov.sg,63259003,Ministry of HealthCollege of Medicine Building16 College RoadSingapore 169854
-Mrs Josephine TEO,"Minister for Digital Development and Information, Second Minister for Home Affairs (Jalan Besar*)",Jalan Besar,josephine_teo@mddi.gov.sg; Josephine_teo@mha.gov.sg,"68379400, 64786001","Ministry of Digital Development and Information140 Hill Street4th, 5th & 6th StoreyOld Hill Street Police StationSingapore 179369Ministry of Home AffairsNew Phoenix Park28 Irrawaddy RoadSingapore 329560"
-Desmond LEE,"Minister for National Development, Minister-in-charge of Social Services Integration (West Coast*)",West Coast,desmondlee@mnd.gov.sg,"69087331, 63548409",Ministry of National Development5 Maxwell Road#22-00Tower Block MND ComplexSingapore 069110
-Ms INDRANEE Rajah,"Minister, Prime Minister's Office, Second Minister for Finance, Second Minister for National Development, Leader of the House (Tanjong Pagar*)",Tanjong Pagar,indranee_rajah@mof.gov.sg,63324638,Prime Minister's OfficeIstanaOrchard RoadSingapore 238823Ministry of Finance100 High Street #10-01The TreasurySingapore 179434Ministry of National Development5 Maxwell Road#22-00Tower Block MND ComplexSingapore 069110
-Dr MOHAMAD MALIKI Osman,"Minister, Prime Minister's Office, Second Minister for Education, Second Minister for Foreign Affairs (East Coast*)",East Coast,Maliki.osman@mfa.gov.sg; maliki.osman@moe.gov.sg,"Tel: 63798065, Fax: 64737360","Prime Minister's OfficeIstanaOrchard RoadSingapore 238823Ministry of Education1, North Buona Vista DriveSingapore 138675Ministry of Foreign AffairsTanglinSingapore 248163"
-Edwin TONG Chun Fai,"Minister for Culture, Community and Youth, Second Minister for Law (Marine Parade*)",Marine Parade,Edwin_Tong@mccy.gov.sg; Edwin_Tong@mlaw.gov.sg,63328813,"Ministry of Culture, Community and Youth140 Hill Street#02-00/#03-00Old Hill Street Police StationSingapore 179369Ministry of Law 100 High Street #08-02 The Treasury Singapore 179434"
-Dr TAN See Leng,"Minister for Manpower, Second Minister for Trade and Industry (Marine Parade*)",Marine Parade,tan_see_leng@mom.gov.sg; TAN_See_Leng@mti.gov.sg,"64996289, 63327482",Ministry of Manpower18 Havelock Road #07-01Singapore 059764Ministry of Trade and Industry100 High Street #09-01The TreasurySingapore 179434
-CHEE Hong Tat,"Minister for Transport, Second Minister for Finance (Bishan-Toa Payoh*)",Bishan-Toa Payoh,chee_hong_tat@mot.gov.sg,"63326095, 63757701",Ministry of Transport460 Alexandra Road #39-00 & #33-00 Storeys mTower Singapore 119963Ministry of Finance100 High Street #10-01The TreasurySingapore 179434
-HENG Chee How,"Senior Minister of State, Ministry of Defence (Jalan Besar*)",Jalan Besar,hengcheehow@mindef.gov.sg,67682822,Ministry of Defence 303 Gombak Drive off Upper Bukit Timah Road MINDEF Building Singapore 669645
-Dr Amy KHOR Lean Suan,"Senior Minister of State, Ministry of Sustainability and the Environment & Ministry of Transport (Hong Kah North*)",Hong Kah North,Amy_Khor@mse.gov.sg; Amy_KHOR@mot.gov.sg,"Tel: 67319188, Fax: 67320175, Tel: 63752537, Fax: 62727942",Ministry of Sustainability and the Environment40 Scotts Road#24-00Environment BuildingSingapore 228231Ministry of Transport460 Alexandra Road#39-00 & #33-00 StoreysPSA BuildingSingapore 119963
-Ms SIM Ann,"Senior Minister of State, Ministry of Foreign Affairs & Ministry of National Development, Deputy Government Whip (Holland-Bukit Timah*)",Holland-Bukit Timah,sim_ann@mnd.gov.sg,69087333,Ministry of Foreign AffairsTanglinSingapore 248163Ministry of National Development5 Maxwell Road#21-00 & #22-00Tower Block MND ComplexSingapore 069110
-Dr JANIL Puthucheary,"Senior Minister of State, Ministry of Digital Development and Information & Ministry of Health, Government Whip (Pasir Ris-Punggol*)",Pasir Ris-Punggol,Janil_PUTHUCHEARY@mddi.gov.sg,68379674,"Ministry of Digital Development and Information140 Hill Street4th, 5th & 6th StoreyOld Hill Street Police StationSingapore 179369Ministry of HealthCollege of Medicine Building16 College RoadSingapore 169854"
-Dr KOH Poh Koon,"Senior Minister of State, Ministry of Manpower & Ministry of Sustainability and the Environment (Tampines*)",Tampines,koh_poh_koon@mom.gov.sg,"63171315, 67319765",Ministry of Manpower18 Havelock Road #07-01Singapore 059764Ministry of Sustainability and the Environment40 Scotts Road#24-00Environment BuildingSingapore 228231
-ZAQY Mohamad,"Senior Minister of State, Ministry of Defence & Ministry of Manpower, Deputy Leader of the House (Marsiling-Yew Tee*)",Marsiling-Yew Tee,Zaqy_Mohamad@mindef.gov.sg; zaqy_mohamad@mom.gov.sg,"67683125, 63171603","Ministry of Defence303 Gombak DriveOff Upper Bukit Timah RoadMINDEF BuildingSingapore 669645Ministry of Manpower18 Havelock Road, #07-01 Singapore 059764"
-TAN Kiat How,"Senior Minister of State, Ministry of Digital Development and Information & Ministry of National Development (East Coast*)",East Coast,TAN_Kiat_How@mddi.gov.sg; tan_kiat_how@mnd.gov.sg,69085884,"Ministry of Digital Development and Information140 Hill Street4th, 5th & 6th StoreyOld Hill Street Police StationSingapore 179369Ministry of National Development5 Maxwell Road#21-00 & #22-00Tower Block, MND ComplexSingapore 069110"
-Ms LOW Yen Ling,"Senior Minister of State, Ministry of Culture, Community and Youth & Ministry of Trade and Industry, Chairperson of Mayors' Committee & Mayor, South West District (Chua Chu Kang*)",Chua Chu Kang,LOW_Yen_Ling@mti.gov.sg,"63328851, 68797468","Ministry of Culture, Community and Youth 140 Hill Street #02-00/#03-00 Singapore 179369Ministry of Trade and Industry100 High Street #09-01The TreasurySingapore 179434"
-Desmond TAN,"Senior Minister of State, Prime Minister's Office (Pasir Ris-Punggol*)",Pasir Ris-Punggol,Desmond_Tan@pmo.gov.sg,,Prime Minister's OfficeIstanaOrchard RoadSingapore 238823
-Assoc Prof Dr MUHAMMAD FAISHAL Ibrahim,"Minister of State, Ministry of Home Affairs & Ministry of National Development (Nee Soon*)",Nee Soon,Muhammad_faishal_ibrahim@mha.gov.sg,,Ministry of Home AffairsNew Phoenix Park28 Irrawaddy RoadSingapore 329560Ministry of National Development5 Maxwell Road#22-00Tower Block MND ComplexSingapore 069110
-Ms SUN Xueling,"Minister of State, Ministry of Home Affairs & Ministry of Social and Family Development (Punggol West)",Punggol West,xueling@mha.gov.sg,63548784,Ministry of Home AffairsNew Phoenix Park28 Irrawaddy RoadSingapore 329560Ministry of Social and Family DevelopmentMSF Building512 Thomson RoadSingapore 298136
-Ms GAN Siow Huang,"Minister of State, Ministry of Education & Ministry of Manpower (Marymount)",Marymount,gan_siow_huang@moe.gov.sg,64996339,"Ministry of Education1, North Buona Vista DriveSingapore 138675Ministry of Manpower18 Havelock Road #07-01Singapore 059764"
-Alvin TAN,"Minister of State, Ministry of Culture, Community and Youth & Ministry of Trade and Industry (Tanjong Pagar*)",Tanjong Pagar,Alvin_TAN@mti.gov.sg,"63328851, 68378514","Ministry of Culture, Community and Youth140 Hill Street#02-00/#03-00Old Hill Street Police StationSingapore 179369Ministry of Trade and Industry 100 High Street #09-01 The Treasury Singapore 179434"
-Ms RAHAYU Mahzam,"Minister of State, Ministry of Digital Development and Information & Ministry of Health (Jurong*)",Jurong,rahayu_mahzam@moh.gov.sg,"63252608, 63328816","Ministry of Digital Development and Information140 Hill Street4th, 5th & 6th StoreyOld Hill Street Police StationSingapore 179369Ministry of HealthCollege of Medicine Building16 College RoadSingapore 169854"
-MURALI Pillai,"Minister of State, Ministry of Law & Ministry of Transport (Bukit Batok*)",Bukit Batok,murali_pillai@mlaw.gov.sg; murali_pillai@mot.gov.sg,Tel: 65614656,Ministry of Law100 High Street #08-02The TreasurySingapore 179434Ministry of Transport460 Alexandra Road#39-00 & #33-00 StoreysmTowerSingapore 119963
-BAEY Yam Keng,"Senior Parliamentary Secretary, Ministry of Sustainability and the Environment & Ministry of Transport (Tampines*)",Tampines,Baey_Yam_Keng@mot.gov.sg,"67319941, 63757072",Ministry of Sustainability and the Environment40 Scotts Road#24-00Environment BuildingSingapore 228231Ministry of Transport 460 Alexandra Road #39-00 mTower Singapore 119963
-Eric CHUA,"Senior Parliamentary Secretary, Ministry of Culture, Community and Youth & Ministry of Social and Family Development (Tanjong Pagar*)",Tanjong Pagar,Eric_Chua@mccy.gov.sg; Eric_Chua@msf.gov.sg,"63540094, 69800289","Ministry of Culture, Community and Youth140 Hill Street#02-00/#03-00Old Hill Street Police StationSingapore 179369Ministry of Social and Family DevelopmentMSF Building512 Thomson Road Singapore 298136"
-Shawn HUANG Wei Zhong,"Senior Parliamentary Secretary, Ministry of Education & Ministry of Finance (Jurong*)",Jurong,JurongSpringSg@gmail.com,656 24066,Ministry of Education1 North Buona Vista DriveSingapore 138675Ministry of Finance100 High Street #10-01The TreasurySingapore 179434
-PRITAM Singh,Leader of the Opposition (Aljunied*),Aljunied,pritam.singh@wp.sg,62456501,My Mail Box 882560Singapore 919191
-Christopher DE SOUZA,Deputy Speaker (Holland-Bukit Timah*),Holland-Bukit Timah,chrisdesouza@leenlee.com.sg,65574894,Lee & Lee 50 Raffles Place Singapore Land TowerSingapore 048623
-Ms Jessica TAN Soon Neo,Deputy Speaker (East Coast*),East Coast,Jessica.Tan@pap.org.sg,65870680,PAP Changi-Simeic/o Block 131 Simei Street 1#01-208Singapore 520131
-Ms Denise PHUA Lay Peng,"Mayor, Central Singapore District (Jalan Besar*)",Jalan Besar,denisephuamps@gmail.com; denise_phua@pa.gov.sg,67157603,Central Singapore Community Development Council490 Lorong 6 Toa Payoh#07-11HDB Hub BizThree (Lobby 2)Singapore 310490
-Desmond CHOO,"Mayor, North East District (Tampines*)",Tampines,desmondchoopc@gmail.com,Tel: 62138000; Fax: 65348062,"National Trades Union Congress1 Marina BoulevardNTUC Centre, Level 10Singapore 018989North East Community Development Council51 Tampines Avenue 4#04-31Our Tampines HubSingapore 529684"
-Alex YAM Ziming,"Mayor, North West District (Marsiling-Yew Tee*)",Marsiling-Yew Tee,yew.tee.mps@pap.org.sg,62444618,PAP HQ57B New Upper Changi Road#01-1402Singapore 463057North West Community Development Council900 South Woodlands Drive#06-01 Woodlands Civic CentreSingapore 730900
-MOHD FAHMI Bin Aliman,"Mayor, South East District (Marine Parade*)",Marine Parade,pap.gs.mps@gmail.com,,
-LIANG Eng Hwa,(Bukit Panjang*),Bukit Panjang,liang_eng_hwa@singnet.com.sg,67644828,Blk 110 Gangsa Road#01-91Singapore 670110
-LIM Biow Chuan,(Mountbatten*),Mountbatten,lbclaw01@gmail.com,65330170,133 New Bridge Road#16-01Chinatown PointSingapore 059413
-Dr LIM Wee Kiak,(Sembawang*),Sembawang,limweekiak@gmail.com,Fax: 64561002,c/o Royal Square Novena Medical Centreat Royal Square Novena101 Irrawaddy Road#11-07 to 13Singapore 329565
-Ms Sylvia LIM,(Aljunied*),Aljunied,sylvia.lim@wp.sg,63859238,My Mailbox 881451Singapore 919191
-ANG Wei Neng,(West Coast*),West Coast,weineng.ang@gmail.com,Fax: 64543305,23 Changi South Avenue 2Singapore 486443
-Ms FOO Mee Har,(West Coast*),West Coast,foo.mee.har@pap.org.sg,65609983,c/o Ayer Rajah Constituency Office150 Pandan GardensSingapore 609335
-GAN Thiam Poh,(Ang Mo Kio*),Ang Mo Kio,gan.thiam.poh@amktc.org.sg,63879134,c/o Sengkang SouthConstituency OfficeBlk 458 Hougang Ave 10#01-405Singapore 530458
-MUHAMAD FAISAL Abdul Manap,(Aljunied*),Aljunied,faisal@wp.sg,82349234,My Mail Box 882559Singapore 919191
-SITOH Yih Pin,(Potong Pasir),Potong Pasir,sitohyihpin6365@outlook.com,62881720,Blk 143 Potong Pasir Ave 2#01-24Singapore 350143
-Patrick TAY Teck Guan,(Pioneer),Pioneer,patricktaytg@gmail.com,62138274,NTUC CentreNo. 1 Marine Boulevard#10-01Singapore 018989
-Ms TIN Pei Ling,(MacPherson),MacPherson,tinpeiling@gmail.com,67461524,Blk 54 Pipit Road#01-52Singapore 370054
-VIKRAM Nair,(Sembawang*),Sembawang,admiralty.sembawang@gmail.com,91444967,Blk 581 Woodlands Drive 16#01-486Singapore 730581
-Miss Cheryl CHAN Wei Ling,(East Coast*),East Coast,fengshan@pap.org.sg,87528867,Blk 119 Bedok North Road#01-209Singapore 460119
-CHONG Kee Hiong,(Bishan-Toa Payoh*),Bishan-Toa Payoh,ChongKeeHiong@outlook.com,62590542,Blk 196 Bishan St 13#01-563Singapore 570196
-Darryl DAVID,(Ang Mo Kio*),Ang Mo Kio,darrylamk@gmail.com,Tel: 62826567 Fax: 64890551,PAP AMK-Hougang Branch OfficeBlk 632 Hougang Ave 8#01-28Singapore 530632
-KWEK Hian Chuan Henry,(Kebun Baru),Kebun Baru,henryforkebunbaru@gmail.com,64548792,Blk 109 Ang Mo Kio Avenue 4#01-04Singapore 560109
-Louis NG Kok Kwang,(Nee Soon*),Nee Soon,louisng4nse@gmail.com,67551946,Block 227 Yishun Street 21#01-520Singapore 760227
-Ms Joan PEREIRA,(Tanjong Pagar*),Tanjong Pagar,joan.pereira@pap.org.sg,Fax: 62747116,Parliament of Singapore1 Parliament PlaceSingapore 178880
-SAKTIANDI Supaat,(Bishan-Toa Payoh*),Bishan-Toa Payoh,saktiandi1@gmail.com; TPEast@gmail.com,Tel: 62592881 Fax: 63544912,Blk 261A Toa Payoh East#01-02Singapore 311261
-Dr TAN Wu Meng,(Jurong*),Jurong,Dr.Tan.W.M@gmail.com,"Tel: 68745992, Fax: 67750692",Blk 334 Clementi Avenue 2#01-66Singapore 120334
-Melvin YONG Yik Chye,(Radin Mas),Radin Mas,Melvin.Yong@pap.org.sg,62705346,Blk 21 Telok Blangah Crescent#01-52Singapore 090021
-Dennis TAN Lip Fong,(Hougang),Hougang,dennis.tan@wp.sg,62845001,c/o Aljunied- Hougang Town CouncilBlk 701 Hougang Avenue 2#01-01Singapore 530701
-Gerald GIAM Yean Song,(Aljunied*),Aljunied,gerald.giam@wp.sg,62850586,My Mailbox 889011Singapore 919191
-Edward CHIA Bing Hui,(Holland-Bukit Timah*),Holland-Bukit Timah,edwardchiabinghui@gmail.com,67633247,Blk 532 Jelapang Road #01-33Singapore 670532
-CHUA Kheng Wee Louis,(Sengkang*),Sengkang,khengwee.chua@wp.sg,,My Mail Box 889834Singapore 919191
-Derrick GOH,(Nee Soon*),Nee Soon,derrickgohsh@gmail.com,Fax: 66841840,Blk 413 Yishun Ring Road#01-887Singapore 760413
-Ms HE Ting Ru,(Sengkang*),Sengkang,tingru.he@wp.sg,,My Mail Box 885626Singapore 919191
-Assoc Prof Jamus Jerome LIM,(Sengkang*),Sengkang,jamus.lim@wp.sg,80300032,My Mail Box 885779Singapore 919191
-Ms MARIAM Jaafar,(Sembawang*),Sembawang,1mariamjaafar@gmail.com,63698321,Blk 852 Woodlands Street 83#01-102Singapore 730852
-Ms NADIA Ahmad Samdin,(Ang Mo Kio*),Ang Mo Kio,nadia.ahmad.samdin@pap.org.sg,64540951,c/o Blk 533 Ang Mo Kio Avenue 5 #01-4100Singapore 560533
-Ms NG Ling Ling,(Ang Mo Kio*),Ang Mo Kio,jalan.kayu.mps@pap.org.sg,64834341,Blk 522 Serangoon North Ave 4#01-154Singapore 550522
-Miss Rachel ONG,(West Coast*),West Coast,rachelongsy5@gmail.com,62786502,Blk 78-B Telok Blangah Street 32 #03-02Singapore 102078
-Ms POH Li San,(Sembawang*),Sembawang,pohlisan@hotmail.com,63637978,Blk 789 Woodlands Ave 6#01-663Singapore 730789
-SHARAEL Taha,(Pasir Ris-Punggol*),Pasir Ris-Punggol,sharael_taha@prpg-grc.sg,65840223,Blk 216 Pasir Ris Street 21#01-184Singapore 510216
-Ms Hany SOH,(Marsiling-Yew Tee*),Marsiling-Yew Tee,hanysohhb@gmail.com,63669010,Woodgrove Community CentreBlk 353 Woodlands Avenue 1 #01-753Singapore 730353
-Ms Carrie TAN,(Nee Soon*),Nee Soon,carrietannss@gmail.com,67593413,Blk 850 Yishun St 81 #01-94 Singapore 760850
-Dr WAN RIZAL,(Jalan Besar*),Jalan Besar,wan.rizal@gmail.com,Fax: 62998570,Blk 64 Kallang Bahru#01-373Singapore 330064
-Don WEE,(Chua Chu Kang*),Chua Chu Kang,don.wee@pap.org.sg,68910214,Blk 801 Keat Hong Close#01-01Singapore 680801
-XIE Yao Quan,(Jurong*),Jurong,xieyaoquanjurong@gmail.com,Fax: 65602440,Blk 490 Jurong West Avenue 1#01-01Singapore 640490
-Ms YEO Wan Ling,(Pasir Ris-Punggol*),Pasir Ris-Punggol,yeo_wan_ling@prpg-grc.sg,63438409,Blk 171C Edgedale Plains#01-428Singapore 823171
-YIP Hon Weng,(Yio Chu Kang*),Yio Chu Kang,yiphonweng@yck.sg,69779393,Block 644 Ang Mo Kio Ave 4#01-850Singapore 560644
-ZHULKARNAIN Abdul Rahim,(Chua Chu Kang*),Chua Chu Kang,zhul.rahim@pap.org.sg,68853702,80 Raffles PlaceUOB Plaza 1 #33-00Singapore 048624
-LEONG Mun Wai,Non-Constituency Member,,leongmunwai@psp.org.sg,67671138,170 Upper Bukit Timah Road#14-04Singapore 588179
-Ms Hazel POA,Non-Constituency Member,,hazelpoa@psp.org.sg,67671138,170 Upper Bukit Timah Road#14-04Singapore 588179
-Raj Joshua THOMAS,Nominated Member,,joshua.thomas@tangthomas.com,,510 Thomson RoadSLF Complex #13-01ASingapore 298135
-Ms Usha CHANDRADAS,Nominated Member,,usha@pluralartmag.com,,
-Keith CHUA,Nominated Member,,Keith@abr.com.sg,67862866,
-Mark LEE,Nominated Member,,mark.lee@singlun.com.sg,,
-ONG Hua Han,Nominated Member,,huahanong@gmail.com,,
-Neil PAREKH Nimil Rajnikant,Nominated Member,,nparekh2020@gmail.com,,
-Assoc Prof RAZWANA BEGUM Abdul Rahim,Nominated Member,,razwana@suss.edu.sg; razwanabegum@gmail.com,,
-Ms SEE Jinli Jean,Nominated Member,,jean_see@ntuc.org.sg,,"NTUC Freelancers and Self-employed unitNTUC Centre, 1 Marina Boulevard #10-01Singapore 018989"
-Dr SYED HARUN Alhabsyi,Nominated Member,,syedharun@thestarfishclinic.sg,63224280,18 Jalan MasjidKembangan Plaza #02-09Singapore 418944
+name,email,rank,constituency,leg_start_year,phone,address
+Abdullah Tarmugi,abdullah_tarmugi@parl.gov.sg,Speaker,East Coast*,2001,,
+Goh Chok Tong,goh_chok_tong@pmo.gov.sg,Prime Minister,Marine Parade*,2001,,
+Lee Kuan Yew,lee_kuan_yew@pmo.gov.sg,"Senior Minister
+(Tanjong Pagar*)",,2001,,
+Lee Hsien Loong,lee_hsien_loong@mof.gov.sg,Deputy Prime Minister & Minister for Finance,Ang Mo Kio*,2001,,
+Dr Tony Tan Keng Yam,tony_tan@mindef.gov.sg,"Deputy Prime Minister 
+& Minister for Defence
+(Sembawang*)",,2001,,
+Prof S Jayakumar,s_jayakumar@mfa.gov.sg,"Minister for Law &
+Minister for Foreign Affairs (East Coast*)",,2001,,
+Lee Yock Suan,lee_yock_suan@mfa.gov.sg,"Minister, Prime Minister's Office & Second Minister for Foreign Affairs",East Coast*,2001,,
+Wong Kan Seng,wong_kan_seng@mha.gov.sg,Minister for Home Affairs & Leader of the House,Bishan-Toa Payoh*,2001,,
+Yeo Cheow Tong,yeo_cheow_tong@mot.gov.sg,Minister for Transport,Hong Kah*,2001,,
+Bg George Yong-Boon Yeo,george_yeo@mti.gov.sg,Minister for Trade and Industry,Aljunied*,2001,,
+Dr Lee Boon Yang,lee_boon_yang@mom.gov.sg,"Minister for Manpower Government Whip
+(Jalan Besar*)",,2001,,
+Mah Bow Tan,mah_bow_tan@mnd.gov.sg,Minister for National Development & Deputy Leader of the House,Tampines *,2001,,
+Lim Boon Heng,lim_boon_heng@pmo.gov.sg,"Minister, Prime Minister's Office",Jurong*,2001,,
+Lim Hng Kiang,lim_hng_kiang@moh.gov.sg,Minister for Health & Second Minister for Finance,West Coast*,2001,,
+Radm Teo Chee Hean,teo_chee_hean@moe.gov.sg,Minister for Education & Second Minister for Defence,Pasir Ris-Punggol*,2001,,
+Lim Swee Say,lim_swee_say@env.gov.sg,Minister for the Environment & Deputy Government Whip,Holland-Bukit Panjang*,2001,,
+David T E Lim,david_t_e_lim@mita.gov.sg,"Acting Minister for Information, Communications and the Arts",Holland-Bukit Panjang*,2001,,
+Assoc Prof Dr Yaacob Ibrahim,yaacob_ibrahim@mcds.gov.sg,Acting Minister for Community Development and Sports & Minister-in-charge of Muslim Affairs,Jalan Besar*,2001,,
+Matthias Yao Chih,matthias_yao@pmo.gov.sg,"Senior Minister of State, Prime Minister's Office",MacPherson,2001,,
+Assoc Prof Ho Peng Kee,ho_peng_kee@mlaw.gov.sg,"Senior Minister of State, Ministry of Law & Ministry of Home Affairs",Nee Soon East,2001,,
+Khaw Boon Wan,khaw_boon_wan@mot.gov.sg,"Senior Minister of State, Ministry of Transport & Ministry of Information, Communications and the Arts",Tanjong Pagar*,2001,,
+Tharman Shanmugaratnam,tharman_shanmugaratnam@mti.gov.sg,"Senior Minister of State, Ministry of Trade and Industry & Ministry of Education",Jurong*,2001,,
+Chan Soo Sen,chan_soo_sen@mcds.gov.sg,"Minister of State, Prime Minister's Office & Ministry of Community Development and Sports",Joo Chiat,2001,,
+Dr Balaji Sadasivan,balaji_sadasivan@moh.gov.sg,"Minister of State, Ministry of Health & Ministry of the Environment",Ang Mo Kio*,2001,,
+Raymond Lim Siang Keat,raymond_lim@mfa.gov.sg,"Minister of State, Ministry of Foreign Affairs & Ministry of Trade and Industry",East Coast*,2001,,
+Dr Ng Eng Hen,ng_eng_hen@moe.gov.sg,"Minister of State, Ministry of Education & Ministry of Manpower",Bishan-Toa Payoh*,2001,,
+Dr Vivian Balakrishnan,vivian_bala@mnd.gov.sg,"Minister of State, Ministry of National Development",Holland-Bukit Panjang*,2001,,
+Cedric Foo Chee Keng,cedric_foo@mindef.gov.sg,"Minister of State, Ministry of Defence",West Coast*,2001,,
+Mrs Lim Hwee Hua,lim_hwee_hua@mp.towncouncil.org.sg,Deputy Speaker,Marine Parade*,2001,,
+Mrs Yu-Foo Yee Shoon,yee_shoon_foo@pa.gov.sg,"Mayor, South West CDC",Jurong*,2001,,
+Zainul Abidin Rasheed,zainul_abidin_rasheed@pa.gov.sg,"Mayor, North East CDC",Aljunied*,2001,,
+Dr Teo Ho Pin,teo_ho_pin@pa.gov.sg,"Mayor, North West CDC",Holland-Bukit Panjang*,2001,,
+Heng Chee How,hengch@ntuc.org.sg,"Mayor, Central Singapore CDC",Jalan Besar*,2001,,
+Yatiman Yusof,yatiman_yusof@mita.gov.sg,"Senior Parliamentary Secretary, Ministry of Information, Communications and the Arts",Tampines*,2001,,
+Assoc Prof Koo Tsai Kee,kootk@mnd.gov.sg,"Senior Parliamentary Secretary, Ministry of National Development & Ministry of Defence",Tanjong Pagar*,2001,,
+"Mohamad Maidin, Bpm",mohamad_maidin_bpm@mha.gov.sg,"Senior Parliamentary Secretary, Ministry of Home Affairs",Marine Parade*,2001,,
+Hawazi Daipi,hawazi@moe.gov.sg,"Parliamentary Secretary, Ministry of Education",Sembawang*,2001,,
+Tan Soo Khoon,sktan@crystaltime.com.sg,,East Coast*,2001,,
+Dr Tan Cheng Bock,tanchengbock@chuanhup.com.sg,,Ayer Rajah,2001,,
+Leong Horn Kee,leonghk@fareast.com.sg,,Bishan-Toa Payoh*,2001,,
+Dr Wang Kai Yuen,wang.kaiyuen@xssc.sgp.xerox.com,,Bukit Timah,2001,,
+Chiam See Tong,chiamhl@singnet.com.sg,,Potong Pasir,2001,,
+Dr John Chen Seow Phun,jspchen@singnet.com.sg,,Hong Kah*,2001,,
+Davinder Singh,davinder.singh@drewnapier.com,,Bishan-Toa Payoh*,2001,,
+Charles Chong,charles_chong@singaporeair.com.sg,,Pasir Ris-Punggol*,2001,,
+Assoc Prof Low Seow Chay,msclow@ntu.edu.sg,,Chua Chu Kang,2001,,
+Dr Ong Chit Chung,drongcc@singnet.com.sg,,Jurong*,2001,,
+K Shanmugam,shanmugam@allenandgledhill.com,,Sembawang*,2001,,
+"Dr Lim Chun Leng, Michael",drmlim@singapore.com,,Pasir Ris-Punggol*,2001,,
+Low Thia Khiang,low.thiakhiang@post1.com,,Hougang,2001,,
+Inderjit Singh,inderjit@singnet.com.sg,Deputy Government Whip,Ang Mo Kio*,2001,,
+R. Ravindran,dran@cyberway.com.sg,,Marine Parade*,2001,,
+Seng Han Thong,senght@ntucworld.org.sg,,Ang Mo Kio*,2001,,
+Sin Boon Ann,boonann.sin@drewnapier.com,,Tampines*,2001,,
+Ahmad Mohamed Magad,amm@ii-vi.com.sg,,Pasir Ris-Punggol*,2001,,
+Ang Mong Seng,amshktc@singnet.com.sg,,Hong Kah*,2001,,
+S. Iswaran,s_iswaran@temasek.com.sg,,West Coast*,2001,,
+Ong Ah Heng,ongah@ntucworld.org.sg,,Nee Soon Central,2001,,
+Ong Kian Min,ong.kianmin@drewnapier.com,,Tampines*,2001,,
+Dr Chong Weng Chiew,wcchongmp@hotmail.com,,Tanjong Pagar*,2001,,
+Arthur Fong,arthur39@singnet.com.sg,,West Coast*,2001,,
+Gan Kim Yong,gky@natsteel.com.sg,,Holland-Bukit Panjang*,2001,,
+Andy Gan Lai Chiang,glccpa@pacific.net.sg,,Marine Parade*,2001,,
+Mdm Ho Geok Choo,geokchoo_lim-ho@singaporeair.com.sg,,West Coast*,2001,,
+Ms Indranee Rajah,indranee.rajah@drewnapier.com,,Tanjong Pagar*,2001,,
+Dr Warren Lee,warren@kkh.com.sg,,Sembawang*,2001,,
+Dr Warren Lee,leewrw@singnet.com.sg,,Sembawang*,2001,,
+Dr Mohamad Maliki Bin Osman,maliki@nus.edu.sg,,Sembawang*,2001,,
+Dr Ong Seh Hong,sehhong_ong@renci.org.sg,,Aljunied*,2001,,
+Mdm Cynthia Phua,56_bchm@pap.org.sg,,Aljunied*,2001,,
+Wee Siew Kim,weesk@st.com.sg,,Ang Mo Kio*,2001,,
+Zainudin Nordin,zainudin_nordin@nyp.gov.sg,,Bishan-Toa Payoh*,2001,,
+Ahmad Khalis Bin Abdul Ghani,akhalis@singnet.com.sg,,Hong Kah*,2001,,
+Mdm Halimah Yacob,halimah@ntuc.org.sg,,Jurong*,2001,,
+Dr Amy Khor Lean Suan,amy.khor@knightfrank.com.sg,,Hong Kah*,2001,,
+"Ms Ng Phek Hoong, Irene",siia_ireneng@pacific.net.sg,,Tampines*,2001,,
+Steve Chia Kiah Hong,stevechia@singnet.com.sg,,Non-Constituency Member,2001,,
+Dr Jennifer Lee,jlee@kkh.com.sg,,Nominated Member,2001,,
+Miss Braema Mathiaparanam,braema_mathi@alexhosp.com.sg,,Nominated Member,2001,,
+Chandra Mohan,cmohan@trc.com.sg,,Nominated Member,2001,,
+Mrs Fang Ai Lian,ai-lian.fang@sg.eyi.com,,Nominated Member,2001,,
+Dr Gan See Khem,gansk@starhub.net.sg,,Nominated Member,2001,,
+Miss Olivia Lum,olivia_lum@hyflux.com,,Nominated Member,2001,,
+Ng Ser Miang,sm1288@singnet.com.sg,,Nominated Member,2001,,
+Assoc Prof Ngiam Tee Liang,swkhead@nus.edu.sg,,Nominated Member,2001,,
+A. Nithiah Nandan,nithiah@ntuc.org.sg,,Nominated Member,2001,,
+Abdullah Tarmugi,abdullah_tarmugi@parl.gov.sg,Speaker,East Coast*,2006,,
+Lee Hsien Loong,lee_hsien_loong@pmo.gov.sg,Prime Minister and Minister for Finance,Ang Mo Kio*,2006,,
+Goh Chok Tong,goh_chok_tong@pmo.gov.sg,Senior Minister,Marine Parade*,2006,,
+Lee Kuan Yew,lee_kuan_yew@pmo.gov.sg,Minister Mentor,Tanjong Pagar*,2006,,
+Prof S Jayakumar,jayakumar_s@mfa.gov.sg,"Deputy Prime Minister, Co-ordinating Minister for National Security & Minister for Law",East Coast*,2006,,
+Wong Kan Seng,wong_kan_seng@mha.gov.sg,Deputy Prime Minister and Minister for Home Affairs,Bishan-Toa Payoh*,2006,,
+George Yong-Boon Yeo,george_yeo@mfa.gov.sg,Minister for Foreign Affairs,Aljunied*,2006,,
+Dr Lee Boon Yang,lee_boon_yang@mica.gov.sg,"Minister for Information, Communications and the Arts",Jalan Besar*,2006,,
+Mah Bow Tan,mah_bow_tan@mnd.gov.sg,Minister for National Development & Leader of the House,Tampines*,2006,,
+Lim Boon Heng,lim_boon_heng@pmo.gov.sg,"Minister, Prime Minister's Office",Jurong*,2006,,
+Lim Hng Kiang,lim_hng_kiang@mti.gov.sg,Minister for Trade and Industry,West Coast*,2006,,
+Teo Chee Hean,teo_chee_hean@mindef.gov.sg,Minister for Defence,Pasir Ris-Punggol*,2006,,
+Lim Swee Say,lim_swee_say@pmo.gov.sg,"Minister, Prime Minister's Office & Government Whip",Holland-Bukit Timah*,2006,,
+Assoc Prof Dr Yaacob Ibrahim,yaacob_ibrahim@mewr.gov.sg,Minister for the Environment and Water Resources & Minister-in-Charge of Muslim Affairs,Jalan Besar*,2006,,
+Khaw Boon Wan,khaw_boon_wan@moh.gov.sg,Minister for Health,Sembawang*,2006,,
+Tharman Shanmugaratnam,tharman_shanmugaratnam@moe.gov.sg,Minister for Education & Second Minister for Finance,Jurong*,2006,,
+Tharman Shanmugaratnam, tharman_shanmugaratnam@mof.gov.sg,Minister for Education & Second Minister for Finance,Jurong*,2006,,
+Dr Ng Eng Hen,ng_eng_hen@mom.gov.sg,"Minister for Manpower, Second Minister for Defence and Deputy Leader of the House",Bishan-Toa Payoh*,2006,,
+Dr Ng Eng Hen,ng_eng_hen@mindef.gov.sg,"Minister for Manpower, Second Minister for Defence and Deputy Leader of the House",Bishan-Toa Payoh*,2006,,
+Dr Vivian Balakrishnan,vivian_bala@mcys.gov.sg,"Minister for Community Development, Youth and Sports & Second Minister for Information, Communications and the Arts",Holland-Bukit Timah*,2006,,
+Dr Vivian Balakrishnan,vivian_balakrishnan@mica.gov.sg,"Minister for Community Development, Youth and Sports & Second Minister for Information, Communications and the Arts",Holland-Bukit Timah*,2006,,
+Raymond Lim Siang Keat,raymond_lim@mot.gov.sg<br>,Minister for Transport & Second Minister for Foreign Affairs,East Coast*,2006,,
+Assoc Prof Ho Peng Kee,ho_peng_kee@mlaw.gov.sg,"Senior Minister of State, Ministry of Law & Ministry of Home Affairs",Nee Soon East,2006,,
+Dr Balaji Sadasivan,balaji_sadasivan@mfa.gov.sg ,"Senior Minister of State, Ministry of Foreign Affairs & Ministry of Information, Communication and the Arts",Ang Mo Kio*,2006,,
+Dr Balaji Sadasivan, balaji_sadasivan@mica.gov.sg,"Senior Minister of State, Ministry of Foreign Affairs & Ministry of Information, Communication and the Arts",Ang Mo Kio*,2006,,
+Zainul Abidin Rasheed,zainul_abidin_rasheed@mfa.gov.sg,"Senior Minister of State, Ministry of Foreign Affairs Mayor, North East District",Aljunied*,2006,,
+Mrs Yu-Foo Yee Shoon,foo_yee_shoon@mcys.gov.sg,"Minister of State, Ministry of Community Development, Youth & Sports",Holland-Bukit Timah*,2006,,
+Heng Chee How,heng_chee_how@moh.gov.sg,"Minister of State, Ministry of Health",Jalan Besar*,2006,,
+Mrs Lim Hwee Hua,"lim_hwee_hua@mof.gov.sg,  lim_hwee_hua@mot.gov.sg","Minister of State, Ministry of Finance & Ministry of Transport",Aljunied*,2006,,
+Gan Kim Yong,gan_kim_yong@moe.gov.sg,"Minister of State, Ministry of Education & Ministry of Manpower",Chua Chu Kang,2006,,
+Gan Kim Yong,gan_kim_yong@mom.gov.sg,"Minister of State, Ministry of Education & Ministry of Manpower",Chua Chu Kang,2006,,
+Assoc Prof Koo Tsai Kee,kootk@mindef.gov.sg,"Minister of State, Ministry of Defence",Tanjong Pagar*,2006,,
+Lee Yi Shyan,yishyan@mti.gov.sg,"Minister of State, Ministry of Trade and Industry",East Coast*,2006,,
+Radm (Ns) Lui Tuck Yew,lui_tuck_yew@moe.gov.sg,"Minister of State, Ministry of Education",Tanjong Pagar*,2006,,
+S Iswaran,s_iswaran@mti.gov.sg,"Minister of State, Ministry of Trade and Industry",West Coast*,2006,,
+Ms Grace Fu Hai Yien,grace_fu@mnd.gov.sg,"Minister of State, Ministry of National Development",Jurong*,2006,,
+Matthias Yao Chih,matthias_yao@pa.gov.sg,"Deputy Speaker Mayor, South East District",MacPherson,2006,,
+Ms Indranee Rajah,indranee.rajah@drewnapier.com,Deputy Speaker,Tanjong Pagar*,2006,,
+Dr Teo Ho Pin,teo_ho_pin@pa.gov.sg,"Mayor, North West District",Bukit Panjang,2006,,
+Dr Amy Khor Lean Suan,amy_khor@mewr.gov.sg,"Mayor, South West District, Senior Parliamentary Secretary, Ministry of the Environment and Water Resources & Deputy Government Whip",Hong Kah*,2006,,
+Dr Amy Khor Lean Suan,amy_khor@pa.gov.sg,"Mayor, South West District, Senior Parliamentary Secretary, Ministry of the Environment and Water Resources & Deputy Government Whip",Hong Kah*,2006,,
+Zainudin Nordin,zainudin_nordin@pa.gov.sg,"Mayor, Central Singapore District",Bishan-Toa Payoh*,2006,,
+Hawazi Daipi,hawazi@mom.gov.sg,"Senior Parliamentary Secretary, Ministry of Manpower",Sembawang*,2006,,
+Mr Masagos Zulkifli B M M,masagos_zulkifli@moe.gov.sg,"Senior Parliamentary Secretary, Ministry of Education",Tampines*,2006,,
+Dr Mohamad Maliki Osman,maliki_osman@mnd.gov.sg,"Parliamentary Secretary, Ministry of National Development",Sembawang*,2006,,
+Teo Ser Luck,slteo@mcys.gov.sg,"Parliamentary Secretary, Ministry of Community Development, Youth and Sports",Pasir Ris-Punggol*,2006,,
+Yeo Cheow Tong,ctyeo@yewtee.org.sg,,Hong Kah*,2006,,
+Chiam See Tong,chiamco@singnet.com.sg,,Potong Pasir,2006,,
+Charles Chong,charles_chong@singaporeair.com.sg,,Pasir Ris-Punggol *,2006,,
+Dr Ong Chit Chung,drongcc@singnet.com.sg,,Jurong*,2006,,
+K Shanmugam,shanmugam@allenandgledhill.com,,Sembawang*,2006,,
+Low Thia Khiang,ltk@wp.sg,,Hougang,2006,,
+Chan Soo Sen,chansoosen@gmail.com,,Joo Chiat,2006,,
+Inderjit Singh,inderjit@singnet.com.sg,Deputy Government Whip,Ang Mo Kio*,2006,,
+Dr Lily Neo,dr.lilyneo@gmail.com,,Jalan Besar*,2006,,
+Seng Han Thong,senght@ntuc.org.sg,,Yio Chu Kang,2006,,
+Sin Boon Ann,boonann.sin@drewnapier.com,,Tampines*,2006,,
+Dr Ahmad Mohd Magad,amm@ii-vi.com.sg,,Pasir Ris-Punggol*,2006,,
+Ang Mong Seng,amshktc@singnet.com.sg,,Hong Kah*,2006,,
+Ong Ah Heng,ongah@ntuc.org.sg,,Nee Soon Central,2006,,
+Ong Kian Min,ong.kianmin@drewnapier.com,,Tampines*,2006,,
+Yeo Guat Kwang,yeogk@ntuc.org.sg,,Aljunied*,2006,,
+Arthur Fong,arthur39@singnet.com.sg,,West Coast*,2006,,
+Cedric Foo Chee Keng,pioneer@pap.org.sg,,West Coast*,2006,,
+Mdm Ho Geok Choo,hogcm@singnet.com.sg,,West Coast*,2006,,
+Ms Penny Low,Penny_Low@prpg-grc.sg,,Pasir Ris-Punggol*,2006,,
+Dr Ong Seh Hong,sehhong_ong@renci.org.sg,,Marine Parade*,2006,,
+Mdm Cynthia Phua,cynphua@starhub.net.sg,,Aljunied*,2006,,
+Wee Siew Kim,weesk@stengg.com,,Ang Mo Kio*,2006,,
+Mdm Halimah Yacob,halimah@ntuc.org.sg,,Jurong*,2006,,
+Ms Irene Ng Phek Hoong,ireneng@ntuc.org.sg,,Tampines*,2006,,
+Baey Yam Keng,yamkeng@pacific.net.sg,,Tanjong Pagar*,2006,,
+Christopher De Souza,chrisdesouza@leenlee.com.sg,,Holland-Bukit Timah*,2006,,
+Dr Fatimah Lateef,fatimah.abd.lateef@sgh.com.sg,,Marine Parade*,2006,,
+Hri Kumar Nair,hri.kumar@drewnapier.com,,Bishan-Toa Payoh*,2006,,
+Liang Eng Hwa,liang.eng.hwa@pcf.org.sg,,Holland-Bukit Timah*,2006,,
+Lim Biow Chuan,lbclaw@singnet.com.sg,,Marine Parade*,2006,,
+Dr Muhammad Faishal Ibrahim,faishal@nus.edu.sg,,Marine Parade*,2006,,
+Seah Kian Peng,seahkp@fairprice.com.sg,,Marine Parade*,2006,,
+Sam Tan Chin Siong,samtan@cdac.org.sg,,Tanjong Pagar*,2006,,
+Mrs Josephine Teo,teoj@ntuc.org.sg,,Bishan-Toa Payoh*,2006,,
+Alvin Yeo,alvin.yeo@wongpartnership.com.sg,,Hong Kah*,2006,,
+Zaqy Mohamad,ask.mp@keathong.com,,Hong Kah*,2006,,
+Dr Lam Pin Min,vpmlam@gmail.com,,Ang Mo Kio*,2006,,
+Ms Lee Bee Wah,lbw@lbw.com.sg,,Ang Mo Kio*,2006,,
+Ms Ellen Lee Geck Hoon,leeellengh@gmail.com,,Sembawang*,2006,,
+Dr Lim Wee Kiak,weekiak@starhub.net.sg,,Sembawang*,2006,,
+Michael Palmer,michaelp@harryelias.com.sg,,Pasir Ris-Punggol*,2006,,
+Ms Denise Phua Lay Peng,"dphua@starhub.net.sg, denisephua@pathlight.org.sg",,Jalan Besar*,2006,,
+Ms Jessica Tan Soon Neo,jesstansn@hotmail.com,,East Coast*,2006,,
+Ms Sylvia Lim,sylvia@wp.sg,,Non-Constituency Member,2006,,
+Dr Loo Choon Yong,nmploo@rafflesmedical.com,,Nominated Member,2006,,
+Ms Eunice Elizabeth Olsen,eunice@euniceolsen.com,,Nominated Member,2006,,
+Ms Cham Hui Fong,chamhf@ntuc.org.sg,,Nominated Member,2006,,
+Gautam Banerjee,gautam.banerjee@sg.pwc.com,,Nominated Member,2006,,
+Assoc Prof Kalyani K. Mehta,swkkkm@nus.edu.sg,,Nominated Member,2006,,
+Edwin Khew Teck Fook,khew@iutglobal.com,Nominated Member,,2006,,
+Mrs Jessie Phua,phuajessie@gmail.com,,Nominated Member,2006,,
+Siew Kum Hong,siewkumhong@gmail.com,,Nominated Member,2006,,
+Prof Thio Li-Ann,lawtla@nus.edu.sg,,Nominated Member,2006,,
+Mdm Halimah Yacob,halimah_yacob@parl.gov.sg,Speaker,Jurong*,2011,,
+Lee Hsien Loong  ,lee_hsien_loong@pmo.gov.sg,Prime Minister,Ang Mo Kio*,2011,,
+Teo Chee Hean,teo_chee_hean@mha.gov.sg,Deputy Prime Minister& CoordinatingMinister for National Security &Minister for Home Affairs,Pasir Ris-Punggol*,2011,,
+Tharman Shanmugaratnam,tharman_s@mof.gov.sg,Deputy Prime Minister& Minister for Finance,Jurong*,2011,,
+Lim Hng Kiang,lim_hng_kiang@mti.gov.sg,Minister for Trade and Industry,West Coast*,2011,,
+Lim Swee Say,lim_swee_say@pmo.gov.sg,"Minister,Prime Minister's Office",East Coast*,2011,,
+Assoc Prof Dr Yaacob Ibrahim,yaacob_ibrahim@mci.gov.sg,Minister for Communications and Information &Minister-in-charge of Muslim Affairs,Moulmein-Kallang*,2011,,
+Khaw Boon Wan,khawbw@mnd.gov.sg,Minister for National Development,Sembawang*,2011,,
+Dr Ng Eng Hen,ng_eng_hen@mindef.gov.sg,Minister for DefenceLeader of the House,Bishan-Toa Payoh*,2011,,
+Dr Vivian Balakrishnan,v_bala@mewr.gov.sg,Minister for the Environment and Water Resources,Holland-Bukit Timah*,2011,,
+K Shanmugam,,Minister forForeign Affairs &Minister for Law,Nee Soon*,2011,,
+Gan Kim Yong ,gan_kim_yong@moh.gov.sg,Minister for HealthGovernment Whip,Chua Chu Kang*,2011,,
+Lui Tuck Yew,lui_tuck_yew@mot.gov.sg,Minister for Transport,Moulmein-Kallang*,2011,,
+S Iswaran,,"Minister, Prime Minister's Office, Second Ministerfor Home Affairs &Second Minister forTrade and Industry",West Coast*,2011,,
+Heng Swee Keat,heng_swee_keat@moe.gov.sg,Minister for Education,Tampines*,2011,,
+Ms Grace Fu Hai Yien,grace_fu@pmo.gov.sg,"Minister, Prime Minister's Office, Second Minister for the Environment and Water Resources & Second Minister for Foreign Affairs",Yuhua,2011,,
+Chan Chun Sing,,"Acting Minister forSocial and FamilyDevelopmentSenior Minister of State, Ministry of Defence",Tanjong Pagar*,2011,,
+Tan Chuan-Jin,,"Acting Minister for ManpowerSenior Minister of State, Ministry of National Development",Marine Parade*,2011,,
+Lawrence Wong,,"Acting Minister for Culture, Community and YouthSenior Minister of State, Ministry of Communications and Information",West Coast*,2011,,
+Heng Chee How,heng_chee_how@pmo.gov.sg,"Senior Minister of State,Prime Minister's OfficeDeputy Leader of the House",Whampoa,2011,,
+Lee Yi Shyan,,"Senior Minister of State,Ministry of Trade and Industry &Ministry of National Development",East Coast*,2011,,
+Masagos Zulkifli B M M,masagos_zulkifli@mha.gov.sg,"Senior Minister of State,Ministry of Home Affairs and Ministry of Foreign Affairs",Tampines*,2011,,
+Ms Indranee Rajah,,"Senior Minister of State,Ministry of Law & Ministry of Education",Tanjong Pagar*,2011,,
+Dr Amy Khor Lean Suan,,"Minister of State, Ministry of Health & Ministry of ManpowerMayor, South West District,Deputy Government Whip",Hong Kah North,2011,,
+Teo Ser Luck,teo_ser_luck@mti.gov.sg,"Minister of State, Ministry of Trade and IndustryMayor, North East District",Pasir Ris-Punggol*,2011,,
+Mrs Josephine Teo,,"Minister of State, Ministry of Finance &Ministry of Transport",Bishan-Toa Payoh*,2011,,
+Charles Chong,charles_chongyf@yahoo.com ,Deputy Speaker,Joo Chiat)(Acting Speaker,2011,,
+Seah Kian Peng,seahkp@fairprice.com.sg,Deputy Speaker,Marine Parade*,2011,,
+Dr Teo Ho Pin,teo_ho_pin@pa.gov.sg,"Mayor, North West DistrictDeputy Government Whip",Bukit Panjang,2011,,
+Hawazi Daipi,,"Senior Parliamentary Secretary,Ministry of Education & Ministry of Manpower",Sembawang*,2011,,
+Dr Mohamad Maliki Osman,,"Senior Parliamentary Secretary,Ministry of National Development &Ministry of Defence,Mayor,South East District",East Coast*,2011,,
+Sam Tan Chin Siong,,"Senior Parliamentary Secretary,Ministry of Foreign Affairs &Ministry of Culture, Community and YouthMayorCentral Singapore District",Radin Mas,2011,,
+Ms Sim Ann,sim_ann@moe.gov.sg,"Senior Parliamentary Secretary, Ministry of Communicationsand Information &Ministry of Education",Holland-Bukit Timah*,2011,,
+Assoc Prof Muhammad Faishal Ibrahim,muhammad_faishal@moh.gov.sg,"Parliamentary Secretary, Ministry of Health &Ministry of Transport",Nee Soon*,2011,,
+Lee Kuan Yew,lee_kuan_yew@pmo.gov.sg,,Tanjong Pagar*,2011,,
+Goh Chok Tong,goh_chok_tong@pmo.gov.sg ,Emeritus Senior Minister,Marine Parade*,2011,,
+Wong Kan Seng,wongkanseng@gmail.com,,Bishan-Toa Payoh*,2011,,
+Mah Bow Tan,btmah48@gmail.com,,Tampines*,2011,,
+Low Thia Khiang,ltk@wp.sg,,Aljunied*,2011,,
+Inderjit Singh,inderjit@singnet.com.sg,,Ang Mo Kio*,2011,,
+Dr Lily Neo,dr.lilyneo1@gmail.com,,Tanjong Pagar*,2011,,
+Seng Han Thong,senghanthong@gmail.com,,Ang Mo Kio*,2011,,
+Yeo Guat Kwang ,yeogk@ntuc.org.sg,,Ang Mo Kio*,2011,,
+Arthur Fong,arthur.fong339@gmail.com ,,West Coast*,2011,,
+Cedric Foo Chee Keng ,pioneer@pap.org.sg,,Pioneer,2011,,
+Raymond Lim,21_bsec@pap.org.sg,,East Coast*,2011,,
+Ms Penny Low,penny_low@prpg-grc.sg,,Pasir Ris-Punggol*,2011,,
+Zainudin Nordin ,zainudinnordin@gmail.com,,Bishan-Toa Payoh*,2011,,
+Ms Irene Ng Phek Hoong ,ireneng@iseas.edu.sg,,Tampines*,2011,,
+Baey Yam Keng,ykbaey@gmail.com,,Tampines*,2011,,
+Christopher De Souza,chrisdesouza@ulupandan.sg,,Holland-Bukit Timah*,2011,,
+Assoc Prof Fatimah Lateef,fatimah.abd.lateef@sgh.com.sg,,Marine Parade*,2011,,
+Hri Kumar Nair,hri.kumar@drewnapier.com,,Bishan-Toa Payoh*,2011,,
+Liang Eng Hwa,liang_eng_hwa@singnet.com.sg,,Holland-Bukit Timah*,2011,,
+Lim Biow Chuan,lbclaw01@gmail.com,,Mountbatten,2011,,
+Alvin Yeo,alvin.yeo@wongpartnership.com,,Chua Chu Kang*,2011,,
+Zaqy Mohamad,mp@keathong.sg,,Chua Chu Kang*,2011,,
+Dr Lam Pin Min,vpmlam@gmail.com,,Sengkang West,2011,,
+Er. Dr. Lee Bee Wah,lbw@lbw.com.sg,,Nee Soon*,2011,,
+Ms Ellen Lee Geck Hoon,leeellengh@gmail.com,,Sembawang*,2011,,
+Dr Lim Wee Kiak,weekiak@starhub.net.sg,,Nee Soon*,2011,,
+Ms Denise Phua Lay Peng,dphua@pathlight.org.sg,,Moulmein-Kallang*,2011,,
+Ms Jessica Tan Soon Neo,jesstansn@hotmail.com,,East Coast*,2011,,
+Ms Sylvia Lim,sylvia.lim@wp.sg,,Aljunied*,2011,,
+Dr Chia Shi-Lu,drchiashilu@gmail.com,,Tanjong Pagar*,2011,,
+Ang Hin Kee,anghk@ntuc.org.sg,,Ang Mo Kio*,2011,,
+Ang Wei Neng,weineng.ang@gmail.com,,Jurong*,2011,,
+Chen Show Mao,showmao.chen@wp.sg,,Aljunied*,2011,,
+Ms Foo Mee Har,meehar.foo811@gmail.com,,West Coast*,2011,,
+Gan Thiam Poh,gan_thiam_poh@prpg-grc.sg,,Pasir Ris-Punggol*,2011,,
+Dr Intan Azura Binte Mokhtar,mpjalankayu@gmail.com,,Ang Mo Kio*,2011,,
+Dr Janil Puthucheary,Janil_Puthucheary@prpg-grc.sg,,Pasir Ris-Punggol*,2011,,
+Desmond Lee Ti-Seng,jurongspring@yahoo.com.sg,,Jurong*,2011,,
+Ms Low Yen Ling,yenling@businesschina.org.sg,,Chua Chu Kang*,2011,,
+Muhamad Faisal Abdul Manap,faisal@wp.sg,,Aljunied*,2011,,
+David Ong Kim Huat,davidong@bukitbatok.sg,,Jurong*,2011,,
+Ong Teng Koon,ong.teng.koon@gmail.com,,Sembawang*,2011,,
+Pritam Singh,pritam.singh@wp.sg,,Aljunied*,2011,,
+Sitoh Yih Pin,sitoh@nexiats.com.sg,,Potong Pasir,2011,,
+Tay Teck Guan Patrick,patricktay@yahoo.com,,Nee Soon*,2011,,
+Ms Tin Pei Ling,tinpeiling@gmail.com,,Marine Parade*,2011,,
+Edwin Tong Chun Fai,edwin.tong@allenandgledhill.com,,Moulmein-Kallang*,2011,,
+Vikram Nair,admiralty.sembawang@gmail.com,,Sembawang*,2011,,
+Alex Yam Ziming,ytmps@yewtee.org.sg,,Chua Chu Kang*,2011,,
+Zainal Bin Sapari,zainal_sapari@prpg-grc.sg,,Pasir Ris-Punggol*,2011,,
+Png Eng Huat,enghuat.png@wp.sg,,Hougang,2011,,
+Ms Lee Li Lian,lilian.lee@wp.sg,,Punggol East,2011,,
+Mrs Lina Chiam,chiamco@singnet.com.sg,Non-ConstituencyMember,,2011,,
+Gerald Giam Yean Song,gerald.giam@wp.sg,Non-ConstituencyMember,,2011,,
+Yee Jenn Jong,jennjong.yee@wp.sg,Non-ConstituencyMember,,2011,,
+Ms Faizah Jamal,breathconnection@yahoo.com,Nominated Member,,2011,,
+Nicholas Fang,nicholas.fang@siiaonline.org,Nominated Member,,2011,,
+Ms Janice Koh,janicekohnmp@gmail.com,Nominated Member,,2011,,
+Laurence Lien,laurence@nvpc.org.sg,Nominated Member,,2011,,
+Ms Mary Liew,maryliew@smou.org.sg,Nominated Member,,2011,,
+Ramasamy Dhinakaran,dhina@jaygee.com.sg,Nominated Member,,2011,,
+Asst Prof Tan Kheng Boon Eugene,eugene@smu.edu.sg,Nominated Member,,2011,,
+Ms Tan Su Shan,sstan.ct@gmail.com,Nominated Member,,2011,,
+Teo Siong Seng,ssteo@sccci.org.sg,Nominated Member,,2011,,
+Mdm Halimah Yacob,halimah_yacob@parl.gov.sg,Speaker,Marsiling-Yew Tee*,2015,,
+Lee Hsien Loong,lee_hsien_loong@pmo.gov.sg,Prime Minister,Ang Mo Kio*,2015,,
+Teo Chee Hean,teo_chee_hean@pmo.gov.sg,Deputy Prime Minister & Coordinating Minister for National Security,Pasir Ris-Punggol*,2015,,
+Tharman Shanmugaratnam,tharman_s@pmo.gov.sg,Deputy Prime Minister & Coordinating Minister for Economic and Social Policies,Jurong*,2015,,
+Khaw Boon Wan,khaw_boon_wan@mot.gov.sg,Coordinating Minister for Infrastructure & Minister for Transport,Sembawang*,2015,,
+Lim Hng Kiang,lim_hng_kiang@mti.gov.sg,Minister for Trade and Industry,Trade)(West Coast*,2015,,
+Lim Swee Say,lim_swee_say@mom.gov.sg,Minister for Manpower,East Coast*,2015,,
+Assoc Prof Dr Yaacob Ibrahim,yaacob_ibrahim@mci.gov.sg,Minister for Communications and Information and Minister-in-charge of Muslim Affairs,Jalan Besar*,2015,,
+Dr Ng Eng Hen,ng_eng_hen@mindef.gov.sg,Minister for Defence,Bishan-Toa Payoh*,2015,,
+Dr Vivian Balakrishnan,v.bala@mfa.gov.sg,Minister for Foreign Affairs,Holland-Bukit Timah*,2015,,
+K Shanmugam,k_shanmugam@mha.gov.sg,Minister for Home Affairs & Minister for Law,Nee Soon*,2015,,
+K Shanmugam,k_shanmugam@mlaw.gov.sg,Minister for Home Affairs & Minister for Law,Nee Soon*,2015,,
+Gan Kim Yong,gan_kim_yong@moh.gov.sg,Minister for Health,Chua Chu Kang*,2015,,
+S Iswaran,s_iswaran@mti.gov.sg,Minister for Trade and Industry,Industry)(West Coast*,2015,,
+Heng Swee Keat,heng_swee_keat@mof.gov.sg,Minister for Finance,Tampines*,2015,,
+Ms Grace Fu Hai Yien,grace_fu@mccy.gov.sg,"Minister for Culture, Community and YouthLeader of the House",Yuhua,2015,,
+Chan Chun Sing,chan_chun_sing@pmo.gov.sg,"Minister, Prime Minister's OfficeGovernment Whip",Tanjong Pagar*,2015,,
+Tan Chuan-Jin,tan_chuan-jin@msf.gov.sg,Minister for Social and Family Development,Marine Parade*,2015,,
+Lawrence Wong,lawrence_wong@mnd.gov.sg,Minister for National Development,Marsiling-Yew Tee*,2015,,
+Masagos Zulkifli B M M,Masagos_ZULKIFLI@mewr.gov.sg,Minister for the Environment and Water Resources,Tampines*,2015,,
+Ng Chee Meng,ng_chee_meng@moe.gov.sg,Acting Minister for Education,"Schools) & Senior Minister of State, Ministry of Transport(Pasir Ris-Punggol*",2015,,
+Ng Chee Meng,ng_chee_meng@mot.gov.sg,Acting Minister for Education,"Schools) & Senior Minister of State, Ministry of Transport(Pasir Ris-Punggol*",2015,,
+Ong Ye Kung,ong_ye_kung@moe.gov.sg,Acting Minister for Education,"Higher Education and Skills) & Senior Minister of State, Ministry of Defence(Sembawang*",2015,,
+Ong Ye Kung,ong_ye_kung@mindef.gov.sg,Acting Minister for Education,"Higher Education and Skills) & Senior Minister of State, Ministry of Defence(Sembawang*",2015,,
+Heng Chee How,heng_chee_how@pmo.gov.sg,"Senior Minister of State, Prime Minister's Office",Jalan Besar*,2015,,
+Ms Indranee Rajah,indranee_rajah@mof.gov.sg,"Senior Minister of State, Ministry of Finance & Ministry of Law",Tanjong Pagar*,2015,,
+Ms Indranee Rajah,indranee_rajah@mlaw.gov.sg,"Senior Minister of State, Ministry of Finance & Ministry of Law",Tanjong Pagar*,2015,,
+Dr Amy Khor Lean Suan,amy_khor@mewr.gov.sg,"Senior Minister of State, Ministry of the Environment and Water Resources & Ministry of Health",Hong Kah North,2015,,
+Dr Amy Khor Lean Suan,amy_khor@moh.gov.sg,"Senior Minister of State, Ministry of the Environment and Water Resources & Ministry of Health",Hong Kah North,2015,,
+Mrs Josephine Teo,josephine_teo@pmo.gov.sg,"Senior Minister of State, Prime Minister's Office, Ministry of Foreign Affairs & Ministry of Transport",Bishan-Toa Payoh*,2015,,
+Mrs Josephine Teo,josephine_teo@mot.gov.sg,"Senior Minister of State, Prime Minister's Office, Ministry of Foreign Affairs & Ministry of Transport",Bishan-Toa Payoh*,2015,,
+Dr Mohamad Maliki Osman,maliki_osman@mindef.gov.sg,"Senior Minister of State, Ministry of Defence & Ministry of Foreign AffairsMayor, South East CDC",East Coast*,2015,,
+Dr Mohamad Maliki Osman,Maliki.osman@mfa.gov.sg,"Senior Minister of State, Ministry of Defence & Ministry of Foreign AffairsMayor, South East CDC",East Coast*,2015,,
+Ms Sim Ann,sim_ann@mof.gov.sg,"Senior Minister of State, Ministry of Culture, Community and Youth & Ministry of FinanceDeputy Government Whip",Holland-Bukit Timah*,2015,,
+Desmond Lee,desmond_lee@mha.gov.sg,"Senior Minister of State, Ministry of Home Affairs & Ministry of National Development DeputyLeader of the House",Jurong*,2015,,
+Desmond Lee,desmondlee@mnd.gov.sg,"Senior Minister of State, Ministry of Home Affairs & Ministry of National Development DeputyLeader of the House",Jurong*,2015,,
+Teo Ser Luck,slteo@mom.gov.sg,"Minister of State, Ministry of ManpowerMayor, North East CDC",Pasir Ris-Punggol*,2015,,
+Sam Tan Chin Siong,sam_tan@mom.gov.sg,"Minister of State, Prime Minister's Office & Ministry of ManpowerDeputy Government Whip",Radin Mas,2015,,
+Dr Lam Pin Min,lam_pin_min@moh.gov.sg,"Minister of State, Ministry of Health",Sengkang West,2015,,
+Chee Hong Tat,chee_hong_tat@mci.gov.sg,"Minister of State, Ministry of Communications and Information & Ministry of Health",Bishan-Toa Payoh*,2015,,
+Dr Janil Puthucheary,janil_puthucheary@mci.gov.sg,"Minister of State, Ministry of Communications and Information & Ministry of Education",Pasir Ris-Punggol*,2015,,
+Dr Janil Puthucheary,janil_puthucheary@moe.gov.sg,"Minister of State, Ministry of Communications and Information & Ministry of Education",Pasir Ris-Punggol*,2015,,
+Dr Koh Poh Koon,koh_poh_koon@mnd.gov.sg,"Minister of State, Ministry of Trade and Industry & Ministry of National Development",Ang Mo Kio*,2015,,
+Charles Chong,charles_chongyf@yahoo.com ,Deputy Speaker,Punggol East,2015,,
+Lim Biow Chuan,lbclaw01@gmail.com,Deputy Speaker,Mountbatten,2015,,
+Dr Teo Ho Pin,teo_ho_pin@pa.gov.sg,"Mayor, North West CDC",Bukit Panjang,2015,,
+Ms Denise Phua Lay Peng,dphua@pathlight.org.sg,"Mayor, Central Singapore CDC",Jalan Besar*,2015,,
+Assoc Prof Dr Muhammad Faishal Ibrahim,muhammad_faishal_ibrahim@msf.gov.sg,"Parliamentary Secretary, Ministry of Education & Ministry of Social and Family Development",Nee Soon*,2015,,
+Ms Low Yen Ling,low_yen_ling@moe.gov.sg,"Parliamentary Secretary, Ministry of Education & Ministry of Trade and IndustryMayor, South West CDC",Chua Chu Kang*,2015,,
+Ms Low Yen Ling,low_yen_ling@mti.gov.sg,"Parliamentary Secretary, Ministry of Education & Ministry of Trade and IndustryMayor, South West CDC",Chua Chu Kang*,2015,,
+Baey Yam Keng,baey_yam_keng@mccy.gov.sg,"Parliamentary Secretary, Ministry of Culture, Community and Youth",Tampines*,2015,,
+Amrin Amin,amrin_amin@mha.gov.sg,"Parliamentary Secretary, Ministry of Home Affairs",Sembawang*,2015,,
+Goh Chok Tong,goh_chok_tong@pmo.gov.sg,Emeritus Senior Minister,Marine Parade*,2015,,
+Low Thia Khiang,thiakhiang.low@wp.sg,,Aljunied*,2015,,
+Dr Lily Neo,dr.lilyneo1@gmail.com,,Jalan Besar*,2015,,
+Cedric Foo Chee Keng,cedric.foo@pap.org.sg,,Pioneer,2015,,
+Christopher De Souza,chrisdesouza@leenlee.com.sg,,Holland-Bukit Timah*,2015,,
+Assoc Prof Fatimah Lateef,fatimah.abd.lateef@sgh.com.sg,,Marine-Parade*,2015,,
+Lee Yi Shyan,leeyishyan@gmail.com,,East Coast*,2015,,
+Liang Eng Hwa,liang_eng_hwa@singnet.com.sg,,Holland-Bukit Timah*,2015,,
+Zaqy Mohamad,mp@keathong.sg,,Chua Chu Kang*,2015,,
+Er Dr Lee Bee Wah,mp4nss@gmail.com,,Nee Soon*,2015,,
+Dr Lim Wee Kiak,limweekiak@gmail.com,,Sembawang*,2015,,
+Seah Kian Peng,seahkp@fairprice.com.sg,,Marine Parade*,2015,,
+Ms Jessica Tan Soon Neo,Jessica.Tan@pap.org.sg,,East Coast*,2015,,
+Ms Sylvia Lim,sylvia.lim@wp.sg,,Aljunied*,2015,,
+Dr Chia Shi-Lu,drchiashilu@gmail.com,,Tanjong Pagar*,2015,,
+Ang Hin Kee,anghk@ntuc.org.sg,,Ang Mo Kio*,2015,,
+Ang Wei Neng,weineng.ang@gmail.com,,Jurong*,2015,,
+Chen Show Mao,showmao.chen@wp.sg,,Aljunied*,2015,,
+Ms Foo Mee Har,meehar.foo811@gmail.com,,West Coast*,2015,,
+Gan Thiam Poh,gan.thiam.poh@amktc.org.sg,,Ang Mo Kio*,2015,,
+Dr Intan Azura Binte Mokhtar,mpjalankayu@gmail.com,,Ang Mo Kio*,2015,,
+Muhamad Faisal Abdul Manap,faisal@wp.sg,,Aljunied*,2015,,
+Ong Teng Koon,ong.teng.koon@gmail.com,,Marsiling-Yew Tee*,2015,,
+Pritam Singh,pritam.singh@wp.sg,,Aljunied*,2015,,
+Sitoh Yih Pin,sitoh@nexiats.com.sg,,Potong Pasir,2015,,
+Tay Teck Guan Patrick,patricktaytg@gmail.com,,West Coast*,2015,,
+Ms Tin Pei Ling,tinpeiling@gmail.com,,MacPherson,2015,,
+Edwin Tong Chun Fai,edwintongchunfai@gmail.com,,Marine Parade*,2015,,
+Vikram Nair,admiralty.sembawang@gmail.com,,Sembawang*,2015,,
+Alex Yam Ziming,ytmps@yewtee.org.sg,,Marsiling-Yew Tee*,2015,,
+Zainal Bin Sapari,zainal_sapari@prpg-grc.sg,,Pasir Ris-Punggol*,2015,,
+Png Eng Huat,enghuat.png@wp.sg,,Hougang,2015,,
+Miss Cheryl Chan Wei Ling,fengshan@pap.org.sg,,Fengshan,2015,,
+Miss Cheng Li Hui,pap261@singnet.com.sg,,Tampines*,2015,,
+Chong Kee Hiong,ChongKeeHiong@outlook.com,,Bishan-Toa Payoh*,2015,,
+Desmond Choo,desmond.choo@live.com,,Tampines*,2015,,
+Darryl David,darrylamk@gmail.com,,Ang Mo Kio*,2015,,
+Kwek Hian Chuan Henry,henryforkebunbaru@gmail.com,,Nee Soon*,2015,,
+Louis Ng Kok Kwang,LouisNg4NSE@gmail.com,,Nee Soon*,2015,,
+Ms Joan Pereira,Joan.Pereira@pap.org.sg,,Tanjong Pagar*,2015,,
+Ms Rahayu Mahzam,ms.rahayu.mahzam@gmail.com,,Jurong*,2015,,
+Saktiandi Supaat,saktiandi1@gmail.com,,Bishan-Toa Payoh*,2015,,
+Saktiandi Supaat,TPEast@gmail.com,,Bishan-Toa Payoh*,2015,,
+Ms Sun Xueling,sun_xueling@prpg-grc.sg,,Pasir Ris-Punggol*,2015,,
+Dr Tan Wu Meng,Dr.Tan.W.M@gmail.com,,Jurong*,2015,,
+Yee Chia Hsing,yee.chia.hsing@pap.org.sg,,Chua Chu Kang*,2015,,
+Melvin Yong Yik Chye ,Melvin.Yong@pap.org.sg,,Tanjong Pagar*,2015,,
+Leon Perera,leon.perera@wp.sg,Non-Constituency Member,,2015,,
+Dennis Tan Lip Fong,dennis.tan@wp.sg,Non-Constituency Member,,2015,,
+Assoc Prof Daniel Goh Pei Siong,daniel.goh@wp.sg,Non-Constituency Member,,2015,,
+Azmoon Bin Ahmad,,Nominated Member,,2015,,
+Ms Chia Yong Yong,yyc.2th33@gmail.com,Nominated Member,,2015,,
+Thomas Chua Kee Seng,thomas@sccci.org.sg,Nominated Member,,2015,,
+Thomas Chua Kee Seng,FoongYee_Soh@teckwah.com.sg,Nominated Member,,2015,,
+Ganesh Rajaram,ganesh.rajaram@fremantlemedia.com,Nominated Member,,2015,,
+Kok Heng Leun,hengleun@gmail.com,Nominated Member,,2015,,
+Ms Kuik Shiao-Yin,yin@thethoughtcollective.com.sg,Nominated Member,,2015,,
+Assistant Prof Mahdev Mohan,,Nominated Member,,2015,,
+Assoc Prof Randolph Tan,randolphtangk@unisim.edu.sg,Nominated Member,,2015,,
+Ms K Thanaletchimi,,Nominated Member,,2015,,
+TAN Chuan-Jin,tan_chuan-jin@parl.gov.sg,Speaker of Parliament(Marine Parade*),Marine Parade,2021,,Parliament House 1 Parliament Place Singapore 178880
+LEE Hsien Loong,lee_hsien_loong@pmo.gov.sg,Prime Minister(Ang Mo Kio*),Ang Mo Kio,2021,,Prime Minister's Office Istana Annexe Orchard Road Singapore 238823
+HENG Swee Keat,HENG_Swee_Keat@pmo.gov.sg,"Deputy Prime Minister, Coordinating Minister for Economic Policies(East Coast*)",East Coast,2021,,Prime Minister's Office Istana Annexe Orchard Road Singapore 238823
+TEO Chee Hean,teo_chee_hean@pmo.gov.sg,Senior Minister & Coordinating Minister for National Security(Pasir Ris-Punggol*),Pasir Ris-Punggol,2021,,New Phoenix Park 28 Irrawaddy Road Singapore 329560
+THARMAN Shanmugaratnam,tharman_s@pmo.gov.sg,Senior Minister & Coordinating Minister for Social Policies(Jurong*),Jurong,2021,,100 High Street #10-01 The Treasury Singapore 179434
+Dr NG Eng Hen,ng_eng_hen@mindef.gov.sg,Minister for Defence(Bishan-Toa Payoh*),Bishan-Toa Payoh,2021,,Ministry of Defence 303 Gombak Drive Off Upper Bukit Timah Road MINDEF Building Singapore 669645
+Dr VIVIAN Balakrishnan,v.bala@mfa.gov.sg,Minister for Foreign Affairs(Holland-Bukit Timah*),Holland-Bukit Timah,2021,,Ministry of Foreign Affairs Tanglin Singapore 248163
+K SHANMUGAM,k_shanmugam@mha.gov.sg,Minister for Home Affairs & Minister for Law(Nee Soon*),Nee Soon,2021,,Ministry of Home Affairs New Phoenix Park 28 Irrawaddy Road Singapore 329560 Ministry of Law 100 High Street #08-02 The Treasury Singapore 179434
+K SHANMUGAM,k_shanmugam@mlaw.gov.sg,Minister for Home Affairs & Minister for Law(Nee Soon*),Nee Soon,2021,,Ministry of Home Affairs New Phoenix Park 28 Irrawaddy Road Singapore 329560 Ministry of Law 100 High Street #08-02 The Treasury Singapore 179434
+GAN Kim Yong,GAN_Kim_Yong@mti.gov.sg,Minister for Trade and Industry(Chua Chu Kang*),Chua Chu Kang,2021,,Ministry of Trade and Industry100 High Street #09-01The Treasury Singapore 179434
+S ISWARAN,S_Iswaran@mot.gov.sg,Minister for Transport &  Minister-in-charge of Trade Relations(West Coast*),West Coast,2021,,Ministry of Transport 460 Alexandra Road #39-00 & #33-00 Storeys mTower Singapore 119963 Ministry of Trade and Industry 100 High Street #09-01 The Treasury Singapore 179434
+S ISWARAN,S_Iswaran@mti.gov.sg,Minister for Transport &  Minister-in-charge of Trade Relations(West Coast*),West Coast,2021,,Ministry of Transport 460 Alexandra Road #39-00 & #33-00 Storeys mTower Singapore 119963 Ministry of Trade and Industry 100 High Street #09-01 The Treasury Singapore 179434
+Ms Grace FU Hai Yien,grace_fu@mse.gov.sg,Minister for Sustainability and the Environment(Yuhua),Yuhua,2021,,Ministry of Sustainability and the Environment 40 Scotts Road #24-00 Environment Building Singapore 228231
+CHAN Chun Sing,chan_chun_sing@moe.gov.sg,Minister for Education(Tanjong Pagar*),Tanjong Pagar,2021,,Ministry of Education 1 North Buona Vista Drive Singapore 138675
+Lawrence WONG,Lawrence_wong@mof.gov.sg,Minister for Finance(Marsiling-Yew Tee*),Marsiling-Yew Tee,2021,,Ministry of Finance 100 High Street #10-01 The Treasury Singapore 179434
+MASAGOS Zulkifli B M M,Masagos_Zulkifli@msf.gov.sg,"Minister for Social and Family Development, Second Minister for Health &Minister-in-charge of Muslim Affairs(Tampines*)",Tampines,2021,,Ministry of Social and Family Development MSF Building 512 Thomson Road Singapore 298136 Ministry of Health College of Medicine Building 16 College Road Singapore 169854
+ONG Ye Kung,ong_ye_kung@moh.gov.sg,Minister for Health (Sembawang*),Sembawang,2021,,Ministry of Health College of Medicine Building 16 College Road Singapore 169854
+Mrs Josephine TEO,josephine_teo@mci.gov.sg,Minister for Communications and Information &Second Minister for Home Affairs(Jalan Besar*),Jalan Besar,2021,,"Ministry of Communications and Information 140 Hill Street 4th, 5th & 6th Storey Old Hill Street Police Station Singapore 179369 Ministry of Home Affairs New Phoenix Park 28 Irrawaddy Road Singapore 329560"
+Mrs Josephine TEO,Josephine_teo@mha.gov.sg,Minister for Communications and Information &Second Minister for Home Affairs(Jalan Besar*),Jalan Besar,2021,,"Ministry of Communications and Information 140 Hill Street 4th, 5th & 6th Storey Old Hill Street Police Station Singapore 179369 Ministry of Home Affairs New Phoenix Park 28 Irrawaddy Road Singapore 329560"
+Desmond LEE,desmondlee@mnd.gov.sg,Minister for National Development & Minister-in-charge of Social Services Integration(West Coast*),West Coast,2021,,Ministry of National Development 5 Maxwell Road #22-00 Tower Block MND Complex Singapore 069110 Ministry of Social and Family Development MSF Building 512 Thomson Road Singapore 298136
+Desmond LEE,Desmond_Lee@msf.gov.sg,Minister for National Development & Minister-in-charge of Social Services Integration(West Coast*),West Coast,2021,,Ministry of National Development 5 Maxwell Road #22-00 Tower Block MND Complex Singapore 069110 Ministry of Social and Family Development MSF Building 512 Thomson Road Singapore 298136
+Ms INDRANEE Rajah,indranee_rajah@mof.gov.sg,"Minister, Prime Minister's Office, Second Minister for Finance & Second Minister for National DevelopmentLeader of the House(Tanjong Pagar*)",Tanjong Pagar,2021,,Prime Minister's Office Istana Orchard Road Singapore 238823 Ministry of Finance 100 High Street #10-01 The Treasury Singapore 179434 Ministry of National Development 5 Maxwell Road #22-00 Tower Block MND Complex Singapore 069110
+Dr MOHAMAD MALIKI Osman,Maliki.osman@mfa.gov.sg,"Minister, Prime Minister's Office, Second Minister for Education & Second Minister for Foreign Affairs(East Coast*)",East Coast,2021,,"Prime Minister's Office Istana Orchard Road Singapore 238823 Ministry of Foreign Affairs Tanglin Singapore 248163 Ministry of Education 1, North Buona Vista Drive Singapore 138675"
+Dr MOHAMAD MALIKI Osman,maliki.osman@moe.gov.sg,"Minister, Prime Minister's Office, Second Minister for Education & Second Minister for Foreign Affairs(East Coast*)",East Coast,2021,,"Prime Minister's Office Istana Orchard Road Singapore 238823 Ministry of Foreign Affairs Tanglin Singapore 248163 Ministry of Education 1, North Buona Vista Drive Singapore 138675"
+Edwin TONG Chun Fai,Edwin_Tong@mccy.gov.sg,"Minister for Culture, Community and Youth &Second Minister for Law(Marine Parade*)",Marine Parade,2021,,"Ministry of Culture, Community and Youth 140 Hill Street #02-00/#03-00 Old Hill Street Police Station Singapore 179369 Ministry of Law100 High Street #08-02The TreasurySingapore 179434"
+Edwin TONG Chun Fai,Edwin_Tong@mlaw.gov.sg,"Minister for Culture, Community and Youth &Second Minister for Law(Marine Parade*)",Marine Parade,2021,,"Ministry of Culture, Community and Youth 140 Hill Street #02-00/#03-00 Old Hill Street Police Station Singapore 179369 Ministry of Law100 High Street #08-02The TreasurySingapore 179434"
+Dr TAN See Leng,tan_see_leng@mom.gov.sg,Minister for Manpower & Second Minister for Trade and Industry(Marine Parade*),Marine Parade,2021,,Ministry of Manpower 18 Havelock Road #07-01 Singapore 059764 Ministry of Trade and Industry 100 High Street #09-01 The Treasury Singapore 179434
+Dr TAN See Leng,TAN_See_Leng@mti.gov.sg,Minister for Manpower & Second Minister for Trade and Industry(Marine Parade*),Marine Parade,2021,,Ministry of Manpower 18 Havelock Road #07-01 Singapore 059764 Ministry of Trade and Industry 100 High Street #09-01 The Treasury Singapore 179434
+HENG Chee How,hengcheehow@mindef.gov.sg,"Senior Minister of State, Ministry of Defence(Jalan Besar*)",Jalan Besar,2021,,Ministry of Defence303 Gombak Driveoff Upper Bukit Timah Road MINDEF Building Singapore 669645
+Dr Amy KHOR Lean Suan,Amy_Khor@mse.gov.sg,"Senior Minister of State, Ministry of Sustainabilityand the Environment & Ministry of Transport(Hong Kah North)",Hong Kah North,2021,,Ministry of Sustainability and the Environment 40 Scotts Road #24-00 Environment Building Singapore 228231 Ministry of Transport 460 Alexandra Road #39-00 & #33-00 Storeys PSA Building Singapore 119963
+Dr Amy KHOR Lean Suan,Amy_KHOR@mot.gov.sg,"Senior Minister of State, Ministry of Sustainabilityand the Environment & Ministry of Transport(Hong Kah North)",Hong Kah North,2021,,Ministry of Sustainability and the Environment 40 Scotts Road #24-00 Environment Building Singapore 228231 Ministry of Transport 460 Alexandra Road #39-00 & #33-00 Storeys PSA Building Singapore 119963
+Ms SIM Ann,sim_ann@mnd.gov.sg,"Senior Minister of State, Ministry of Foreign Affairs & Ministry of National DevelopmentDeputy Government Whip(Holland-Bukit Timah*)",Holland-Bukit Timah,2021,,Ministry of Foreign Affairs Tanglin Singapore 248163 Ministry of National Development 5 Maxwell Road #21-00 & #22-00 Tower Block MND Complex Singapore 069110
+CHEE Hong Tat,chee_hong_tat@mot.gov.sg,"Senior Minister of State, Ministry of Transport(Bishan-Toa Payoh*)",Bishan-Toa Payoh,2021,,Ministry of Transport 460 Alexandra Road#39-00 & #33-00 StoreysmTowerSingapore 119963
+Dr JANIL Puthucheary,Janil_PUTHUCHEARY@mci.gov.sg,"Senior Minister of State, Ministry of Communications and Information & Ministry of HealthGovernment Whip(Pasir Ris-Punggol*)",Pasir Ris-Punggol,2021,,"Ministry of Health College of Medicine Building 16 College Road Singapore 169854 Ministry of Communications and Information 140 Hill Street 4th, 5th & 6th Storey Old Hill Street Police Station Singapore 179369"
+Dr KOH Poh Koon,koh_poh_koon@moh.gov.sg,"Senior Minister of State, Ministry of Health & Ministry of Manpower(Tampines*)",Tampines,2021,,Ministry of Health College of Medicine Building 16 College Road Singapore 169854 Ministry of Manpower 18 Havelock Road #07-01 Singapore 059764
+ZAQY Mohamad,Zaqy_Mohamad@mindef.gov.sg,"Senior Minister of State, Ministry of Defence &Ministry of ManpowerDeputy Leader of the House(Marsiling-Yew Tee*)",Marsiling-Yew Tee,2021,,"Ministry of Defence 303 Gombak Drive Off Upper Bukit Timah Road MINDEF Building Singapore 669645 Ministry of Manpower 18 Havelock Road, #07-01Singapore 059764"
+ZAQY Mohamad,zaqy_mohamad@mom.gov.sg,"Senior Minister of State, Ministry of Defence &Ministry of ManpowerDeputy Leader of the House(Marsiling-Yew Tee*)",Marsiling-Yew Tee,2021,,"Ministry of Defence 303 Gombak Drive Off Upper Bukit Timah Road MINDEF Building Singapore 669645 Ministry of Manpower 18 Havelock Road, #07-01Singapore 059764"
+Ms LOW Yen Ling,LOW_Yen_Ling@mti.gov.sg,"Minister of State, Ministry of Culture, Community and Youth & Ministry of Trade and Industry & Chairperson of Mayors' Committee & Mayor, South West District(Chua Chu Kang*)",Chua Chu Kang,2021,,"Ministry of Trade and Industry 100 High Street #09-01 The Treasury Singapore 179434 Ministry of Culture, Community and Youth 140 Hill Street#02-00/ #03-00Singapore 179369"
+Assoc Prof Dr MUHAMMAD FAISHAL Ibrahim,Muhammad_faishal_ibrahim@mha.gov.sg,"Minister of State, Ministry of Home Affairs &Ministry of National Development(Nee Soon*)",Nee Soon,2021,,Ministry of Home Affairs New Phoenix Park 28 Irrawaddy Road Singapore 329560 Ministry of National Development 5 Maxwell Road #22-00 Tower Block MND Complex Singapore 069110
+Ms SUN Xueling,SUN_xueling@moe.gov.sg,"Minister of State, Ministry of Education & Ministry of Social and Family Development(Punggol West)",Punggol West,2021,,"Ministry of Education 1, North Buona Vista Drive Singapore 138675 Ministry of Social and Family Development MSF Building 512 Thomson Road Singapore 298136"
+Ms GAN Siow Huang,gan_siow_huang@moe.gov.sg,"Minister of State, Ministry of Education &Ministry of Manpower(Marymount)",Marymount,2021,,"Ministry of Education 1, North Buona Vista Drive Singapore 138675 Ministry of Manpower 18 Havelock Road #07-01 Singapore 059764"
+Desmond TAN,desmond_tankm@mha.gov.sg,"Minister of State, Ministry of Home Affairs &Ministry of Sustainability and the Environment(Pasir Ris-Punggol*)",Pasir Ris-Punggol,2021,,Ministry of Home Affairs New Phoenix Park 28 Irrawaddy Road Singapore 329560 Ministry of Sustainability and the Environment 40 Scotts Road #24-00 Environment Building Singapore 228231
+Desmond TAN,desmond_tan@mse.gov.sg,"Minister of State, Ministry of Home Affairs &Ministry of Sustainability and the Environment(Pasir Ris-Punggol*)",Pasir Ris-Punggol,2021,,Ministry of Home Affairs New Phoenix Park 28 Irrawaddy Road Singapore 329560 Ministry of Sustainability and the Environment 40 Scotts Road #24-00 Environment Building Singapore 228231
+TAN Kiat How,TAN_Kiat_How@mci.gov.sg,"Minister of State, Ministry of Communications and Information & Ministry of National Development(East Coast*)",East Coast,2021,,"Ministry of Communications and Information 140 Hill Street 4th, 5th & 6th Storey Old Hill Street Police Station Singapore 179369 Ministry of National Development 5 Maxwell Road #21-00 & #22-00 Tower Block, MND Complex Singapore 069110"
+TAN Kiat How,tan_kiat_how@mnd.gov.sg,"Minister of State, Ministry of Communications and Information & Ministry of National Development(East Coast*)",East Coast,2021,,"Ministry of Communications and Information 140 Hill Street 4th, 5th & 6th Storey Old Hill Street Police Station Singapore 179369 Ministry of National Development 5 Maxwell Road #21-00 & #22-00 Tower Block, MND Complex Singapore 069110"
+Alvin TAN,Alvin_TAN@mti.gov.sg,"Minister of State, Ministry of Culture, Community and Youth & Ministry of Trade and Industry(Tanjong Pagar*)",Tanjong Pagar,2021,,"Ministry of Trade and Industry100 High Street #09-01The Treasury Singapore 179434 Ministry of Culture, Community and Youth 140 Hill Street #02-00/#03-00 Old Hill Street Police Station Singapore 179369"
+PRITAM Singh,pritam.singh@wp.sg,Leader of the Opposition(Aljunied*),Aljunied,2021,,My Mail Box 882560 Singapore 919191
+Christopher DE SOUZA,chrisdesouza@leenlee.com.sg,Deputy Speaker(Holland-Bukit Timah*),Holland-Bukit Timah,2021,,Lee & Lee 50 Raffles Place Singapore Land Tower Singapore 048623
+Ms Jessica TAN Soon Neo,Jessica.Tan@pap.org.sg,Deputy Speaker(East Coast*),East Coast,2021,,PAP Changi-Simei c/o Block 131 Simei Street 1 #01-208 Singapore 520131
+Ms Denise PHUA Lay Peng,denisephuamps@gmail.comdenise_phua@pa.gov.sg,"Mayor, Central Singapore District(Jalan Besar*)",Jalan Besar,2021,,"Central Singapore Community Development Council 490 Lorong 6 Toa Payoh, #07-11 HDB Hub BizThree (Lobby 2) Singapore 310490"
+Desmond CHOO,desmondchoopc@gmail.com,"Mayor, North East District(Tampines*)",Tampines,2021,,"National Trades Union Congress 1 Marina Boulevard NTUC Centre, Level 10 Singapore 018989 North East Community Development Council 51 Tampines Avenue 4 #04-31 Our Tampines Hub Singapore 529684"
+Alex YAM Ziming,yew.tee.mps@pap.org.sg,"Mayor, North West District(Marsiling-Yew Tee*)",Marsiling-Yew Tee,2021,,PAP HQ 57B New Upper Changi Road #01-1402 Singapore 463057 North West Community Development Council 900 South Woodlands Drive #06-01 Woodlands Civic Centre Singapore 730900
+MOHD FAHMI Bin Aliman,,"Mayor, South East District(Marine Parade*)",Marine Parade,2021,,
+BAEY Yam Keng,Baey_Yam_Keng@mot.gov.sg,"Senior Parliamentary Secretary, Ministry of Transport (Tampines*)",Tampines,2021,,Ministry of Transport460 Alexandra Road#39-00 & #33-00 StoreysPSA BuildingSingapore 119963
+Eric CHUA,Eric_Chua@msf.gov.sg,"Parliamentary Secretary, Ministry of Culture, Community and Youth & Ministry of Social and Family Development(Tanjong Pagar*)",Tanjong Pagar,2021,,"Ministry of Social and Family Development MSF Building 512 Thomson Road Singapore 298136 Ministry of Culture, Community and Youth 140 Hill Street #02-00/#03-00 Old Hill Street Police Station Singapore 179369"
+Eric CHUA,Eric_Chua@mccy.gov.sg,"Parliamentary Secretary, Ministry of Culture, Community and Youth & Ministry of Social and Family Development(Tanjong Pagar*)",Tanjong Pagar,2021,,"Ministry of Social and Family Development MSF Building 512 Thomson Road Singapore 298136 Ministry of Culture, Community and Youth 140 Hill Street #02-00/#03-00 Old Hill Street Police Station Singapore 179369"
+Ms RAHAYU Mahzam,rahayu_mahzam@moh.gov.sg,"Parliamentary Secretary, Ministry of Communications and Information & Ministry of Health(Jurong*)",Jurong,2021,,"Ministry of Communications and Information 140 Hill Street 4th, 5th & 6th Storey Old Hill Street Police Station Singapore 179369 Ministry of Health College of Medicine Building 16 College Road Singapore 169854"
+LIANG Eng Hwa,liang_eng_hwa@singnet.com.sg,(Bukit Panjang),Bukit Panjang,2021,,"Blk 110, Gangsa Road #01-91 Singapore 670110"
+LIM Biow Chuan,lbclaw01@gmail.com,(Mountbatten),Mountbatten,2021,,133 New Bridge Road #16-01 Chinatown Point Singapore 059413
+SEAH Kian Peng,seahkp@fairprice.com.sg,(Marine Parade*),Marine Parade,2021,,No. 1 Joo Koon Circle #13-01 FairPrice Hub Singapore 629117
+Dr LIM Wee Kiak,limweekiak@gmail.com,(Sembawang*),Sembawang,2021,,c/o Royal Square Novena Medical Centre at Royal Square Novena 101 Irrawaddy Road #11-07 to 13 Singapore 329565
+Ms Sylvia LIM,sylvia.lim@wp.sg,(Aljunied*),Aljunied,2021,,My Mailbox 881451 Singapore 919191
+ANG Wei Neng,weineng.ang@gmail.com,(West Coast*),West Coast,2021,,c/o 383 Sin Ming Drive Singapore 575717
+Ms FOO Mee Har,foo.mee.har@pap.org.sg,(West Coast*),West Coast,2021,,c/o Ayer Rajah Constituency Office 150 Pandan Gardens Singapore 609335
+GAN Thiam Poh,gan.thiam.poh@amktc.org.sg,(Ang Mo Kio*),Ang Mo Kio,2021,,c/o Sengkang South Constituency Office Blk 458 Hougang Ave 10 #01-405 Singapore 530458
+MUHAMAD FAISAL Abdul Manap,faisal@wp.sg,(Aljunied*),Aljunied,2021,,My Mail Box 882559 Singapore 919191
+SITOH Yih Pin,sitoh@nexiats.com.sg,(Potong Pasir),Potong Pasir,2021,,Blk 143 Potong Pasir Ave 2 #01-24 Singapore 350143
+Patrick TAY Teck Guan,patricktaytg@gmail.com,(Pioneer),Pioneer,2021,,NTUC Centre No. 1 Marine Boulevard #10-01 Singapore 018989
+Ms TIN Pei Ling,tinpeiling@gmail.com,(MacPherson),MacPherson,2021,,Blk 54 Pipit Road #01-52 Singapore 370054
+VIKRAM Nair,admiralty.sembawang@gmail.com,(Sembawang*),Sembawang,2021,,Blk 557 Woodlands Drive 53 #01-63 Singapore 730557
+Miss Cheryl CHAN Wei Ling,fengshan@pap.org.sg,(East Coast*),East Coast,2021,,Blk 119 Bedok North Road #01-209 Singapore 460119
+Miss CHENG Li Hui,lihui.tampines@gmail.com,(Tampines*),Tampines,2021,,Tampines East Community Centre 10 Tampines Street 23 Singapore 529341
+CHONG Kee Hiong,ChongKeeHiong@outlook.com,(Bishan-Toa Payoh*),Bishan-Toa Payoh,2021,,Blk 196 Bishan St 13 #01-563 Singapore 570196
+Darryl DAVID,darrylamk@gmail.com,(Ang Mo Kio*),Ang Mo Kio,2021,,PAP AMK-Hougang Branch Office Blk 632 Hougang Ave 8 #01-28 Singapore 530632
+KWEK Hian Chuan Henry,henryforkebunbaru@gmail.com,(Kebun Baru),Kebun Baru,2021,,Blk 109 Ang Mo Kio Avenue 4 #01-04 Singapore 560109
+Louis NG Kok Kwang,louisng4nse@gmail.com,(Nee Soon*),Nee Soon,2021,,Block 227 Yishun Street 21 #01-520 Singapore 760227
+Ms Joan PEREIRA,joan.pereira@pap.org.sg,(Tanjong Pagar*),Tanjong Pagar,2021,,Parliament of Singapore 1 Parliament Place Singapore 178880
+SAKTIANDI Supaat,saktiandi1@gmail.comTPEast@gmail.com,(Bishan-Toa Payoh*),Bishan-Toa Payoh,2021,,Blk 261A Toa Payoh East #01-02 Singapore 311261
+Dr TAN Wu Meng,Dr.Tan.W.M@gmail.com,(Jurong*),Jurong,2021,,Blk 334 Clementi Avenue 2 #01-66 Singapore 120334
+Melvin YONG Yik Chye,Melvin.Yong@pap.org.sg,(Radin Mas),Radin Mas,2021,,Blk 21 Telok Blangah Crescent #01-52 Singapore 090021
+MURALI Pillai,murali.pillai@pap.org.sg,(Bukit Batok),Bukit Batok,2021,,c/o Blk 148 Bukit Batok West Avenue 6 # 01-319 Singapore 650148
+Leon PERERA,leon.perera@wp.sg,(Aljunied*),Aljunied,2021,,My Mail Box 883887 Singapore 919191
+Dennis TAN Lip Fong,dennis.tan@wp.sg,(Hougang),Hougang,2021,,"c/o Aljunied- Hougang Town Council Blk 701, Hougang Avenue 2 #01-01 Singapore 530701"
+Gerald GIAM Yean Song,gerald.giam@wp.sg,(Aljunied*),Aljunied,2021,,My Mailbox 889011 Singapore 919191
+Edward CHIA Bing Hui,edwardchiabinghui@gmail.com,(Holland-Bukit Timah*),Holland-Bukit Timah,2021,,Blk 532 Jelapang Road #01-33 Singapore 670532
+CHUA Kheng Wee Louis,khengwee.chua@wp.sg,(Sengkang*),Sengkang,2021,,My Mail Box 889834 Singapore 919191
+Derrick GOH,derrickgohsh@gmail.com,(Nee Soon*),Nee Soon,2021,,Blk 413 Yishun Ring Road #01-887 Singapore 760413
+Ms HE Ting Ru,tingru.he@wp.sg,(Sengkang*),Sengkang,2021,,My Mail Box 885626 Singapore 919191
+Shawn HUANG Wei Zhong,shawn.jurongspring@gmail.com,(Jurong*),Jurong,2021,,Blk 454 Jurong West Street 42 #01-112 Singapore 640454
+Assoc Prof Jamus Jerome LIM,jamus.lim@wp.sg,(Sengkang*),Sengkang,2021,,My Mail Box 885779 Singapore 919191
+Ms MARIAM Jaafar,1mariamjaafar@gmail.com,(Sembawang*),Sembawang,2021,,Blk 852 Woodlands Street 83 #01-102 Singapore 730852
+Ms NADIA Ahmad Samdin,nadia.ahmad.samdin@pap.org.sg,(Ang Mo Kio*),Ang Mo Kio,2021,,c/o Blk 533 Ang Mo Kio Avenue 5 #01-4100 Singapore 560533
+Ms NG Ling Ling,mpsjalankayu@gmail.com,(Ang Mo Kio*),Ang Mo Kio,2021,,Blk 522 Serangoon North Ave 4 #01-154 Singapore 550522
+Miss Rachel ONG,rachelongsy5@gmail.com,(West Coast*),West Coast,2021,,Blk 78-B Telok Blangah Street 32 #03-02 Singapore 102078
+Ms POH Li San,pohlisan@hotmail.com,(Sembawang*),Sembawang,2021,,"Blk 789 #01-663, Woodlands Ave 6 Singapore 730789"
+SHARAEL Taha,sharael_taha@prpg-grc.sg,(Pasir Ris-Punggol*),Pasir Ris-Punggol,2021,,Blk 216 Pasir Ris Street 21 #01-184 Singapore 510216
+Ms Hany SOH,hanysohhb@gmail.com,(Marsiling-Yew Tee*),Marsiling-Yew Tee,2021,,Woodgrove Community Centre Blk 353 Woodlands Avenue 1 #01-753 Singapore 730353
+Ms Carrie TAN,carrietannss@gmail.com,(Nee Soon*),Nee Soon,2021,,Blk 850 Yishun St 81#01-94 Singapore 760850
+Dr WAN RIZAL,wan.rizal@gmail.com,(Jalan Besar*),Jalan Besar,2021,,Blk 64 Kallang Bahru #01-373 Singapore 330064
+Don WEE,don.wee@pap.org.sg,(Chua Chu Kang*),Chua Chu Kang,2021,,Blk 801 Keat Hong Close #01-01 Singapore 680801
+XIE Yao Quan,xieyaoquanjurong@gmail.com,(Jurong*),Jurong,2021,,Blk 490 Jurong West Avenue 1 #01-01 Singapore 640490
+Ms YEO Wan Ling,yeo_wan_ling@prpg-grc.sg,(Pasir Ris-Punggol*),Pasir Ris-Punggol,2021,,Blk 171C Edgedale Plains #01-428 Singapore 823171
+YIP Hon Weng,yiphonweng@yck.sg,(Yio Chu Kang*),Yio Chu Kang,2021,,Block 644 Ang Mo Kio Ave 4 #01-850 Singapore 560644
+ZHULKARNAIN Abdul Rahim,zhul.rahim@pap.org.sg,(Chua Chu Kang*),Chua Chu Kang,2021,,"80 Raffles Place UOB Plaza 1, #33-00 Singapore 048624"
+LEONG Mun Wai,leongmunwai@psp.org.sg,Non-Constituency Member,,2021,,170 Upper Bukit Timah Road #14-04 Singapore 588179
+Ms Hazel POA,hazelpoa@psp.org.sg,Non-Constituency Member,,2021,,170 Upper Bukit Timah Road #14-04 Singapore 588179
+ABDUL SAMAD,abdulsamad@ntuc.org.sg,Nominated Member,,2021,,2 Kallang Sector #03-00 SP Group Singapore 349277
+Ms Janet ANG,janet.ang@sbffoundation.org.sg,Nominated Member,,2021,,160 Robinson Road #06-01 SBF Center Singapore 068914
+Mark CHAY,mark.chay@olympian.org,Nominated Member,,2021,,3 Stadium Walk #01-02 Singapore 397630
+CHENG Hsing Yao,chenghsingyao@guocoland.com,Nominated Member,,2021,,"1 Wallich Street #31-01, Guoco Tower Singapore 078881"
+Prof HOON Hian Teck,hthoon@gmail.com,Nominated Member,,2021,,School of Economics Singapore Management University 90 Stamford Road Singapore 178903
+Prof KOH Lian Pin,lianpinkoh@nus.edu.sg,Nominated Member,,2021,,Department of Biological Sciences National University of Singapore 14 Science Drive 4 Singapore 117543
+Dr SHAHIRA Abdullah,shahira.a88@gmail.com,Nominated Member,,2021,,
+Dr TAN Yia Swam,sma@sma.org.sg,Nominated Member,,2021,,"Thomson Breast Centre 339 Thomson Road, #03-03 Singapore 307677"
+Raj Joshua THOMAS,joshua.thomas@tangthomas.com,Nominated Member,,2021,,2 Baker Street Singapore 799978
+SEAH Kian Peng,seah_kian_peng@parl.gov.sg,Speaker of Parliament,,2021,63325500,
+Ms TAN Zhi Yi Chloe,chloe_tan@parl.gov.sg,Personal Assistant to the Speaker of Parliament,,2021,63325500,
+Lawrence WONG,Lawrence_wong@pmo.gov.sg,"Prime Minister, Minister for Finance (Marsiling-Yew Tee*)",Marsiling-Yew Tee,2021,63327415,Ministry of Finance100 High Street #10-01The TreasurySingapore 179434
+LEE Hsien Loong,lee_hsien_loong@pmo.gov.sg,Senior Minister (Ang Mo Kio*),Ang Mo Kio,2021,63327200,Prime Minister's OfficeIstana AnnexeOrchard RoadSingapore 238823
+GAN Kim Yong,GAN_Kim_Yong@mti.gov.sg,"Deputy Prime Minister, Minister for Trade and Industry (Chua Chu Kang*)",Chua Chu Kang,2021,63327933,Ministry of Trade and Industry 100 High Street #09-01 The Treasury Singapore 179434
+HENG Swee Keat,HENG_Swee_Keat@pmo.gov.sg,Deputy Prime Minister (East Coast*),East Coast,2021,63326703,Prime Minister's OfficeIstana AnnexeOrchard RoadSingapore 238823
+TEO Chee Hean,teo_chee_hean@pmo.gov.sg,"Senior Minister, Coordinating Minister for National Security (Pasir Ris-Punggol*)",Pasir Ris-Punggol,2021,64787090,New Phoenix Park28 Irrawaddy RoadSingapore 329560
+Dr NG Eng Hen,ng_eng_hen@mindef.gov.sg,Minister for Defence (Bishan-Toa Payoh*),Bishan-Toa Payoh,2021,67682121,Ministry of Defence303 Gombak DriveOff Upper Bukit Timah RoadMINDEF BuildingSingapore 669645
+Dr VIVIAN Balakrishnan,v.bala@mfa.gov.sg,Minister for Foreign Affairs (Holland-Bukit Timah*),Holland-Bukit Timah,2021,63798063,Ministry of Foreign AffairsTanglinSingapore 248163
+K SHANMUGAM,k_shanmugam@mha.gov.sg,"Minister for Home Affairs, Minister for Law (Nee Soon*)",Nee Soon,2021,"64784898, 63328810",Ministry of Home AffairsNew Phoenix Park28 Irrawaddy RoadSingapore 329560Ministry of Law100 High Street #08-02The TreasurySingapore 179434
+K SHANMUGAM, k_shanmugam@mlaw.gov.sg,"Minister for Home Affairs, Minister for Law (Nee Soon*)",Nee Soon,2021,"64784898, 63328810",Ministry of Home AffairsNew Phoenix Park28 Irrawaddy RoadSingapore 329560Ministry of Law100 High Street #08-02The TreasurySingapore 179434
+Ms Grace FU Hai Yien,grace_fu@mse.gov.sg,"Minister for Sustainability and the Environment, Minister-in-charge of Trade Relations (Yuhua*)",Yuhua,2021,67319411,Ministry of Sustainability and the Environment40 Scotts Road#24-00Environment BuildingSingapore 228231
+CHAN Chun Sing,chan_chun_sing@moe.gov.sg,Minister for Education (Tanjong Pagar*),Tanjong Pagar,2021,68796001,Ministry of Education1 North Buona Vista DriveSingapore 138675
+MASAGOS Zulkifli B M M,Masagos_Zulkifli@msf.gov.sg,"Minister for Social and Family Development, Second Minister for Health, Minister-in-charge of Muslim Affairs (Tampines*)",Tampines,2021,"63548894, 63251556",Ministry of Social and Family DevelopmentMSF Building512 Thomson RoadSingapore 298136Ministry of HealthCollege of Medicine Building16 College RoadSingapore 169854
+ONG Ye Kung,ong_ye_kung@moh.gov.sg,Minister for Health  (Sembawang*),Sembawang,2021,63259003,Ministry of HealthCollege of Medicine Building16 College RoadSingapore 169854
+Mrs Josephine TEO,josephine_teo@mddi.gov.sg,"Minister for Digital Development and Information, Second Minister for Home Affairs (Jalan Besar*)",Jalan Besar,2021,"68379400, 64786001","Ministry of Digital Development and Information140 Hill Street4th, 5th & 6th StoreyOld Hill Street Police StationSingapore 179369Ministry of Home AffairsNew Phoenix Park28 Irrawaddy RoadSingapore 329560"
+Mrs Josephine TEO, Josephine_teo@mha.gov.sg,"Minister for Digital Development and Information, Second Minister for Home Affairs (Jalan Besar*)",Jalan Besar,2021,"68379400, 64786001","Ministry of Digital Development and Information140 Hill Street4th, 5th & 6th StoreyOld Hill Street Police StationSingapore 179369Ministry of Home AffairsNew Phoenix Park28 Irrawaddy RoadSingapore 329560"
+Desmond LEE,desmondlee@mnd.gov.sg,"Minister for National Development, Minister-in-charge of Social Services Integration (West Coast*)",West Coast,2021,"69087331, 63548409",Ministry of National Development5 Maxwell Road#22-00Tower Block MND ComplexSingapore 069110
+Ms INDRANEE Rajah,indranee_rajah@mof.gov.sg,"Minister, Prime Minister's Office, Second Minister for Finance, Second Minister for National Development, Leader of the House (Tanjong Pagar*)",Tanjong Pagar,2021,63324638,Prime Minister's OfficeIstanaOrchard RoadSingapore 238823Ministry of Finance100 High Street #10-01The TreasurySingapore 179434Ministry of National Development5 Maxwell Road#22-00Tower Block MND ComplexSingapore 069110
+Dr MOHAMAD MALIKI Osman,Maliki.osman@mfa.gov.sg,"Minister, Prime Minister's Office, Second Minister for Education, Second Minister for Foreign Affairs (East Coast*)",East Coast,2021,"Tel: 63798065, Fax: 64737360","Prime Minister's OfficeIstanaOrchard RoadSingapore 238823Ministry of Education1, North Buona Vista DriveSingapore 138675Ministry of Foreign AffairsTanglinSingapore 248163"
+Dr MOHAMAD MALIKI Osman, maliki.osman@moe.gov.sg,"Minister, Prime Minister's Office, Second Minister for Education, Second Minister for Foreign Affairs (East Coast*)",East Coast,2021,"Tel: 63798065, Fax: 64737360","Prime Minister's OfficeIstanaOrchard RoadSingapore 238823Ministry of Education1, North Buona Vista DriveSingapore 138675Ministry of Foreign AffairsTanglinSingapore 248163"
+Edwin TONG Chun Fai,Edwin_Tong@mccy.gov.sg,"Minister for Culture, Community and Youth, Second Minister for Law (Marine Parade*)",Marine Parade,2021,63328813,"Ministry of Culture, Community and Youth140 Hill Street#02-00/#03-00Old Hill Street Police StationSingapore 179369Ministry of Law 100 High Street #08-02 The Treasury Singapore 179434"
+Edwin TONG Chun Fai, Edwin_Tong@mlaw.gov.sg,"Minister for Culture, Community and Youth, Second Minister for Law (Marine Parade*)",Marine Parade,2021,63328813,"Ministry of Culture, Community and Youth140 Hill Street#02-00/#03-00Old Hill Street Police StationSingapore 179369Ministry of Law 100 High Street #08-02 The Treasury Singapore 179434"
+Dr TAN See Leng,tan_see_leng@mom.gov.sg,"Minister for Manpower, Second Minister for Trade and Industry (Marine Parade*)",Marine Parade,2021,"64996289, 63327482",Ministry of Manpower18 Havelock Road #07-01Singapore 059764Ministry of Trade and Industry100 High Street #09-01The TreasurySingapore 179434
+Dr TAN See Leng, TAN_See_Leng@mti.gov.sg,"Minister for Manpower, Second Minister for Trade and Industry (Marine Parade*)",Marine Parade,2021,"64996289, 63327482",Ministry of Manpower18 Havelock Road #07-01Singapore 059764Ministry of Trade and Industry100 High Street #09-01The TreasurySingapore 179434
+CHEE Hong Tat,chee_hong_tat@mot.gov.sg,"Minister for Transport, Second Minister for Finance (Bishan-Toa Payoh*)",Bishan-Toa Payoh,2021,"63326095, 63757701",Ministry of Transport460 Alexandra Road #39-00 & #33-00 Storeys mTower Singapore 119963Ministry of Finance100 High Street #10-01The TreasurySingapore 179434
+HENG Chee How,hengcheehow@mindef.gov.sg,"Senior Minister of State, Ministry of Defence (Jalan Besar*)",Jalan Besar,2021,67682822,Ministry of Defence 303 Gombak Drive off Upper Bukit Timah Road MINDEF Building Singapore 669645
+Dr Amy KHOR Lean Suan,Amy_Khor@mse.gov.sg,"Senior Minister of State, Ministry of Sustainability and the Environment & Ministry of Transport (Hong Kah North*)",Hong Kah North,2021,"Tel: 67319188, Fax: 67320175, Tel: 63752537, Fax: 62727942",Ministry of Sustainability and the Environment40 Scotts Road#24-00Environment BuildingSingapore 228231Ministry of Transport460 Alexandra Road#39-00 & #33-00 StoreysPSA BuildingSingapore 119963
+Dr Amy KHOR Lean Suan, Amy_KHOR@mot.gov.sg,"Senior Minister of State, Ministry of Sustainability and the Environment & Ministry of Transport (Hong Kah North*)",Hong Kah North,2021,"Tel: 67319188, Fax: 67320175, Tel: 63752537, Fax: 62727942",Ministry of Sustainability and the Environment40 Scotts Road#24-00Environment BuildingSingapore 228231Ministry of Transport460 Alexandra Road#39-00 & #33-00 StoreysPSA BuildingSingapore 119963
+Ms SIM Ann,sim_ann@mnd.gov.sg,"Senior Minister of State, Ministry of Foreign Affairs & Ministry of National Development, Deputy Government Whip (Holland-Bukit Timah*)",Holland-Bukit Timah,2021,69087333,Ministry of Foreign AffairsTanglinSingapore 248163Ministry of National Development5 Maxwell Road#21-00 & #22-00Tower Block MND ComplexSingapore 069110
+Dr JANIL Puthucheary,Janil_PUTHUCHEARY@mddi.gov.sg,"Senior Minister of State, Ministry of Digital Development and Information & Ministry of Health, Government Whip (Pasir Ris-Punggol*)",Pasir Ris-Punggol,2021,68379674,"Ministry of Digital Development and Information140 Hill Street4th, 5th & 6th StoreyOld Hill Street Police StationSingapore 179369Ministry of HealthCollege of Medicine Building16 College RoadSingapore 169854"
+Dr KOH Poh Koon,koh_poh_koon@mom.gov.sg,"Senior Minister of State, Ministry of Manpower & Ministry of Sustainability and the Environment (Tampines*)",Tampines,2021,"63171315, 67319765",Ministry of Manpower18 Havelock Road #07-01Singapore 059764Ministry of Sustainability and the Environment40 Scotts Road#24-00Environment BuildingSingapore 228231
+ZAQY Mohamad,Zaqy_Mohamad@mindef.gov.sg,"Senior Minister of State, Ministry of Defence & Ministry of Manpower, Deputy Leader of the House (Marsiling-Yew Tee*)",Marsiling-Yew Tee,2021,"67683125, 63171603","Ministry of Defence303 Gombak DriveOff Upper Bukit Timah RoadMINDEF BuildingSingapore 669645Ministry of Manpower18 Havelock Road, #07-01 Singapore 059764"
+ZAQY Mohamad, zaqy_mohamad@mom.gov.sg,"Senior Minister of State, Ministry of Defence & Ministry of Manpower, Deputy Leader of the House (Marsiling-Yew Tee*)",Marsiling-Yew Tee,2021,"67683125, 63171603","Ministry of Defence303 Gombak DriveOff Upper Bukit Timah RoadMINDEF BuildingSingapore 669645Ministry of Manpower18 Havelock Road, #07-01 Singapore 059764"
+TAN Kiat How,TAN_Kiat_How@mddi.gov.sg,"Senior Minister of State, Ministry of Digital Development and Information & Ministry of National Development (East Coast*)",East Coast,2021,69085884,"Ministry of Digital Development and Information140 Hill Street4th, 5th & 6th StoreyOld Hill Street Police StationSingapore 179369Ministry of National Development5 Maxwell Road#21-00 & #22-00Tower Block, MND ComplexSingapore 069110"
+TAN Kiat How, tan_kiat_how@mnd.gov.sg,"Senior Minister of State, Ministry of Digital Development and Information & Ministry of National Development (East Coast*)",East Coast,2021,69085884,"Ministry of Digital Development and Information140 Hill Street4th, 5th & 6th StoreyOld Hill Street Police StationSingapore 179369Ministry of National Development5 Maxwell Road#21-00 & #22-00Tower Block, MND ComplexSingapore 069110"
+Ms LOW Yen Ling,LOW_Yen_Ling@mti.gov.sg,"Senior Minister of State, Ministry of Culture, Community and Youth & Ministry of Trade and Industry, Chairperson of Mayors' Committee & Mayor, South West District (Chua Chu Kang*)",Chua Chu Kang,2021,"63328851, 68797468","Ministry of Culture, Community and Youth 140 Hill Street #02-00/#03-00 Singapore 179369Ministry of Trade and Industry100 High Street #09-01The TreasurySingapore 179434"
+Desmond TAN,Desmond_Tan@pmo.gov.sg,"Senior Minister of State, Prime Minister's Office (Pasir Ris-Punggol*)",Pasir Ris-Punggol,2021,,Prime Minister's OfficeIstanaOrchard RoadSingapore 238823
+Assoc Prof Dr MUHAMMAD FAISHAL Ibrahim,Muhammad_faishal_ibrahim@mha.gov.sg,"Minister of State, Ministry of Home Affairs & Ministry of National Development (Nee Soon*)",Nee Soon,2021,,Ministry of Home AffairsNew Phoenix Park28 Irrawaddy RoadSingapore 329560Ministry of National Development5 Maxwell Road#22-00Tower Block MND ComplexSingapore 069110
+Ms SUN Xueling,xueling@mha.gov.sg,"Minister of State, Ministry of Home Affairs & Ministry of Social and Family Development (Punggol West)",Punggol West,2021,63548784,Ministry of Home AffairsNew Phoenix Park28 Irrawaddy RoadSingapore 329560Ministry of Social and Family DevelopmentMSF Building512 Thomson RoadSingapore 298136
+Ms GAN Siow Huang,gan_siow_huang@moe.gov.sg,"Minister of State, Ministry of Education & Ministry of Manpower (Marymount)",Marymount,2021,64996339,"Ministry of Education1, North Buona Vista DriveSingapore 138675Ministry of Manpower18 Havelock Road #07-01Singapore 059764"
+Alvin TAN,Alvin_TAN@mti.gov.sg,"Minister of State, Ministry of Culture, Community and Youth & Ministry of Trade and Industry (Tanjong Pagar*)",Tanjong Pagar,2021,"63328851, 68378514","Ministry of Culture, Community and Youth140 Hill Street#02-00/#03-00Old Hill Street Police StationSingapore 179369Ministry of Trade and Industry 100 High Street #09-01 The Treasury Singapore 179434"
+Ms RAHAYU Mahzam,rahayu_mahzam@moh.gov.sg,"Minister of State, Ministry of Digital Development and Information & Ministry of Health (Jurong*)",Jurong,2021,"63252608, 63328816","Ministry of Digital Development and Information140 Hill Street4th, 5th & 6th StoreyOld Hill Street Police StationSingapore 179369Ministry of HealthCollege of Medicine Building16 College RoadSingapore 169854"
+MURALI Pillai,murali_pillai@mlaw.gov.sg,"Minister of State, Ministry of Law & Ministry of Transport (Bukit Batok*)",Bukit Batok,2021,Tel: 65614656,Ministry of Law100 High Street #08-02The TreasurySingapore 179434Ministry of Transport460 Alexandra Road#39-00 & #33-00 StoreysmTowerSingapore 119963
+MURALI Pillai, murali_pillai@mot.gov.sg,"Minister of State, Ministry of Law & Ministry of Transport (Bukit Batok*)",Bukit Batok,2021,Tel: 65614656,Ministry of Law100 High Street #08-02The TreasurySingapore 179434Ministry of Transport460 Alexandra Road#39-00 & #33-00 StoreysmTowerSingapore 119963
+BAEY Yam Keng,Baey_Yam_Keng@mot.gov.sg,"Senior Parliamentary Secretary, Ministry of Sustainability and the Environment & Ministry of Transport (Tampines*)",Tampines,2021,"67319941, 63757072",Ministry of Sustainability and the Environment40 Scotts Road#24-00Environment BuildingSingapore 228231Ministry of Transport 460 Alexandra Road #39-00 mTower Singapore 119963
+Eric CHUA,Eric_Chua@mccy.gov.sg,"Senior Parliamentary Secretary, Ministry of Culture, Community and Youth & Ministry of Social and Family Development (Tanjong Pagar*)",Tanjong Pagar,2021,"63540094, 69800289","Ministry of Culture, Community and Youth140 Hill Street#02-00/#03-00Old Hill Street Police StationSingapore 179369Ministry of Social and Family DevelopmentMSF Building512 Thomson Road Singapore 298136"
+Eric CHUA, Eric_Chua@msf.gov.sg,"Senior Parliamentary Secretary, Ministry of Culture, Community and Youth & Ministry of Social and Family Development (Tanjong Pagar*)",Tanjong Pagar,2021,"63540094, 69800289","Ministry of Culture, Community and Youth140 Hill Street#02-00/#03-00Old Hill Street Police StationSingapore 179369Ministry of Social and Family DevelopmentMSF Building512 Thomson Road Singapore 298136"
+Shawn HUANG Wei Zhong,JurongSpringSg@gmail.com,"Senior Parliamentary Secretary, Ministry of Education & Ministry of Finance (Jurong*)",Jurong,2021,656 24066,Ministry of Education1 North Buona Vista DriveSingapore 138675Ministry of Finance100 High Street #10-01The TreasurySingapore 179434
+PRITAM Singh,pritam.singh@wp.sg,Leader of the Opposition (Aljunied*),Aljunied,2021,62456501,My Mail Box 882560Singapore 919191
+Christopher DE SOUZA,chrisdesouza@leenlee.com.sg,Deputy Speaker (Holland-Bukit Timah*),Holland-Bukit Timah,2021,65574894,Lee & Lee 50 Raffles Place Singapore Land TowerSingapore 048623
+Ms Jessica TAN Soon Neo,Jessica.Tan@pap.org.sg,Deputy Speaker (East Coast*),East Coast,2021,65870680,PAP Changi-Simeic/o Block 131 Simei Street 1#01-208Singapore 520131
+Ms Denise PHUA Lay Peng,denisephuamps@gmail.com,"Mayor, Central Singapore District (Jalan Besar*)",Jalan Besar,2021,67157603,Central Singapore Community Development Council490 Lorong 6 Toa Payoh#07-11HDB Hub BizThree (Lobby 2)Singapore 310490
+Ms Denise PHUA Lay Peng, denise_phua@pa.gov.sg,"Mayor, Central Singapore District (Jalan Besar*)",Jalan Besar,2021,67157603,Central Singapore Community Development Council490 Lorong 6 Toa Payoh#07-11HDB Hub BizThree (Lobby 2)Singapore 310490
+Desmond CHOO,desmondchoopc@gmail.com,"Mayor, North East District (Tampines*)",Tampines,2021,Tel: 62138000; Fax: 65348062,"National Trades Union Congress1 Marina BoulevardNTUC Centre, Level 10Singapore 018989North East Community Development Council51 Tampines Avenue 4#04-31Our Tampines HubSingapore 529684"
+Alex YAM Ziming,yew.tee.mps@pap.org.sg,"Mayor, North West District (Marsiling-Yew Tee*)",Marsiling-Yew Tee,2021,62444618,PAP HQ57B New Upper Changi Road#01-1402Singapore 463057North West Community Development Council900 South Woodlands Drive#06-01 Woodlands Civic CentreSingapore 730900
+MOHD FAHMI Bin Aliman,pap.gs.mps@gmail.com,"Mayor, South East District (Marine Parade*)",Marine Parade,2021,,
+LIANG Eng Hwa,liang_eng_hwa@singnet.com.sg,(Bukit Panjang*),Bukit Panjang,2021,67644828,Blk 110 Gangsa Road#01-91Singapore 670110
+LIM Biow Chuan,lbclaw01@gmail.com,(Mountbatten*),Mountbatten,2021,65330170,133 New Bridge Road#16-01Chinatown PointSingapore 059413
+Dr LIM Wee Kiak,limweekiak@gmail.com,(Sembawang*),Sembawang,2021,Fax: 64561002,c/o Royal Square Novena Medical Centreat Royal Square Novena101 Irrawaddy Road#11-07 to 13Singapore 329565
+Ms Sylvia LIM,sylvia.lim@wp.sg,(Aljunied*),Aljunied,2021,63859238,My Mailbox 881451Singapore 919191
+ANG Wei Neng,weineng.ang@gmail.com,(West Coast*),West Coast,2021,Fax: 64543305,23 Changi South Avenue 2Singapore 486443
+Ms FOO Mee Har,foo.mee.har@pap.org.sg,(West Coast*),West Coast,2021,65609983,c/o Ayer Rajah Constituency Office150 Pandan GardensSingapore 609335
+GAN Thiam Poh,gan.thiam.poh@amktc.org.sg,(Ang Mo Kio*),Ang Mo Kio,2021,63879134,c/o Sengkang SouthConstituency OfficeBlk 458 Hougang Ave 10#01-405Singapore 530458
+MUHAMAD FAISAL Abdul Manap,faisal@wp.sg,(Aljunied*),Aljunied,2021,82349234,My Mail Box 882559Singapore 919191
+SITOH Yih Pin,sitohyihpin6365@outlook.com,(Potong Pasir),Potong Pasir,2021,62881720,Blk 143 Potong Pasir Ave 2#01-24Singapore 350143
+Patrick TAY Teck Guan,patricktaytg@gmail.com,(Pioneer),Pioneer,2021,62138274,NTUC CentreNo. 1 Marine Boulevard#10-01Singapore 018989
+Ms TIN Pei Ling,tinpeiling@gmail.com,(MacPherson),MacPherson,2021,67461524,Blk 54 Pipit Road#01-52Singapore 370054
+VIKRAM Nair,admiralty.sembawang@gmail.com,(Sembawang*),Sembawang,2021,91444967,Blk 581 Woodlands Drive 16#01-486Singapore 730581
+Miss Cheryl CHAN Wei Ling,fengshan@pap.org.sg,(East Coast*),East Coast,2021,87528867,Blk 119 Bedok North Road#01-209Singapore 460119
+CHONG Kee Hiong,ChongKeeHiong@outlook.com,(Bishan-Toa Payoh*),Bishan-Toa Payoh,2021,62590542,Blk 196 Bishan St 13#01-563Singapore 570196
+Darryl DAVID,darrylamk@gmail.com,(Ang Mo Kio*),Ang Mo Kio,2021,Tel: 62826567 Fax: 64890551,PAP AMK-Hougang Branch OfficeBlk 632 Hougang Ave 8#01-28Singapore 530632
+KWEK Hian Chuan Henry,henryforkebunbaru@gmail.com,(Kebun Baru),Kebun Baru,2021,64548792,Blk 109 Ang Mo Kio Avenue 4#01-04Singapore 560109
+Louis NG Kok Kwang,louisng4nse@gmail.com,(Nee Soon*),Nee Soon,2021,67551946,Block 227 Yishun Street 21#01-520Singapore 760227
+Ms Joan PEREIRA,joan.pereira@pap.org.sg,(Tanjong Pagar*),Tanjong Pagar,2021,Fax: 62747116,Parliament of Singapore1 Parliament PlaceSingapore 178880
+SAKTIANDI Supaat,saktiandi1@gmail.com,(Bishan-Toa Payoh*),Bishan-Toa Payoh,2021,Tel: 62592881 Fax: 63544912,Blk 261A Toa Payoh East#01-02Singapore 311261
+SAKTIANDI Supaat, TPEast@gmail.com,(Bishan-Toa Payoh*),Bishan-Toa Payoh,2021,Tel: 62592881 Fax: 63544912,Blk 261A Toa Payoh East#01-02Singapore 311261
+Dr TAN Wu Meng,Dr.Tan.W.M@gmail.com,(Jurong*),Jurong,2021,"Tel: 68745992, Fax: 67750692",Blk 334 Clementi Avenue 2#01-66Singapore 120334
+Melvin YONG Yik Chye,Melvin.Yong@pap.org.sg,(Radin Mas),Radin Mas,2021,62705346,Blk 21 Telok Blangah Crescent#01-52Singapore 090021
+Dennis TAN Lip Fong,dennis.tan@wp.sg,(Hougang),Hougang,2021,62845001,c/o Aljunied- Hougang Town CouncilBlk 701 Hougang Avenue 2#01-01Singapore 530701
+Gerald GIAM Yean Song,gerald.giam@wp.sg,(Aljunied*),Aljunied,2021,62850586,My Mailbox 889011Singapore 919191
+Edward CHIA Bing Hui,edwardchiabinghui@gmail.com,(Holland-Bukit Timah*),Holland-Bukit Timah,2021,67633247,Blk 532 Jelapang Road #01-33Singapore 670532
+CHUA Kheng Wee Louis,khengwee.chua@wp.sg,(Sengkang*),Sengkang,2021,,My Mail Box 889834Singapore 919191
+Derrick GOH,derrickgohsh@gmail.com,(Nee Soon*),Nee Soon,2021,Fax: 66841840,Blk 413 Yishun Ring Road#01-887Singapore 760413
+Ms HE Ting Ru,tingru.he@wp.sg,(Sengkang*),Sengkang,2021,,My Mail Box 885626Singapore 919191
+Assoc Prof Jamus Jerome LIM,jamus.lim@wp.sg,(Sengkang*),Sengkang,2021,80300032,My Mail Box 885779Singapore 919191
+Ms MARIAM Jaafar,1mariamjaafar@gmail.com,(Sembawang*),Sembawang,2021,63698321,Blk 852 Woodlands Street 83#01-102Singapore 730852
+Ms NADIA Ahmad Samdin,nadia.ahmad.samdin@pap.org.sg,(Ang Mo Kio*),Ang Mo Kio,2021,64540951,c/o Blk 533 Ang Mo Kio Avenue 5 #01-4100Singapore 560533
+Ms NG Ling Ling,jalan.kayu.mps@pap.org.sg,(Ang Mo Kio*),Ang Mo Kio,2021,64834341,Blk 522 Serangoon North Ave 4#01-154Singapore 550522
+Miss Rachel ONG,rachelongsy5@gmail.com,(West Coast*),West Coast,2021,62786502,Blk 78-B Telok Blangah Street 32 #03-02Singapore 102078
+Ms POH Li San,pohlisan@hotmail.com,(Sembawang*),Sembawang,2021,63637978,Blk 789 Woodlands Ave 6#01-663Singapore 730789
+SHARAEL Taha,sharael_taha@prpg-grc.sg,(Pasir Ris-Punggol*),Pasir Ris-Punggol,2021,65840223,Blk 216 Pasir Ris Street 21#01-184Singapore 510216
+Ms Hany SOH,hanysohhb@gmail.com,(Marsiling-Yew Tee*),Marsiling-Yew Tee,2021,63669010,Woodgrove Community CentreBlk 353 Woodlands Avenue 1 #01-753Singapore 730353
+Ms Carrie TAN,carrietannss@gmail.com,(Nee Soon*),Nee Soon,2021,67593413,Blk 850 Yishun St 81 #01-94 Singapore 760850
+Dr WAN RIZAL,wan.rizal@gmail.com,(Jalan Besar*),Jalan Besar,2021,Fax: 62998570,Blk 64 Kallang Bahru#01-373Singapore 330064
+Don WEE,don.wee@pap.org.sg,(Chua Chu Kang*),Chua Chu Kang,2021,68910214,Blk 801 Keat Hong Close#01-01Singapore 680801
+XIE Yao Quan,xieyaoquanjurong@gmail.com,(Jurong*),Jurong,2021,Fax: 65602440,Blk 490 Jurong West Avenue 1#01-01Singapore 640490
+Ms YEO Wan Ling,yeo_wan_ling@prpg-grc.sg,(Pasir Ris-Punggol*),Pasir Ris-Punggol,2021,63438409,Blk 171C Edgedale Plains#01-428Singapore 823171
+YIP Hon Weng,yiphonweng@yck.sg,(Yio Chu Kang*),Yio Chu Kang,2021,69779393,Block 644 Ang Mo Kio Ave 4#01-850Singapore 560644
+ZHULKARNAIN Abdul Rahim,zhul.rahim@pap.org.sg,(Chua Chu Kang*),Chua Chu Kang,2021,68853702,80 Raffles PlaceUOB Plaza 1 #33-00Singapore 048624
+LEONG Mun Wai,leongmunwai@psp.org.sg,Non-Constituency Member,,2021,67671138,170 Upper Bukit Timah Road#14-04Singapore 588179
+Ms Hazel POA,hazelpoa@psp.org.sg,Non-Constituency Member,,2021,67671138,170 Upper Bukit Timah Road#14-04Singapore 588179
+Raj Joshua THOMAS,joshua.thomas@tangthomas.com,Nominated Member,,2021,,510 Thomson RoadSLF Complex #13-01ASingapore 298135
+Ms Usha CHANDRADAS,usha@pluralartmag.com,Nominated Member,,2021,,
+Keith CHUA,Keith@abr.com.sg,Nominated Member,,2021,67862866,
+Mark LEE,mark.lee@singlun.com.sg,Nominated Member,,2021,,
+ONG Hua Han,huahanong@gmail.com,Nominated Member,,2021,,
+Neil PAREKH Nimil Rajnikant,nparekh2020@gmail.com,Nominated Member,,2021,,
+Assoc Prof RAZWANA BEGUM Abdul Rahim,razwana@suss.edu.sg,Nominated Member,,2021,,
+Assoc Prof RAZWANA BEGUM Abdul Rahim, razwanabegum@gmail.com,Nominated Member,,2021,,
+Ms SEE Jinli Jean,jean_see@ntuc.org.sg,Nominated Member,,2021,,"NTUC Freelancers and Self-employed unitNTUC Centre, 1 Marina Boulevard #10-01Singapore 018989"
+Dr SYED HARUN Alhabsyi,syedharun@thestarfishclinic.sg,Nominated Member,,2021,63224280,18 Jalan MasjidKembangan Plaza #02-09Singapore 418944
