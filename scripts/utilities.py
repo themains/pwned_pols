@@ -48,6 +48,49 @@ from matplotlib.pyplot import Axes
 from PIL import Image
 from tableone import TableOne
 
+def extract_emails(text: Optional[str]) -> List[str]:
+    """
+    Extract all email addresses from a text string.
+    
+    Args:
+        text: String that may contain email addresses
+        
+    Returns:
+        List of extracted email addresses
+    """
+    if pd.isna(text):
+        return []
+        
+    # Regular expression for matching email addresses
+    email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+    
+    # Find all matches
+    emails = re.findall(email_pattern, text)
+    
+    # Remove duplicates while preserving order
+    seen = set()
+    unique_emails = [x for x in emails if not (x in seen or seen.add(x))]
+    
+    return unique_emails
+
+def clean_contact_column(df: pd.DataFrame, contact_col: str = 'contact') -> pd.DataFrame:
+    """
+    Clean contact column and create long format DataFrame with one email per row.
+    
+    Args:
+        df: Input DataFrame
+        contact_col: Name of the column containing contact information
+        
+    Returns:
+        DataFrame in long format with one email per row
+    """
+    # Extract emails into lists
+    df['email'] = df[contact_col].apply(extract_emails)
+    
+    # Explode the emails column to create one row per email
+    df_long = df.explode('email').reset_index(drop=True)
+    
+    return df_long
 
 def save_mpl_fig(
     savepath: str, formats: Optional[Iterable[str]] = None, dpi: Optional[int] = None
