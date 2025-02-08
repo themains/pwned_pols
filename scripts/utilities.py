@@ -13,7 +13,7 @@
 * read_jsongz (I/O)
 * read_jsongzs (I/O)
 * get_datestr_list
-* normalize_str
+* normalize_strc
 * unix2datetime
 * read_yaml (I/O)
 * save_dict_to_yaml (I/O)
@@ -80,6 +80,32 @@ def clean_contact_column(
 
     return df_long
 
+def clean_email_column_no_dedupe(df, column_name="email"):
+    """
+    Cleans the specified email column in a DataFrame by:
+    1. Stripping whitespace, converting to lowercase, and removing commas.
+    2. Dropping rows where the email contains only a single letter or symbol.
+    3. Dropping rows where the email is NaN.
+    4. Valid email
+
+    Args:
+        df (pd.DataFrame): The DataFrame to clean.
+        column_name (str): The column to process (default: "email").
+
+    Returns:
+        pd.DataFrame: Cleaned DataFrame (modification done safely).
+    """
+    if column_name in df.columns:
+        df = df.copy()
+        df[column_name] = df[column_name].str.strip().str.lower().str.replace(",", "", regex=True).str.replace(" ", "")
+        df = df[~df[column_name].str.match(r"^[A-Za-z,_-]$", na=False)]
+        df = df.dropna(subset=[column_name])
+        
+        email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+
+        df = df[df[column_name].str.match(email_regex, na=False)]
+
+    return df
 
 def save_mpl_fig(
     savepath: str, formats: Optional[Iterable[str]] = None, dpi: Optional[int] = None
