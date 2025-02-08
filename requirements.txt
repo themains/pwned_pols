@@ -6,3 +6,4 @@ tqdm
 pycountry
 fastparquet
 pyarrow
+email-validator

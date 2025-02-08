@@ -23,74 +23,63 @@
 * format_tiny_pval_expoential
 """
 
-import gzip
-import io
 import json
 import os
 import re
-from datetime import datetime, timedelta
-from typing import Any, Dict, Iterable, List, Optional, Union
+from typing import Any, Iterable, List, Optional
 
-try:
-    import cairosvg
-except ModuleNotFoundError:
-    pass
 import matplotlib.pyplot as plt
-try:
-    import msoffcrypto
-except ModuleNotFoundError:
-    pass
-import numpy as np
 import pandas as pd
-import pytz
-import yaml
-from matplotlib.pyplot import Axes
-from PIL import Image
-from tableone import TableOne
+from email_validator import validate_email, EmailNotValidError, caching_resolver
+
 
 def extract_emails(text: Optional[str]) -> List[str]:
     """
     Extract all email addresses from a text string.
-    
+
     Args:
         text: String that may contain email addresses
-        
+
     Returns:
         List of extracted email addresses
     """
     if pd.isna(text):
         return []
-        
+
     # Regular expression for matching email addresses
-    email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-    
+    email_pattern = r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+
     # Find all matches
     emails = re.findall(email_pattern, text)
-    
+
     # Remove duplicates while preserving order
     seen = set()
     unique_emails = [x for x in emails if not (x in seen or seen.add(x))]
-    
+
     return unique_emails
 
-def clean_contact_column(df: pd.DataFrame, contact_col: str = 'contact') -> pd.DataFrame:
+
+def clean_contact_column(
+    df: pd.DataFrame, contact_col: str = "contact"
+) -> pd.DataFrame:
     """
     Clean contact column and create long format DataFrame with one email per row.
-    
+
     Args:
         df: Input DataFrame
         contact_col: Name of the column containing contact information
-        
+
     Returns:
         DataFrame in long format with one email per row
     """
     # Extract emails into lists
-    df['email'] = df[contact_col].apply(extract_emails)
-    
+    df["email"] = df[contact_col].apply(extract_emails)
+
     # Explode the emails column to create one row per email
-    df_long = df.explode('email').reset_index(drop=True)
-    
+    df_long = df.explode("email").reset_index(drop=True)
+
     return df_long
+
 
 def save_mpl_fig(
     savepath: str, formats: Optional[Iterable[str]] = None, dpi: Optional[int] = None
@@ -173,56 +162,10 @@ def pandas_to_tex(
     return None
 
 
-def read_jsons(directory: str, extension: str = ".json") -> list:
-    """
-    Read multiple JSON files from a directory and return their contents as a list.
-
-    Parameters
-    ----------
-    directory : str
-        The path to the directory containing the JSON files.
-
-    Returns
-    -------
-    List[dict]
-        A list containing the contents of the JSON files.
-
-    Raises
-    ------
-    FileNotFoundError
-        If the specified directory does not exist.
-    NotADirectoryError
-        If the specified path is not a directory.
-    json.JSONDecodeError
-        If any of the JSON files are malformed.
-
-    Example
-    -------
-    >>> import os
-    >>> import json
-    >>> # Create a temporary directory and JSON file for testing
-    >>> temp_dir = "temp_directory"
-    >>> os.mkdir(temp_dir)
-    >>> json_data = {"name": "John", "age": 30}, {"name": "Alice", "age": 25}
-    >>> json_file = os.path.join(temp_dir, "example.json")
-    >>> with open(json_file, "w") as f:
-    ...     json.dump(json_data, f)
-    >>> # Call the function to read the JSON files
-    >>> read_jsons(temp_dir)
-    [[{'name': 'John', 'age': 30}, {'name': 'Alice', 'age': 25}]]
-    >>> # Clean up the temporary directory and file
-    >>> os.remove(json_file)
-    >>> os.rmdir(temp_dir)
-    """
-    data_list = []
-    for filename in os.listdir(directory):
-        file_path = os.path.join(directory, filename)
-        if os.path.isfile(file_path) and filename.endswith(extension):
-            data_list.append(read_json(file_path))
-    return data_list
+resolver = caching_resolver(timeout=10)
 
 
-def clean_email_column_no_dedupe(df, column_name="email"):
+def clean_dedupe_email_column(df, column_name="email"):
     """
     Cleans the specified email column in a DataFrame by:
     1. Stripping whitespace, converting to lowercase, and removing commas.
@@ -238,17 +181,39 @@ def clean_email_column_no_dedupe(df, column_name="email"):
     Returns:
         pd.DataFrame: Cleaned DataFrame (modification done safely).
     """
-    if column_name in df.columns:
-        df = df.copy()
-        df[column_name] = df[column_name].str.strip().str.lower().str.replace(",", "", regex=True).str.replace(" ", "")
-        df = df[~df[column_name].str.match(r"^[A-Za-z,_-]$", na=False)]
-        df = df.dropna(subset=[column_name])
-        
-        email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    df = df.copy()
+    # Basic preprocessing
+    df[column_name] = (
+        df[column_name]
+        .str.strip()
+        .str.lower()
+        .str.replace(",", "", regex=True)
+        .str.replace(" ", "")
+    )
+    df = df[~df[column_name].str.match(r"^[A-Za-z,_-]$", na=False)]
+    df = df.dropna(subset=[column_name])
 
-        df = df[df[column_name].str.match(email_regex, na=False)]
-        
-        df = df.drop_duplicates(subset=["email"], keep="first", ignore_index=True)
+    email_regex = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+
+    df = df[df[column_name].str.match(email_regex, na=False)]
+
+    # Validate w/ PEV
+    def validate_and_normalize(email):
+        try:
+            email_info = validate_email(
+                email, check_deliverability=True, dns_resolver=resolver
+            )
+            return email_info.normalized.lower(), True
+        except EmailNotValidError:
+            return email, False
+
+    df[["mail", "valid_email"]] = df[column_name].apply(
+        lambda x: pd.Series(validate_and_normalize(x))
+    )
+
+    df = df.query("valid_email==True")
+
+    df = df.drop_duplicates(subset=["email"], keep="first", ignore_index=True)
 
     return df
 
@@ -256,15 +221,15 @@ def clean_email_column_no_dedupe(df, column_name="email"):
 def process_json_files_to_matrix(json_folder):
     """
     Process JSON files and create a matrix of filenames vs names present in files.
-    
+
     Args:
         json_folder (str): Path to folder containing JSON files
-        
+
     Returns:
         pd.DataFrame: Matrix with filenames as rows and all unique names as columns.
                      Values are boolean indicating if name is present in file.
     """
-    
+
     all_names = set()
     file_list = [f for f in os.listdir(json_folder) if f.endswith(".json")]
 
@@ -273,17 +238,21 @@ def process_json_files_to_matrix(json_folder):
         with open(file_path, "r") as file:
             try:
                 data = json.load(file)
-                
+
                 if isinstance(data, dict):
                     data = [data]
                 elif not isinstance(data, list):
                     data = []
-                
+
                 # Extract names
-                all_names.update(entry["Name"] for entry in data if isinstance(entry, dict) and "Name" in entry)
+                all_names.update(
+                    entry["Name"]
+                    for entry in data
+                    if isinstance(entry, dict) and "Name" in entry
+                )
             except (json.JSONDecodeError, TypeError):
                 pass
-    
+
     all_names = sorted(all_names)
 
     df = pd.DataFrame(columns=["Filename"] + all_names)
@@ -293,19 +262,65 @@ def process_json_files_to_matrix(json_folder):
         with open(file_path, "r") as file:
             try:
                 data = json.load(file)
-                
+
                 # Ensure data is a list
                 if isinstance(data, dict):
                     data = [data]
                 elif not isinstance(data, list):
                     data = []
 
-                present_names = {entry["Name"] for entry in data if isinstance(entry, dict) and "Name" in entry}
+                present_names = {
+                    entry["Name"]
+                    for entry in data
+                    if isinstance(entry, dict) and "Name" in entry
+                }
             except (json.JSONDecodeError, TypeError):
                 present_names = set()
-        
+
         row = {"Filename": filename.replace(".json", "")}
         row.update({name: name in present_names for name in all_names})
         df = pd.concat([df, pd.DataFrame([row])], ignore_index=True)
 
-    return df    
+    return df
+
+
+LIST_SERIOUS_DATACLASSES = [
+    "Audio recordings",
+    "Auth tokens",
+    "Bank account numbers",
+    "Biometric data",
+    "Browsing histories",
+    "Chat logs",
+    "Credit card CVV",
+    "Credit cards",
+    "Credit status information",
+    "Drinking habits",
+    "Driver's licenses",
+    "Drug habits",
+    "Email messages",
+    "Encrypted keys",
+    "Government issued IDs",
+    "Health insurance information",
+    "Historical passwords",
+    "HIV statuses",
+    "Login histories",
+    "MAC addresses",
+    "Mothers maiden names",
+    "Nationalities",
+    "Partial credit card data",
+    "Partial dates of birth",
+    "Passport numbers",
+    "Password hints",
+    "Passwords",
+    "Personal health data",
+    "Photos",
+    "PINs",
+    "Places of birth",
+    "Private messages",
+    "Security questions and answers",
+    "Sexual fetishes",
+    "Sexual orientations",
+    "SMS messages",
+    "Social security numbers",
+    "Taxation records",
+]
