@@ -1,0 +1,78 @@
+name,state,district,party,id,phone,email,parliament_address,parliament_number,address,social_media
+Sen. BINOS YAROE,Adamawa,Adamawa South,PDP,87,08034050460,bdyaroe@gmail.com,,,"makwada street, opposite makwada square, numan, adamawa state",{'Unknown': '#'}
+Sen. EZENWA ONYEWUCHI,Imo,Imo East,LP,94,08032012132,ezeonyewuchi@gmail.com,,,plot c13 opposite chief emmanuel iwuanyanwu glass house amawire orji imo state,{'Unknown': '#'}
+Sen. ORJI KALU,Abia,Abia-North,APC,97,08034000001,OKALU@ORJIKALU.COM,,,"onu ibina square, igbere, bende lga, abia state",{'Unknown': '#'}
+Sen. JIBRIN ISAH,Kogi,Kogi East,APC,101,08185651909,isahj@ymail.com,,,old egume road ayangba kogi state,{'Unknown': '#'}
+Sen. MICHAEL BAMIDELE,Ekiti,Ekiti Central,APC,158,23480911112,amicusng@gmail.com,,,"ikere road, ado ekiti, ekiti state.",{'Unknown': '#'}
+Sen. Mohammed Musa,Niger,Niger East,APC,185,08033114615,Sani-313@hotmail.com,,,"white house, muazu mohammed street, opposite old state secretariat minna, niger state",{'Unknown': '#'}
+Sen. ASHIRU YISA,Kwara,Kwara South,APC,202,07055221111,ylashiru@gmail.com,,,"km 3 beside mrs petrol filling station, ilorin- ajase road, ajase-ipo.kwara state.",{'Unknown': '#'}
+Sen. Barinada Mpigi,Rivers,Rivers South East,PDP,255,08037419000,mpigib@yahoo.com,,,"no. 1 ntorlanwa close koroma tai, rivers state",{'Unknown': '#'}
+Sen. Ishaku Abbo,Adamawa,Adamawa North,APC,303,08066285112,Faradugun@gmail.com,,,senator ishaku abbo (sia) senatorial office mubi north adamawa state,{'Unknown': '#'}
+Sen. Enyinnaya Abaribe,Abia,Abia-South,APGA,318,08033129400,enyiabaribey@yahoo.com,Currently updating...,,147 market road aba.,{'Unknown': '#'}
+Sen. Buhari Omotayo,Oyo,Oyo North,APC,337,08037053375,rabab1004@yahoo.com,,,"ibapon compound,ogbomoso,oyo state.",{'Unknown': '#'}
+Sen. Abba Moro,Benue,Benue South,PDP,356,08068870606,abahmoro@yahoo.com,,,"opposite dolphin hotel, g.r.a otukpo, benue state",{'Unknown': '#'}
+Sen. Abdulaziz Yari,Zamfara,Zamfara West,APC,358,08033412454,yariabdulazeez@gmail.com,,,talata mafara,{'Unknown': '#'}
+Sen. Ifeanyi Ubah,Anambra,Anambra South,YPP,380,09096655596,senatorifeanyiubah@gmail.com,,,"no. 10 oguda close, off lake chad, maitama, abuja",{'Unknown': '#'}
+Sen. Francis Fadahunsi,Osun,Osun East,PDP,393,08052242211,adefadahunsi19@gmail.com,,,"oke-omiru along oshogbo road,osun state",{'Unknown': '#'}
+Sen. GODIYA AKWASHIKI,Nassarawa,Nasarawa North,SDP,394,08099321703,godiyaakwashiki123@gmail.com,,,"ismail abbas petroleum company, keffi -abuja road, akwanga",{'Unknown': '#'}
+Sen. ALIYU WAMAKKO,Sokoto,Sokoto North,APC,404,07033181818,amwamakko@yahoo.com,,,no 1 sahabi dange road sokoto,{'Unknown': '#'}
+Sen. DANJUMA MOHAMMED,Gombe,Gombe Central,APC,408,07068686699,mdgoje1@gmail.com,,,"township road, kumo, akko lga, gombe state...",{'Unknown': '#'}
+Sen. MOHAMMAD MAINASARA ALIERO,Kebbi,Kebbi Central,PDP,411,07066847000,senatoraliero@yahoo.com,,,no 14 ibrahim badamasi road b/kebbi,{'Unknown': '#'}
+Sen. Mohammed Ndume,Borno,Borno South,APC,412,08109480004,mohammed.ndume@nass.gov.ng,,,"off gombe road, adjacent to excellenct academy, mustapha aliyu stadium road, biu.",{'Unknown': '#'}
+Sen. Ahmad Lawan,Yobe,Yobe North,APC,424,07055090323,,,,"no 12 gashua road, gashua, yobe statesocial profile:twitter.com/drahmadlawanfacebook.com/drahmadlawan1",{'Unknown': '#'}
+Sen. Ibrahim Jibrin,Kano,Kano-North,APC,433,,ibrahim.jibrin@nass.gov.ng,,,,{'Unknown': '#'}
+Sen. Ibrahim Bomai,Yobe,Yobe South,APC,434,,ibrahim.bomami@nass.gov.ng,,,,{'Unknown': '#'}
+Sen. Mustapha Musa,Yobe,Yobe East,APC,437,08027507032,musamustapha95@gmail.com,"Opposite Ecobank, Abba Ibrahim Way, Damaturu, Yobe State",08065912697,"opposite ecobank, abba ibrahim way, damaturu, yobe state",{'Unknown': '#'}
+Sen. JARIGBE JARIGBE,Cross River,Cross River North,PDP,451,,,,,,{'Unknown': '#'}
+Sen. Yahaya Abdullahi,Kebbi,Kebbi North,PDP,452,,yahaya.abdullahi@nass.gov.ng,,,,{'Unknown': '#'}
+Sen. Sadiq Umar,Kwara,Kwara North,APC,454,,sadiq.umar@nass.gov.ng,,,,{'Unknown': '#'}
+Sen. Shuaibu Lau,Taraba,Taraba North,PDP,456,,shuaibu.lau@nass.gov.ng,,,,{'Unknown': '#'}
+Sen. Adetokunbo Mukhail,Lagos,Lagos-East,APC,492,,admin@nass.gov.ng,,,,{'Unknown': '#'}
+Sen. SERIAKE DICKSON,Bayelsa,Bayelsa West,PDP,493,08056085520,dickson.seriake01@gmail.com,"Suite 3.09 Senate New Building,National Assembly Complex, Abuja, Nigeria",,"sagbama town, bayelsa state",{'Unknown': '#'}
+Sen. YAU ALHAJI,Zamfara,Zamfara North,APC,505,{{mp_number}},,,,{{mp_address}},{'Unknown': '#'}
+Sen. Godswill Akpabio,Akwa Ibom,Akwa Ibom North-West,APC,513,-,-,-,-,-,{'Unknown': '#'}
+Sen. Kelvin Chukwu,Enugu,Enugu East,LP,518,{{mp_number}},kelvinchukwu22ng@gmail.com,,,{{mp_address}},{'Unknown': '#'}
+Sen. PAM DACHUNGYANG,Plateau,Plateau North,ADP,519,08031184804,pamdmdachungyang@yahoo.com,,,,{'Unknown': '#'}
+Sen. Okechukwu Ezea,Enugu,Enugu North,LP,520,{{mp_number}},okeyezea7@gmail.com,,,{{mp_address}},{'Unknown': '#'}
+Sen. Ibrahim Jimoh,Ondo,Ondo South,APC,521,{{mp_number}},ifizi@cantab.ac.uk,,,{{mp_address}},{'Unknown': '#'}
+Sen. AUGUSTINE AKOBUNDU,Abia,Abia-Central,PDP,523,08033169941,aoakobundu@senatenass.gov.ng,"0.03SENATE NEW BUILDING,NATIONAL ASSEMBLY ABUJA.",08068078575,"no 7a factory road, umuahia,abia state",{'Unknown': '#'}
+Sen. MOHAMMED MONGUNO,Borno,Borno North,APC,528,{{mp_number}},mtmonguno@gmail.com,,,{{mp_address}},{'Unknown': '#'}
+Sen. BABANGIDA HUSSAINI,Jigawa,North West,APC,533,{{mp_number}},babangidahussaini22@gmail.com,,,{{mp_address}},{'Unknown': '#'}
+Sen. Aminu Abbas,Adamawa,Adamawa Central,PDP,544,,iyaabbas@gmail.com,,,,{'Unknown': '#'}
+Sen. Williams Jonah,Cross River,Cross River Central,APC,557,{{mp_number}},eteng_j@yahoo.com,,,{{mp_address}},{'Unknown': '#'}
+Sen. Wasiu Eshilokun,Lagos,Lagos-Central,APC,559,,lagosmayor@yahoo.com,,,,{'Unknown': '#'}
+Sen. Justus Daniel,Ogun,Ogun East,APC,560,{{mp_number}},JUSTUS.DANIEL@krestalaurel.com,,,{{mp_address}},{'Unknown': '#'}
+Sen. Sunday Karimi,Kogi,Kogi West,APC,561,{{mp_number}},karimisunday@yahoo.com,,,{{mp_address}},{'Unknown': '#'}
+Sen. NASIRU SANI ZANGON DAURA,Katsina,Katsina North,APC,566,,nazdaura@yahoo.com,,,,{'Unknown': '#'}
+Sen. Abdul Ningi,Bauchi,Bauchi Central,PDP,567,{{mp_number}},abdulahmed.ningi@outlook.com,,,{{mp_address}},{'Unknown': '#'}
+Sen. SUNDAY KATUNG,Kaduna,Kaduna South,PDP,576,,SUNNYSIDE1914@GMAIL.COM,,,,{'Unknown': '#'}
+Sen. BENSON AGADAGA,Bayelsa,Bayelsa East,PDP,577,,bensonagadaga@gmail.com,,,,{'Unknown': '#'}
+Sen. ONAWO OGOSHI,Nassarawa,Nasarawa South,PDP,579,,onawom@yahoo.com,,,,{'Unknown': '#'}
+Sen. Kaka Lawan,Borno,Borno Central,APC,587,,kakashehulawan@gmail.com,,,,{'Unknown': '#'}
+Sen. Sani Bello,Niger,Niger North,APC,590,,abusani1@gmail.com,,,,{'Unknown': '#'}
+Sen. Bassey Etim,Akwa Ibom,Akwa Ibom North-East,PDP,591,,anigembassey@gmail.com,,,,{'Unknown': '#'}
+Sen. Ned  Nwoko,Delta,Delta North,PDP,600,08037227010,princenednwoko@yahoo.com,"Suit
+2.19, New Senate Building, Three Arms Zone, Abuja, FCT",08037227010,"mount ned, idumuje ugboko, aniocha north, lga, delta state",{'Unknown': '#'}
+Sen. VICTOR UMEH,Anambra,Anambra Central,LP,603,,VICTORIMEH1962@YAHOO.COM,,,,{'Unknown': '#'}
+Sen. ANTHONY YARO,Gombe,Gombe South,PDP,605,,anthonyyaro1@gmail.com,,,,{'Unknown': '#'}
+Sen. IPINSAGBA OLAJIDE,Ondo,Ondo North,APC,623,,NEATEX@YAHOO.COM,,,,{'Unknown': '#'}
+Sen. Akpoti-Uduaghan Natasha,Kogi,Kogi Central,PDP,624,08033112104,nakpoti@hotmail.com,,08033112104,"opp. central mosque, okene, kogi state",{'Unknown': '#'}
+Sen. DAVID JIMKUTA,Taraba,Taraba South,APC,632,,davidjimkuta@gmail.com,,,,{'Unknown': '#'}
+Sen. IRETI KINGIBE,Federal Capital Territory,FCT,LP,636,,ikingibe@gmail.com,,,,{'Unknown': '#'}
+Sen. PETER JIYA,Niger,Niger South,PDP,637,,JIYAPN@GMAIL.COM,,,,{'Unknown': '#'}
+Sen. MALLAM-MADORI ABDULHAMID,Jigawa,North East,APC,639,,aannadori@gmail.com,,,,{'Unknown': '#'}
+Sen. SAMAILA KAILA,Bauchi,Bauchi North,PDP,651,,samailadk@gmail.com,,,,{'Unknown': '#'}
+Sen. UMAR BUBA,Bauchi,Bauchi South,APC,652,,shehububa2015@yahoo.com,,,,{'Unknown': '#'}
+Sen. IKRA  BILBIS,Zamfara,Zamfara Central,APC,662,,ikrabilbis999@gmail.com,,,,{'Unknown': '#'}
+Sen. LAWAL USMAN,Kaduna,Kaduna Central,PDP,663,,mrla300@gmail.com,,,,{'Unknown': '#'}
+Sen. ADEOLA OLAMILEKAN,Ogun,Ogun West,APC,667,,adeolaolamilekan2005@gmail.com,,,,{'Unknown': '#'}
+Sen. OLALERE OYEWUMI,Osun,Osun West,PDP,668,,ireoyewumi@gmail.com,,,,{'Unknown': '#'}
+Sen. AFOLABI SALISU,Ogun,Ogun Central,APC,670,,sasworld@yahoo.com,,,,{'Unknown': '#'}
+Sen. ADENIYI ADEGBONMIRE,Ondo,Ondo Central,APC,672,,niyiadegbonmire@hotmail.com,,,,{'Unknown': '#'}
+Sen. OLUWOLE OLUBIYI,Osun,Osun Central,PDP,673,,faneconsulting@gmail.com,,,,{'Unknown': '#'}
+Sen. IBRAHIM DANKWAMBO,Gombe,Gombe North,PDP,679,,dankwanbo@yahoo.com,,,,{'Unknown': '#'}
+Sen. ALLWELL ONYESOH,Rivers,Rivers East,PDP,690,09022737266,Allwell.heacho.onyesoh@gmail.com,"Suite
+1.17,Senate New Building,National
+AssemblyComplex, Three Arms Zone, Abuja.",08132702338,"2,
+idiagbon close, new gra, portharcourt",{'Unknown': '#'}
+Sen. MANU HARUNA,Taraba,Taraba Central,PDP,694,08066786179,hmanu97@gmail.com,,,,{'Unknown': '#'}
