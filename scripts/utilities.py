@@ -95,15 +95,17 @@ def clean_email_column_no_dedupe(df, column_name="email"):
     Returns:
         pd.DataFrame: Cleaned DataFrame (modification done safely).
     """
-    if column_name in df.columns:
-        df = df.copy()
-        df[column_name] = df[column_name].str.strip().str.lower().str.replace(",", "", regex=True).str.replace(" ", "")
-        df = df[~df[column_name].str.match(r"^[A-Za-z,_-]$", na=False)]
-        df = df.dropna(subset=[column_name])
-        
-        email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    df = df.copy()
+    df[column_name] = df[column_name].str.strip().str.lower().str.replace(",", "", regex=True).str.replace(" ", "")
+    df = df[~df[column_name].str.match(r"^[A-Za-z,_-]$", na=False)]
+    df = df.dropna(subset=[column_name])
 
-        df = df[df[column_name].str.match(email_regex, na=False)]
+    # Fix e.g. "karanam@sansad.nic."
+    df[column_name] = df[column_name].str.rstrip(".")
+    
+    email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+
+    df = df[df[column_name].str.match(email_regex, na=False)]
 
     return df
 
@@ -227,7 +229,7 @@ def clean_dedupe_email_column(df, column_name="email"):
     def validate_and_normalize(email):
         try:
             email_info = validate_email(
-                email, check_deliverability=True, dns_resolver=resolver
+                email, check_deliverability=True,
             )
             return email_info.normalized.lower(), True
         except EmailNotValidError:
@@ -237,6 +239,7 @@ def clean_dedupe_email_column(df, column_name="email"):
         lambda x: pd.Series(validate_and_normalize(x))
     )
 
+    print(df.query("valid_email==True")["email"].unique().tolist())
     df = df.query("valid_email==True")
 
     df = df.drop_duplicates(subset=["email"], keep="first", ignore_index=True)
@@ -306,6 +309,57 @@ def process_json_files_to_matrix(json_folder):
         row = {"Filename": filename.replace(".json", "")}
         row.update({name: name in present_names for name in all_names})
         df = pd.concat([df, pd.DataFrame([row])], ignore_index=True)
+
+    return df
+
+
+def normalize_email(email):
+    """Normalize the email string before extracting the domain."""
+    try:
+        normalized = validate_email(email, check_deliverability=False)
+        return normalized.normalized.lower()  # Return the normalized email string
+    except EmailNotValidError:
+        print(f"Invalid: {email}")
+        return email
+
+
+def classify_comm_gov_email(df, email_col="email"):
+    """
+    Extracts the domain from an email column and classifies it as 'Commercial' or 'Official'.
+    
+    Classification rules:
+    1. Extracts the domain from the email address.
+    2. If the domain contains official markers, it is classified as 'Official'.
+    3. If the domain contains commercial markers and does NOT contain an official marker,
+       it is classified as 'Commercial'.
+    4. If no clear classification is found, it defaults to 'Official'.
+    
+    Args:
+        df (pd.DataFrame): The input DataFrame containing an email column.
+        email_col (str, optional): The name of the email column. Defaults to "email".
+    
+    Returns:
+        pd.DataFrame: A copy of the original DataFrame with two new columns:
+                      - 'domain': Extracted domain from the email.
+                      - 'category': Classified as either 'Commercial' or 'Official'.
+    """
+    df = df.copy()
+    
+    df['domain'] = df[email_col].str.split('@').str[1]
+    
+    commercial_pattern = re.compile(r'\b(\.com|\.net|\.co|\.biz|\.info)\b', re.IGNORECASE)
+    official_pattern = re.compile(r'\b(\.gov|\.edu|\.org|\.ac|parliament|parl|assembly|senate|house)\b', re.IGNORECASE)
+    
+    def _classify(domain):
+        if pd.notna(domain):
+            if official_pattern.search(domain):
+                return 'Official'
+            elif commercial_pattern.search(domain):
+                return 'Commercial'
+        # Default to official if uncertain
+        return 'Official'
+
+    df['ecategory'] = df['domain'].apply(_classify)
 
     return df
 
