@@ -399,14 +399,13 @@ def get_commercial_patterns() -> List[str]:
 
 def classify_comm_gov_email(df: pd.DataFrame, email_col: str = "email") -> pd.DataFrame:
     """
-    Conservative classification of email domains.
+    Prioritized classification of email domains.
     
     Classification rules:
-    1. If matches commercial pattern only -> Commercial
-    2. If matches government pattern only -> Official
-    3. If matches both or neither -> NA
+    1. If matches government pattern -> Official
+    2. If matches commercial pattern and not government -> Commercial
+    3. Everything else -> NA
     """
-    # Make a copy of input DataFrame
     df = df.copy()
     
     # Extract domains from emails
@@ -416,16 +415,16 @@ def classify_comm_gov_email(df: pd.DataFrame, email_col: str = "email") -> pd.Da
     gov_pattern = re.compile('|'.join(get_gov_patterns()), re.IGNORECASE)
     commercial_pattern = re.compile('|'.join(get_commercial_patterns()), re.IGNORECASE)
     
-    # Create mask for matching patterns
+    # Create masks for pattern matching
     gov_mask = df['domain'].notna() & df['domain'].str.contains(gov_pattern, regex=True)
     commercial_mask = df['domain'].notna() & df['domain'].str.contains(commercial_pattern, regex=True)
     
     # Initialize category column as NA
     df['ecategory'] = pd.NA
     
-    # Assign categories based on pattern matches
+    # Apply classification rules in priority order
+    df.loc[gov_mask, 'ecategory'] = 'Official'
     df.loc[commercial_mask & ~gov_mask, 'ecategory'] = 'Commercial'
-    df.loc[gov_mask & ~commercial_mask, 'ecategory'] = 'Official'
     
     return df
 
