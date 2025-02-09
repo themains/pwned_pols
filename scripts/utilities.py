@@ -102,12 +102,95 @@ def clean_email_column_no_dedupe(df, column_name="email"):
 
     # Fix e.g. "karanam@sansad.nic."
     df[column_name] = df[column_name].str.rstrip(".")
+    # Fix e.g., 1.aron.praveen@gmail.com here but aron.praveen@gmail.com in scraped_pol_hibp.csv
+    df[column_name] = df[column_name].str.lstrip("1.")
+    df[column_name] = df[column_name].str.lstrip("2.")
     
     email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
 
     df = df[df[column_name].str.match(email_regex, na=False)]
 
     return df
+
+
+resolver = caching_resolver(timeout=10)
+
+
+def clean_dedupe_email_column(df, column_name="email", dedup=True):
+    """
+    Cleans the specified email column in a DataFrame by:
+    1. Stripping whitespace, converting to lowercase, and removing commas.
+    2. Dropping rows where the email contains only a single letter or symbol.
+    3. Dropping rows where the email is NaN.
+    4. Valid email
+    5. Dedupe (keeping first)
+
+    Args:
+        df (pd.DataFrame): The DataFrame to clean.
+        column_name (str): The column to process (default: "email").
+
+    Returns:
+        pd.DataFrame: Cleaned DataFrame (modification done safely).
+    """
+    df = df.copy()
+    # ==============================================
+    # Basic preprocessing
+    # ==============================================
+    df[column_name] = (
+        df[column_name]
+        .str.strip()
+        .str.lower()
+        .str.replace(",", "", regex=True)
+        .str.replace(" ", "")
+    )
+    df = df[~df[column_name].str.match(r"^[A-Za-z,_-]$", na=False)]
+    df = df.dropna(subset=[column_name])
+
+    # Fix e.g. "karanam@sansad.nic."
+    df[column_name] = df[column_name].str.rstrip(".")
+    # Fix e.g., 1.aron.praveen@gmail.com here but aron.praveen@gmail.com in scraped_pol_hibp.csv
+    df[column_name] = df[column_name].str.lstrip("1.")
+    df[column_name] = df[column_name].str.lstrip("2.")
+
+    email_regex = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+
+    df = df[df[column_name].str.match(email_regex, na=False)]
+
+    # ==============================================
+    # Validate w/ PEV
+    # ==============================================
+    def validate_and_normalize(email):
+        try:
+            email_info = validate_email(
+                email, check_deliverability=False,
+            )
+            return email_info.normalized.lower(), True
+        except EmailNotValidError:
+            return email, False
+
+    df[["email", "valid_email"]] = df[column_name].apply(
+        lambda x: pd.Series(validate_and_normalize(x))
+    )
+    
+    df = df.query("valid_email==True")
+
+    # ==============================================
+    # Validate email domain existence and MX
+    # ==============================================
+    df["domain"] = df["email"].str.split("@").str[-1]
+
+    df_edomain_validation = pd.read_csv("../data/edomain_validation.csv", usecols=["domain", "valid_email_domain"])
+    df = df.merge(df_edomain_validation, on="domain", how="left", validate="m:1")
+    
+    df = df.query("valid_email_domain==True")
+    
+    # ==============================================
+    df = df.drop(labels=["valid_email", "valid_email_domain"], axis=1)
+    if dedup:
+        df = df.drop_duplicates(subset=["email"], keep="first", ignore_index=True)
+
+    return df
+
 
 def save_mpl_fig(
     savepath: str, formats: Optional[Iterable[str]] = None, dpi: Optional[int] = None
@@ -188,63 +271,6 @@ def pandas_to_tex(
     with open(texfile, "w") as tf:
         tf.write(tex_table_fragment)
     return None
-
-
-resolver = caching_resolver(timeout=10)
-
-
-def clean_dedupe_email_column(df, column_name="email"):
-    """
-    Cleans the specified email column in a DataFrame by:
-    1. Stripping whitespace, converting to lowercase, and removing commas.
-    2. Dropping rows where the email contains only a single letter or symbol.
-    3. Dropping rows where the email is NaN.
-    4. Valid email
-    5. Dedupe (keeping first)
-
-    Args:
-        df (pd.DataFrame): The DataFrame to clean.
-        column_name (str): The column to process (default: "email").
-
-    Returns:
-        pd.DataFrame: Cleaned DataFrame (modification done safely).
-    """
-    df = df.copy()
-    # Basic preprocessing
-    df[column_name] = (
-        df[column_name]
-        .str.strip()
-        .str.lower()
-        .str.replace(",", "", regex=True)
-        .str.replace(" ", "")
-    )
-    df = df[~df[column_name].str.match(r"^[A-Za-z,_-]$", na=False)]
-    df = df.dropna(subset=[column_name])
-
-    email_regex = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-
-    df = df[df[column_name].str.match(email_regex, na=False)]
-
-    # Validate w/ PEV
-    def validate_and_normalize(email):
-        try:
-            email_info = validate_email(
-                email, check_deliverability=True,
-            )
-            return email_info.normalized.lower(), True
-        except EmailNotValidError:
-            return email, False
-
-    df[["mail", "valid_email"]] = df[column_name].apply(
-        lambda x: pd.Series(validate_and_normalize(x))
-    )
-
-    print(df.query("valid_email==True")["email"].unique().tolist())
-    df = df.query("valid_email==True")
-
-    df = df.drop_duplicates(subset=["email"], keep="first", ignore_index=True)
-
-    return df
 
 
 def process_json_files_to_matrix(json_folder):
