@@ -349,44 +349,146 @@ def normalize_email(email):
         return email
 
 
-def classify_comm_gov_email(df, email_col="email"):
+
+def get_gov_patterns() -> Dict[str, List[str]]:
+    """Get comprehensive patterns for government domains."""
+    return {
+        # Standard government patterns
+        "General": [r'\.gov\.',  r'\.gov$', r'\.gob\.', r'\.gouv\.', r'\.go\.'],
+        
+        # Regional government patterns
+        "Europe": [
+            r'\.admin\.ch$', r'\.gouv\.fr$', r'\.bund\.de$', r'\.regering\.nl$',
+            r'\.regeringen\.se$', r'\.regjeringen\.no$', r'\.fgov\.be$'
+        ],
+        
+        # Asia Pacific
+        "Asia": [
+            r'\.go\.jp$', r'\.go\.kr$', r'\.go\.id$', r'\.gov\.cn$', r'\.政务\.cn$',
+            r'\.gov\.in$', r'\.nic\.in$', r'\.gov\.sg$', r'\.go\.th$'
+        ],
+        
+        # Americas
+        "Americas": [
+            r'\.gc\.ca$', r'\.canada\.ca$', r'\.gob\.mx$', r'\.gob\.ar$',
+            r'\.gob\.cl$', r'\.gob\.pe$', r'\.gob\.ec$'
+        ],
+        
+        # Official institutions
+        "Institutions": [
+            r'parliament', r'parl', r'assembly', r'senate', r'house',
+            r'legislature', r'congress', r'cabinet', r'ministry'
+        ],
+        
+        # Education and Research
+        "Education": [
+            r'\.edu\.', r'\.edu$', r'\.ac\.', r'\.ac$',
+            r'\.edu\.gov', r'\.research\.gov'
+        ],
+        
+        # Military and Defense
+        "Military": [
+            r'\.mil$', r'\.mil\.', r'\.defense\.gov', r'\.mod\.',
+            r'\.defence\.gov'
+        ]
+    }
+
+def get_commercial_patterns() -> List[str]:
+    """Get patterns for commercial domains."""
+    return [
+        r'\.com$', r'\.com\.', 
+        r'\.net$', r'\.net\.',
+        r'\.co$', r'\.co\.',
+        r'\.biz$', r'\.biz\.',
+        r'\.info$', r'\.info\.',
+        r'\.corp', r'\.ltd', r'\.inc',
+        r'\.enterprise', r'\.business'
+    ]
+
+def classify_comm_gov_email(df: pd.DataFrame, 
+                          email_col: str = "email",
+                          default_category: str = "Official") -> pd.DataFrame:
     """
-    Extracts the domain from an email column and classifies it as 'Commercial' or 'Official'.
+    Enhanced classification of email domains as Commercial or Official.
     
     Classification rules:
-    1. Extracts the domain from the email address.
-    2. If the domain contains official markers, it is classified as 'Official'.
-    3. If the domain contains commercial markers and does NOT contain an official marker,
-       it is classified as 'Commercial'.
-    4. If no clear classification is found, it defaults to 'Official'.
+    1. Extracts domain from email address
+    2. Checks against comprehensive list of government patterns
+    3. Checks against commercial patterns
+    4. Uses contextual clues from domain name
     
     Args:
-        df (pd.DataFrame): The input DataFrame containing an email column.
-        email_col (str, optional): The name of the email column. Defaults to "email".
-    
+        df: DataFrame containing email column
+        email_col: Name of email column
+        default_category: Default category if classification is uncertain
+        
     Returns:
-        pd.DataFrame: A copy of the original DataFrame with two new columns:
-                      - 'domain': Extracted domain from the email.
-                      - 'category': Classified as either 'Commercial' or 'Official'.
+        DataFrame with added 'domain' and 'ecategory' columns
     """
     df = df.copy()
     
+    # Extract domain
     df['domain'] = df[email_col].str.split('@').str[1]
     
-    commercial_pattern = re.compile(r'\b(\.com|\.net|\.co|\.biz|\.info)\b', re.IGNORECASE)
-    official_pattern = re.compile(r'\b(\.gov|\.edu|\.org|\.ac|parliament|parl|assembly|senate|house)\b', re.IGNORECASE)
+    # Compile all government patterns
+    gov_patterns = get_gov_patterns()
+    all_gov_patterns = []
+    for patterns in gov_patterns.values():
+        all_gov_patterns.extend(patterns)
+    official_pattern = re.compile('|'.join(all_gov_patterns), re.IGNORECASE)
     
-    def _classify(domain):
-        if pd.notna(domain):
+    # Compile commercial patterns
+    commercial_pattern = re.compile('|'.join(get_commercial_patterns()), re.IGNORECASE)
+    
+    def _classify_domain(domain: str) -> str:
+        """Classify a single domain."""
+        if pd.isna(domain):
+            return default_category
+            
+        domain = domain.lower()
+        
+        # Check official patterns first
+        if official_pattern.search(domain):
+            return 'Official'
+            
+        # Then check commercial patterns
+        if commercial_pattern.search(domain):
+            return 'Commercial'
+            
+        # Additional checks for government-related keywords
+        gov_keywords = {
+            'government', 'ministry', 'minister', 'dept', 'department',
+            'agency', 'bureau', 'commission', 'authority', 'council',
+            'committee', 'secretariat', 'directorate', 'office'
+        }
+        
+        domain_parts = set(re.split(r'[.-]', domain))
+        if domain_parts & gov_keywords:  # If there's any intersection
+            return 'Official'
+            
+        return default_category
+    
+    # Apply classification
+    df['ecategory'] = df['domain'].apply(_classify_domain)
+    
+    # Add confidence level based on pattern matching
+    def _get_confidence(row):
+        if pd.isna(row['domain']):
+            return 'low'
+        domain = row['domain'].lower()
+        category = row['ecategory']
+        
+        if category == 'Official':
             if official_pattern.search(domain):
-                return 'Official'
-            elif commercial_pattern.search(domain):
-                return 'Commercial'
-        # Default to official if uncertain
-        return 'Official'
-
-    df['ecategory'] = df['domain'].apply(_classify)
-
+                return 'high'
+            return 'medium'
+        else:  # Commercial
+            if commercial_pattern.search(domain):
+                return 'high'
+            return 'medium'
+    
+    df['confidence'] = df.apply(_get_confidence, axis=1)
+    
     return df
 
 
