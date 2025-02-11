@@ -492,13 +492,15 @@ def classify_comm_gov_email(df: pd.DataFrame, email_col: str = "email") -> pd.Da
     # Create masks for pattern matching
     gov_mask = df['domain'].notna() & df['domain'].str.contains(gov_pattern, regex=True)
     commercial_mask = df['domain'].notna() & df['domain'].str.contains(commercial_pattern, regex=True)
+    df = df.drop("domain", axis=1)
 
     # Initialize category column
-    df['ecategory'] = "Other"
+    # df['ecategory'] = "Other"
+    df['ecategory'] = "Commercial"
 
     # Apply classification rules in priority order
     df.loc[gov_mask, 'ecategory'] = 'Official'
-    df.loc[commercial_mask & ~gov_mask, 'ecategory'] = 'Commercial'
+    # df.loc[commercial_mask & ~gov_mask, 'ecategory'] = 'Commercial'
 
     return df
 
