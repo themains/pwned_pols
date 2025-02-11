@@ -80,6 +80,7 @@ def clean_contact_column(
 
     return df_long
 
+
 def clean_email_column_no_dedupe(df, column_name="email"):
     """
     Cleans the specified email column in a DataFrame by:
@@ -96,7 +97,13 @@ def clean_email_column_no_dedupe(df, column_name="email"):
         pd.DataFrame: Cleaned DataFrame (modification done safely).
     """
     df = df.copy()
-    df[column_name] = df[column_name].str.strip().str.lower().str.replace(",", "", regex=True).str.replace(" ", "")
+    df[column_name] = (
+        df[column_name]
+        .str.strip()
+        .str.lower()
+        .str.replace(",", "", regex=True)
+        .str.replace(" ", "")
+    )
     df = df[~df[column_name].str.match(r"^[A-Za-z,_-]$", na=False)]
     df = df.dropna(subset=[column_name])
 
@@ -105,8 +112,8 @@ def clean_email_column_no_dedupe(df, column_name="email"):
     # Fix e.g., 1.aron.praveen@gmail.com here but aron.praveen@gmail.com in scraped_pol_hibp.csv
     df[column_name] = df[column_name].str.lstrip("1.")
     df[column_name] = df[column_name].str.lstrip("2.")
-    
-    email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+
+    email_regex = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 
     df = df[df[column_name].str.match(email_regex, na=False)]
 
@@ -162,7 +169,8 @@ def clean_dedupe_email_column(df, column_name="email", dedup=True):
     def validate_and_normalize(email):
         try:
             email_info = validate_email(
-                email, check_deliverability=False,
+                email,
+                check_deliverability=False,
             )
             return email_info.normalized.lower(), True
         except EmailNotValidError:
@@ -171,7 +179,7 @@ def clean_dedupe_email_column(df, column_name="email", dedup=True):
     df[["email", "valid_email"]] = df[column_name].apply(
         lambda x: pd.Series(validate_and_normalize(x))
     )
-    
+
     df = df.query("valid_email==True")
 
     # ==============================================
@@ -179,11 +187,13 @@ def clean_dedupe_email_column(df, column_name="email", dedup=True):
     # ==============================================
     df["domain"] = df["email"].str.split("@").str[-1]
 
-    df_edomain_validation = pd.read_csv("../data/edomain_validation.csv", usecols=["domain", "valid_email_domain"])
+    df_edomain_validation = pd.read_csv(
+        "../data/edomain_validation.csv", usecols=["domain", "valid_email_domain"]
+    )
     df = df.merge(df_edomain_validation, on="domain", how="left", validate="m:1")
-    
+
     df = df.query("valid_email_domain==True")
-    
+
     # ==============================================
     df = df.drop(labels=["valid_email", "valid_email_domain", "domain"], axis=1)
     if dedup:
@@ -357,81 +367,81 @@ def get_gov_patterns():
     gov_dict = {
         # Core government domain patterns
         "Core Patterns": [
-            r"\.gov$",    # English pattern
-            r"\.gob$",    # Spanish pattern
-            r"\.gouv$",   # French pattern
-            r"\.go\.",    # East Asian pattern
-            r"\.gc\.",    # Canada
-            r"\.fed\.",   # Federal (e.g., fed.us)
-            r"\.mil$",    # Military
+            r"\.gov$",  # English pattern
+            r"\.gob$",  # Spanish pattern
+            r"\.gouv$",  # French pattern
+            r"\.go\.",  # East Asian pattern
+            r"\.gc\.",  # Canada
+            r"\.fed\.",  # Federal (e.g., fed.us)
+            r"\.mil$",  # Military
             r"\.admin$",  # Administrative (e.g., admin.ch)
-            r"\.bund$",   # German federal
-            r"\.fgov$",   # Belgian federal
-            r"\.regering$",    # Netherlands government
+            r"\.bund$",  # German federal
+            r"\.fgov$",  # Belgian federal
+            r"\.regering$",  # Netherlands government
             r"\.regeringen$",  # Swedish government
-            r"\.regjeringen$", # Norwegian government
-            r"ft\.dk$",        # Danish Parliament (Folketinget)
-            r"senato\.it$",    # Italian Senate
-            r"stortinget\.no$", # Norwegian Parliament            
-#             r"pap.org.sg$",  # Singapore government
+            r"\.regjeringen$",  # Norwegian government
+            r"ft\.dk$",  # Danish Parliament (Folketinget)
+            r"senato\.it$",  # Italian Senate
+            r"stortinget\.no$",  # Norwegian Parliament
+            #             r"pap.org.sg$",  # Singapore government
             r"prpg-grc\.sg$",  # Singapore government
             r"wp\.sg$",  # Singapore
-            r"\.nic\.",   # India (sansad.nic.in, etc.)
-            r"nic\.in$",   # India (sansad.nic.in, etc.)
-            r"nrsr\.sk$", # Slovakia
-            r"tweedekamer\.nl$", # Netherlands
-            r"cdep\.ro$", # Romania
-            r"eduskunta\.fi$", # Finland
-            r"assnat\.cm$", # Cameroon
-            r"riigikogu\.ee$", # Estonia
-            r"sobranie\.mk$", # Macedonia
-            r"dekamer\.be$", # Belgium
-            r"chd\.lu$", # Luxembourg
-            r"lachambre\.be$", # Belgoum
-            r"dna\.sr$", # Suriname
-            r"inatsisartut\.gl$", # Greenland
+            r"\.nic\.",  # India (sansad.nic.in, etc.)
+            r"nic\.in$",  # India (sansad.nic.in, etc.)
+            r"nrsr\.sk$",  # Slovakia
+            r"tweedekamer\.nl$",  # Netherlands
+            r"cdep\.ro$",  # Romania
+            r"eduskunta\.fi$",  # Finland
+            r"assnat\.cm$",  # Cameroon
+            r"riigikogu\.ee$",  # Estonia
+            r"sobranie\.mk$",  # Macedonia
+            r"dekamer\.be$",  # Belgium
+            r"chd\.lu$",  # Luxembourg
+            r"lachambre\.be$",  # Belgoum
+            r"dna\.sr$",  # Suriname
+            r"inatsisartut\.gl$",  # Greenland
             r"nanoq\.gl$",
-            r"da\.org\.za$", # S Africa
-            r"dab\.org\.hk$", # HK
-            r"liberal\.org\.hk$", # HK
+            r"da\.org\.za$",  # S Africa
+            r"dab\.org\.hk$",  # HK
+            r"liberal\.org\.hk$",  # HK
             r"camera\.it$",
-            r"um\.dk$", #
-            r"fm\.dk$", #
-            r"skm\.dk$", #
-            r"sum\.dk$", #
-            r"trm\.dk$", #
-            r"uim\.dk$", #
-            r"jm\.dk$", #
-            r"kum\.dk$", #
-            r"bm\.dk$", #
-            r"uvm\.dk$", #
-            r"stm\.dk$", #
-            r"aeldremin\.dk$", #
-            r"fvm\.dk$", #
-            r"evm\.dk$", #
-            r"efkm\.dk$", #
-            r"km\.dk$", #
-            r"em\.dk$", #
-            r"oim\.dk$", #
-            r"sm\.dk$", #
-            r"ufm\.dk$", #
-            r"mfvm\.dk$", #
-            r"mssb\.dk$", #
-            r"dphk\.org$", #
+            r"um\.dk$",  #
+            r"fm\.dk$",  #
+            r"skm\.dk$",  #
+            r"sum\.dk$",  #
+            r"trm\.dk$",  #
+            r"uim\.dk$",  #
+            r"jm\.dk$",  #
+            r"kum\.dk$",  #
+            r"bm\.dk$",  #
+            r"uvm\.dk$",  #
+            r"stm\.dk$",  #
+            r"aeldremin\.dk$",  #
+            r"fvm\.dk$",  #
+            r"evm\.dk$",  #
+            r"efkm\.dk$",  #
+            r"km\.dk$",  #
+            r"em\.dk$",  #
+            r"oim\.dk$",  #
+            r"sm\.dk$",  #
+            r"ufm\.dk$",  #
+            r"mfvm\.dk$",  #
+            r"mssb\.dk$",  #
+            r"dphk\.org$",  #
             r"bjpanda\.org$",
             r"iyc\.in$",
             r"da-mp\.org\.za$",
             r"ifp\.org\.za$",
-            r"fondazionecraxi\.org$", # Italy
-            r"libero\.it$", # Italy
+            r"fondazionecraxi\.org$",  # Italy
+            r"libero\.it$",  # Italy
             r"istruzione\.it$",
             r"partitodemocratico\.it$",
             r"ecolo\.be$",
-            r"mfa\.gr$", # Greece
+            r"mfa\.gr$",  # Greece
             r"pasok\.gr$",
-            r"\.gov\.",   # General government domains with subdomains
+            r"\.gov\.",  # General government domains with subdomains
             r"\.org\.sg$",  # Singapore (e.g., pap.org.sg)
-            r"\.mil\.za$", # Department of Defence of SA
+            r"\.mil\.za$",  # Department of Defence of SA
             r"udm\.org\.za$",
         ],
         # Institutional keywords that strongly indicate government
@@ -442,17 +452,17 @@ def get_gov_patterns():
             r"parl",
             r"senat",
             r"senado",
-            r"assembly", # assembly.wales,assemblee.pf,nationalassembly.sc,assembly.go.kr
-            r"assemblee", # assemblee.pf
-            r"asamblea", # Nicaragua 
+            r"assembly",  # assembly.wales,assemblee.pf,nationalassembly.sc,assembly.go.kr
+            r"assemblee",  # assemblee.pf
+            r"asamblea",  # Nicaragua
             r"congress",
-            r"congreso", # congreso.gob.gt
+            r"congreso",  # congreso.gob.gt
             r"ministry",
             r"cabinet",
             r"gov",
-            r"government", 
-            r"bureau"
-        ]
+            r"government",
+            r"bureau",
+        ],
     }
     return gov_dict["Core Patterns"] + gov_dict["Institution Patterns"]
 
@@ -460,21 +470,31 @@ def get_gov_patterns():
 def get_commercial_patterns() -> List[str]:
     """Get patterns for commercial domains."""
     return [
-        r'\.com$', r'\.com\.',
-        r'\.net$', r'\.net\.',
-        r'\.co$', r'\.co\.',
-        r'\.biz$', r'\.biz\.',
-        r'\.info$', r'\.info\.',
-        r'\.corp', r'\.ltd', r'\.inc',
-        r'\.enterprise', r'\.business',
-        r'yahoo', r'hotmail', r'gmail',
+        r"\.com$",
+        r"\.com\.",
+        r"\.net$",
+        r"\.net\.",
+        r"\.co$",
+        r"\.co\.",
+        r"\.biz$",
+        r"\.biz\.",
+        r"\.info$",
+        r"\.info\.",
+        r"\.corp",
+        r"\.ltd",
+        r"\.inc",
+        r"\.enterprise",
+        r"\.business",
+        r"yahoo",
+        r"hotmail",
+        r"gmail",
     ]
 
 
 def classify_comm_gov_email(df: pd.DataFrame, email_col: str = "email") -> pd.DataFrame:
     """
     Prioritized classification of email domains.
-    
+
     Classification rules:
       1. If matches government pattern -> Official
       2. If matches commercial pattern and not government -> Commercial
@@ -483,23 +503,25 @@ def classify_comm_gov_email(df: pd.DataFrame, email_col: str = "email") -> pd.Da
     df = df.copy()
 
     # Extract domains from emails
-    df['domain'] = df[email_col].str.split('@').str[1].str.lower()
+    df["domain"] = df[email_col].str.split("@").str[1].str.lower()
 
     # Compile patterns
-    gov_pattern = re.compile('|'.join(get_gov_patterns()), re.IGNORECASE)
-    commercial_pattern = re.compile('|'.join(get_commercial_patterns()), re.IGNORECASE)
+    gov_pattern = re.compile("|".join(get_gov_patterns()), re.IGNORECASE)
+    commercial_pattern = re.compile("|".join(get_commercial_patterns()), re.IGNORECASE)
 
     # Create masks for pattern matching
-    gov_mask = df['domain'].notna() & df['domain'].str.contains(gov_pattern, regex=True)
-    commercial_mask = df['domain'].notna() & df['domain'].str.contains(commercial_pattern, regex=True)
+    gov_mask = df["domain"].notna() & df["domain"].str.contains(gov_pattern, regex=True)
+    commercial_mask = df["domain"].notna() & df["domain"].str.contains(
+        commercial_pattern, regex=True
+    )
     df = df.drop("domain", axis=1)
 
     # Initialize category column
     # df['ecategory'] = "Other"
-    df['ecategory'] = "Commercial"
+    df["ecategory"] = "Commercial"
 
     # Apply classification rules in priority order
-    df.loc[gov_mask, 'ecategory'] = 'Official'
+    df.loc[gov_mask, "ecategory"] = "Official"
     # df.loc[commercial_mask & ~gov_mask, 'ecategory'] = 'Commercial'
 
     return df
