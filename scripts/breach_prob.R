@@ -25,7 +25,6 @@ email_data <- read_csv("../data/email_lvl_cov.csv") %>%
 covars_pooled <- "i(ecategory, ref='Official') | Country + Decade"
 covars_ep     <- "i(ecategory, ref='Official') + i(gender, ref='Male') + i(socials) | Country + Decade + ltype + group_id"
 
-# Define and fit models dynamically -----------------------------------------
 model_formulas <- list(
   "dbreach_pooled"         = as.formula(paste("dbreach ~", covars_pooled)),
   "dbreach_ep"             = as.formula(paste("dbreach ~", covars_ep)),
@@ -113,7 +112,6 @@ df_fes <- left_join(df_serious, df_breach, by = "Country") %>%
   # Reorder columns
   select(Index, Country, country, fe_breach_serious, fe_breach)
 
-# Save fixef table to LaTeX ------------------------------------------------
 fes_tex = df_fes %>%
   kable(format = "latex", booktabs = TRUE, caption = "Country Fixed Effects") %>%
   kable_styling(full_width = FALSE)
