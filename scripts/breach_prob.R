@@ -60,19 +60,37 @@ etable(
 
 # Plot fixef ---------------------------------------------------------------
 # Extract from stored model
-fe_coef = fixef(models$dbreach_serious_pooled)
+fe_coef_serious = fixef(models$dbreach_serious_pooled)
+summary(fe_coef_serious)
+par(mar = c(0, 0, 0, 0))
+par(oma = c(0, 0, 0, 0))
+plot(fe_coef_serious, n = 5)
+
+pdf("../figures/fixef_plot_model3_dseriousbreach.pdf", width = 15, height = 5)
+par(mar = c(0, 0, 0, 0))
+par(oma = c(0, 0, 0, 0))
+plot(fe_coef_serious, n = 5)
+dev.off()
+
+png("../figures/fixef_plot_model3_dseriousbreach.png", units = "in", width = 15, height = 5, res = 300)
+par(mar = c(0, 0, 0, 0))
+par(oma = c(0, 0, 0, 0))
+plot(fe_coef_serious, n = 5)
+dev.off()
+
+fe_coef = fixef(models$dbreach_pooled)
 summary(fe_coef)
 par(mar = c(0, 0, 0, 0))
 par(oma = c(0, 0, 0, 0))
 plot(fe_coef, n = 5)
 
-pdf("../figures/fixef_plot_model1.pdf", width = 15, height = 5)
+pdf("../figures/fixef_plot_model1_dbreach.pdf", width = 15, height = 5)
 par(mar = c(0, 0, 0, 0))
 par(oma = c(0, 0, 0, 0))
 plot(fe_coef, n = 5)
 dev.off()
 
-png("../figures/fixef_plot_model1.png", units = "in", width = 15, height = 5, res = 300)
+png("../figures/fixef_plot_model1_dbreach.png", units = "in", width = 15, height = 5, res = 300)
 par(mar = c(0, 0, 0, 0))
 par(oma = c(0, 0, 0, 0))
 plot(fe_coef, n = 5)
