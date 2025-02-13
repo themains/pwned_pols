@@ -517,3 +517,5 @@ TSWLatexianTemp*
 
 # End of https://www.toptal.com/developers/gitignore/api/tex
 
+.Rproj.user
+scripts/scripts.Rproj
