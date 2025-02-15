@@ -1,7 +1,6 @@
 ## (O)wned Politicians
 
-Compromised political elites are a problem. To assess how common it is, we check how many public breaches politicians are part of. We query the publicly listed emails of Lok Sabha members (MPs) against the HIBP database. We find that 31\% of the politicans in a Lok Sabha session have been part of at least one breach. More alarmingly, over 22\% of the politicians have had their sensitive data, e.g., Bank account numbers, Biometric data, Browsing histories, Chat logs, Credit card CVV, Credit cards, etc., breached. Given that only a small sliver of breaches become public, this should be treated as an extreme lower bound.
-
+Data breaches involving politicians are concerning because of the threat of impersonation and blackmail, among other nefarious things. To shed light on the concern, we estimate how frequently politicians' data is compromised. Using a dataset of 12,384 emails of politicians from 59 countries spanning three decades, we check whether these emails are part of breaches by using \textit{Have I Been Pwned}, a widely used online service for searching public breach data. A third of the politicians have had their data breached at least once. More alarmingly, over one in five have had their sensitive data, such as bank account numbers, biometric data, browsing history, chat logs, credit card CVV, etc., breached. These numbers are still too optimistic because of several reasons including the fact that we do not have all the email addresses used by a politician. Accounting for some of the biases suggests that more than half the politicians have suffered a serious breach. In all, the data suggest urgent action is needed to protect politicians against cybersecurity threats.
 ### Data and Scripts
 
 * Politician Email Data
