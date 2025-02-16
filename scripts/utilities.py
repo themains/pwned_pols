@@ -567,3 +567,15 @@ LIST_SERIOUS_DATACLASSES = [
     "Social security numbers",
     "Taxation records",
 ]
+
+
+# Not found in hibp payloads
+DELINQUENTS = [
+    "m.chrysomallis@parliament.gr",
+    "r.christidou@parliament.gr",
+    "3@abc.com",
+    "3@gmail.com",
+    "dhanwatichandela498@gmail.com",
+    "_bsec@pap.org.sg",
+    "mariamjaafar@gmail.com",
+]
