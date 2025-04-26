@@ -1,4 +1,3 @@
-# Load necessary libraries
 library(fixest)
 library(purrr)
 library(tidyverse)

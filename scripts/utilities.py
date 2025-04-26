@@ -366,29 +366,28 @@ def get_gov_patterns():
     """
     gov_dict = {
         # Core government domain patterns
-        "Core Patterns": [
+        "Core TLD/Government Domains": [
             r"\.gov$",  # English pattern
+            r"\.gov\.[a-z]{2,3}$",  # e.g., gov.uk, gov.sg
             r"\.gob$",  # Spanish pattern
             r"\.gouv$",  # French pattern
-            r"\.go\.",  # East Asian pattern
-            r"\.gc\.",  # Canada
-            r"\.fed\.",  # Federal (e.g., fed.us)
+            r"\.go\.[a-z]{2,3}$",  # East Asian pattern
+            r"\.gc\.[a-z]{2,3}$",  # Canada
+            r"\.fed\.[a-z]{2,3}$",  # Federal (e.g., fed.us)
             r"\.mil$",  # Military
-            r"\.admin$",  # Administrative (e.g., admin.ch)
+            r"\.admin$",  # Administrative (e.g., swiss admin.ch)
             r"\.bund$",  # German federal
             r"\.fgov$",  # Belgian federal
-            r"\.regering$",  # Netherlands government
-            r"\.regeringen$",  # Swedish government
-            r"\.regjeringen$",  # Norwegian government
+            r"\.nic\.",  # India (sansad.nic.in, etc.)
+            r"\.mil\.za$",  # Department of Defence of SA
+        ],
+
+        # Known parliaments and ministries
+        "Parliaments and Ministries": [
             r"ft\.dk$",  # Danish Parliament (Folketinget)
             r"senato\.it$",  # Italian Senate
+            r"camera\.it$",  # Italy
             r"stortinget\.no$",  # Norwegian Parliament
-            #             r"pap.org.sg$",  # Singapore government
-            r"prpg-grc\.sg$",  # Singapore government
-            r"wp\.sg$",  # Singapore
-            r"\.nic\.",  # India (sansad.nic.in, etc.)
-            r"nic\.in$",  # India (sansad.nic.in, etc.)
-            r"nrsr\.sk$",  # Slovakia
             r"tweedekamer\.nl$",  # Netherlands
             r"cdep\.ro$",  # Romania
             r"eduskunta\.fi$",  # Finland
@@ -401,10 +400,6 @@ def get_gov_patterns():
             r"dna\.sr$",  # Suriname
             r"inatsisartut\.gl$",  # Greenland
             r"nanoq\.gl$",
-            r"da\.org\.za$",  # S Africa
-            r"dab\.org\.hk$",  # HK
-            r"liberal\.org\.hk$",  # HK
-            r"camera\.it$",
             r"um\.dk$",  #
             r"fm\.dk$",  #
             r"skm\.dk$",  #
@@ -427,44 +422,71 @@ def get_gov_patterns():
             r"ufm\.dk$",  #
             r"mfvm\.dk$",  #
             r"mssb\.dk$",  #
+            r"mfa\.gr$",  # Greece
+            r"istruzione\.it$",  # educ
+            r"nic\.in$",  # India
+            r"nrsr\.sk$",  # Slovakia
+            r"nationalassembly\.sc$",  # Seychelles
+            r"parliran\.ir$",  # Iran
+            r"majles\.ir$",  # Iran
+            r"europarl\.europa\.eu$",  # European Union
+            r"giunta\.comune\.verona\.it$",  # City of Verona (Italy)
+            r"comune\.pescara\.it$",         # City of Pescara (Italy)
+            r"comune\.catania\.it$",         # City of Catania (Italy)
+            r"regione\.liguria\.it$",        # Liguria regional government (Italy)
+            r"regione\.lazio\.it$",          # Lazio regional government (Italy)
+            r"provincia\.venezia\.it$",      # Venice provincial government (Italy)
+            r"andorra\.ad$",                 # Andorra
+            # broader patterns
+            r"@.*\.gov(\.[a-z]{2,3})?$",  # Anchored email domain match
+            r"@.*parliament\.",
+            r"@.*senat\.",
+            r"@.*assembly\.",
+            r"@.*congress\.",
+            r"@.*ministry\.",
+            r"@.*cabinet\.",
+            r"@.*bureau\.",
+            r"\bparliament\b",
+            r"\bparlament\b",
+            r"\bparlamento\b",
+            r"\bparl\b",
+            r"\bsenat\b",
+            r"\bsenado\b",
+            r"\bassembly\b",  # assembly.wales,assemblee.pf,nationalassembly.sc,assembly.go.kr
+            r"\bassemblee\b",  # assemblee.pf
+            r"\basamblea\b",  # Nicaragua
+            r"\bcongress\b",
+            r"\bcongreso\b",  # congreso.gob.gt
+            r"\bministry\b",
+            r"\bcabinet\b",
+            r"\bbureau\b",
+            r"\bgovernment\b",
+        ],
+
+        # known political parties
+        "Known Political Parties / Orgs": [
             r"dphk\.org$",  #
             r"bjpanda\.org$",
             r"iyc\.in$",
             r"da-mp\.org\.za$",
             r"ifp\.org\.za$",
             r"fondazionecraxi\.org$",  # Italy
-            r"libero\.it$",  # Italy
-            r"istruzione\.it$",
             r"partitodemocratico\.it$",
             r"ecolo\.be$",
-            r"mfa\.gr$",  # Greece
-            r"pasok\.gr$",
-            r"\.gov\.",  # General government domains with subdomains
-            r"\.org\.sg$",  # Singapore (e.g., pap.org.sg)
-            r"\.mil\.za$",  # Department of Defence of SA
+            r"liberal\.org\.hk$",  # HK
+            r"dab\.org\.hk$",  # HK
+            r"pap.org.sg$",  # Sg government
+            r"prpg-grc\.sg$",  # Sg government
+            r"wp\.sg$",  # sg
             r"udm\.org\.za$",
         ],
-        # Institutional keywords that strongly indicate government
-        "Institution Patterns": [
-            r"parliament",
-            r"parlament",
-            r"parlamento",
-            r"parl",
-            r"senat",
-            r"senado",
-            r"assembly",  # assembly.wales,assemblee.pf,nationalassembly.sc,assembly.go.kr
-            r"assemblee",  # assemblee.pf
-            r"asamblea",  # Nicaragua
-            r"congress",
-            r"congreso",  # congreso.gob.gt
-            r"ministry",
-            r"cabinet",
-            r"gov",
-            r"government",
-            r"bureau",
-        ],
     }
-    return gov_dict["Core Patterns"] + gov_dict["Institution Patterns"]
+
+    return (
+        gov_dict["Core TLD/Government Domains"]
+        + gov_dict["Parliaments and Ministries"]
+        + gov_dict["Known Political Parties / Orgs"]
+    )
 
 
 def get_commercial_patterns() -> List[str]:
@@ -481,6 +503,7 @@ def get_commercial_patterns() -> List[str]:
         r"\.info$",
         r"\.info\.",
         r"\.corp",
+        r"libero\.it$",  # Italy
         r"\.ltd",
         r"\.inc",
         r"\.enterprise",
