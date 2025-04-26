@@ -248,41 +248,51 @@ def save_mpl_fig(
     return None
 
 
-def pandas_to_tex(
-    df: pd.DataFrame, texfile: str, index: bool = False, escape=False, **kwargs: Any
-) -> None:
-    """Save a Pandas dataframe to a LaTeX table fragment.
 
-    Uses the built-in .to_latex() function. Only saves table fragments
-    (equivalent to saving with "fragment" option in estout).
+def pandas_to_tex(
+    df: pd.DataFrame,
+    texfile: str,
+    index: bool = False,
+    escape: bool = False,
+    row_break: int = None,
+    **kwargs: Any
+) -> None:
+    """
+    Save a Pandas dataframe to a LaTeX table fragment with optional midrules.
 
     Parameters
     ----------
-    df: Pandas DataFrame
+    df : pd.DataFrame
         Table to save to tex.
-    texfile: str
-        Name of .tex file to save to.
-    index: bool
-        Save index (Default = False).
-    kwargs: any
-        Additional options to pass to .to_latex().
-
-    Returns
-    -------
-    None
+    texfile : str
+        Output .tex file name.
+    index : bool
+        Whether to include the index column.
+    escape : bool
+        Whether to escape LaTeX characters.
+    row_break : int, optional
+        If set, inserts \midrule after every `row_break` rows.
+    kwargs : any
+        Additional options passed to .to_latex().
     """
     if texfile.split(".")[-1] != "tex":
         texfile += ".tex"
 
     tex_table = df.to_latex(index=index, header=False, escape=escape, **kwargs)
-    tex_table_fragment = "\n".join(tex_table.split("\n")[3:-3])
-    # Remove the last \\ in the tex fragment to prevent the annoying
-    # "Misplaced \noalign" LaTeX error when I use \bottomrule
-    # tex_table_fragment = tex_table_fragment[:-2]
+    lines = tex_table.split("\n")[3:-3]  # remove tabular env wrapper
+
+    if row_break is not None and row_break > 0:
+        new_lines = []
+        for i, line in enumerate(lines, 1):
+            new_lines.append(line)
+            if i % row_break == 0 and i != len(lines):
+                new_lines.append(r"\midrule")
+        tex_table_fragment = "\n".join(new_lines)
+    else:
+        tex_table_fragment = "\n".join(lines)
 
     with open(texfile, "w") as tf:
         tf.write(tex_table_fragment)
-    return None
 
 
 def process_json_files_to_matrix(json_folder):
