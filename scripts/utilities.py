@@ -1,26 +1,28 @@
-"""A collection of common utility functions.
+"""
+Common utility functions for email cleaning, classification, and I/O.
 
-* save_mpl_fig (I/O) 
-* split_dataframe
-* split_dataframe2
-* save_excelsheet (I/O)
-* pandas_to_tex (I/O)
-* pprint_dict
-* save_json (I/O)
-* save_jsongz (I/O)
-* read_json (I/O)
-* read_jsons (I/O)
-* read_jsongz (I/O)
-* read_jsongzs (I/O)
-* get_datestr_list
-* normalize_strc
-* unix2datetime
-* read_yaml (I/O)
-* save_dict_to_yaml (I/O)
-* save_svg_as_png (I/O)
-* change_barwidth (mpl)
-* text_to_list (I/O
-* format_tiny_pval_expoential
+* Email Extraction and Cleaning:
+    - extract_emails
+    - clean_contact_column
+    - clean_email_column_no_dedupe
+    - clean_dedupe_email_column
+    - normalize_email
+
+* Email Classification:
+    - get_gov_patterns
+    - get_commercial_patterns
+    - classify_comm_gov_email
+
+* JSON and DataFrame Processing:
+    - process_json_files_to_matrix
+    - pandas_to_tex
+
+* Matplotlib Helpers:
+    - save_mpl_fig
+
+* Constants:
+    - LIST_SERIOUS_DATACLASSES
+    - DELINQUENTS
 """
 
 import json
@@ -273,7 +275,7 @@ def pandas_to_tex(
         texfile += ".tex"
 
     tex_table = df.to_latex(index=index, header=False, escape=escape, **kwargs)
-    tex_table_fragment = "\n".join(tex_table.split("\n")[2:-3])
+    tex_table_fragment = "\n".join(tex_table.split("\n")[3:-3])
     # Remove the last \\ in the tex fragment to prevent the annoying
     # "Misplaced \noalign" LaTeX error when I use \bottomrule
     # tex_table_fragment = tex_table_fragment[:-2]

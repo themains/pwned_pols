@@ -3,6 +3,13 @@ library(purrr)
 library(tidyverse)
 library(kableExtra)
 
+print_tex <- function(path) {
+  if (file.exists(path)) {
+    cat(readLines(path), sep = "\n")
+  } else {
+    message("File not found: ", path)
+  }
+}
 
 # -------------------------------------------------------------------------
 email_data <- read_csv("../data/email_lvl_cov.csv") %>%
@@ -46,6 +53,7 @@ etable(
   adjustbox = TRUE,
   placement = "!htbp",
   file = "../tables/breach_prob.tex",
+  replace=TRUE,
   signif.code = c("***"=.001, "**"=.01, "*"=.05, "+"=.1),
   style.tex = style.tex("aer"),
   dict = COEF_LABELS,          
@@ -56,7 +64,7 @@ etable(
   digits.stats = 3,
   se.below = TRUE
 )
-
+print_tex("../tables/breach_prob.tex")
 
 # Plot fixef ---------------------------------------------------------------
 # Extract from stored model
@@ -130,8 +138,14 @@ df_fes <- left_join(df_serious, df_breach, by = "Country") %>%
   # Reorder columns
   select(Index, Country, country, fe_breach_serious, fe_breach)
 
+
 fes_tex = df_fes %>%
   kable(format = "latex", booktabs = TRUE, caption = "Country Fixed Effects") %>%
   kable_styling(full_width = FALSE)
 
+fes_tex <- gsub("\\\\addlinespace", "\\\\midrule", fes_tex)
+
 cat(fes_tex, file = "../tables/country_fixed_effects.tex")
+
+print_tex("../tables/country_fixed_effects.tex")
+
