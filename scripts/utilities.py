@@ -1,28 +1,26 @@
-"""
-Common utility functions for email cleaning, classification, and I/O.
+"""A collection of common utility functions.
 
-* Email Extraction and Cleaning:
-    - extract_emails
-    - clean_contact_column
-    - clean_email_column_no_dedupe
-    - clean_dedupe_email_column
-    - normalize_email
-
-* Email Classification:
-    - get_gov_patterns
-    - get_commercial_patterns
-    - classify_comm_gov_email
-
-* JSON and DataFrame Processing:
-    - process_json_files_to_matrix
-    - pandas_to_tex
-
-* Matplotlib Helpers:
-    - save_mpl_fig
-
-* Constants:
-    - LIST_SERIOUS_DATACLASSES
-    - DELINQUENTS
+* save_mpl_fig (I/O) 
+* split_dataframe
+* split_dataframe2
+* save_excelsheet (I/O)
+* pandas_to_tex (I/O)
+* pprint_dict
+* save_json (I/O)
+* save_jsongz (I/O)
+* read_json (I/O)
+* read_jsons (I/O)
+* read_jsongz (I/O)
+* read_jsongzs (I/O)
+* get_datestr_list
+* normalize_strc
+* unix2datetime
+* read_yaml (I/O)
+* save_dict_to_yaml (I/O)
+* save_svg_as_png (I/O)
+* change_barwidth (mpl)
+* text_to_list (I/O
+* format_tiny_pval_expoential
 """
 
 import json
@@ -248,51 +246,41 @@ def save_mpl_fig(
     return None
 
 
-
 def pandas_to_tex(
-    df: pd.DataFrame,
-    texfile: str,
-    index: bool = False,
-    escape: bool = False,
-    row_break: int = None,
-    **kwargs: Any
+    df: pd.DataFrame, texfile: str, index: bool = False, escape=False, **kwargs: Any
 ) -> None:
-    """
-    Save a Pandas dataframe to a LaTeX table fragment with optional midrules.
+    """Save a Pandas dataframe to a LaTeX table fragment.
+
+    Uses the built-in .to_latex() function. Only saves table fragments
+    (equivalent to saving with "fragment" option in estout).
 
     Parameters
     ----------
-    df : pd.DataFrame
+    df: Pandas DataFrame
         Table to save to tex.
-    texfile : str
-        Output .tex file name.
-    index : bool
-        Whether to include the index column.
-    escape : bool
-        Whether to escape LaTeX characters.
-    row_break : int, optional
-        If set, inserts \midrule after every `row_break` rows.
-    kwargs : any
-        Additional options passed to .to_latex().
+    texfile: str
+        Name of .tex file to save to.
+    index: bool
+        Save index (Default = False).
+    kwargs: any
+        Additional options to pass to .to_latex().
+
+    Returns
+    -------
+    None
     """
     if texfile.split(".")[-1] != "tex":
         texfile += ".tex"
 
     tex_table = df.to_latex(index=index, header=False, escape=escape, **kwargs)
-    lines = tex_table.split("\n")[3:-3]  # remove tabular env wrapper
-
-    if row_break is not None and row_break > 0:
-        new_lines = []
-        for i, line in enumerate(lines, 1):
-            new_lines.append(line)
-            if i % row_break == 0 and i != len(lines):
-                new_lines.append(r"\midrule")
-        tex_table_fragment = "\n".join(new_lines)
-    else:
-        tex_table_fragment = "\n".join(lines)
+    tex_table_fragment = "\n".join(tex_table.split("\n")[2:-3])
+    # Remove the last \\ in the tex fragment to prevent the annoying
+    # "Misplaced \noalign" LaTeX error when I use \bottomrule
+    # tex_table_fragment = tex_table_fragment[:-2]
 
     with open(texfile, "w") as tf:
         tf.write(tex_table_fragment)
+    return None
 
 
 def process_json_files_to_matrix(json_folder):
@@ -378,28 +366,29 @@ def get_gov_patterns():
     """
     gov_dict = {
         # Core government domain patterns
-        "Core TLD/Government Domains": [
+        "Core Patterns": [
             r"\.gov$",  # English pattern
-            r"\.gov\.[a-z]{2,3}$",  # e.g., gov.uk, gov.sg
             r"\.gob$",  # Spanish pattern
             r"\.gouv$",  # French pattern
-            r"\.go\.[a-z]{2,3}$",  # East Asian pattern
-            r"\.gc\.[a-z]{2,3}$",  # Canada
-            r"\.fed\.[a-z]{2,3}$",  # Federal (e.g., fed.us)
+            r"\.go\.",  # East Asian pattern
+            r"\.gc\.",  # Canada
+            r"\.fed\.",  # Federal (e.g., fed.us)
             r"\.mil$",  # Military
-            r"\.admin$",  # Administrative (e.g., swiss admin.ch)
+            r"\.admin$",  # Administrative (e.g., admin.ch)
             r"\.bund$",  # German federal
             r"\.fgov$",  # Belgian federal
-            r"\.nic\.",  # India (sansad.nic.in, etc.)
-            r"\.mil\.za$",  # Department of Defence of SA
-        ],
-
-        # Known parliaments and ministries
-        "Parliaments and Ministries": [
+            r"\.regering$",  # Netherlands government
+            r"\.regeringen$",  # Swedish government
+            r"\.regjeringen$",  # Norwegian government
             r"ft\.dk$",  # Danish Parliament (Folketinget)
             r"senato\.it$",  # Italian Senate
-            r"camera\.it$",  # Italy
             r"stortinget\.no$",  # Norwegian Parliament
+            #             r"pap.org.sg$",  # Singapore government
+            r"prpg-grc\.sg$",  # Singapore government
+            r"wp\.sg$",  # Singapore
+            r"\.nic\.",  # India (sansad.nic.in, etc.)
+            r"nic\.in$",  # India (sansad.nic.in, etc.)
+            r"nrsr\.sk$",  # Slovakia
             r"tweedekamer\.nl$",  # Netherlands
             r"cdep\.ro$",  # Romania
             r"eduskunta\.fi$",  # Finland
@@ -412,6 +401,10 @@ def get_gov_patterns():
             r"dna\.sr$",  # Suriname
             r"inatsisartut\.gl$",  # Greenland
             r"nanoq\.gl$",
+            r"da\.org\.za$",  # S Africa
+            r"dab\.org\.hk$",  # HK
+            r"liberal\.org\.hk$",  # HK
+            r"camera\.it$",
             r"um\.dk$",  #
             r"fm\.dk$",  #
             r"skm\.dk$",  #
@@ -434,71 +427,44 @@ def get_gov_patterns():
             r"ufm\.dk$",  #
             r"mfvm\.dk$",  #
             r"mssb\.dk$",  #
-            r"mfa\.gr$",  # Greece
-            r"istruzione\.it$",  # educ
-            r"nic\.in$",  # India
-            r"nrsr\.sk$",  # Slovakia
-            r"nationalassembly\.sc$",  # Seychelles
-            r"parliran\.ir$",  # Iran
-            r"majles\.ir$",  # Iran
-            r"europarl\.europa\.eu$",  # European Union
-            r"giunta\.comune\.verona\.it$",  # City of Verona (Italy)
-            r"comune\.pescara\.it$",         # City of Pescara (Italy)
-            r"comune\.catania\.it$",         # City of Catania (Italy)
-            r"regione\.liguria\.it$",        # Liguria regional government (Italy)
-            r"regione\.lazio\.it$",          # Lazio regional government (Italy)
-            r"provincia\.venezia\.it$",      # Venice provincial government (Italy)
-            r"andorra\.ad$",                 # Andorra
-            # broader patterns
-            r"@.*\.gov(\.[a-z]{2,3})?$",  # Anchored email domain match
-            r"@.*parliament\.",
-            r"@.*senat\.",
-            r"@.*assembly\.",
-            r"@.*congress\.",
-            r"@.*ministry\.",
-            r"@.*cabinet\.",
-            r"@.*bureau\.",
-            r"\bparliament\b",
-            r"\bparlament\b",
-            r"\bparlamento\b",
-            r"\bparl\b",
-            r"\bsenat\b",
-            r"\bsenado\b",
-            r"\bassembly\b",  # assembly.wales,assemblee.pf,nationalassembly.sc,assembly.go.kr
-            r"\bassemblee\b",  # assemblee.pf
-            r"\basamblea\b",  # Nicaragua
-            r"\bcongress\b",
-            r"\bcongreso\b",  # congreso.gob.gt
-            r"\bministry\b",
-            r"\bcabinet\b",
-            r"\bbureau\b",
-            r"\bgovernment\b",
-        ],
-
-        # known political parties
-        "Known Political Parties / Orgs": [
             r"dphk\.org$",  #
             r"bjpanda\.org$",
             r"iyc\.in$",
             r"da-mp\.org\.za$",
             r"ifp\.org\.za$",
             r"fondazionecraxi\.org$",  # Italy
+            r"libero\.it$",  # Italy
+            r"istruzione\.it$",
             r"partitodemocratico\.it$",
             r"ecolo\.be$",
-            r"liberal\.org\.hk$",  # HK
-            r"dab\.org\.hk$",  # HK
-            r"pap.org.sg$",  # Sg government
-            r"prpg-grc\.sg$",  # Sg government
-            r"wp\.sg$",  # sg
+            r"mfa\.gr$",  # Greece
+            r"pasok\.gr$",
+            r"\.gov\.",  # General government domains with subdomains
+            r"\.org\.sg$",  # Singapore (e.g., pap.org.sg)
+            r"\.mil\.za$",  # Department of Defence of SA
             r"udm\.org\.za$",
         ],
+        # Institutional keywords that strongly indicate government
+        "Institution Patterns": [
+            r"parliament",
+            r"parlament",
+            r"parlamento",
+            r"parl",
+            r"senat",
+            r"senado",
+            r"assembly",  # assembly.wales,assemblee.pf,nationalassembly.sc,assembly.go.kr
+            r"assemblee",  # assemblee.pf
+            r"asamblea",  # Nicaragua
+            r"congress",
+            r"congreso",  # congreso.gob.gt
+            r"ministry",
+            r"cabinet",
+            r"gov",
+            r"government",
+            r"bureau",
+        ],
     }
-
-    return (
-        gov_dict["Core TLD/Government Domains"]
-        + gov_dict["Parliaments and Ministries"]
-        + gov_dict["Known Political Parties / Orgs"]
-    )
+    return gov_dict["Core Patterns"] + gov_dict["Institution Patterns"]
 
 
 def get_commercial_patterns() -> List[str]:
@@ -515,7 +481,6 @@ def get_commercial_patterns() -> List[str]:
         r"\.info$",
         r"\.info\.",
         r"\.corp",
-        r"libero\.it$",  # Italy
         r"\.ltd",
         r"\.inc",
         r"\.enterprise",
