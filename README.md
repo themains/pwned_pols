@@ -31,7 +31,7 @@ Lucas Shen and Gaurav Sood
 ## 🔗 Adjacent Repositories
 
 - [themains/reg_breach](https://github.com/themains/reg_breach) — Have I Been Pwned? Yes. Evidence from HIBP and Emails From Voter Registration Files.
-- [themains/private_gov](https://github.com/themains/private_gov) — How common are third-party cookies, trackers, key loggers, etc. on government websites?
-- [themains/pwned](https://github.com/themains/pwned) — How Often Are Americans' Accounts Breached?
 - [themains/private_blacklight](https://github.com/themains/private_blacklight) — Privacy Online and Digital Divide on Online Privacy
+- [themains/pwned](https://github.com/themains/pwned) — How Often Are Americans' Accounts Breached?
+- [themains/private_gov](https://github.com/themains/private_gov) — How common are third-party cookies, trackers, key loggers, etc. on government websites?
 - [themains/domain_knowledge](https://github.com/themains/domain_knowledge) — Domain Knowledge: Learning with pydomains

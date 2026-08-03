@@ -1,0 +1,239 @@
+iso2,iso3,cnum,country,pays,area,dis_int,landlocked,continent,city_en,city_fr,lat,lon,cap,maincity,citynum,langoff_1,langoff_2,langoff_3,lang20_1,lang20_2,lang20_3,lang20_4,lang9_1,lang9_2,lang9_3,lang9_4,colonizer1,colonizer2,colonizer3,colonizer4,short_colonizer1,short_colonizer2,short_colonizer3
+AW,ABW,533.0,Aruba,Aruba,193.0,5.225315,0.0,America,Oranjestad,Oranjestad,12.55,-70.1,1.0,1.0,2,Dutch,Spanish,.,Dutch,English,Papiamento,.,.,.,.,.,NLD,.,.,.,.,.,.
+AF,AFG,4.0,Afghanistan,Afghanistan,652225.0,303.7614,1.0,Asia,Kabul,Kaboul,34.51667,69.2,1.0,1.0,25,Persian,.,.,Persian,Pashtu,.,.,Hazaragi,Uzbek,.,.,.,.,.,.,GBR,.,.
+AO,AGO,24.0,Angola,Angola,1246700.0,419.9666,0.0,Africa,Luanda,Luanda,-8.833333,13.25,1.0,1.0,25,Portuguese,.,.,Portuguese,Umbundu,Mbundu Loanda,.,Kongo,.,.,.,PRT,.,.,.,.,.,.
+AI,AIA,660.0,Anguilla,Anguilla,102.0,3.79869,0.0,America,The Valley,The Valley,18.21667,-63.06667,1.0,1.0,2,English,.,.,English,Leeward Caribbean Creole English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+AL,ALB,8.0,Albania,Albanie,28748.0,63.77311,0.0,Europe,Tirana,Tirana,41.33333,19.81667,1.0,1.0,25,Albanian,.,.,Albanian,.,.,.,.,.,.,.,TUR,.,.,.,.,.,.
+AD,AND,20.0,Andorra,Andorre,453.0,8.005398,0.0,Europe,Andorra la Vella,Andorre-la-Vieille,42.5,1.5,1.0,1.0,7,Catalan,Spanish,.,Catalan,Spanish,.,.,.,.,.,.,.,.,.,.,.,.,.
+AN,ANT,530.0,Netherland Antilles,Antilles néerlandaises,960.0,11.65385,0.0,America,Willemstad,Willemstad,12.1,-68.93333,1.0,1.0,5,Dutch,Spanish,.,Dutch,Papiamento,.,.,English,.,.,.,NLD,.,.,.,.,.,.
+AE,ARE,784.0,United Arab Emirates,Emirats arabes unis,83657.0,108.789,0.0,Asia,Abu Dhabi,Abou Dhabi,24.46667,54.41667,1.0,1.0,9,Arabic,.,.,Arabic,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+AR,ARG,32.0,Argentina,Argentine,2766889.0,625.6475,0.0,America,Buenos Aires,Buenos Aires,-34.66667,-58.5,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+AM,ARM,51.0,Armenia,Arménie,29800.0,64.92948,1.0,Asia,Yerevan,Erevan,40.18333,44.5,1.0,1.0,25,Armenian,.,.,Armenian,.,.,.,.,.,.,.,TUR,RUS,.,.,.,.,.
+TF,ATF,260.0,French Southern Antartic territories,Terres australes françaises,7829.0,33.28028,0.0,No,Dumont d'Urville (Terre Adélie),Dumont d'Urville (Terre Adélie),-66.66666,-140.0,1.0,1.0,3,French,.,.,French,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+AG,ATG,28.0,Antigua and Barbuda,Antigua-et-Barbuda,442.0,7.907605,0.0,America,Saint John's,Saint John's,17.13333,-61.83333,1.0,1.0,15,English,.,.,English,Leeward Caribbean Creole English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+AU,AUS,36.0,Australia,Australie,7686848.0,1042.817,0.0,Pacific,Sydney,Sydney,-33.88334,151.1667,0.0,1.0,25,English,.,.,English,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+AU,AUS,36.0,Australia,Australie,7686848.0,1042.817,0.0,Pacific,Canberra,Canberra,-35.3,149.133,1.0,0.0,25,English,.,.,English,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+AT,AUT,40.0,Austria,Autriche,83858.0,108.9196,1.0,Europe,Vienna,Vienne,48.21667,16.36667,1.0,1.0,25,German,.,.,German,.,.,.,.,.,.,.,.,.,.,.,DEU,.,.
+AZ,AZE,31.0,Azerbaijan,Azerbaïdjan,86600.0,110.686,1.0,Asia,Baku (Baki),Bakou,40.36666,49.88334,1.0,1.0,25,Azeri,.,.,Azeri,.,.,.,Talysh,.,.,.,RUS,.,.,.,TUR,.,.
+BI,BDI,108.0,Burundi,Burundi,27834.0,62.75114,1.0,Africa,Bujumbura,Bujumbura,-3.366667,29.31667,1.0,1.0,15,French,Kirundi,.,French,Kirundi,.,.,.,.,.,.,BEL,DEU,.,.,.,.,.
+BE,BEL,58.0,Belgium and Luxembourg,Belgique et Luxembourg,33114.0,68.44467,0.0,Europe,Brussels,Bruxelles,50.83333,4.35,1.0,1.0,25,Dutch,French,German,Dutch,French,German,.,.,.,.,.,.,.,.,.,NLD,.,.
+BJ,BEN,204.0,Benin,Bénin,112622.0,126.225,0.0,Africa,Cotonou,Cotonou,6.4,2.517,2.0,1.0,25,French,.,.,French,Fon,.,.,.,.,.,.,FRA,.,.,.,.,.,.
+BJ,BEN,204.0,Benin,Bénin,112622.0,126.225,0.0,Africa,Porto-Novo,Porto-Novo,6.5,2.783333,1.0,0.0,25,French,.,.,French,Fon,.,.,.,.,.,.,FRA,.,.,.,.,.,.
+BF,BFA,854.0,Burkina Faso,Burkina Faso,274200.0,196.9552,1.0,Africa,Ouagadougou,Ouagadougou,12.33333,-1.666667,1.0,1.0,25,French,.,.,French,Mòoré,.,.,Jula,.,.,.,FRA,.,.,.,.,.,.
+BD,BGD,50.0,Bangladesh,Bangladesh,143998.0,142.7289,0.0,Asia,Dhaka,Dacca,23.7,90.36667,1.0,1.0,25,Bengali,.,.,Bengali,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+BG,BGR,100.0,Bulgaria,Bulgarie,110994.0,125.3094,0.0,Europe,Sofia,Sofia,42.66667,23.3,1.0,1.0,25,Bulgarian,.,.,Bulgarian,.,.,.,Turkish,.,.,.,TUR,.,.,.,.,.,.
+BH,BHR,48.0,Bahrain,Bahreïn,678.0,9.793742,0.0,Asia,Manama,Manama,26.2,50.63334,1.0,1.0,7,Arabic,.,.,Arabic,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+BS,BHS,44.0,Bahamas,Bahamas,13939.0,44.40681,0.0,America,Nassau,Nassau,25.08333,-77.33334,1.0,1.0,24,English,.,.,English,Bahamas Creole English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+BA,BIH,70.0,Bosnia and Herzegovina,Bosnie-Herzégovine,51233.0,85.13511,0.0,Europe,Sarajevo,Sarajevo,43.86666,18.43333,1.0,1.0,25,Serbo-Croatian,.,.,Serbo-Croatian,.,.,.,.,.,.,.,TUR,AUT,.,.,YUG,HUN,.
+BY,BLR,112.0,Belarus,Biélorussie,207595.0,171.3729,0.0,Europe,Minsk,Minsk,53.85,27.5,1.0,1.0,25,Belarussian,.,.,Belarussian,.,.,.,Russian,.,.,.,RUS,.,.,.,.,.,.
+BZ,BLZ,84.0,Belize,Belize,22963.0,56.99649,0.0,America,Belmopan,Belmopan,17.21667,-88.8,1.0,1.0,9,English,Spanish,.,Spanish,English,Bileez Kriol,.,.,.,.,.,GBR,.,.,.,.,.,.
+BM,BMU,60.0,Bermuda,Bermudes,53.0,2.738241,0.0,America,Hamilton,Hamilton,32.3,-64.8,1.0,1.0,2,English,.,.,English,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+BO,BOL,68.0,Bolivia,Bolivie,1098581.0,394.2302,1.0,America,La Paz,La Paz,-16.5,-68.16666,2.0,1.0,25,Spanish,Quecha,Aymara,Spanish,Quecha,Aymara,.,.,.,.,.,ESP,.,.,.,.,.,.
+BO,BOL,68.0,Bolivia,Bolivie,1098581.0,394.2302,1.0,America,Sucre,Sucre,-19.083,-65.25,1.0,0.0,25,Spanish,Quecha,Aymara,Spanish,Quecha,Aymara,.,.,.,.,.,ESP,.,.,.,.,.,.
+BR,BRA,76.0,Brazil,Brésil,8511920.0,1097.356,0.0,America,São Paulo,São Paulo,-23.53,-46.63,0.0,1.0,25,Portuguese,.,.,Portuguese,.,.,.,.,.,.,.,PRT,.,.,.,.,.,.
+BR,BRA,76.0,Brazil,Brésil,8511920.0,1097.356,0.0,America,Brasilia,Brasilia,-15.78,-47.91,1.0,0.0,25,Portuguese,.,.,Portuguese,.,.,.,.,.,.,.,PRT,.,.,.,.,.,.
+BB,BRB,52.0,Barbados,Barbade,431.0,7.808587,0.0,America,Bridgetown,Bridgetown,13.1,-59.61666,1.0,1.0,11,English,.,.,Bajan,English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+BN,BRN,96.0,Brunei Darussalam,Brunéi Darussalam,5765.0,28.55837,0.0,Asia,Bandar Seri Begawan,Bandar Seri Begawan,4.933333,114.9667,1.0,1.0,5,Malay,.,.,Malay,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+BT,BTN,64.0,Bhutan,Bhoutan,46620.0,81.21195,1.0,Asia,Thimphu,Thimphou,27.53333,89.75,1.0,1.0,20,Burmese,.,.,Dzongha,.,.,.,Nepali,Tshangla,.,.,.,.,.,.,GBR,IND,.
+BW,BWA,72.0,Botswana,Botswana,600372.0,291.4366,1.0,Africa,Gaborone,Gaborone,-24.75,25.91667,1.0,1.0,25,English,.,.,Tswana,English,.,.,Kalanga,.,.,.,GBR,.,.,.,.,.,.
+CF,CAF,140.0,Central African Republic,Centrafricaine (la République),622984.0,296.8741,1.0,Africa,Bangui,Bangui,4.383333,18.61667,1.0,1.0,25,French,.,.,Gbaya,Sango,.,.,French,.,.,.,FRA,.,.,.,.,.,.
+CA,CAN,124.0,Canada,Canada,9976139.0,1187.996,0.0,America,Toronto,Toronto,43.65,-79.38,0.0,1.0,25,English,French,.,English,French,.,.,.,.,.,.,GBR,FRA,.,.,.,.,.
+CA,CAN,124.0,Canada,Canada,9976139.0,1187.996,0.0,America,Ottawa,Ottawa,45.42,-75.71,1.0,0.0,25,English,French,.,English,French,.,.,.,.,.,.,GBR,FRA,.,.,.,.,.
+CC,CCK,166.0,Cocos (Keeling) Islands,Îles Cocos (Keeling),14.0,1.407336,0.0,Pacific,West Island,West Island,-12.5,96.83334,1.0,1.0,.,Malay,.,.,English,Malay,.,.,.,.,.,.,GBR,AUS,.,.,.,.,.
+CH,CHE,757.0,Switzerland,Suisse,41288.0,76.42681,1.0,Europe,Bern,Berne,46.95,7.433333,1.0,1.0,25,German,French,Italian,German,Alemannisch,French,.,Italian,.,.,.,.,.,.,.,.,.,.
+CL,CHL,152.0,Chile,Chili,756945.0,327.2397,0.0,America,Santiago,Santiago,-33.5,-70.66666,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+CN,CHN,156.0,China,Chine,9572378.0,1163.707,0.0,Asia,Beijing,Pékin,39.91667,116.4333,1.0,1.0,25,Chinese,.,.,Chinese Mandarin,.,.,.,Chinese Wu,Chinese Yue,.,.,.,.,.,.,.,.,.
+CI,CIV,384.0,Côte d'Ivoire,Côte d'Ivoire,322463.0,213.5865,0.0,Africa,Yamoussoukro,Yamoussoukro,6.82,-5.28,1.0,0.0,25,French,.,.,Baoulé,French,Diaoula,.,.,.,.,.,FRA,.,.,.,.,.,.
+CI,CIV,384.0,Côte d'Ivoire,Côte d'Ivoire,322463.0,213.5865,0.0,Africa,Abidjan,Abidjan,5.316667,-4.016667,0.0,1.0,25,French,.,.,Baoulé,French,Diaoula,.,.,.,.,.,FRA,.,.,.,.,.,.
+CM,CMR,120.0,Cameroon,Cameroun,475442.0,259.3478,0.0,Africa,Yaounde,Yaoundé,3.85,11.51667,1.0,1.0,25,French,English,.,French,English,Fang,.,Pidgin Cameroon,Beti,.,.,FRA,.,.,.,.,.,.
+CG,COG,178.0,Congo,Congo,342000.0,219.9616,0.0,Africa,Brazzaville,Brazzaville,-4.233333,15.23333,1.0,1.0,25,French,.,.,French,Kituba,Kongo,.,Lingala,.,.,.,FRA,.,.,.,.,.,.
+CK,COK,184.0,Cook Islands,Îles Cook,240.0,5.826925,0.0,Pacific,Avarua,Avarua,-21.2,-159.7667,1.0,1.0,11,English,.,.,English,Maori,.,.,.,.,.,.,GBR,NZL,.,.,.,.,.
+CO,COL,170.0,Colombia,Colombie,1141748.0,401.9008,0.0,America,Bogota,Bogota,4.633333,-75.06667,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+KM,COM,174.0,Comoros,Comores,1862.0,16.23019,0.0,Africa,Moroni,Moroni,-11.66667,43.26667,1.0,1.0,5,Arabic,French,.,Comorian,.,.,.,French,.,.,.,FRA,.,.,.,.,.,.
+CV,CPV,132.0,Cape Verde,Cap-Vert,4033.0,23.88625,0.0,Africa,Praia,Praia,14.91667,-23.5,1.0,1.0,15,Portuguese,.,.,Portuguese,Kabuverdianu,.,.,.,.,.,.,PRT,.,.,.,.,.,.
+CR,CRI,188.0,Costa Rica,Costa Rica,51076.0,85.00456,0.0,America,San Jose,San José,9.983334,-84.06667,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+CU,CUB,192.0,Cuba,Cuba,110861.0,125.2343,0.0,America,Havana,La Havane,23.11667,-82.41666,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,USA,.,.
+CX,CXR,162.0,Christmas Island,Île Christmas,135.0,4.370194,0.0,Pacific,The Settlement,The Settlement,-10.41667,105.7167,1.0,1.0,.,English,.,.,English,.,.,.,.,.,.,.,GBR,AUS,.,.,.,.,.
+KY,CYM,136.0,Cayman Islands,Îles Caïmans,262.0,6.088138,0.0,America,George Town,George Town,19.3,-81.38333,1.0,1.0,3,English,.,.,English,Cayman Islands English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+CY,CYP,196.0,Cyprus,Chypre,9251.0,36.17663,0.0,Europe,Nicosia,Nicosie,35.15,33.35,1.0,1.0,25,Greek,Turkish,.,Greek,Turkish,.,.,.,.,.,.,GBR,TUR,GRC,.,.,.,.
+CZ,CZE,203.0,Czech Republic,Tchèque (la République),78864.0,105.6266,1.0,Europe,Prague,Prague,50.1,14.43333,1.0,1.0,25,Czech,.,.,Czech,.,.,.,.,.,.,.,AUT,.,.,.,HUN,.,.
+DE,DEU,276.0,Germany,Allemagne,357325.0,224.8358,0.0,Europe,Berlin,Berlin,52.533,13.417,1.0,0.0,25,German,.,.,German,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+DE,DEU,276.0,Germany,Allemagne,357325.0,224.8358,0.0,Europe,Essen,Essen,51.467,6.983,0.0,1.0,25,German,.,.,German,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+DJ,DJI,262.0,Djibouti,Djibouti,23200.0,57.28986,0.0,Africa,Djibouti,Djibouti,11.6,43.15,1.0,1.0,5,French,Arabic,.,Afar,Somali,.,.,Arabic,French,.,.,FRA,.,.,.,.,.,.
+DM,DMA,212.0,Dominica,Dominique,751.0,10.30751,0.0,America,Roseau,Roseau,15.3,-61.38334,1.0,1.0,22,English,French,.,English,Lesser Antillean Creole French,.,.,.,.,.,.,GBR,.,.,.,FRA,.,.
+DK,DNK,208.0,Denmark,Danemark,43094.0,78.08043,0.0,Europe,Copenhagen,Copenhague,55.66667,12.58333,1.0,1.0,25,Danish,.,.,Danish,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+DO,DOM,214.0,Dominican Republic,Dominicaine (la République),48734.0,83.03283,0.0,America,Santo Domingo,Saint-Domingue,18.5,-69.78333,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,FRA,HTI,.,.,ESP,.,.
+DZ,DZA,12.0,Algeria,Algérie,2381741.0,580.4717,0.0,Africa,Algiers,Alger,36.83333,3.0,1.0,1.0,25,Arabic,French,.,Arabic,French,.,.,Kabyle,.,.,.,FRA,.,.,.,.,.,.
+EC,ECU,218.0,Ecuador,Equateur,275716.0,197.4989,0.0,America,Quito,Quito,-0.2333333,-78.5,1.0,1.0,25,Spanish,.,.,Spanish,Quichua,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+EG,EGY,818.0,Egypt,Egypte,1001449.0,376.3988,0.0,Africa,Cairo,Le Caire,30.05,31.25,1.0,1.0,25,Arabic,.,.,Arabic,English,.,.,.,.,.,.,GBR,TUR,.,.,.,.,.
+ER,ERI,232.0,Eritrea,Erythrée,121320.0,131.0087,0.0,Africa,Asmara,Asmara,15.33333,38.88334,1.0,1.0,18,English,.,.,Tigrigna,Tigré,English,Arabic,Afar,.,.,.,GBR,.,.,.,ITA,ETH,.
+EH,ESH,732.0,Western Sahara,Sahara occidental,266000.0,193.9879,0.0,Africa,none,El Aioun,27.16667,-13.18333,1.0,1.0,4,Arabic,.,.,Arabic,.,.,.,.,.,.,.,ESP,MAR,.,.,.,.,.
+ES,ESP,724.0,Spain,Espagne,505954.0,267.5404,0.0,Europe,Madrid,Madrid,40.41667,-3.716667,1.0,1.0,25,Spanish,.,.,Spanish,Catalan,.,.,Galician,.,.,.,.,.,.,.,.,.,.
+EE,EST,233.0,Estonia,Estonie,45227.0,79.98945,0.0,Europe,Tallinn,Tallinn,59.41667,24.75,1.0,1.0,25,Estonian,.,.,Estonian,.,.,.,.,.,.,.,RUS,SWE,.,.,.,.,.
+ET,ETH,231.0,Ethiopia,Ethiopie,1127127.0,399.3192,1.0,Africa,Addis Ababa,Addis Abeba,9.05,38.83333,1.0,1.0,25,Amharic,Tigrigna,English,Amharic,Oromo,.,.,.,.,.,.,.,.,.,.,ITA,.,.
+FI,FIN,246.0,Finland,Finlande,336593.0,218.2159,0.0,Europe,Helsinki,Helsinki,60.13334,25.0,1.0,1.0,25,Swedish,.,.,Finnish,.,.,.,.,.,.,.,RUS,SWE,.,.,.,.,.
+FJ,FJI,242.0,Fiji,Fidji,18333.0,50.92729,0.0,Pacific,Suva,Suva,-18.13333,178.4167,1.0,1.0,22,English,.,.,English,Fijian,Hindustani Fijian,.,.,.,.,.,GBR,.,.,.,.,.,.
+FK,FLK,238.0,Falkland Islands,Îles Falkland,12173.0,41.49852,0.0,America,Stanley,Stanley,-51.7,-57.85,1.0,1.0,4,English,.,.,English,.,.,.,.,.,.,.,GBR,ESP,.,.,AUT,.,.
+FR,FRA,251.0,France,France,547026.0,278.1876,0.0,Europe,Paris,Paris,48.86666,2.333333,1.0,1.0,25,French,.,.,French,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+FO,FRO,234.0,Faroe Islands,Îles Féroé,1399.0,14.06833,0.0,Europe,Torshavn,Torshavn,62.01667,-6.766667,1.0,1.0,14,Faroese,Danish,.,Faroese,Danish,.,.,.,.,.,.,DNK,.,.,.,.,.,.
+FM,FSM,583.0,Micronesia (Federated States of),Micronésie (Etats fédérés de),707.0,10.001,0.0,Pacific,Palikir,Palikir,6.916667,158.25,1.0,1.0,6,English,.,.,Chuukese,Pohnpeian,English,.,.,.,.,.,ESP,DEU,USA,JPN,.,.,.
+GA,GAB,266.0,Gabon,Gabon,267667.0,194.5948,0.0,Africa,Libreville,Libreville,0.3833333,9.416667,1.0,1.0,25,French,.,.,Fang,French,.,.,Mbere,Punu,.,.,FRA,.,.,.,.,.,.
+GB,GBR,826.0,United Kingdom,Royaume-Uni,244110.0,185.8346,0.0,Europe,London,Londres,51.5,-0.1666667,1.0,1.0,25,English,.,.,English,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+GE,GEO,268.0,Georgia,Géorgie,69700.0,99.30022,0.0,Asia,Tbilisi,Tbilissi,41.71667,44.81667,1.0,1.0,25,Georgian,.,.,Georgian,.,.,.,Mingrelian,.,.,.,RUS,.,.,.,TUR,.,.
+GH,GHA,288.0,Ghana,Ghana,238538.0,183.7014,0.0,Africa,Accra,Accra,5.55,-0.25,1.0,1.0,25,English,.,.,Akan,.,.,.,English,Éwé,.,.,GBR,.,.,.,.,.,.
+GI,GIB,292.0,Gibraltar,Gibraltar,7.0,0.9951369,0.0,Europe,Gibraltar,Gibraltar,36.13334,-5.35,1.0,1.0,1,English,Spanish,.,English,Spanish,.,.,.,.,.,.,GBR,.,.,.,ESP,.,.
+GN,GIN,324.0,Guinea,Guinée,245857.0,186.4984,0.0,Africa,Conakry,Conakry,9.516666,-15.71667,1.0,1.0,25,French,.,.,French,Pulaar,Maninka,.,Susu,.,.,.,FRA,.,.,.,.,.,.
+GP,GLP,312.0,Guadeloupe,Guadeloupe,1780.0,15.86879,0.0,America,Basse-Terre,Basse-Terre,16.0,-61.73333,1.0,1.0,25,French,.,.,French,Lesser Antillean Creole French,.,.,Virgin Islands Creole English,.,.,.,FRA,.,.,.,.,.,.
+GM,GMB,270.0,Gambia,Gambie,11295.0,39.97394,0.0,Africa,Banjul,Banjul,13.46667,-16.65,1.0,1.0,20,English,.,.,English,Mandinka,Pulaar,.,Wolof,.,.,.,GBR,.,.,.,.,.,.
+GW,GNB,624.0,Guinea-Bissau,Guinée-Bissau,36125.0,71.48875,0.0,Africa,Bissau,Bissau,11.86667,-15.65,1.0,1.0,14,Portuguese,.,.,Balanta,Madjank,Crioulo Upper Guinea,.,Mandinka,.,.,.,PRT,.,.,.,.,.,.
+GQ,GNQ,226.0,Equatorial Guinea,Guinée équatoriale,28051.0,62.99527,0.0,Africa,Malabo,Malabo,3.75,8.8,1.0,1.0,16,Spanish,French,.,Fang,Spanish,.,.,Bube,.,.,.,ESP,.,.,.,.,.,.
+GR,GRC,300.0,Greece,Grèce,131621.0,136.4572,0.0,Europe,Athens,Athènes,38.0,23.73333,1.0,1.0,25,Greek,.,.,Greek,.,.,.,.,.,.,.,TUR,.,.,.,.,.,.
+GD,GRD,308.0,Grenada,Grenade,345.0,6.986238,0.0,America,Saint George's,Saint-Georges,12.06667,-61.73333,1.0,1.0,7,English,.,.,English,Windward Caribbean Creole English,.,.,.,.,.,.,GBR,.,.,.,FRA,.,.
+GL,GRL,304.0,Greenland,Groenland,2166086.0,553.5688,0.0,America,Nuuk (Godthab),Godthab,64.18333,-51.73333,1.0,1.0,25,Greenlandic,Danish,.,Greenlandic,.,.,.,Danish,.,.,.,DNK,.,.,.,.,.,.
+GT,GTM,320.0,Guatemala,Guatemala,108889.0,124.1154,0.0,America,Guatemala,Guatemala,14.63333,-90.51667,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+GF,GUF,254.0,French Guiana,Guyane française,91000.0,113.4631,0.0,America,Cayenne,Cayenne,4.933333,-52.33333,1.0,1.0,15,French,.,.,French,.,.,.,.,.,.,.,FRA,.,.,.,.,.,.
+GY,GUY,328.0,Guyana,Guyana,214970.0,174.3905,0.0,America,Georgetown,Georgetown,6.766667,-58.16667,1.0,1.0,25,English,.,.,English,Hindustani Caribbean,Guyanese Creole English,.,.,.,.,.,GBR,.,.,.,NLD,.,.
+HK,HKG,344.0,Hong Kong,Hong-Kong,1092.0,12.42926,0.0,Asia,Victoria,Victoria,22.26667,114.15,1.0,1.0,7,English,Chinese,.,English,Chinese Yue,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+HN,HND,340.0,Honduras,Honduras,112088.0,125.9254,0.0,America,Tegucigalpa,Tegucigalpa,14.08333,-87.23333,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+HR,HRV,191.0,Croatia,Croatie,56538.0,89.43428,0.0,Europe,Zagreb,Zagreb,45.8,15.96667,1.0,1.0,25,Serbo-Croatian,.,.,Serbo-Croatian,.,.,.,.,.,.,.,AUT,.,.,.,YUG,HUN,.
+HT,HTI,332.0,Haiti,Haïti,27750.0,62.65638,0.0,America,Port-au-Prince,Port-au-Prince,18.55,-72.33334,1.0,1.0,25,French,.,.,Haitian Creole French,.,.,.,.,.,.,.,.,.,.,.,FRA,ESP,.
+HU,HUN,348.0,Hungary,Hongrie,93032.0,114.7229,1.0,Europe,Budapest,Budapest,47.5,19.05,1.0,1.0,25,Hungarian,.,.,Hungarian,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+ID,IDN,360.0,Indonesia,Indonésie,1933658.0,523.0264,0.0,Asia,Jakarta,Jakarta,-6.133333,106.75,1.0,1.0,25,Indonesian,.,.,Indonesian,Malay,Javanese,.,Sunda,.,.,.,NLD,.,.,.,.,.,.
+IN,IND,699.0,India,Inde,3287590.0,681.9816,0.0,Asia,New Delhi,New Delhi,28.61667,77.21667,1.0,1.0,25,English,Hindi,.,Hindi,English,.,.,Marathi,Telugu,Bengali,.,GBR,.,.,.,.,.,.
+IE,IRL,372.0,Ireland,Irlande,70285.0,99.71606,0.0,Europe,Dublin,Dublin,53.33333,-6.25,1.0,1.0,25,English,.,.,English,Irish,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+IR,IRN,364.0,Iran,Iran,1648100.0,482.8648,0.0,Asia,Tehran,Téhéran,35.66667,51.43333,1.0,1.0,25,Persian,.,.,Persian,Azeri,.,.,.,.,.,.,.,.,.,.,.,.,.
+IQ,IRQ,368.0,Iraq,Iraq,437072.0,248.6625,0.0,Asia,Baghdad,Bagdad,33.33333,44.43333,1.0,1.0,25,Arabic,.,.,Arabic,Kurdish,.,.,.,.,.,.,TUR,.,.,.,GBR,.,.
+IS,ISL,352.0,Iceland,Islande,102819.0,120.6064,0.0,Europe,Reykjavik,Reykjavik,64.15,-21.96667,1.0,1.0,25,Icelandic,.,.,Icelandic,.,.,.,.,.,.,.,DNK,.,.,.,.,.,.
+IL,ISR,376.0,Israel,Israël,21621.0,55.30593,0.0,Asia,Tel Aviv,Tel Aviv,32.08333,34.76667,1.0,1.0,25,Hebrew,English,.,Hebrew,Arabic,English,French,Russian,.,.,.,GBR,TUR,.,.,POL,.,.
+IT,ITA,381.0,Italy,Italie,301323.0,206.4667,0.0,Europe,Rome,Rome,41.88334,12.5,1.0,1.0,25,Italian,.,.,Italian,.,.,.,Lombard,Napoletano-Calabrese,.,.,.,.,.,.,.,.,.
+JM,JAM,388.0,Jamaica,Jamaïque,10991.0,39.43233,0.0,America,Kingston,Kingston,17.96667,-76.8,1.0,1.0,25,English,.,.,English,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+JO,JOR,400.0,Jordan,Jordanie,91862.0,113.9992,0.0,Asia,Amman,Amman,31.95,35.93333,1.0,1.0,25,Arabic,.,.,Arabic,English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+JP,JPN,392.0,Japan,Japon,377801.0,231.188,0.0,Asia,Tokyo,Tokyo,35.66667,139.75,1.0,1.0,25,Japanese,.,.,Japanese,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+KZ,KAZ,398.0,Kazakstan,Kazakstan,2717300.0,620.0156,1.0,Asia,Astana,Astana,51.17,71.47,1.0,0.0,25,Kazakh,Russian,.,Kazakh,Russian,.,.,.,.,.,.,RUS,.,.,.,.,.,.
+KZ,KAZ,398.0,Kazakstan,Kazakstan,2717300.0,620.0156,1.0,Asia,Alma-Ata (Almaty),Alma-Ata (Almaty),43.25,76.95,2.0,1.0,25,Kazakh,Russian,.,Kazakh,Russian,.,.,.,.,.,.,RUS,.,.,.,.,.,.
+KE,KEN,404.0,Kenya,Kenya,582646.0,287.102,0.0,Africa,Nairobi,Nairobi,-1.283333,36.83333,1.0,1.0,25,English,Swahili,.,English,Swahili,Gikuyu,.,Luo,Luyia,Kalenjin,Kamba,GBR,.,.,.,.,.,.
+KG,KGZ,417.0,Kyrgyzstan,Kirghizistan,198500.0,167.5769,1.0,Asia,Bishkek,Bichkek,42.9,74.6,1.0,1.0,25,Kyrgyz,Russian,.,Kyrgyz,Russian,.,.,.,.,.,.,RUS,.,.,.,.,.,.
+KH,KHM,116.0,Cambodia,Cambodge,181035.0,160.035,0.0,Asia,Phnom Penh,Phnom Penh,11.58333,104.9167,1.0,1.0,24,Khmer,.,.,Khmer,.,.,.,.,.,.,.,FRA,.,.,.,.,.,.
+KI,KIR,296.0,Kiribati,Kiribati,717.0,10.07148,0.0,Pacific,Tarawa (Bairiki),Bairiki,1.383333,173.15,1.0,1.0,25,English,.,.,English,I-Kiribati,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+KN,KNA,659.0,Saint Kitts and Nevis,Saint-Christophe-et-Niévès,269.0,6.168931,0.0,America,Basseterre,Basseterre,17.28333,-62.71667,1.0,1.0,17,English,.,.,English,Leeward Caribbean Creole English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+KR,KOR,410.0,Korea,Corée du Sud,99484.0,118.6343,0.0,Asia,Seoul,Séoul,37.5,127.0,1.0,1.0,25,Korean,.,.,Korean,English,.,.,.,.,.,.,JPN,.,.,.,.,.,.
+KW,KWT,414.0,Kuwait,Koweït,17818.0,50.20689,0.0,Asia,Kuwait,Koweït,29.33333,48.0,1.0,1.0,25,Arabic,.,.,Arabic,English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+LA,LAO,418.0,Lao People's Democratic Republic,"Lao, Rép. dém. Pop.",236800.0,183.031,1.0,Asia,Vientiane,Vientiane,17.98333,102.6333,1.0,1.0,23,Lao,.,.,Thai,.,.,.,Khmu,.,.,.,FRA,.,.,.,.,.,.
+LB,LBN,422.0,Lebanon,Liban,10452.0,38.45329,0.0,Asia,Beirut,Beyrouth,33.86666,35.5,1.0,1.0,19,Arabic,French,.,Arabic,French,English,.,.,.,.,.,FRA,.,.,.,.,.,.
+LR,LBR,430.0,Liberia,Libéria,111369.0,125.5209,0.0,Africa,Monrovia,Monrovia,6.333333,-10.76667,1.0,1.0,18,English,.,.,English,.,.,.,Bassa,Kpelle,.,.,FRA,.,.,.,.,.,.
+LY,LBY,434.0,Libyan Arab Jamahiriya,Libye,1759540.0,498.9228,0.0,Africa,Tripoli,Tripoli,32.73333,13.11667,1.0,1.0,25,Arabic,.,.,Arabic,.,.,.,.,.,.,.,TUR,ITA,.,.,.,.,.
+LC,LCA,662.0,Saint Lucia,Sainte-Lucie,617.0,9.342786,0.0,America,Castries,Castries,14.01667,-60.98333,1.0,1.0,12,English,.,.,English,Lesser Antillean Creole French,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+LK,LKA,144.0,Sri Lanka,Sri Lanka,65610.0,96.3427,0.0,Asia,Colombo,Colombo,6.916667,79.86667,1.0,1.0,25,Sinhala,.,.,Sinhala,.,.,.,Tamil,.,.,.,GBR,.,.,.,NLD,.,.
+LS,LSO,426.0,Lesotho,Lesotho,30355.0,65.53132,1.0,Africa,Maseru,Maseru,-29.31667,27.48333,1.0,1.0,11,English,Sesotho,.,English,Sesotho,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+LT,LTU,440.0,Lithuania,Lituanie,65300.0,96.11483,0.0,Europe,Vilnius,Vilnius,54.68333,25.31667,1.0,1.0,25,Lithuanian,.,.,Lithuanian,.,.,.,.,.,.,.,RUS,.,.,.,.,.,.
+LU,LUX,442.0,Luxembourg,Luxembourg,2586.0,19.12705,1.0,Europe,Luxembourg,Luxembourg,49.6,6.15,1.0,1.0,25,French,German,Luxembourgish,Luxembourgish,.,.,.,.,.,.,.,NLD,.,.,.,.,.,.
+LV,LVA,428.0,Latvia,Lettonie,64589.0,95.59013,0.0,Europe,Riga,Riga,56.95,24.1,1.0,1.0,25,Latvian,.,.,Latvian,.,.,.,.,.,.,.,RUS,.,.,.,SWE,.,.
+MO,MAC,446.0,Macau (Aomen),Macao (Aomen),25.0,1.880632,0.0,Asia,Aomen,Aomen,22.27,113.56,1.0,1.0,.,Portuguese,Chinese,.,Portuguese,Chinese Yue,.,.,.,.,.,.,PRT,.,.,.,.,.,.
+MA,MAR,504.0,Morocco,Maroc,710850.0,317.1194,0.0,Africa,Rabat,Rabat,34.03333,-6.85,1.0,1.0,25,Arabic,French,.,Arabic,French,.,.,Tachelhit,Tamazghit,.,.,FRA,.,.,.,.,.,.
+MD,MDA,498.0,"Moldova, Rep.of",Moldavie,33700.0,69.04763,0.0,Europe,Chisinau,Chisinau,47.0,28.83333,1.0,1.0,25,Romanian,.,.,Romanian,.,.,.,Bulgarian,.,.,.,RUS,.,.,.,.,.,.
+MG,MDG,450.0,Madagascar,Madagascar,587041.0,288.1828,0.0,Africa,Antananarivo,Tananarive,-18.86667,47.5,1.0,1.0,25,French,.,.,Malagasy,French,.,.,.,.,.,.,FRA,.,.,.,.,.,.
+MV,MDV,462.0,Maldives,Maldives,298.0,6.492948,0.0,Asia,Male,Malé,4.166667,73.46667,1.0,1.0,25,Maldivian,.,.,Maldivian,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+MX,MEX,484.0,Mexico,Mexique,1967210.0,527.5446,0.0,America,Mexico (Distrito Federal),Mexico,19.41667,-99.16666,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+MH,MHL,584.0,Marshall Islands,Marshall,181.0,5.060263,0.0,Pacific,Majuro,Delap-Uliga-Darrit,7.15,171.2,1.0,1.0,3,English,.,.,English,Marshallese,.,.,.,.,.,.,.,.,.,.,.,.,.
+MK,MKD,807.0,Macedonia (the former Yugoslav Rep. of),Macédoine,25713.0,60.3129,1.0,Europe,Skopje,Skopje,42.0,21.46667,1.0,1.0,25,Macedonian,.,.,Macedonian,.,.,.,Albanian,.,.,.,TUR,.,.,.,YUG,.,.
+ML,MLI,466.0,Mali,Mali,1240142.0,418.8606,1.0,Africa,Bamako,Bamako,12.66667,-7.983333,1.0,1.0,25,French,.,.,Bambara,.,.,.,Fulfulde,Senoufo,.,.,FRA,.,.,.,.,.,.
+MT,MLT,470.0,Malta,Malte,316.0,6.686169,0.0,Europe,Valletta,La Valette,35.9,14.53333,1.0,1.0,25,English,.,.,Maltese,English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+MM,MMR,104.0,Burma,Birmanie,678500.0,309.8195,0.0,Asia,Rangoon,Rangoon,16.78333,96.16666,1.0,1.0,25,Burmese,.,.,Burmese,.,.,.,.,.,.,.,GBR,.,.,.,IND,.,.
+MN,MNG,496.0,Mongolia,Mongolie,1565500.0,470.6091,1.0,Asia,Ulaanbaatar,Oulan-Bator,47.9,106.8667,1.0,1.0,25,Mongolian,.,.,Mongolian,.,.,.,.,.,.,.,CHN,.,.,.,.,.,.
+MP,MNP,580.0,Northern Mariana Islands,Îles Mariannes du Nord,477.0,8.214725,0.0,Pacific,Saipan,Saipan,15.2,145.75,1.0,1.0,15,English,.,.,English,Chamorro,.,.,.,.,.,.,ESP,DEU,USA,JPN,.,.,.
+MZ,MOZ,508.0,Mozambique,Mozambique,801590.0,336.7518,0.0,Africa,Maputo,Maputo,-25.96667,32.58333,1.0,1.0,25,Portuguese,.,.,Macua,Portuguese,.,.,Tsonga,.,.,.,PRT,.,.,.,.,.,.
+MR,MRT,478.0,Mauritania,Mauritanie,1030700.0,381.8563,0.0,Africa,Nouakchott,Nouakchott,18.15,-15.96667,1.0,1.0,20,Arabic,.,.,Hassaniya Arabic,.,.,.,.,.,.,.,FRA,.,.,.,.,.,.
+MS,MSR,500.0,Montserrat,Montserrat,102.0,3.79869,0.0,America,Plymouth,Plymouth,16.7,-62.21667,1.0,1.0,.,English,.,.,English,Leeward Caribbean Creole English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+MQ,MTQ,474.0,Martinique,Martinique,1100.0,12.4747,0.0,America,Fort-de-France,Fort-de-France,14.6,-61.08333,1.0,1.0,21,French,.,.,French,Lesser Antillean Creole French,.,.,.,.,.,.,FRA,.,.,.,.,.,.
+MU,MUS,480.0,Mauritius,Maurice,2045.0,17.00907,0.0,Africa,Port Louis,Port Louis,-20.16667,57.5,1.0,1.0,25,English,French,.,Morisyen,French,.,.,English,.,.,.,GBR,.,.,.,FRA,NLD,.
+MW,MWI,454.0,Malawi,Malawi,118484.0,129.4684,1.0,Africa,Lilongwe,Lilongwe,-13.96667,33.81667,1.0,1.0,25,English,.,.,Chichewa,.,.,.,Lomwé,Yao,English,.,GBR,.,.,.,.,.,.
+MY,MYS,458.0,Malaysia,Malaisie,329758.0,215.9889,0.0,Asia,Kuala Lumpur,Kuala Lumpur,3.133333,101.7,1.0,1.0,25,Malay,Chinese,.,Malay,Chinese Min Nan,.,.,Tamoul,Chinese Yue,Chinese Hakka,.,GBR,.,.,.,.,.,.
+,NAM,516.0,Namibia,Namibie,825518.0,341.741,0.0,Africa,Windhoek,Windhoeck,-22.56667,17.1,1.0,1.0,25,English,.,.,English,Kwanyama,.,.,Afrikaans,.,.,.,DEU,ZAF,.,.,.,.,.
+NC,NCL,540.0,New Caledonia,Nouvelle-Calédonie,19060.0,51.92724,0.0,Pacific,Noumea,Nouméa,-22.26667,166.45,1.0,1.0,25,French,.,.,French,.,.,.,.,.,.,.,FRA,.,.,.,.,.,.
+NE,NER,562.0,Niger,Niger,1267000.0,423.372,1.0,Africa,Niamey,Niamey,13.53333,2.083333,1.0,1.0,25,French,Arabic,.,Hausa,Zarma,French,.,.,.,.,.,FRA,.,.,.,.,.,.
+NF,NFK,574.0,Norfolk Island,Île Norfolk,35.0,2.225194,0.0,Pacific,Kingston,Kingston,-29.05,167.9667,1.0,1.0,1,English,.,.,English,.,.,.,.,.,.,.,.,.,.,.,GBR,.,.
+NG,NGA,566.0,Nigeria,Nigéria,923768.0,361.5058,0.0,Africa,Lagos,Lagos,6.45,3.466667,2.0,1.0,25,English,.,.,Yorouba,Hausa,English,.,Igbo,.,.,.,GBR,.,.,.,.,.,.
+NG,NGA,566.0,Nigeria,Nigéria,923768.0,361.5058,0.0,Africa,Abuja,Abuja,9.18,7.17,1.0,0.0,25,English,.,.,Yorouba,Hausa,English,.,Igbo,.,.,.,GBR,.,.,.,.,.,.
+NI,NIC,558.0,Nicaragua,Nicaragua,130670.0,135.9633,0.0,America,Managua,Managua,12.1,-86.3,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+NU,NIU,570.0,Niue,Nioué,260.0,6.064856,0.0,Pacific,Alofi,Alofi,-19.01667,-169.9167,1.0,1.0,13,Niuean,English,.,Niuean,English,.,.,.,.,.,.,GBR,NZL,.,.,.,.,.
+NL,NLD,528.0,Netherlands,Pays-Bas,41863.0,76.95715,0.0,Europe,Amsterdam,Amsterdam,52.35,4.9,1.0,1.0,25,Dutch,.,.,Dutch,.,.,.,.,.,.,.,.,.,.,.,ESP,.,.
+NO,NOR,579.0,Norway,Norvège,323752.0,214.0129,0.0,Europe,Oslo,Oslo,59.91667,10.75,1.0,1.0,25,Norwegian,.,.,Norwegian,.,.,.,.,.,.,.,.,.,.,.,DNK,.,.
+NP,NPL,524.0,Nepal,Népal,147181.0,144.2978,1.0,Asia,Kathmandu,Katmandou,27.7,85.31667,1.0,1.0,25,Nepali,.,.,Nepali,.,.,.,Maithili,.,.,.,.,.,.,.,.,.,.
+NR,NRU,520.0,Nauru,Nauru,21.0,1.723628,0.0,Pacific,Yaren,Yaren,-0.5333334,166.9167,1.0,1.0,1,Nauruan,English,.,Nauruan,English,.,.,.,.,.,.,GBR,DEU,AUS,.,JPN,.,.
+NZ,NZL,554.0,New Zealand,Nouvelle-Zélande,268676.0,194.9612,0.0,Pacific,Wellington,Wellington,-44.28333,174.7833,1.0,1.0,25,English,.,.,English,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+OM,OMN,512.0,Oman,Oman,212379.0,173.3363,0.0,Asia,Muscat,Mascate,23.61667,58.63334,1.0,1.0,25,Arabic,.,.,Arabic,.,.,.,Balochi Southern,.,.,.,.,.,.,.,ESP,.,.
+PK,PAK,586.0,Pakistan,Pakistan,882872.0,353.4131,0.0,Asia,Islamabad,Islamabad,33.66667,73.13333,1.0,1.0,25,Urdu,Sindhi,English,Urdu,Punjabi,English,Sindhi,.,.,.,.,GBR,.,.,.,.,.,.
+PS,PAL,931.0,Palestine,Palestine,6256.0,29.74967,0.0,Asia,Gaza,Gaza,31.53,34.44,1.0,1.0,25,Arabic,.,.,Arabic,.,.,.,.,.,.,.,GBR,TUR,.,.,.,.,.
+PA,PAN,591.0,Panama,Panama,75648.0,103.4505,0.0,America,Panama,Panama,8.95,-79.5,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,COL,.,.
+PN,PCN,612.0,Pitcairn,Pitcairn,47.0,2.578593,0.0,Pacific,Adamstown,Adamstown,-25.06667,-130.0833,1.0,1.0,.,English,.,.,English,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+PE,PER,604.0,Peru,Pérou,1285216.0,426.4046,0.0,America,Lima,Lima,-12.1,-77.05,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,Quecha,.,.,.,ESP,.,.,.,.,.,.
+PH,PHL,608.0,Philippines,Philippines,300000.0,206.0129,0.0,Asia,Manila,Manille,14.61667,120.9667,1.0,1.0,25,English,.,.,English,Filipino,Cebuano,.,Hiligaynon,Ilocano,.,.,ESP,USA,.,.,.,.,.
+PW,PLW,585.0,Palau,Palaos,487.0,8.300385,0.0,Pacific,Koror,Koror,7.333333,134.4833,1.0,1.0,17,English,.,.,English,Palauan,.,.,.,.,.,.,GBR,DEU,USA,JPN,.,.,.
+PG,PNG,598.0,Papua New Guinea,Papouasie-Nouvelle-Guinée,462840.0,255.8876,0.0,Pacific,Port Moresby,Port Moresby,-9.5,147.1167,1.0,1.0,25,English,Hiri Motu,Tok Pisin,Tok Pisin,.,.,.,Motu,English,.,.,GBR,DEU,AUS,.,.,.,.
+PL,POL,616.0,Poland,Pologne,312685.0,210.3233,0.0,Europe,Warsaw,Varsovie,52.25,21.0,1.0,1.0,25,Polish,.,.,Polish,.,.,.,.,.,.,.,DEU,.,.,.,RUS,.,.
+PR,PRI,630.0,Puerto Rico,Porto Rico,9104.0,35.88805,0.0,America,San Juan,San Juan,18.44,-66.13,1.0,1.0,25,English,Spanish,.,English,Spanish,.,.,.,.,.,.,ESP,USA,.,.,.,.,.
+KP,PRK,408.0,"Korea, Dem. People's Rep. of",Corée du Nord,120538.0,130.5858,0.0,Asia,Pyongyang,Pyongyang,39.0,125.7833,1.0,1.0,15,Korean,.,.,Korean,.,.,.,.,.,.,.,JPN,.,.,.,.,.,.
+PT,PRT,620.0,Portugal,Portugal,92389.0,114.3257,0.0,Europe,Lisbon,Lisbonne,38.73333,-9.133333,1.0,1.0,25,Portuguese,.,.,Portuguese,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+PY,PRY,600.0,Paraguay,Paraguay,406752.0,239.8826,1.0,America,Asuncion,Asuncion,-25.25,-57.66667,1.0,1.0,25,Spanish,.,.,Guarani,Spanish,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+PF,PYF,258.0,French Polynesia,Polynésie française,4167.0,24.27983,0.0,Pacific,Papeete,Papeete,-17.53333,-149.5667,1.0,1.0,25,French,.,.,French,Tahitian,.,.,Tuamotan,.,.,.,FRA,.,.,.,.,.,.
+QA,QAT,634.0,Qatar,Qatar,11437.0,40.22443,0.0,Asia,Doha,Doha,25.25,51.53333,1.0,1.0,13,Arabic,Persian,.,Arabic,Persian,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+RE,REU,638.0,Reunion,Réunion,2517.0,18.87015,0.0,Africa,Saint-Denis,Saint-Denis,-20.86667,55.46667,1.0,1.0,23,French,.,.,French,Tamoul,Réunion Creole French,.,.,.,.,.,FRA,.,.,.,.,.,.
+RO,ROM,642.0,Romania,Roumanie,238391.0,183.6448,0.0,Europe,Bucharest,Bucarest,44.41667,26.11667,1.0,1.0,25,Romanian,.,.,Romanian,.,.,.,Hungarian,.,.,.,.,.,.,.,TUR,AUT,HUN
+RU,RUS,643.0,Russian Federation,Russie,17075400.0,1554.244,0.0,Asia,Moscow,Moscou,55.75,37.7,1.0,1.0,25,Russian,.,.,Russian,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+RW,RWA,646.0,Rwanda,Rwanda,26338.0,61.0415,1.0,Africa,Kigali,Kigali,-1.933333,30.06667,1.0,1.0,12,French,English,Rwanda,Rwanda,English,.,.,French,.,.,.,BEL,DEU,.,.,.,.,.
+SA,SAU,682.0,Saudi Arabia,Arabie saoudite,2153168.0,551.9157,0.0,Asia,Riyadh,Riyad,24.65,46.76667,1.0,1.0,25,Arabic,.,.,Arabic,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+SD,SDN,736.0,Sudan,Soudan,2505813.0,595.399,0.0,Africa,Khartoum,Khartoum,15.55,32.53333,1.0,1.0,25,Arabic,.,.,Arabic,.,.,.,.,.,.,.,GBR,EGY,.,.,.,.,.
+SN,SEN,686.0,Senegal,Sénégal,196722.0,166.8247,0.0,Africa,Dakar,Dakar,14.63333,-17.45,1.0,1.0,25,French,.,.,French,Wolof,Pulaar,.,Serer-Sine,.,.,.,FRA,.,.,.,.,.,.
+SG,SGP,702.0,Singapore,Singapour,646.0,9.559828,0.0,Asia,Singapore,Singapour,1.283333,103.85,1.0,1.0,1,English,Chinese,.,English,Chinese Min Nan,.,.,Chinese Yue,Malay,.,.,GBR,.,.,.,.,.,.
+SH,SHN,654.0,Saint Helena,Sainte-Hélène,410.0,7.615979,0.0,Africa,Jamestown,Jamestown,-15.91667,-5.7,1.0,1.0,4,English,.,.,English,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+SB,SLB,90.0,Solomon Islands,Îles Salomon,29785.0,64.91314,0.0,Pacific,Honiara,Honiara,-9.466666,159.95,1.0,1.0,9,English,.,.,Solomons Pidgin,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+SL,SLE,694.0,Sierra Leone,Sierra Leone,73326.0,101.8504,0.0,Africa,Freetown,Freetown,8.5,-13.28333,1.0,1.0,25,English,.,.,English,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+SV,SLV,222.0,El Salvador,Salvador,21041.0,54.55907,0.0,America,San Salvador,San Salvador,13.66667,-89.16666,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+SM,SMR,674.0,San Marino,Saint-Marin,61.0,2.937641,0.0,Europe,Serravalle,Serravalle,43.95,12.49,1.0,1.0,9,Italian,.,.,Italian,Emiliano-Romagnolo,.,.,.,.,.,.,.,.,.,.,.,.,.
+SO,SOM,706.0,Somalia,Somalie,637657.0,300.3498,0.0,Africa,Mogadishu,Muqdisho (Mogadiscio),2.033333,45.35,1.0,1.0,25,Somali,English,Arabic,Somali,.,.,.,.,.,.,.,GBR,ITA,.,.,.,.,.
+PM,SPM,666.0,St. Pierre and Miquelon,Saint-Pierre-et-Miquelon,242.0,5.851153,0.0,America,Saint Pierre,Saint-Pierre,46.66667,-56.16667,1.0,1.0,2,French,.,.,French,.,.,.,.,.,.,.,FRA,.,.,.,.,.,.
+ST,STP,678.0,Sao Tome and Principe,Sao Tomé-et-Principe,964.0,11.6781,0.0,Africa,Sao Tome,Sao Tomé,0.2,6.716667,1.0,1.0,6,Portuguese,.,.,Portuguese,Sãotomense,.,.,.,.,.,.,PRT,.,.,.,.,.,.
+SR,SUR,740.0,Suriname,Suriname,163820.0,152.236,0.0,America,Paramaribo,Paramaribo,5.866667,-55.23333,1.0,1.0,14,Dutch,Hindi,.,Dutch,Hindustani Caribbean,Sranan,.,Javanese Caribbean,.,.,.,NLD,.,.,.,.,.,.
+SK,SVK,703.0,Slovakia,Slovaquie,49036.0,83.2897,1.0,Europe,Bratislava,Bratislava,48.16667,17.16667,1.0,1.0,25,Slovak,.,.,Slovak,.,.,.,Hungarian,.,.,.,HUN,.,.,.,.,.,.
+SI,SVN,705.0,Slovenia,Slovénie,20256.0,53.53165,0.0,Europe,Ljubljana,Ljubljana,46.06667,14.5,1.0,1.0,25,Slovenian,.,.,Slovenian,.,.,.,.,.,.,.,AUT,.,.,.,YUG,HUN,.
+SE,SWE,752.0,Sweden,Suède,449964.0,252.3032,0.0,Europe,Stockholm,Stockholm,59.33333,18.08333,1.0,1.0,25,Swedish,.,.,Swedish,.,.,.,Skane,.,.,.,.,.,.,.,.,.,.
+SZ,SWZ,748.0,Swaziland,Swaziland,17364.0,49.56313,1.0,Africa,Mbabane,Mbabane,-26.33333,31.13333,1.0,1.0,25,Swati,English,.,Swati,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+SC,SYC,690.0,Seychelles,Seychelles,455.0,8.02305,0.0,Africa,Victoria,Victoria,-4.633333,55.46667,1.0,1.0,5,English,French,.,Seselwa Creole French,French,English,.,.,.,.,.,GBR,FRA,.,.,.,.,.
+SY,SYR,760.0,Syrian Arab Republic,Syrie,184004.0,161.342,0.0,Asia,Damascus,Damas,33.5,36.31667,1.0,1.0,25,Arabic,.,.,Arabic,.,.,.,.,.,.,.,FRA,TUR,.,.,.,.,.
+TC,TCA,796.0,Turks and Caicos Islands,Îles Turks et Caïques,430.0,7.799523,0.0,America,Grand Turk (Cockburn Town),Grand Turk (Cockburn Town),21.46667,-71.13333,1.0,1.0,2,English,.,.,English,Turks And Caicos Creole English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+TD,TCD,148.0,Chad,Tchad,1284005.0,426.2036,1.0,Africa,N'Djamena,Ndjamena,12.16667,14.98333,1.0,1.0,25,French,Arabic,.,Arabic,.,.,.,Ngambay,.,.,.,FRA,.,.,.,.,.,.
+TG,TGO,768.0,Togo,Togo,56785.0,89.62943,0.0,Africa,Lome,Lomé,6.166667,1.35,1.0,1.0,25,French,.,.,French,Éwé,.,.,Kabiyé,.,.,.,FRA,.,.,.,.,.,.
+TH,THA,764.0,Thailand,Thaïlande,513115.0,269.427,0.0,Asia,Bangkok,Bangkok,13.73333,100.5,1.0,1.0,25,Thai,.,.,Thai,.,.,.,.,.,.,.,.,.,.,.,.,.,.
+TJ,TJK,762.0,Tajikistan,Tadjikistan,143095.0,142.2807,1.0,Asia,Dushanbe,Douchanbé,38.63334,68.85,1.0,1.0,25,Tajik,.,.,Tajik,.,.,.,.,.,.,.,RUS,.,.,.,.,.,.
+TK,TKL,772.0,Tokelau,Tokelaou,10.0,1.189416,0.0,Pacific,N.A.,N.A.,-9.0,-172.0,1.0,1.0,3,Tokelauan,English,.,Tokelauan,English,.,.,.,.,.,.,GBR,NZL,.,.,.,.,.
+TM,TKM,795.0,Turkmenistan,Turkménistan,488100.0,262.7775,1.0,Asia,Ashgabat,Achgabat,37.95,58.38334,1.0,1.0,25,Turkmen,.,.,Turkmen,.,.,.,.,.,.,.,RUS,.,.,.,.,.,.
+TP,TMP,626.0,East Timor,Timor Oriental,14874.0,45.872,0.0,Asia,Dili,Dili,-8.57,125.58,1.0,1.0,19,Tetum,Portuguese,.,Tetum,Mambae,.,.,.,.,.,.,PRT,IDN,.,.,IDN,.,.
+TO,TON,776.0,Tonga,Tonga,748.0,10.2869,0.0,Pacific,Nuku'alofa,Nuku'alofa,-21.15,-175.2333,1.0,1.0,9,Tongan,English,.,Tongan,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+TT,TTO,780.0,Trinidad and Tobago,Trinité-et-Tobago,5130.0,26.93968,0.0,America,Port-of-Spain,Port of Spain,10.63333,-61.51667,1.0,1.0,22,English,.,.,English,.,.,.,Lesser Antillean Creole French,.,.,.,GBR,.,.,.,.,.,.
+TN,TUN,788.0,Tunisia,Tunisie,164150.0,152.3892,0.0,Africa,Tunis,Tunis,36.83333,10.21667,1.0,1.0,25,Arabic,French,.,Arabic,.,.,.,.,.,.,.,FRA,TUR,.,.,.,.,.
+TR,TUR,792.0,Turkey,Turquie,780576.0,332.3085,0.0,Europe,Istambul,Istambul,41.03333,28.95,0.0,1.0,25,Turkish,.,.,Turkish,.,.,.,Kurmanji,.,.,.,.,.,.,.,.,.,.
+TR,TUR,792.0,Turkey,Turquie,780576.0,332.3085,0.0,Europe,Ankara,Ankara,39.93,32.85,1.0,0.0,25,Turkish,.,.,Turkish,.,.,.,Kurmanji,.,.,.,.,.,.,.,.,.,.
+TV,TUV,798.0,Tuvalu,Tuvalu,26.0,1.917876,0.0,Pacific,Fongafale,Fongafale,-8.5,179.2,1.0,1.0,8,Tuvaluan,.,.,Tuvaluan,.,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+TW,TWN,490.0,Taiwan,Taïwan,35875.0,71.24096,0.0,Asia,Taipei,Taipeh,25.08333,121.5333,1.0,1.0,25,Chinese,.,.,Chinese Hakka,Chinese Mandarin,Chinese Min Nan,.,.,.,.,.,JPN,.,.,.,CHN,.,.
+TZ,TZA,834.0,"Tanzania, United Rep. of",Tanzanie,945090.0,365.6541,0.0,Africa,Dar es Salaam,Dar es Salaam,-6.85,39.3,2.0,1.0,25,English,Swahili,.,Swahili,.,.,.,Sukuma,.,.,.,GBR,.,.,.,.,.,.
+TZ,TZA,834.0,"Tanzania, United Rep. of",Tanzanie,945090.0,365.6541,0.0,Africa,Dar es Salaam,Dar es Salaam,-6.17,35.74,1.0,0.0,25,English,Swahili,.,Swahili,.,.,.,Sukuma,.,.,.,GBR,.,.,.,.,.,.
+UG,UGA,800.0,Uganda,Ouganda,241038.0,184.6616,1.0,Africa,Kampala,Kampala,0.3333333,32.58333,1.0,1.0,25,English,.,.,Ganda,.,.,.,English,.,.,.,GBR,.,.,.,.,.,.
+UA,UKR,804.0,Ukraine,Ukraine,603677.0,292.2376,0.0,Europe,Kiev (Kyyiv),Kiev,50.41667,30.5,1.0,1.0,25,Ukrainian,.,.,Ukrainian,.,.,.,.,.,.,.,RUS,.,.,.,.,.,.
+UY,URY,858.0,Uruguay,Uruguay,176215.0,157.8902,0.0,America,Montevideo,Montevideo,-34.91667,-56.16667,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,BRA,.,.
+US,USA,842.0,United States of America,Etats-Unis d'Amérique,9529106.0,1161.074,0.0,America,New York,New York,40.75,-74.0,0.0,1.0,25,English,.,.,English,.,.,.,Spanish,.,.,.,GBR,FRA,ESP,.,.,.,.
+US,USA,842.0,United States of America,Etats-Unis d'Amérique,9529106.0,1161.074,0.0,America,"Washington, DC",Washington,38.867,-77.0,1.0,0.0,25,English,.,.,English,.,.,.,Spanish,.,.,.,GBR,FRA,ESP,.,.,.,.
+UZ,UZB,860.0,Uzbekistan,Ouzbékistan,447400.0,251.5833,1.0,Asia,Tashkent (Toshkent),Tachkent,41.26667,69.21667,1.0,1.0,25,Uzbek,.,.,Uzbek,.,.,.,.,.,.,.,RUS,.,.,.,.,.,.
+VC,VCT,670.0,Saint Vincent and the Grenadines,Saint-Vincent-et-les Grenadines,389.0,7.418372,0.0,America,Kingstown,Kingstown,13.2,-61.23333,1.0,1.0,10,English,.,.,English,Windward Caribbean Creole English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+VE,VEN,862.0,Venezuela,Venezuela,911930.0,359.182,0.0,America,Caracas,Caracas,10.58333,-66.93333,1.0,1.0,25,Spanish,.,.,Spanish,.,.,.,.,.,.,.,ESP,.,.,.,.,.,.
+VG,VGB,92.0,British Virgin Islands,Îles Vierges britanniques,153.0,4.652427,0.0,America,Road Town,Roadtown,18.45,-64.61667,1.0,1.0,6,English,.,.,English,Virgin Islands Creole English,.,.,.,.,.,.,GBR,.,.,.,.,.,.
+VN,VNM,704.0,Viet Nam,Viet Nam,331114.0,216.4326,0.0,Asia,Hanoi,Hanoï,21.01667,105.8667,1.0,1.0,25,Vietnamese,.,.,Vietnamese,.,.,.,.,.,.,.,FRA,.,.,.,.,.,.
+VU,VUT,548.0,Vanuatu,Vanuatu,14763.0,45.70052,0.0,Pacific,Port-Vila,Port-Vila,-17.75,168.3,1.0,1.0,8,English,French,Bismala,English,French,Bismala,.,.,.,.,.,GBR,FRA,.,.,.,.,.
+WF,WLF,876.0,Wallis and Futuna,Îles Wallis et Futuna,274.0,6.225999,0.0,Pacific,Mata-Utu (on Ile Uvea),Mata-Utu (on Ile Uvea),-13.3,-176.2,1.0,1.0,1,French,.,.,French,.,.,.,.,.,.,.,FRA,.,.,.,.,.,.
+WS,WSM,882.0,Samoa,Samoa,2842.0,20.05145,0.0,Pacific,Apia,Apia,-13.8,171.75,1.0,1.0,11,Samoan,English,.,Samoan,English,.,.,.,.,.,.,DEU,NZL,.,.,.,.,.
+YE,YEM,887.0,Yemen,Yémen,547244.0,278.243,0.0,Asia,Sanaa,Sanaa,15.4,44.23333,1.0,1.0,25,Arabic,.,.,Arabic,.,.,.,.,.,.,.,GBR,TUR,.,.,.,.,.
+YU,YUG,891.0,Serbia and Montenegro,Serbie et Monténégro (ex-Yougoslavie),102173.0,120.227,0.0,Europe,Belgrade,Belgrade,44.83333,20.5,1.0,1.0,25,Serbo-Croatian,.,.,Serbo-Croatian,.,.,.,Albanian,.,.,.,TUR,.,.,.,.,.,.
+ZA,ZAF,711.0,South Africa,Afrique du Sud,1219912.0,415.4302,0.0,Africa,Pretoria,Pretoria,-25.73,28.22,1.0,0.0,25,English,.,.,Zoulou,Xhosa,English,.,Afrikaans,Shoto,.,.,GBR,NLD,.,.,.,.,.
+ZA,ZAF,711.0,South Africa,Afrique du Sud,1219912.0,415.4302,0.0,Africa,Cape Town,Le Cap,-33.93333,18.46667,2.0,1.0,25,English,.,.,Zoulou,Xhosa,English,.,Afrikaans,Shoto,.,.,GBR,NLD,.,.,.,.,.
+ZR,ZAR,180.0,Congo (Democratic Republic of the),"Congo, Rép. dém. du",2345410.0,576.0275,0.0,Africa,Kinshasa,Kinshasa,-4.3,15.3,1.0,1.0,25,French,.,.,Swahili,Lingala,.,.,Kikongo,Luba-Kasai,French,.,BEL,.,.,.,.,.,.
+ZM,ZMB,894.0,Zambia,Zambie,752614.0,326.3022,1.0,Africa,Lusaka,Lusaka,-15.46667,28.26667,1.0,1.0,25,English,.,.,English,.,.,.,Nyanja,Tonga,.,.,GBR,.,.,.,.,.,.
+ZW,ZWE,716.0,Zimbabwe,Zimbabwe,390759.0,235.1193,1.0,Africa,Harare,Harare,-17.83333,31.05,1.0,1.0,25,English,.,.,Shona,English,.,.,Ndebele,.,.,.,GBR,.,.,.,.,.,.
