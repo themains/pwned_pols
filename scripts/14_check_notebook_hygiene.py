@@ -48,19 +48,35 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 # 99_ is an archived one-off. Pass paths explicitly to check anything else.
 PIPELINE = re.compile(r"^\d{2}_.*\.ipynb$")
 SKIP_PREFIXES = ("99_",)
-NETWORK_ACQUISITION = {
-    "01_everypol_walkthrough.ipynb",                        # EveryPolitician API
-    "02_everypol_download_csvs.ipynb",                      # requests.get per term
-    "04_download_hibp_everypol_india_eur_breaches.ipynb",   # HIBP API
-    "06_validate_email_domains.ipynb",                      # DNS MX lookups
+
+# Numbering follows the post-merge scheme. An earlier renumbering left this list
+# naming files that no longer existed, which silently widened the check to
+# notebooks nobody can re-run -- the same failure the Makefile's guard-frozen
+# hit. EXEMPT_MISSING below turns a stale name into an error rather than a
+# no-op, so the list cannot rot unnoticed again.
+EXEMPT = {
+    "01_everypol_walkthrough.ipynb":                       "EveryPolitician API",
+    "02_everypol_download_csvs.ipynb":                     "requests.get per term",
+    "03_download_hibp_everypol_india_eur_breaches.ipynb":  "HIBP API",
+    "04_hibp_everypol_ind_eur_combine.ipynb":              "rewrites assembled inputs",
+    "05_validate_email_domains.ipynb":                     "DNS MX lookups",
+    "10_country_covariates.ipynb":                         "World Bank / CEPII / V-Dem",
+    # dominance-analysis calls numpy.bool8, removed in numpy 2.0, so this cannot
+    # execute on a current environment; its outputs are committed artifacts.
+    "11_crosscountry.ipynb":                               "dominance-analysis needs numpy<2",
 }
+
+
+def stale_exemptions(here):
+    """Exemptions naming a notebook that no longer exists."""
+    return [n for n in EXEMPT if not os.path.exists(os.path.join(here, n))]
 
 
 def is_checked(path):
     name = os.path.basename(path)
     if not PIPELINE.match(name) or name.startswith(SKIP_PREFIXES):
         return False
-    return name not in NETWORK_ACQUISITION
+    return name not in EXEMPT
 
 
 def code_cells(nb):
@@ -111,6 +127,15 @@ def main():
         )
     if not targets:
         print("no pipeline notebooks found")
+        return 1
+
+    stale = stale_exemptions(_HERE)
+    if stale:
+        print("  FAIL  exemption list names notebooks that do not exist:")
+        for n in stale:
+            print(f"          {n}")
+        print("        A rename left these pointing at nothing, so notebooks that\n"
+              "        should be checked silently were not. Update EXEMPT.")
         return 1
 
     bad = 0

@@ -72,28 +72,35 @@ jn: ## Launch jupyter notebook in venv
 ########################################################################
 # Data collection and assembly are OUT OF BOUNDS
 ########################################################################
-# Notebooks 01-06 acquire and assemble the data. NONE of them may run as part
-# of a build:
+# These notebooks acquire or assemble the data and NONE may run as part of a
+# build. Numbering follows the post-merge scheme:
 #
 #   01_everypol_walkthrough                 EveryPolitician API
 #   02_everypol_download_csvs               requests.get per legislature term
-#   03_india_ls                             parses data/india/ls/*.json
-#   04_download_hibp_everypol_..._breaches  HIBP API, ~12,900 addresses @ 7-10s
-#   05_hibp_everypol_ind_eur_combine        HIBP JSON -> the combined CSVs
-#   06_validate_email_domains               DNS MX lookups
+#   03_download_hibp_everypol_..._breaches  HIBP API, ~12,900 addresses @ 7-10s
+#   04_hibp_everypol_ind_eur_combine        HIBP JSON -> the combined CSVs
+#   05_validate_email_domains               DNS MX lookups
+#   10_country_covariates                   World Bank, CEPII, V-Dem downloads
 #
-# 01/02/04/06 cannot reproduce: HIBP has ingested new breaches since January
-# 2025, EveryPolitician has moved on, and 150 of the 154 domains 06 rejects
+# guard-frozen checks BOTH directions, because the first version did not. A
+# renumbering left it guarding four names that no longer existed, so it passed
+# vacuously while the real HIBP notebook went unguarded. It now fails if a
+# guarded name resolves to no file, AND if any numbered notebook makes network
+# calls without being listed -- the second check is what caught
+# 10_country_covariates.
+#
+# 01/02/03/05/10 cannot reproduce: HIBP has ingested new breaches since January
+# 2025, EveryPolitician has moved on, and 150 of the 154 domains 05 rejects
 # failed on transient DNS timeout rather than NXDOMAIN, so sample membership
 # shifts run to run.
 #
-# 03/05 touch no network, but they rewrite the assembled inputs, and 05 writes
+# 04 touches no network, but it rewrites the assembled inputs, and it writes
 # scraped_pol_combined_legislature_data.csv BEFORE it can fail, so a mid-run
-# error clobbers it. Re-running 05 also yields 6,715x98 against the shipped
-# 6,660x101 (it gains 55 rows and drops four pagination columns that
-# data/india/ls/combine_ls_dat.ipynb had merged in). Downstream output is
-# identical either way -- 12,384 emails, 33.02% breached, 21.56% serious -- but
-# the analysis conditions on the shipped file, so nothing regenerates it.
+# error clobbers it. Re-running it also yields 6,715x98 against the shipped
+# 6,660x101 (it gains 55 rows and drops four pagination columns that an
+# uncommitted combine_ls_dat.ipynb had merged in). Downstream output is
+# equivalent either way, but the analysis conditions on the shipped file, so
+# nothing regenerates it.
 #
 # The analysis therefore starts from these seven frozen inputs:
 FROZEN_INPUTS := \
@@ -103,18 +110,34 @@ FROZEN_INPUTS := \
 	data/scraped_pol_hibp.csv \
 	data/breaches_01_2025.csv \
 	data/edomain_validation.csv \
-	data/popsize.csv
+	data/popsize.csv \
+	data/country_fes_covariates.csv
 
 FROZEN_NOTEBOOKS := 01_everypol_walkthrough 02_everypol_download_csvs \
-	03_india_ls 04_download_hibp_everypol_india_eur_breaches \
-	05_hibp_everypol_ind_eur_combine 06_validate_email_domains
+	03_download_hibp_everypol_india_eur_breaches \
+	04_hibp_everypol_ind_eur_combine 05_validate_email_domains \
+	10_country_covariates
 
 .PHONY: guard-frozen
 guard-frozen: ## Assert no build target runs a data collection/assembly notebook
 	@echo "==> $@"
-	@fail=0; for nb in $(FROZEN_NOTEBOOKS); do \
+	@fail=0; \
+	for nb in $(FROZEN_NOTEBOOKS); do \
+		if [ ! -f scripts/$$nb.ipynb ]; then \
+			echo "  FAIL: $$nb is guarded but no such notebook exists."; \
+			echo "        A rename left this guard pointing at nothing, which is"; \
+			echo "        how it silently stops protecting anything. Update the list."; \
+			fail=1; continue; \
+		fi; \
 		if grep -n "nbconvert.*$$nb\|execute.*$$nb" $(MAKEFILE_LIST) | grep -qv '^\s*#'; then \
 			echo "  FAIL: a target would execute $$nb"; fail=1; \
+		fi; \
+	done; \
+	for nb in scripts/[0-9][0-9]_*.ipynb; do \
+		b=$$(basename $$nb .ipynb); \
+		case " $(FROZEN_NOTEBOOKS) " in *" $$b "*) continue;; esac; \
+		if grep -lq "requests\.get\|requests\.post\|EveryPolitician(\|dns\.resolver\|webdriver" $$nb 2>/dev/null; then \
+			echo "  FAIL: $$b makes network calls but is not in FROZEN_NOTEBOOKS"; fail=1; \
 		fi; \
 	done; \
 	if [ $$fail -eq 1 ]; then exit 1; fi; \
@@ -160,13 +183,25 @@ kernel: ## Register the venv's Jupyter kernel (idempotent, venv-local)
 		--name $(KERNEL) --display-name "$(KERNEL)" >/dev/null 2>&1
 
 .PHONY: analysis
-analysis: ## Re-run analysis notebooks 07/09/10 and 11 (LPM + fixed effects)
+analysis: ## Re-run analysis stages 06/07/09/11 and 08 (LPM + fixed effects)
 analysis: guard-frozen kernel
 	@echo "==> $@"
-	cd scripts && for nb in 07_everypol_summ 09_breach_summ 10_breach_rate_evolution; do \
+	@# 06_everypol_summ.R is the R port; it builds email_lvl_cov.csv and five
+	@# table fragments, and it carries three correctness fixes the notebook does
+	@# not (order-independent dedup, symmetric case normalisation, a pruned
+	@# DELINQUENTS list). The .ipynb of the same number is kept for reference.
+	cd scripts && Rscript 06_everypol_summ.R
+	cd scripts && for nb in 07_breach_summ 09_breach_rate_evolution; do \
 		$(NBEXEC) --ExecutePreprocessor.timeout=2400 $$nb.ipynb || exit 1; \
 	done
-	cd scripts && Rscript 11_breach_prob.R && rm -f Rplots.pdf
+	cd scripts && Rscript 08_breach_prob.R && rm -f Rplots.pdf
+	@# 11_crosscountry is deliberately NOT run here. It needs
+	@# dominance-analysis for the Shapley decomposition, which calls
+	@# numpy.bool8 -- removed in numpy 2.0 -- so it cannot execute on a current
+	@# environment. figures/fig_shapley.pdf and tables/country_predictors are
+	@# committed artifacts from a working env. Pin numpy<2 in a separate venv to
+	@# regenerate them, or replace the dominance-analysis dependency.
+	@echo "    (skipping 11_crosscountry: dominance-analysis needs numpy<2)"
 
 .PHONY: check-notebooks
 check-notebooks: ## Fail if an analysis notebook carries stale or errored output
