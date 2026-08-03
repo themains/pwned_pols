@@ -24,6 +24,8 @@ Output: tables/table_1_everypol.tex                 (tab:tableone)
         tables/table_2_pwnpol_datatypes.tex         (tab:hibp_pwnedpols_datatype)
         tables/regtab.tex                           (tab:breach_lpm)
         tables/table_3_pwnpols_breach_incident.tex  (tab:top20_pols_breach_incidences)
+        tables/country_predictors.tex                (tab:country_predictors)
+        tables/serious_sensitivity.tex               (tab:serious-sensitivity)
 """
 
 import os
@@ -74,6 +76,7 @@ def float_wrap(caption, label, align, header, body, note, small=r"\footnotesize"
     return f"""\\begin{{table}}[!htbp]
 \\centering
 {small}
+\\def\\sym#1{{\\ifmmode^{{#1}}\\else\\(^{{#1}}\\)\\fi}}
 \\caption{{{caption}}}
 \\label{{{label}}}
 \\begin{{adjustbox}}{{max width=\\linewidth}}
@@ -192,6 +195,77 @@ def table_3_breach_incident():
     )
 
 
+# ---------------------------------------------------- country predictors
+def country_predictors():
+    body = read_fragment("country_predictors_body.tex")
+    header = r"""& \multicolumn{4}{c}{Dependent variable: estimated country fixed effect} \\
+\cmidrule(l){2-5}
+& \multicolumn{2}{c}{Any breach} & \multicolumn{2}{c}{Serious breach} \\
+\cmidrule(lr){2-3}\cmidrule(l){4-5}
+& (1) & (2) & (3) & (4) \\
+\midrule"""
+    return float_wrap(
+        caption="Country-level predictors of estimated country fixed effects",
+        label="tab:country_predictors",
+        align="lrrrr",
+        header=header,
+        body=body,
+        note=(
+            "OLS point estimates using current, unrounded first-stage country "
+            "fixed effects. Parentheses contain HC3 standard errors. Brackets "
+            "contain percentile 95\\% intervals from 999 hierarchical bootstrap "
+            "draws that resample countries and then email addresses within "
+            "countries and re-estimate both stages. English official language "
+            "is an indicator; GCI is the 0--100 Global Cybersecurity Index of "
+            "national commitments; EGDI and V-Dem range from 0 to 1. Stars use "
+            "HC3 p-values. $^{{+}}$ $p<0.1$, $^{{*}}$ $p<0.05$, "
+            "$^{{**}}$ $p<0.01$, $^{{***}}$ $p<0.001$."
+        ),
+        small=r"\scriptsize",
+    )
+
+
+# ------------------------------------------------ country fixed effects
+def country_fixed_effects():
+    body = read_fragment("country_fixed_effects_body.tex")
+    header = r"\# & ISO & Country & Serious breaches & Breaches \\"
+    return float_wrap(
+        caption="Estimated country fixed effects (ranked by serious breaches)",
+        label="tab:fixed_effects",
+        align="rllrr",
+        header=header,
+        body=body,
+        note=(
+            "Estimated country fixed effects, partialing out personal/official "
+            "email classification and decade fixed effects. The serious-breach "
+            "column comes from Model (3) of \\cref{tab:breach_lpm}; the "
+            "any-breach column comes from Model (1). Values are rounded only "
+            "for display; downstream analysis uses the unrounded RDS artifact."
+        ),
+        small=r"\scriptsize",
+    )
+
+
+def serious_sensitivity():
+    body = read_fragment("serious_sensitivity_body.tex")
+    header = r"Outcome definition & Official rate (N) & Commercial rate (N) & Official, role excluded & Commercial, role excluded \\"
+    return float_wrap(
+        caption="Sensitivity of serious-breach prevalence to outcome definition",
+        label="tab:serious-sensitivity",
+        align="lrrrr",
+        header=header,
+        body=body,
+        note=(
+            "Rates are proportions of email addresses. The primary definition "
+            "includes Tier 2 and Tier 3 classes; the narrow definition includes "
+            "Tier 3 only; the password definition includes credential and recovery "
+            "classes. Role-account columns exclude local-part prefixes commonly "
+            "used for shared institutional mailboxes."
+        ),
+        small=r"\scriptsize",
+    )
+
+
 # ---------------------------------------------------------------- regtab
 def regtab():
     """breach_prob.tex already carries its own tabular/adjustbox from etable().
@@ -235,6 +309,9 @@ BUILDERS = {
     "table_4_pwnpols_number_of_breaches": table_4_number_of_breaches,
     "table_2_pwnpol_datatypes": table_2_datatypes,
     "table_3_pwnpols_breach_incident": table_3_breach_incident,
+    "country_predictors": country_predictors,
+    "country_fixed_effects": country_fixed_effects,
+    "serious_sensitivity": serious_sensitivity,
     "regtab": regtab,
 }
 

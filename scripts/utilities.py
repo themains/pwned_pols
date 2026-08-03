@@ -1,6 +1,6 @@
 """A collection of common utility functions.
 
-* save_mpl_fig (I/O) 
+* save_mpl_fig (I/O)
 * split_dataframe
 * split_dataframe2
 * save_excelsheet (I/O)
@@ -26,14 +26,20 @@
 import json
 import os
 import re
-from typing import Any, Iterable, List, Optional
+from collections.abc import Iterable
+from typing import Any
 
 import matplotlib.pyplot as plt
 import pandas as pd
-from email_validator import validate_email, EmailNotValidError, caching_resolver
+from email_validator import EmailNotValidError, caching_resolver, validate_email
+
+_MPLSTYLE = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "styles", "pwned_pols.mplstyle")
+)
+plt.style.use(_MPLSTYLE)
 
 
-def extract_emails(text: Optional[str]) -> List[str]:
+def extract_emails(text: str | None) -> list[str]:
     """
     Extract all email addresses from a text string.
 
@@ -203,7 +209,7 @@ def clean_dedupe_email_column(df, column_name="email", dedup=True):
 
 
 def save_mpl_fig(
-    savepath: str, formats: Optional[Iterable[str]] = None, dpi: Optional[int] = None
+    savepath: str, formats: Iterable[str] | None = None, dpi: int | None = None
 ) -> None:
     """Save matplotlib figures to ../output.
 
@@ -243,7 +249,6 @@ def save_mpl_fig(
                 bbox_inches="tight",
                 pad_inches=0,
             )
-    return None
 
 
 def pandas_to_tex(
@@ -280,7 +285,6 @@ def pandas_to_tex(
 
     with open(texfile, "w") as tf:
         tf.write(tex_table_fragment)
-    return None
 
 
 def process_json_files_to_matrix(json_folder):
@@ -405,29 +409,29 @@ def get_gov_patterns():
             r"dab\.org\.hk$",  # HK
             r"liberal\.org\.hk$",  # HK
             r"camera\.it$",
-            r"um\.dk$",  #
-            r"fm\.dk$",  #
-            r"skm\.dk$",  #
-            r"sum\.dk$",  #
-            r"trm\.dk$",  #
-            r"uim\.dk$",  #
-            r"jm\.dk$",  #
-            r"kum\.dk$",  #
-            r"bm\.dk$",  #
-            r"uvm\.dk$",  #
-            r"stm\.dk$",  #
-            r"aeldremin\.dk$",  #
-            r"fvm\.dk$",  #
-            r"evm\.dk$",  #
-            r"efkm\.dk$",  #
-            r"km\.dk$",  #
-            r"em\.dk$",  #
-            r"oim\.dk$",  #
-            r"sm\.dk$",  #
-            r"ufm\.dk$",  #
-            r"mfvm\.dk$",  #
-            r"mssb\.dk$",  #
-            r"dphk\.org$",  #
+            r"um\.dk$",
+            r"fm\.dk$",
+            r"skm\.dk$",
+            r"sum\.dk$",
+            r"trm\.dk$",
+            r"uim\.dk$",
+            r"jm\.dk$",
+            r"kum\.dk$",
+            r"bm\.dk$",
+            r"uvm\.dk$",
+            r"stm\.dk$",
+            r"aeldremin\.dk$",
+            r"fvm\.dk$",
+            r"evm\.dk$",
+            r"efkm\.dk$",
+            r"km\.dk$",
+            r"em\.dk$",
+            r"oim\.dk$",
+            r"sm\.dk$",
+            r"ufm\.dk$",
+            r"mfvm\.dk$",
+            r"mssb\.dk$",
+            r"dphk\.org$",
             r"bjpanda\.org$",
             r"iyc\.in$",
             r"da-mp\.org\.za$",
@@ -467,7 +471,7 @@ def get_gov_patterns():
     return gov_dict["Core Patterns"] + gov_dict["Institution Patterns"]
 
 
-def get_commercial_patterns() -> List[str]:
+def get_commercial_patterns() -> list[str]:
     """Get patterns for commercial domains."""
     return [
         r"\.com$",
@@ -505,15 +509,13 @@ def classify_comm_gov_email(df: pd.DataFrame, email_col: str = "email") -> pd.Da
     # Extract domains from emails
     df["domain"] = df[email_col].str.split("@").str[1].str.lower()
 
-    # Compile patterns
+    # Compile the government patterns. Every non-match is classified Commercial;
+    # the commercial-pattern list is retained for documentation but is not part
+    # of the implemented classifier.
     gov_pattern = re.compile("|".join(get_gov_patterns()), re.IGNORECASE)
-    commercial_pattern = re.compile("|".join(get_commercial_patterns()), re.IGNORECASE)
 
-    # Create masks for pattern matching
+    # Create the government-domain mask.
     gov_mask = df["domain"].notna() & df["domain"].str.contains(gov_pattern, regex=True)
-    commercial_mask = df["domain"].notna() & df["domain"].str.contains(
-        commercial_pattern, regex=True
-    )
     df = df.drop("domain", axis=1)
 
     # Initialize category column

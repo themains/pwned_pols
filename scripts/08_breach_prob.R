@@ -2,7 +2,8 @@
 library(fixest)
 library(purrr)
 library(tidyverse)
-library(kableExtra)
+source("theme.R")
+source("utilities.R")
 
 
 # Coefficient labels for etable(). This lived in the interactive session rather
@@ -66,6 +67,65 @@ models <- imap(model_formulas, ~ feols(.x, data = email_data, vcov = "cluster"))
 models
 
 
+# Wild-cluster inference ---------------------------------------------------
+if (!requireNamespace("fwildclusterboot", quietly = TRUE)) {
+  stop("Install fwildclusterboot to run the required wild-cluster inference.")
+}
+if (!requireNamespace("dqrng", quietly = TRUE)) {
+  stop("Install dqrng to reproduce fwildclusterboot random draws.")
+}
+
+WILD_BOOT_DRAWS <- as.integer(Sys.getenv("WILD_BOOT_DRAWS", "9999"))
+WILD_BOOT_SEED <- 20260803L
+
+wild_data <- email_data %>%
+  transmute(
+    Country = factor(Country),
+    Decade = factor(Decade),
+    personal = as.integer(ecategory == "Commercial"),
+    dbreach,
+    dbreach_serious
+  )
+
+wild_models <- list(
+  breach = lm(dbreach ~ personal + Country + Decade, data = wild_data),
+  serious = lm(dbreach_serious ~ personal + Country + Decade, data = wild_data)
+)
+
+wild_results <- imap_dfr(wild_models, function(model, outcome) {
+  draw_seed <- WILD_BOOT_SEED + match(outcome, names(wild_models))
+  set.seed(draw_seed)
+  dqrng::dqset.seed(draw_seed)
+  test <- fwildclusterboot::boottest(
+    model,
+    param = "personal",
+    clustid = ~Country,
+    B = WILD_BOOT_DRAWS,
+    bootstrap_type = "11",
+    impose_null = TRUE,
+    engine = "R"
+  )
+  tibble(
+    outcome = outcome,
+    term = "personal",
+    estimate = unname(coef(model)[["personal"]]),
+    test_statistic = unname(test$t_stat),
+    p_value = unname(test$p_val),
+    p_value_resolution = 1 / (WILD_BOOT_DRAWS + 1),
+    clusters = as.integer(test$N_G[["Country"]]),
+    observations = as.integer(test$N),
+    draws = as.integer(WILD_BOOT_DRAWS),
+    weights = as.character(test$type),
+    bootstrap_type = "WCR11",
+    null_imposed = isTRUE(test$impose_null),
+    seed = as.integer(draw_seed)
+  )
+})
+
+dir.create("../analysis", showWarnings = FALSE)
+saveRDS(wild_results, "../analysis/wild_cluster_inference.rds", version = 3)
+
+
 # Tabulate ----------------------------------------------------------------
 # etable(file=) appends rather than overwrites, so re-running the script used to
 # leave several stacked copies of the same table in breach_prob.tex. Clear it
@@ -98,37 +158,31 @@ etable(
 # Extract from stored model
 fe_coef_serious = fixef(models$dbreach_serious_pooled)
 summary(fe_coef_serious)
-par(mar = c(0, 0, 0, 0))
-par(oma = c(0, 0, 0, 0))
+do.call(par, pwned_base_par())
 plot(fe_coef_serious, n = 5)
 
 pdf("../figures/fixef_plot_model3_dseriousbreach.pdf", width = 15, height = 5)
-par(mar = c(0, 0, 0, 0))
-par(oma = c(0, 0, 0, 0))
+do.call(par, pwned_base_par())
 plot(fe_coef_serious, n = 5)
 dev.off()
 
 png("../figures/fixef_plot_model3_dseriousbreach.png", units = "in", width = 15, height = 5, res = 300)
-par(mar = c(0, 0, 0, 0))
-par(oma = c(0, 0, 0, 0))
+do.call(par, pwned_base_par())
 plot(fe_coef_serious, n = 5)
 dev.off()
 
 fe_coef = fixef(models$dbreach_pooled)
 summary(fe_coef)
-par(mar = c(0, 0, 0, 0))
-par(oma = c(0, 0, 0, 0))
+do.call(par, pwned_base_par())
 plot(fe_coef, n = 5)
 
 pdf("../figures/fixef_plot_model1_dbreach.pdf", width = 15, height = 5)
-par(mar = c(0, 0, 0, 0))
-par(oma = c(0, 0, 0, 0))
+do.call(par, pwned_base_par())
 plot(fe_coef, n = 5)
 dev.off()
 
 png("../figures/fixef_plot_model1_dbreach.png", units = "in", width = 15, height = 5, res = 300)
-par(mar = c(0, 0, 0, 0))
-par(oma = c(0, 0, 0, 0))
+do.call(par, pwned_base_par())
 plot(fe_coef, n = 5)
 dev.off()
 
@@ -147,27 +201,48 @@ df_serious <- tibble(
   fe_breach_serious = unname(fe_serious)
 )
 
-df_fes <- left_join(df_serious, df_breach, by = "Country") %>%
-  arrange(desc(fe_breach_serious)) %>%
-  mutate(
-    # Add index column
-    Index = row_number(), 
-    # Round all numeric columns to 3 decimals
-    across(where(is.numeric), ~ round(.x, 3))
-  ) %>%
-  # Merge back with email_data to retrieve "country" (ensuring uniqueness)
+country_names <- email_data %>%
+  filter(!country %in% c("Scotland", "Wales")) %>%
+  distinct(Country, country)
+
+country_counts <- email_data %>%
+  count(Country, name = "n_email")
+
+df_fes_unrounded <- left_join(df_serious, df_breach, by = "Country") %>%
   left_join(
-    email_data %>%
-      filter(!country %in% c("Scotland", "Wales")) %>%  # Remove Scotland & Wales
-      distinct(Country, country) %>%  # Ensure only one row per Country
-      select(Country, country),
-    by = c("Country" = "Country")
+    country_names,
+    by = "Country",
+    relationship = "one-to-one"
   ) %>%
-  # Reorder columns
-  select(Index, Country, country, fe_breach_serious, fe_breach)
+  left_join(country_counts, by = "Country", relationship = "one-to-one") %>%
+  transmute(
+    cc3 = as.character(Country),
+    country = as.character(country),
+    fe_breach_serious = as.double(fe_breach_serious),
+    fe_breach = as.double(fe_breach),
+    n_email = as.integer(n_email)
+  ) %>%
+  arrange(desc(fe_breach_serious))
 
-fes_tex = df_fes %>%
-  kable(format = "latex", booktabs = TRUE, caption = "Country Fixed Effects") %>%
-  kable_styling(full_width = FALSE)
+stopifnot(
+  nrow(df_fes_unrounded) == n_distinct(df_fes_unrounded$cc3),
+  !anyNA(df_fes_unrounded),
+  is.character(df_fes_unrounded$cc3),
+  is.character(df_fes_unrounded$country),
+  is.double(df_fes_unrounded$fe_breach_serious),
+  is.double(df_fes_unrounded$fe_breach),
+  is.integer(df_fes_unrounded$n_email)
+)
 
-cat(fes_tex, file = "../tables/country_fixed_effects.tex")
+dir.create("../analysis", showWarnings = FALSE)
+saveRDS(df_fes_unrounded, "../analysis/country_fixed_effects.rds", version = 3)
+
+df_fes <- df_fes_unrounded %>%
+  mutate(
+    Index = row_number(),
+    fe_breach_serious = round(fe_breach_serious, 3),
+    fe_breach = round(fe_breach, 3)
+  ) %>%
+  select(Index, cc3, country, fe_breach_serious, fe_breach)
+
+write_tex_fragment(df_fes, "../tables/country_fixed_effects_body.tex")

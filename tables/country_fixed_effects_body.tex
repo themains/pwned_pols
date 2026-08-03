@@ -1,13 +1,3 @@
-\begin{table}[!htbp]
-\centering
-\scriptsize
-\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\caption{Estimated country fixed effects (ranked by serious breaches)}
-\label{tab:fixed_effects}
-\begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{rllrr}
-\toprule\toprule
-\# & ISO & Country & Serious breaches & Breaches \\
 \midrule
 1 & AUS & Australia & 0.891 & 0.941 \\
 2 & GBR & UK & 0.798 & 0.83 \\
@@ -68,8 +58,3 @@
 57 & PNG & Papua-New-Guinea & 0.107 & 0.115 \\
 58 & KOR & South-Korea & 0.074 & 0.084 \\
 59 & IRN & Iran & 0.025 & 0.045 \\
-\bottomrule
-\end{tabular}
-\end{adjustbox}
-\caption*{\scriptsize \emph{Note:} Estimated country fixed effects, partialing out personal/official email classification and decade fixed effects. The serious-breach column comes from Model (3) of \cref{tab:breach_lpm}; the any-breach column comes from Model (1). Values are rounded only for display; downstream analysis uses the unrounded RDS artifact.}
-\end{table}

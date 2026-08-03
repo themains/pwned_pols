@@ -182,9 +182,12 @@ kernel: ## Register the venv's Jupyter kernel (idempotent, venv-local)
 	@$(abspath $(VENVPATH))/bin/python -m ipykernel install --sys-prefix \
 		--name $(KERNEL) --display-name "$(KERNEL)" >/dev/null 2>&1
 
-.PHONY: analysis
-analysis: ## Re-run analysis stages 06/07/09/11 and 08 (LPM + fixed effects)
-analysis: guard-frozen kernel
+.PHONY: analysis first-stage crosscountry
+analysis: ## Re-run analysis stages 06/07/08/09/11
+analysis: crosscountry
+	@echo "==> $@ complete"
+
+first-stage: guard-frozen kernel
 	@echo "==> $@"
 	@# 06_everypol_summ.R is the R port; it builds email_lvl_cov.csv and five
 	@# table fragments, and it carries three correctness fixes the notebook does
@@ -195,13 +198,10 @@ analysis: guard-frozen kernel
 		$(NBEXEC) --ExecutePreprocessor.timeout=2400 $$nb.ipynb || exit 1; \
 	done
 	cd scripts && Rscript 08_breach_prob.R && rm -f Rplots.pdf
-	@# 11_crosscountry is deliberately NOT run here. It needs
-	@# dominance-analysis for the Shapley decomposition, which calls
-	@# numpy.bool8 -- removed in numpy 2.0 -- so it cannot execute on a current
-	@# environment. figures/fig_shapley.pdf and tables/country_predictors are
-	@# committed artifacts from a working env. Pin numpy<2 in a separate venv to
-	@# regenerate them, or replace the dominance-analysis dependency.
-	@echo "    (skipping 11_crosscountry: dominance-analysis needs numpy<2)"
+
+crosscountry: first-stage
+	@echo "==> $@"
+	cd scripts && Rscript 11_crosscountry.R
 
 .PHONY: check-notebooks
 check-notebooks: ## Fail if an analysis notebook carries stale or errored output

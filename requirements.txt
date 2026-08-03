@@ -18,11 +18,3 @@ dnspython
 jupyter
 nbconvert
 ipykernel
-# 11_crosscountry: OLS for the country-level predictors table
-statsmodels
-# 11_crosscountry also needs dominance-analysis for the Shapley decomposition,
-# but it calls numpy.bool8, removed in numpy 2.0, so it will not import on a
-# current environment. Install it in a separate venv pinned to numpy<2 if you
-# need to regenerate figures/fig_shapley.pdf; the committed figure came from
-# such an environment. Left out here rather than pinning numpy<2 repo-wide.
-# dominance-analysis

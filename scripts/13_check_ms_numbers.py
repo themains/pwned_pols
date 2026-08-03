@@ -43,22 +43,44 @@ MS = os.path.join(REPO, "ms", "ms.tex")
 # resolve only in that paper. It has been deleted. Guard against it coming back
 # on a merge rather than excluding a line range, which goes stale the moment
 # anything above it changes.
-FOREIGN_MARKERS = ("Blacklight", "Tracker Radar", "canvas fingerprinting",
-                   "64,074", "1,134 adults")
+FOREIGN_MARKERS = (
+    "Blacklight",
+    "Tracker Radar",
+    "canvas fingerprinting",
+    "64,074",
+    "1,134 adults",
+)
+
+UNSUPPORTED_CLAIMS = (
+    "north of 50\\%",
+    "more than 50\\%",
+    "true rate of serious",
+)
 
 
 # --------------------------------------------------------------- helpers
+def read_text(path):
+    with open(path, encoding="utf-8") as file:
+        return file.read()
+
+
 def load_emails():
     """The analysis file, deduped exactly as 11_breach_prob.R does."""
     df = pd.read_csv(os.path.join(DATA, "email_lvl_cov.csv"))
-    df = df.sort_values("source", key=lambda s: (s != "ep")).drop_duplicates("email")
+    df = df.sort_values("source", key=lambda s: s != "ep").drop_duplicates("email")
     return df
 
 
 def check_no_foreign_text():
     """Fail loudly if private_blacklight's prose reappears in this manuscript."""
-    txt = open(MS).read()
+    txt = read_text(MS)
     return [m for m in FOREIGN_MARKERS if m in txt]
+
+
+def check_unsupported_claims():
+    """Keep the manuscript from reintroducing non-identified population claims."""
+    txt = read_text(MS)
+    return [m for m in UNSUPPORTED_CLAIMS if m in txt]
 
 
 def ms_prose():
@@ -81,9 +103,7 @@ def frag_cell(fragment, row, col):
     path = os.path.join(TABLES, fragment)
     if not os.path.exists(path):
         return None
-    rows = [
-        r for r in open(path).read().split("\n") if r.strip() and "&" in r
-    ]
+    rows = [r for r in read_text(path).split("\n") if r.strip() and "&" in r]
     if row >= len(rows):
         return None
     cells = [c.strip() for c in rows[row].replace(r"\\", "").split("&")]
@@ -92,7 +112,10 @@ def frag_cell(fragment, row, col):
 
 def says(prose, value):
     """Does the prose contain this exact numeric token, not embedded in a longer one?"""
-    return re.search(r"(?<![\d.,])" + re.escape(str(value)) + r"(?![\d,])", prose) is not None
+    return (
+        re.search(r"(?<![\d.,])" + re.escape(str(value)) + r"(?![\d,])", prose)
+        is not None
+    )
 
 
 def stale_near_miss(prose, value):
@@ -135,10 +158,10 @@ def all_table_text():
     much present in the paper. This is the 'stated somewhere, just not in the
     running text' fallback.
     """
-    out = [open(MS).read()]
+    out = [read_text(MS)]
     for fn in sorted(os.listdir(TABLES)):
         if fn.endswith(".tex"):
-            out.append(open(os.path.join(TABLES, fn)).read())
+            out.append(read_text(os.path.join(TABLES, fn)))
     return "\n".join(out)
 
 
@@ -159,8 +182,8 @@ PHRASED_IN_WORDS = {
 def build_claims():
     df = load_emails()
     n = len(df)
-    breached = (df.nbreach > 0)
-    serious = (df.nbreach_serious > 0)
+    breached = df.nbreach > 0
+    serious = df.nbreach_serious > 0
     off = df.ecategory == "Official"
     com = df.ecategory == "Commercial"
     breaches = pd.read_csv(os.path.join(DATA, "breaches_01_2025.csv"))
@@ -183,28 +206,36 @@ def build_claims():
     claim("HIBP breaches in catalogue", len(breaches))
     # literal_eval, not eval: DataClasses is a stringified list read off a CSV,
     # and 09_breach_summ.ipynb uses bare eval() on the same field.
-    claim("HIBP data classes", len({d for s in breaches.DataClasses
-                                    for d in ast.literal_eval(s)}))
+    claim(
+        "HIBP data classes",
+        len({d for s in breaches.DataClasses for d in ast.literal_eval(s)}),
+    )
 
     # -- headline prevalence
-    claim("share breached (%)", f"{100*breached.mean():.1f}")
-    claim("share serious (%)", f"{100*serious.mean():.1f}")
-    claim("share breached >=2 (%)", f"{100*(df.nbreach>1).mean():.1f}")
-    claim("share serious >=2 (%)", f"{100*(df.nbreach_serious>1).mean():.1f}")
+    claim("share breached (%)", f"{100 * breached.mean():.1f}")
+    claim("share serious (%)", f"{100 * serious.mean():.1f}")
+    claim("share breached >=2 (%)", f"{100 * (df.nbreach > 1).mean():.1f}")
+    claim("share serious >=2 (%)", f"{100 * (df.nbreach_serious > 1).mean():.1f}")
 
     # -- official vs personal
     claim("official emails n", f"{off.sum():,}")
     claim("personal emails n", f"{com.sum():,}")
-    claim("official breached (%)", f"{100*breached[off].mean():.1f}")
-    claim("personal breached (%)", f"{100*breached[com].mean():.1f}")
-    claim("official serious (%)", f"{100*serious[off].mean():.1f}")
-    claim("personal serious (%)", f"{100*serious[com].mean():.1f}")
+    claim("official breached (%)", f"{100 * breached[off].mean():.1f}")
+    claim("personal breached (%)", f"{100 * breached[com].mean():.1f}")
+    claim("official serious (%)", f"{100 * serious[off].mean():.1f}")
+    claim("personal serious (%)", f"{100 * serious[com].mean():.1f}")
 
     # -- values that must agree between table fragment and prose
-    claim("mean breaches, official (fragment)", frag_cell(
-        "pooled_pols_breach_number_summary.tex", 1, 2), note="from fragment")
-    claim("mean breaches, personal (fragment)", frag_cell(
-        "pooled_pols_breach_number_summary.tex", 2, 2), note="from fragment")
+    claim(
+        "mean breaches, official (fragment)",
+        frag_cell("pooled_pols_breach_number_summary.tex", 1, 2),
+        note="from fragment",
+    )
+    claim(
+        "mean breaches, personal (fragment)",
+        frag_cell("pooled_pols_breach_number_summary.tex", 2, 2),
+        note="from fragment",
+    )
 
     # -- 10_breach_rate_evolution: the two numbers that exist only inside a
     # figure, so nothing could check them until now. Recomputed here from the
@@ -239,9 +270,7 @@ def breach_rate_evolution_stats():
         os.path.join(DATA, "breaches_01_2025.csv"), usecols=["Name", "BreachDate"]
     )
     hibp = hibp.merge(cat, left_on="Breach", right_on="Name", how="left")
-    first = (
-        hibp.assign(k=hibp.Filename.str.lower()).groupby("k")["BreachDate"].min()
-    )
+    first = hibp.assign(k=hibp.Filename.str.lower()).groupby("k")["BreachDate"].min()
 
     df = pd.read_csv(
         os.path.join(DATA, "email_lvl_cov.csv"),
@@ -249,11 +278,18 @@ def breach_rate_evolution_stats():
     )
     # Singapore legislature start dates are absent upstream; the notebook
     # patches them from leg_start_year.
-    sgp = {2021: "2020-08-24", 2016: "2016-01-15", 2011: "2011-10-10",
-           2006: "2006-11-02", 2001: "2002-03-25"}
-    df["leg_start_date"] = pd.Series(
-        pd.NA, index=df.index
-    ).where(df.cc3 != "SGP", df.leg_start_year.map(sgp)).fillna(df.leg_start_date)
+    sgp = {
+        2021: "2020-08-24",
+        2016: "2016-01-15",
+        2011: "2011-10-10",
+        2006: "2006-11-02",
+        2001: "2002-03-25",
+    }
+    df["leg_start_date"] = (
+        pd.Series(pd.NA, index=df.index)
+        .where(df.cc3 != "SGP", df.leg_start_year.map(sgp))
+        .fillna(df.leg_start_date)
+    )
     # Rows with no datable start cannot be placed on the timeline at all. 3,644
     # of the 3,715 dropped enter in 2025, after the series ends, so this costs
     # 0.07pp at the endpoint and nothing in the fixed cohort.
@@ -301,10 +337,101 @@ def check_regtab(prose, results):
             )
 
 
+def check_crosscountry(results):
+    """Check generated cross-country values and their manuscript bindings."""
+    initial_result_count = len(results)
+    values_path = os.path.join(TABLES, "country_check_values.tex")
+    table_path = os.path.join(TABLES, "country_predictors.tex")
+    if not os.path.exists(values_path) or not os.path.exists(table_path):
+        results.append(
+            (
+                "cross-country outputs",
+                "UNTESTABLE",
+                "run scripts/11_crosscountry.R and scripts/12_format_ms_tables.py",
+            )
+        )
+        return
+
+    values_text = read_text(values_path)
+    manuscript_text = read_text(MS)
+    macros = dict(re.findall(r"\\newcommand\{\\(\w+)\}\{([^}]*)\}", values_text))
+    required = {
+        "CrossCountryN",
+        "CrossCountryAnyIncomeRSquared",
+        "CrossCountrySeriousIncomeRSquared",
+        "CrossCountrySeriousFullRSquared",
+        "CrossCountrySeriousEnglishShapley",
+        "CrossCountrySeriousEgdiShapley",
+        "CrossCountryShapleyDraws",
+    }
+    missing = required - macros.keys()
+    if missing:
+        results.append(("cross-country macros", "MISSING", ", ".join(sorted(missing))))
+        return
+
+    for macro in sorted(required):
+        if f"\\{macro}" not in manuscript_text:
+            results.append(
+                (f"unused cross-country macro {macro}", macros[macro], "not in ms.tex")
+            )
+
+    if macros["CrossCountryShapleyDraws"] != "10000":
+        results.append(
+            (
+                "Shapley bootstrap draws",
+                macros["CrossCountryShapleyDraws"],
+                "must equal the 10,000 draws advertised by the analysis",
+            )
+        )
+
+    table_lines = read_text(table_path).splitlines()
+
+    def cells(label):
+        line = next(
+            (line for line in table_lines if line.startswith(label + " &")), None
+        )
+        if line is None:
+            return None
+        return [cell.strip().rstrip("\\") for cell in line.split("&")[1:]]
+
+    countries = cells("Countries")
+    r_squared = cells(r"R$^2$")
+    if countries is None or r_squared is None:
+        results.append(
+            ("cross-country table rows", "MISSING", "Countries or R-squared")
+        )
+        return
+
+    expected = {
+        "CrossCountryN": countries[0],
+        "CrossCountryAnyIncomeRSquared": f"{float(r_squared[0]):.2f}",
+        "CrossCountrySeriousIncomeRSquared": f"{float(r_squared[2]):.2f}",
+        "CrossCountrySeriousFullRSquared": f"{float(r_squared[3]):.2f}",
+    }
+    for macro, value in expected.items():
+        if macros[macro] != value:
+            results.append(
+                (f"cross-country {macro}", macros[macro], f"table implies {value}")
+            )
+
+    if len(results) == initial_result_count:
+        results.append(
+            (
+                "cross-country generated values",
+                ", ".join(f"{name}={macros[name]}" for name in sorted(required)),
+                "ok",
+            )
+        )
+
+
 def main():
     verbose = "--verbose" in sys.argv
     prose = ms_prose()
     claims = build_claims()
+    unsupported = check_unsupported_claims()
+    if unsupported:
+        print("Unsupported claims found: " + ", ".join(unsupported))
+        return 1
 
     tables_txt = all_table_text()
     print(f"Checking {len(claims)} quantities against ms/ms.tex\n")
@@ -312,8 +439,10 @@ def main():
 
     foreign = check_no_foreign_text()
     if foreign:
-        print("  FOREIGN     private_blacklight prose is back in ms.tex: "
-              f"{', '.join(foreign)}")
+        print(
+            "  FOREIGN     private_blacklight prose is back in ms.tex: "
+            f"{', '.join(foreign)}"
+        )
         fails.append(("foreign text in ms.tex", ", ".join(foreign)))
     for name, value, note in claims:
         if value is None:
@@ -323,10 +452,12 @@ def main():
             phrase = PHRASED_IN_WORDS[name]
             if phrase in prose:
                 if verbose:
-                    print(f"  in-words    {name:<34} = {value}  (\"{phrase}\")")
+                    print(f'  in-words    {name:<34} = {value}  ("{phrase}")')
             else:
-                print(f"  NOT IN MS   {name:<34} = {value}  "
-                      f"(expected phrase \"{phrase}\" is gone)")
+                print(
+                    f"  NOT IN MS   {name:<34} = {value}  "
+                    f'(expected phrase "{phrase}" is gone)'
+                )
                 fails.append((name, value))
             continue
         if says(prose, value):
@@ -335,8 +466,7 @@ def main():
             continue
         stale = stale_near_miss(prose, value)
         if stale is not None:
-            print(f"  STALE       {name:<34} = {value}  "
-                  f"(prose still says {stale})")
+            print(f"  STALE       {name:<34} = {value}  (prose still says {stale})")
             fails.append((name, value))
         elif says(tables_txt, value):
             if verbose:
@@ -347,16 +477,21 @@ def main():
 
     extra = []
     check_regtab(prose, extra)
+    check_crosscountry(extra)
     if extra:
         print()
         for name, value, status in extra:
             if status != "ok":
                 print(f"  STALE       {name:<34} = {value}  ({status})")
                 fails.append((name, value))
+            elif verbose:
+                print(f"  generated   {name:<34} = {value}")
 
     print()
     if fails:
-        print(f"{len(fails)} value(s) computed here do not appear in the manuscript prose.")
+        print(
+            f"{len(fails)} value(s) computed here do not appear in the manuscript prose."
+        )
         print("Either the prose is stale, or the quantity is phrased differently")
         print("(e.g. 'nearly one in three' for 33.0). Check each before dismissing.")
         return 1
