@@ -1,0 +1,49 @@
+\begin{table}[!htbp]
+\centering
+\caption{Linear probability models of breach exposure}
+\label{tab:breach_lpm}
+\begingroup
+\centering
+\begin{adjustbox}{width = \textwidth, center}
+   \begin{tabular}{lcccc}
+      \toprule
+       & \multicolumn{2}{c}{dbreach} & \multicolumn{2}{c}{dbreach\_serious}\\
+                                     & (1)           & (2)           & (3)           & (4)\\  
+      \midrule 
+      Personal email                 & 0.286$^{***}$ & 0.240$^{***}$ & 0.264$^{***}$ & 0.295$^{***}$\\   
+                                     & (0.016)       & (0.030)       & (0.012)       & (0.041)\\   
+      Female                         &               & 0.009         &               & 0.023$^{+}$\\   
+                                     &               & (0.012)       &               & (0.012)\\   
+      Social media                   &               & 0.087$^{***}$ &               & 0.079$^{***}$\\   
+                                     &               & (0.021)       &               & (0.015)\\   
+       \\
+      \# Country                     & 59            & 53            & 59            & 53\\  
+      \# Decade                      & 4             & 3             & 4             & 3\\  
+      \# Legislature type            & --            & 3             & --            & 3\\  
+      \# Political party             & --            & 359           & --            & 359\\  
+      Dependent variable mean        & 0.330         & 0.387         & 0.216         & 0.245\\  
+      Observations                   & 12,385        & 7,082         & 12,385        & 7,082\\  
+      R$^2$                          & 0.303         & 0.511         & 0.276         & 0.459\\  
+       \\
+      Country fixed effects          & $\checkmark$  & $\checkmark$  & $\checkmark$  & $\checkmark$\\   
+      Decade fixed effects           & $\checkmark$  & $\checkmark$  & $\checkmark$  & $\checkmark$\\   
+      Legislature type fixed effects &               & $\checkmark$  &               & $\checkmark$\\   
+      Political party fixed effects  &               & $\checkmark$  &               & $\checkmark$\\   
+      \bottomrule
+   \end{tabular}
+\end{adjustbox}
+\par\endgroup
+\caption*{\scriptsize \emph{Note:}
+Linear probability models estimated with \texttt{fixest::feols}. The unit is
+an email address. Standard errors, in parentheses, are clustered on country;
+note that 59 country clusters are dominated by India, which supplies 26.9\% of
+the sample, so the effective number of clusters is far smaller than the nominal
+one. Columns 2 and 4 are estimated on the EveryPolitician subsample only, since
+gender, party and social-media fields exist only there; they are a different
+sample, not a robustness check on columns 1 and 3. Social media indicates that
+EveryPolitician recorded a Twitter or Facebook handle, which is partly a measure
+of how completely the record is populated.
+A breach is coded serious if it exposed at least one of the 38 data classes listed in \cref{tab:serious_dataclasses}.
+$^{+}$ $p<0.1$, $^{*}$ $p<0.05$, $^{**}$ $p<0.01$, $^{***}$ $p<0.001$.
+}
+\end{table}

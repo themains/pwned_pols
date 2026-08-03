@@ -1,0 +1,25 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\caption{Number of breaches per politician email address}
+\label{tab:pooled_pols_breach_summary}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrrrrrrrr}
+\toprule\toprule
+& N & Mean & SD & Min & P25 & Median & P75 & Max & $\geq 1$ & $\geq 2$ \\
+\multicolumn{11}{l}{\emph{Panel A: All breaches}} \\
+\midrule
+All emails & 12,385 & 1.0 & 3.2 & 0 & 0 & 0 & 1 & 256 & 33.0\% & 19.5\% \\
+Government emails & 9,371 & 0.8 & 1.7 & 0 & 0 & 0 & 1 & 18 & 28.4\% & 16.1\% \\
+Personal emails & 3,014 & 1.8 & 5.6 & 0 & 0 & 0 & 2 & 256 & 47.3\% & 30.3\% \\
+\midrule
+\multicolumn{11}{l}{\emph{Panel B: Serious breaches}} \\
+\midrule
+All emails & 12,385 & 0.5 & 2.1 & 0 & 0 & 0 & 0 & 189 & 21.6\% & 10.6\% \\
+Government emails & 9,371 & 0.3 & 0.9 & 0 & 0 & 0 & 0 & 9 & 17.2\% & 7.6\% \\
+Personal emails & 3,014 & 1.0 & 4.0 & 0 & 0 & 0 & 1 & 189 & 35.2\% & 20.0\% \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption*{\scriptsize \emph{Note:} The unit is an email address, not a politician; politicians with more than one listed address contribute more than one row. The final two columns give the share of addresses appearing in at least one and at least two distinct breaches. A breach is coded serious if it exposed at least one of the 38 data classes listed in \cref{tab:serious_dataclasses}. HIBP indexes only breaches that have become public and been ingested, and we observe at most one address per politician for most of the sample, so every figure is a lower bound.}
+\end{table}

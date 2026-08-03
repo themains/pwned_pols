@@ -1,0 +1,969 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{silence}
+% \WarningsOff* --- let's fix the warnings than ignore
+\usepackage[titletoc,title]{appendix}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{arydshln} % For dashed and dotted lines
+\usepackage[dvipsnames,svgnames,table]{xcolor}
+\definecolor{dark-red}{rgb}{0.75,0.10,0.10}
+\definecolor{bluish}{rgb}{0.05,0.05,0.85}
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\usepackage[margin=1in]{geometry}
+
+\geometry{letterpaper} % This is 8.5x11 paper. Options are a4paper or a5paper or other...
+\usepackage[linkcolor=blue,
+      colorlinks=true,
+      urlcolor=blue,
+      pdfstartview={XYZ null null 1.00},
+      pdfpagemode=UseNone,
+      citecolor={bluish},
+      pdftitle={Pwned Pols}]{hyperref}
+
+%\newcites{SI}{SI References}
+\usepackage{natbib}
+
+\usepackage{float}
+\usepackage{placeins}
+
+
+\usepackage{graphicx}  % Handles inclusion of major graphics formats and allows use of
+\usepackage{amsfonts,amssymb,amsbsy}
+\usepackage{amsxtra}
+\usepackage{nicefrac}
+
+\usepackage{verbatim}
+%\setcitestyle{round,semicolon,aysep={},yysep={;}}
+\usepackage{setspace} % Permits line spacing control. Options are:
+%\doublespacing
+%\onehalfspace
+%\usepackage{sectsty}    % Permits control of section header styles
+\usepackage{pdflscape}
+\usepackage{fancyhdr}   % Permits header customization. See header section below.
+\usepackage{url}        % Correctly formats URLs with the \url{} tag
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{rotating}
+\setlength{\parindent}{3em}
+
+%\usepackage[T1]{fontenc}
+%\usepackage[bitstream-charter]{mathdesign}
+
+\usepackage{chngcntr}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{dcolumn}
+
+\usepackage{lineno}
+
+\usepackage[12pt]{moresize}
+
+% https://tex.stackexchange.com/questions/611786/misplaced-noalign-because-input-before-booktabs-rule
+% I was getting Misplaced \noalign. \bottomrule on my laptop
+% but not on my desktop...
+% This should supposedly be compatible with boht 2025 and pre-2025 compilers
+\ExplSyntaxOn
+\cs_new:Npn \my_expandableinput:n #1
+{ \use:c { @@input } { \file_full_name:n {#1} } }
+\AddToHook{env/tabular/begin}
+{ \cs_set_eq:NN \input \my_expandableinput:n }
+\ExplSyntaxOff
+
+
+
+\usepackage[nameinlink, capitalize, noabbrev]{cleveref}
+
+\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+
+\makeatother
+
+\usepackage{footmisc}
+\setlength{\footnotesep}{\baselineskip}
+\makeatother
+\renewcommand{\footnotelayout}{\footnotesize \onehalfspacing}
+
+
+% Colors
+\usepackage{color}
+
+\newcommand{\bch}{\color{blue}\em  }   % begin change
+\newcommand{\ying} {\color{orange}\em  }   % begin change
+\newcommand{\bgcd} {\color{purple}\em }
+\newcommand{\ech}{\color{black}\rm  }    % end change
+
+% Caption
+% Caption
+\usepackage[
+    skip            =0pt,
+    labelfont       =bf, 
+    font            =small,
+    textfont        =small,
+    figurename      =Figure,
+    justification   =justified,
+    singlelinecheck =false,
+    labelsep        =period]
+{caption}
+%\captionsetup[subtable]{font=small,skip=0pt}
+\usepackage{subcaption}
+
+% tt font issues
+% \renewcommand*{\ttdefault}{qcr}
+\renewcommand{\ttdefault}{pcr}
+
+\usepackage{tocloft}
+
+\newcommand{\detailtexcount}[1]{%
+  \immediate\write18{texcount -merge -sum -q #1.tex output.bbl > #1.wcdetail }%
+  \verbatiminput{#1.wcdetail}%
+}
+
+\newcommand{\quickwordcount}[1]{%
+  \immediate\write18{texcount -1 -sum -merge -q #1.tex output.bbl > #1-words.sum }%
+  \input{#1-words.sum} words%
+}
+
+\newcommand{\quickcharcount}[1]{%
+  \immediate\write18{texcount -1 -sum -merge -char -q #1.tex output.bbl > #1-chars.sum }%
+  \input{#1-chars.sum} characters (not including spaces)%
+}
+
+\title{How Often is Politicians' Data Breached?\\Evidence from \textit{Have I Been Pwned}%
+% \thanks{
+    % The replication materials are posted at \href{https://github.com/themains/pwned_pols}{https://github.com/themains/pwned\_pols}.
+    % }
+}
+
+% \author{Lucas Shen\thanks{
+%     Institute for Human Development and Potential, Agency for Science, Technology, and Research, \href{mailto:lucas@lucasshen.com}{\footnotesize{\texttt{lucas@lucasshen.com}}}.
+%     } 
+%     \and Gaurav Sood\thanks{
+%     Independent researcher, \href{mailto:gsood07@gmail.com}{\footnotesize{\texttt{gsood07@gmail.com}}}.
+%     }
+%     \vspace{.5cm}
+% }
+
+\author{
+Anonymized author(s)
+}
+% \date{\today}
+\date{April 2026}
+
+% SOUPS2025
+% SP2026
+% NDSS2026
+% EUroSP 2026
+% USENIX 2026 --- 29 Jan, 5 Feb
+% government-information-quarterly - 10
+
+
+% ACM CCS 2026 --- Apr 22, 2026 https://www.sigsac.org/ccs/CCS2026/call-for/call-for-papers.html
+% ACM IMC 2026 --- April 22, 2026
+% PETS 2026 https://petsymposium.org/2026/ February 28, 2026 (firm)
+% WEIS2026 https://weis2026.econinfosec.org/   23 January 2026
+% ACM CHI 2027 - September 10, 2026
+% esorics 2026 https://sites.google.com/di.uniroma1.it/esorics2026/     Spring Paper Submission Deadline: April 21, 2026
+% ACM FAT 2027
+% HICSS 2027 - June 15
+% pam 2027
+
+% Computers & Security - 5-6
+% Policy and Internet - 3 - 4
+% new media & society IF 4--6
+% acm transactions on privacy and security 2-3
+% Journal of Information Technology & Politics - 2-3
+% EPJ Data Science - 2-4
+% MISQ?
+% Knowledge and Information Systems 
+% Journal of Cybersecurity 3-4 (APC/OA)
+% Big Data & Society 6-9 (APC/OA)
+
+%https://www.a-star.edu.sg/docs/librariesprovider1/default-document-library/research/funding-opportunities/ame-irg-yirg/top10-conferences_2022.pdf
+% https://www.a-star.edu.sg/docs/librariesprovider1/default-document-library/research/funding-opportunities/ame-irg-yirg/annex-5-top-10-percent_ai_conferences-may2024.pdf?sfvrsn=1f965171_1
+
+\begin{document}
+\maketitle
+
+\thispagestyle{empty}
+\begin{abstract}
+\noindent Data breaches involving politicians are concerning because of the threat of impersonation, blackmail, and other nefarious activities. To shed light on the concern, we estimate how frequently politicians' data is compromised. Using a dataset of 12,385 emails from politicians across 59 countries spanning three decades, we check whether these emails are part of breaches using Have I Been Pwned, a widely used online service for searching public breach data. A third of the politicians have had their data breached at least once. More alarmingly, over one in five have had their sensitive data, such as bank account numbers, biometric data, browsing history, chat logs, credit card CVV, etc., breached. These numbers are still too optimistic for several reasons, including the fact that we do not have all the email addresses used by politicians. Accounting for biases suggests that more than half of the politicians have suffered a serious breach.
+\\
+
+\noindent
+\textbf{Keywords:} Cybersecurity, Have I Been Pwned (HIBP), Elites, Data breaches, Security and privacy
+\end{abstract}
+
+%TC:ignore
+%\detailtexcount{social_proof}
+%TC:endignore
+
+\clearpage
+\setcounter{page}{1}
+\doublespace
+
+\section{Introduction} 
+Data breaches can reveal login credentials, personal details, and service usage patterns, enabling impersonation, extortion, and blackmail. When breaches involve politicians, the stakes are higher \citep{dnc2016hack_guardian, twitterhack2020, twitterhackwitman2022}. These compromised credentials can give adversaries access to private communications. Such access can be weaponized to influence elections, as in the 2016 DNC hack and the 2017 Macron campaign breach \citep{dnc2016hack_guardian, dnc2016hack_crowdstrike, macron2017hack, shires2019}. They can also be used for blackmail or to impersonate prominent officials, as in the 2020 Twitter hijackings of Biden and Obama \citep{twitterhack2020, twitterhackwitman2022}. Even seemingly innocuous data from old breaches of defunct accounts, like passwords and contact information, enable credential-stuffing attacks on unrelated platforms, which can again expose politicians \citep{pal2022might, OWASPCredStuff, li2019protocols, gabbard2025wired}. Hence, unlike breaches of ordinary citizens, which primarily harm only the individual, breaches of politicians threaten democratic governance \citep{shires2019}.
+
+Data breaches are also exceedingly common \citep{sood2019pwned, mayer2021angry, Sood_Have_I_Been_2023}. A study of a large random sample of Americans found that more than 80\% of people have had their data breached \citep{sood2019pwned}.\footnote{A follow-up study using the Florida voter registration data found a similar percentage of people had had their data breached \citep{Sood_Have_I_Been_2023}.} While some of the breaches are innocuous, involving already public information, many of the breaches involve private data. For instance, nearly 72\% of the public breaches include passwords. Even when only login credentials are compromised, the threat is sizable. Because many people reuse their passwords or only make minor tweaks, attackers using credential tweaking attacks can compromise 83\% of the accounts \citep{li2019protocols} (see also \cite{Chintalapati_Pass-Fail_Using_a_2022}). The threat is nearly as grave even when leaks involve hashed passwords. Attackers can use resources like \url{hashes.org}, which contains clear text values for passwords to crack passwords. In 2021, a study found that nearly 99\% of the hashed passwords in the \textit{Have I Been Pwned} (HIBP) database can be recovered \citep{kanta2021viable}.
+These estimates, however, come from the general population rather than elected officials and political elites.
+
+This paper studies the prevalence of politician data breach. We assemble a large dataset of politician emails spanning 59 countries over three decades. We then check if these emails are associated with data breaches using HIBP, a large repository of public data breaches. The numbers are sobering. More than one in three politicians have had their data breached at least once. Concerningly, nearly one in five have had a ``serious'' breach, in which private data like credit card numbers, etc., has been leaked. Concerning as these numbers are, they are gross underestimates, partly because we do not have all the email addresses used by politicians. Accounting for some of the biases suggests that the true rate of serious breaches is north of 50\%.
+
+\section{Research Design, Data, and Measures}
+\label{sec:data}
+
+Our estimand of interest is the frequency with which politicians' data, especially sensitive data, is breached. Our population of interest is all politicians who have held a legislative or executive role at a national, state, or local level in the last three decades. Our definition of population excludes politicians who have never served the government. 
+
+To study the question, we assemble a large, diverse convenience sample. Our final data set has thousands of politicians from 59 countries spanning three decades.
+
+To measure how often politicians' data is leaked, we check public breach data using politicians' emails. We do this because email addresses allow us to confidently connect a breach to a person. The downside is that our method only enables us to estimate a conservative lower bound of the frequency with which data are leaked for three reasons. First, the breached data must have email addresses. Some public breach data may not; for instance, it may only have usernames and passwords (which can, based on other breaches, be connected back to the politician). Second, we need all the email addresses used by the politician to know all the public data breaches in which a politician's data has been exposed. We only have official email addresses for many of the politicians. There is also reason to expect that exposure estimated using official email addresses is lower than estimated using personal emails. We expect politicians to be less likely to use official emails when opening online accounts, as the official email accounts for politicians (in many Democracies) are likely temporary. We also expect politicians to be reluctant to associate their official emails with private activities because of disclosure laws and official policies restricting the use of official emails. Lastly, not all breaches become public.
+
+Our data on data breaches comes from HIBP, which collates data from more than 850 public breaches and classifies breached data into nearly 150 categories. Some data breaches are benign, revealing mainly public information; others are more serious, revealing sensitive data. To better understand the actual threat posed to politicians, we classify breaches as serious based on the kind of data breached. Our measure leaves out the most serious breaches. HIBP doesn't provide data on sensitive breaches---breaches that can be embarrassing, e.g., adult websites like Adult FriendFinder (2015), Ashley Madison, etc.---via its public API. It only allows people who can verify the emails to see those breaches \citep{HIBP}.
+
+In all, we start by providing a conservative lower bound of the threat faced by politicians. Next, to account for the attenuating bias stemming from private vs. official emails, we craft a measure distinguishing the two and model the probability of being connected to a data breach. Using the model that controls for confounds, we arrive at a more realistic assessment of the threat politicians face. We also describe the variation in threat across politicians based on country and gender. Lastly, we analyze how politicians' data comes to be leaked. We examine which breaches are responsible for the leaks.
+
+\subsection{Data on Politicians}\label{sec:emails}
+Our data on politicians comes from two sources. The first is \href{EveryPolitician.org}{https://Everypolitician.org/} \citep{mysociety2018}. The data has been used extensively by researchers \citep[see, for e.g.,][]{eshima2022just, stockemer2018age, martini2024, Kosinski2024} and as a source for building other databases \citep{kurz2023introducing, stockemer2022introducing}. The data covers legislatures from across the world between 1997 to 2019. 
+
+From the data, we exclude any legislature with fewer than 30 politicians with a listed email address. In all, we have 8,538 unique email addresses from 61 legislatures across 55 countries.
+
+We supplement this data with data gathered by scraping official parliamentary sites of the Argentinian, Brazilian, Danish, Greek, Indian, Nigerian, Norwegian, and Singaporean parliaments (or Senates) and the Indian state legislatures of Bihar, Delhi, Himachal Pradesh, Tamil Nadu, and Uttar Pradesh. We scraped the data in January 2025.
+
+We collate the two datasets and check if the email addresses conform to expected email formats (e.g., RFC 5322-compliant addresses like \textit{name@domain.com}). To check, we first preprocess email strings by stripping whitespace and normalizing character representation by converting them to Unicode \citep{pev}. Next, we check if the domain exists via DNS resolution and check deliverability by looking up DNS MX records. Emails that fail these checks are removed from the data because querying HIBP with an invalid email (e.g., \textit{an@invalid.email}) will result in a ``No breach found'' status, biasing our estimates downwards.
+
+Our final dataset has 12,385 unique politician email accounts from 67 legislatures across 59 countries from 1997 to 2025, representing close to 50\% of the global population living under electoral regimes \citep{RoW, owid} and 36\% of the global population overall. \cref{tab:tableone} summarizes our data.
+
+\input{tables/table_1_everypol}
+
+\subsection{Official Vs. Personal Emails}
+
+We classified an address as \emph{official} if its domain was government‑controlled (e.g., ccTLDs and SLDs such as \texttt{.gov}, \texttt{.gouv}, \texttt{.gob}, \texttt{admin.ch}, \texttt{nic.in}) or contained clear institutional tokens (e.g., ``parliament,'' ``senate,'' ``congress,'' ``assembly,'' including common non‑English variants). We classified an address as \emph{personal} if the domain was a major webmail provider (e.g., Gmail/Yahoo), a non‑government commercial domain (e.g., \texttt{.com}, \texttt{.net}, \texttt{.biz}), or a campaign/staff‑managed domain lacking government indicators. The full pattern lists are in \cref{tab:regex_core_government_domains,tab:regex_political_parties_organizations,tab:regex_commercial_personal_domains,tab:regex_known_parliaments_ministries}.
+
+Two caveats motivate robustness checks. First, some ``official'' mailboxes can be role accounts shared by staff; conversely, some personal domains are professionally managed (e.g., small offices without legislative IT support). Second, exposure risk can correlate with the propensity to publish a personal address. To mitigate both, our robustness analyses (i) exclude likely role accounts (prefixes such as \texttt{info@}, \texttt{office@}, \texttt{contact@}, \texttt{press@}, \texttt{secretariat@}); (ii) add within‑politician comparisons for the subset with both an official and a personal address; and (iii) control for exposure time (years since first observed in office) and decade effects.
+
+\subsection{Measuring Exposure to Data Breaches}\label{sec:hibp-data}
+To evaluate whether politicians' data has been breached, we check emails against the \textit{Have I Been Pwned} (HIBP) database. Researchers frequently use HIBP to study breaches \citep[see, for, e.g.,][]{hien2024discovering, sood2019pwned, Sood_Have_I_Been_2023}. For each breach, HIBP reports the type of data exposed, for example, email addresses, hashed passwords, sexual orientation, email messages, etc., and includes metadata such as the year of the breach, its scope (number of records affected), and the industry of the breached online service. HIBP covers breaches dating back to 2007, though publicly available records begin in 2013 (\cref{tab:hibp_breach_summary,fig:breach_summary-years_until_breach_known-breach_size}).
+
+\subsection{Serious Breaches}\label{sec:serious-breaches}
+
+\paragraph{What makes a breach ``serious''?}
+We considered a breached data class \emph{serious} when exposure plausibly causes (i) direct account compromise or recovery abuse across services (a security harm), or (ii) durable, hard‑to‑reverse risks such as identity theft, financial loss, coercion, discrimination, or persistent tracking (a privacy/pecuniary harm). This aligns with widely used guidance that distinguishes basic identifiers from sensitive PII and ``special‑category'' personal data \citep{NIST800122, GDPRArticle9}, recognizes that even apparently low‑sensitivity fields can become sensitive when linked (the ``mosaic effect'') \citep{OMB_M1313, NIST800122}, and treats device/online identifiers as personal data when linkable to a person \citep{GDPRRecital30, ICOOnlineIdentifiers}. In the account‑compromise channel, exposure of credentials (including recoverable hashed passwords) or recovery factors materially lowers the work factor for \emph{credential stuffing} and related attacks; modern authenticator guidance therefore mandates screening new passwords against known‑compromised sets and discourages knowledge‑based questions \citep{NIST80063B, NIST80063FAQ, OWASPCredStuff, kanta2021viable}.
+
+\paragraph{Measurement boundary.}
+\textit{Have I Been Pwned} (HIBP) aggregates public breach corpora and labels each incident with the types of data exposed. However, the public API suppresses some of the most sensitive incidents unless the querier can verify control of the inbox/domain (e.g., certain adult or stigmatizing sites). Consequently, our ``serious'' counts are \emph{lower bounds} even conditional on observing an address.
+
+\paragraph{Operational categorization.}
+HIBP assigns 146 data classes. We grouped them into three mutually exclusive tiers based on dominant harm mechanism and reversibility:
+
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item \textbf{Tier~1 (Profile/Contact).} Names, usernames, email addresses, phone numbers, job titles, IPs, and similar profile attributes. Primary risks are targeting and nuisance; harms are generally indirect and more reversible.
+
+\item \textbf{Tier~2 (Credential/Account).} Passwords (hashed or clear), password hints, auth tokens, historical passwords, login histories, security Q\&A, PINs. Primary risk is cross‑site account takeover via credential stuffing or recovery abuse; harms are immediate but usually remediable by rotation/invalidations, with residual risk from unknown reuse \citep{NIST80063B,OWASPCredStuff,kanta2021viable}.
+
+\item \textbf{Tier~3 (Highly Sensitive).} Financial identifiers (credit cards, CVV, bank accounts), government IDs/passports, biometrics, health/insurance, private messages/email content, browsing histories, photos with sensitive context, SSNs/tax IDs, and similar special‑category data. Primary risks are direct fraud, identity takeover, profiling/coercion, and long‑term stigma; many elements are non‑revocable (IDs/biometrics; leaked communications) and thus create persistent exposure \citep{NIST800122, GDPRArticle9, FTC2025Fraud, NISTBiometricsPrivacy, ICOSpecialCategory}.
+\end{itemize}
+
+
+\begin{table}[ht]
+\centering
+\small
+\caption{Risk characteristics by tier (mechanism, immediacy, reversibility)}
+\label{tab:risk-tiers}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}l p{4cm} p{3cm} p{3cm} p{3.3cm}@{}}
+\toprule
+Tier & Dominant mechanism & Attacker cost/time & Immediacy of harm & Reversibility \\
+\midrule
+1: Profile/Contact & Targeting, doxxing, nuisance & Low & Indirect/contingent & High (update/suppress data) \\
+2: Credential/Account & Credential stuffing; recovery abuse; token replay & Low--moderate (automation; offline cracking for weak hashes) & Hours--days (ATO) & Moderate--high (rotate/reset; residual unknown reuse) \\
+3: Highly Sensitive & Payment fraud; identity takeover; profiling/coercion & Low--high (varies by data; fraud tooling exists) & Immediate (financial) and persistent (privacy/identity) & Low (IDs/biometrics/ communications hard or impossible to undo) \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\paragraph{Implementation and sensitivity analyses.}
+Our primary ``serious breach'' indicator flagged any incident containing at least one \emph{Tier~2 or Tier~3} class. To show robustness to stricter or narrower notions of seriousness, we also report: (i) \emph{Serious‑Narrow} (Tier~3 only) and (ii) \emph{Serious‑Password} (password‑related classes only). The core patterns persist across thresholds, with expected level shifts. The complete mapping of HIBP classes we assign to ``serious'' is listed in \cref{tab:serious_dataclasses}.
+
+
+\subsection{Country characteristics}
+\label{sec:country-level-data}
+To investigate cross-country variation in exposure, we collect five country-level predictors.
+To measure a country's level of digitization, we collect the UN e-Government Development Index (EGDI), a composite of government online services, telecommunication infrastructure, and human capital \citep{undesa2020, qog2026}.
+Regime type comes from the V-Dem electoral democracy index over the same window \citep{vdem2026}. For national cybersecurity effort, we use the 2020 edition of the Global Cybersecurity Index (GCI), a 0--100 score of national cybersecurity commitments \citep{itu2021gci}.
+We code whether English is an official language, taken from the CEPII GeoDist database \citep{mayer2011geodist}.
+Finally, we collect countries' GDP per capita \citep{wb}.
+Where multi-year data exist, we take the average over 2010 to 2020---for digitization this covers the five biennial editions of the survey published between 2012 and 2020.
+The UN indices cover member states only, which excludes several small territories (Bermuda, French Polynesia, Greenland, Guernsey, Hong Kong, and Jersey), and Andorra lacks a V-Dem score, giving 52 countries in the final analytical sample.
+
+
+\section{Results}
+\subsection{Prevalence of Politician Email Breaches}
+Nearly one in three politicians' emails is linked to at least one public breach (Panel A, \cref{tab:pooled_pols_breach_summary}). However, there is a sharp skew in the distribution. While the mean number of breaches per account is 1 ($\hat{\sigma} = 3.2$), the median is 0, with 19.5\% of accounts breached multiple times, some as many as hundreds of times.
+
+Serious data breaches were associated with 21.6\% of politicians' emails  (Panel B, \cref{tab:pooled_pols_breach_summary}). Of the breached accounts, 65.5\% ($\nicefrac{21.6\%}{33\%}$) were implicated in a serious data breach (\cref{sec:serious-breaches}). Again, we see a substantial skew. Most accounts are never seriously breached, but a smaller proportion are breached multiple times.
+
+\input{tables/table_4_pwnpols_number_of_breaches}
+
+\input{tables/table_2_pwnpol_datatypes}
+
+The most common data exposed in breaches involving politicians are email addresses, names, phone numbers, job titles, and physical addresses (\cref{tab:hibp_pwnedpols_datatype}). While these are mostly innocuous data, passwords are the most common serious data class exposed. Nearly 63\% of the accounts had their password exposed. In nearly 1.6\% of the account breaches, credit card information was revealed. Bank account numbers were compromised in 1.0\% of the breaches, and government-issued IDs in 1.3\%. Some breaches also exposed private communications, such as emails (2.3\%) and other private messages (0.7\%).
+
+\subsection{Official Vs. Personal Emails}
+\cref{tab:pooled_pols_breach_summary}'s numbers paint too rosy a picture. As we note above, for many politicians, we only have their official government email addresses. To shed light on the issue, we analyze how the number of breaches varies by official vs. personal emails.
+
+\cref{tab:pooled_pols_breach_summary} tabulates the number of breaches by personal and official email accounts. Of the approximately 12,000 politicians' emails, we have personal emails for nearly 3,000. Politicians are almost twice as likely to have at least one breach associated with a personal email than with an official email account (\cref{tab:pooled_pols_breach_summary}). The breach rate for official emails is 28.4\% vs. 47.3\% for personal emails (Panel A, \cref{tab:pooled_pols_breach_summary}). The relative difference for serious data breaches is more pronounced, with the respective numbers being 17.2\% and 35.2\% (Panel B, \cref{tab:pooled_pols_breach_summary}). The exposure rate of personal emails provides a more realistic picture of politicians' exposure.
+
+\subsection{Who Gets Breached?}
+The personal vs. official email results may be driven by selection bias. Politicians who use personal email providers may be more lax about their security or anticipate shorter political stints. To better address the confounds and to study the variation in exposure more generally, we model breaches as a function of politician characteristics. Given the skew in the data (\cref{tab:pooled_pols_breach_summary}), we model the likelihood of an email breach rather than the number of breaches. In all, we estimate the following equation:
+\begin{multline}
+\label{eq:breach_lpm}
+\text{Breach}_{i,t} \;=\; 
+\beta_1\,\text{PersonalEmail}_i
+\;+\; \beta_2\,\text{Female}_i 
+\;+\; \beta_3\,\text{SocialMedia}_i \\
+\;+\; \gamma_{c(i)} 
+\;+\; \tau_t
+\;+\; \theta_i
+\;+\; \lambda_{c(i), i}
+\;+\; \varepsilon_{i,t},
+\end{multline}
+
+where $i$ indexes emails, $t$ indexes year, and $c$ indexes country. Our base specification models the risk of a breach (or serious breach) as a function of email type (personal vs. official), country, and decade-fixed effects (based on the legislative start year). For the EveryPolitician data, we have more variables available. We take advantage of the richer data by adding controls for politician gender ($\beta_2$), whether or not the politician has a known Twitter or Facebook account ($\beta_3$), legislature type (lower house, upper house, unicameral legislature, $\lambda_{c(i), i}$), and political party ($\theta_i$). Since we expect observations within the same country to share unobserved characteristics that may induce correlation in the error terms, we cluster the standard errors at the country level. We estimate the models using \textit{fixest} in R \citep{fixest}.
+
+Before turning to the results, a necessary caveat: because of potential confounds, cross-group differences cannot be interpreted as stemming from some essential aspect of the group. For instance, one of the many potential confounds that could vitiate comparisons is that the risk of exposure is correlated with political tenure. If, for instance, male legislators may have longer tenures than female legislators, the coefficients on gender will partly reflect differences in tenure (which is not modeled).
+
+\input{tables/regtab}
+
+Across all specifications, personal emails are strongly linked to a higher probability of breach (see \cref{tab:breach_lpm}). Personal emails have a 24--30 percentage points greater chance of having a breach (serious breach) associated with them ($p < .001$, \cref{tab:breach_lpm} Columns (1)--(4)). In all, given that personal emails better reflect online behavior (\cref{sec:data}), we believe a more realistic estimate of the percentage of politicians with a serious breach is over 50\%.
+
+Next, we describe the variation in the likelihood of being involved in a breach by other characteristics of the politician. Adjusting for the other covariates, female politicians are more likely to have a serious breach than male politicians, with a 2.3 percentage point higher probability ($p < .1$, \cref{tab:breach_lpm} Column (4)). The kinds of politicians for whom we have public social media profiles are likelier to have had their data breached. There is a 7.8 percentage point increase in the likelihood of a serious breach ($p < .001$, \cref{tab:breach_lpm} Column (4)).
+
+%For a small set of politicians, primarily from the Indian national parliament and Greece, we sometimes have multiple email addresses listed by the politician. Limiting to those politicians, the net exposure rate for politicians is XYZ. 
+
+% https://docs.everypolitician.org/data_summary.html
+
+\subsection{Country-Level Predictors}
+\label{sec:crosscountry-analysis}
+
+
+\begin{figure}[ht]
+\centering
+    \includegraphics[width=\textwidth]{figures/fixef_plot_model3_dseriousbreach.pdf}
+\caption{
+    Country and decade mean-centered fixed effects of the probability of a serious breach. This figure reports the top five and bottom five estimated fixed effects for the country (left panel) and the fixed effects for a decade (right panel) from Model (3) in \cref{tab:breach_lpm}.
+    All plotted effects are centered such that the mean is zero.
+    See \cref{tab:fixed_effects} for all countries' estimated effects.
+}
+\label{fig:fixef_plot_model3_dseriousbreach}
+\end{figure}
+
+
+\cref{fig:fixef_plot_model3_dseriousbreach} reports the mean-centered fixed effects for countries with the highest and lowest breach rates conditional on the email type and time fixed effects. The top five countries with the highest probability of having accounts breached are Australia, the UK, Jersey, Hong Kong, and Denmark. The bottom five are Iran, Korea, Papua New Guinea, Albania, and Nepal. \cref{fig:fixef_plot_model3_dseriousbreach} (right panel) also confirms that older accounts have higher probabilities of breach.
+
+One misreading of the above would be that countries at the top of the rankings are those with lax security infrastructures, while those at the bottom are better defended.
+Here we test an alternative explanation, that exposure tracks integration into the global digital-services economy more than it tracks regime quality or security investment.
+We regress the estimated country fixed effects on the five covariates.
+Consistent with the top-ranked countries (\cref{tab:fixed_effects}), income alone is a statistically significant predictor and explains a substantial share of the variation ($R^2 = 0.36$ for any breach, $0.24$ for serious breaches).
+However, its coefficient becomes zero once the other covariates are included in the model (\cref{tab:country_predictors}).
+Instead, having English as an official language predicts 21 (17) percentage points higher exposure to any (serious) breach ($p < .001$).
+Electoral democracy predicts higher exposure to any breach ($p = .011$), and to serious breaches ($p = .050$).
+Digitization is likewise a statistically significant predictor for serious breaches ($p = .042$).
+Notably, the  GCI coefficient is close to zero for both outcomes, so we find no evidence that a country’s cybersecurity investment predicts the exposure of its political elites.
+\cref{fig:fig_shapley} splits the explained variance into each covariate's Shapley share, reaching similar conclusions.
+For serious breaches, having English as the official language (0.17 of the total 0.50) and digitization (0.11) contribute the largest shares, and the GCI the least (0.03).
+
+\begin{figure}[ht]
+  \centering
+      \includegraphics[width=\textwidth]{figures/fig_shapley.pdf}
+  \caption{
+      Decomposition of the cross-country variation in breach exposure.
+      Each marker is a covariate's (Shapley) share of the explained variance in the estimated country-level aggregates.
+      Capped horizontal lines are 95\% intervals from 10,000 bootstrap resamples of countries.
+      Covariates whose coefficient in the full regression (\cref{tab:country_predictors}) reaches significance at the 5\% level are shown with darker markers.
+  }
+  \label{fig:fig_shapley}
+  \end{figure}
+  
+
+
+\subsection{Which Breaches Are Most Responsible?}\label{sec:major-breaches}
+
+\input{tables/table_3_pwnpols_breach_incident}
+
+\cref{tab:top20_pols_breach_incidences} reports the most common data breaches involving politicians. The two most common breaches involving politicians are the \textit{db8151dd} (2020) and the \textit{OnlinerSpambot} (2017) breaches. The \textit{db8151dd} breach, originating from Covve (a Customer Relationship Management app), leaked fairly benign information, such as email addresses, job titles, names, phone numbers, physical addresses, and social media profiles. (The same six data types are also the six most common kinds of data that are compromised in breaches more generally \cref{tab:hibp_pwnedpols_datatype}.)
+
+\textit{OnlinerSpambot} was a more serious breach. The \textit{OnlinerSpambot} incident was not just another breach but a live cybercrime operation, with the stolen email access weaponized to spread malware that steals bank account credentials and credit card details \citep{Hayashi2017, bbc2017onliner, trendmicro2017onliner, HIBP}. Both email addresses and passwords were also released.
+
+The \textit{OnlinerSpambot} breach was detected within a day. Other serious breaches like the \textit{LinkedIn} breach, which is the fifth-most common and leaked email addresses and passwords, went undetected for four full years (Column (7), \cref{tab:top20_pols_breach_incidences}) until the leaked data went on sale on a dark market site \citep{HIBP}. Some breaches in HIBP took as long as 12 years before the public found out (\cref{tab:hibp_breach_summary}). Notable, many breaches such as \textit{OnlinerSpambot}, unlike \textit{db8151dd} and \textit{LinkedIn}, are not tied to any single online service or domain, and it is still unknown where bad actors sourced the credentials from \citep{bbc2017onliner, trendmicro2017onliner, HIBP}.
+
+\subsection{Leaks to Floods? Breaches Over Time}
+
+Finally, we investigate how the exposure from data breaches grows over time. We start with the 9,200 email accounts where legislative start dates are available. \cref{fig:breach_rate_evolution} plots the percentage of emails with a breach associated with them over time. The middle and bottom panel of \cref{fig:breach_rate_evolution} plots the total number of politician emails and breach incidents, respectively. 
+
+\begin{figure}[ht]
+\centering
+    \includegraphics[width=\textwidth]{figures/breach_rate_evolution.pdf}
+\caption{
+    Breach rate of politician emails over time. This figure plots the percentage of breached politician email accounts ($n = 9,200$) based on the cumulative number of extant email accounts (based on the observed earliest legislative start date) and publicly-known data breaches.
+    Each point represents the percentage of total extant emails found in breaches as of that date.
+    % The sample includes $n = 9,200$ accounts with legislative start dates.
+    % The timeline spans January 2007--Jan 2025.
+    The top panel annotates the five largest percentage jumps and the corresponding breach incidents (dashed vertical red lines). \textit{Disqus} and \textit{Dropbox} happened the same day.
+    The middle panel tracks the cumulative number of emails.
+    The bottom panel tracks the cumulative number of data breaches.
+}
+\label{fig:breach_rate_evolution}
+\end{figure}
+
+The breach rate starts at zero, but by January 2025, it reaches 37.1\%. This is higher than the 33.0\% reported in \cref{tab:pooled_pols_breach_summary} (Panel A) because the two are computed on different samples: the series here is restricted to the 9,200 accounts with a datable legislative start, whereas Panel A uses all 12,385. The excluded accounts are almost entirely the 2025 cohort, which has not yet entered the risk set and is largely unbreached. While the bottom panel of \cref{fig:breach_rate_evolution} shows a gradual increase in publicly-known breaches over time, breach rates do not follow that pattern. Instead, increases in exposure are concentrated around a few incidents, as indicated by many sharp stepwise increases in breach rate among extant politician emails. Five incidents with an outsized impact on politician breaches are the \textit{LinkedIn} (2012), \textit{Dropbox} (2012), \textit{OnlinerSpambot} (2017), \textit{VerificationsIO} (2019), and \textit{db8151dd} (2020) breaches (see also \cref{tab:top20_pols_breach_incidences}). Overall, \cref{fig:breach_rate_evolution} suggests that a small number of large-scale breaches drive exposure.\footnote{The small dips in the percentage of accounts with a breach reflect those cases where a new cohort of emails joins the pool. \cref{fig:breach_rate_evolution_pre2007_fixedcohort} follows a small and fixed cohort of emails that existed before 2007 and shows a monotonic pattern that is similar to the pattern we see in \cref{fig:breach_rate_evolution}, with a few incidents driving most of the breaches, and with breach rate reaching close to 70\% by Jan 2025. This aligns with \cref{fig:fixef_plot_model3_dseriousbreach} (and \cref{fig:fixef_plot_model1_dbreach}), confirming that earlier email accounts have a higher breach probability.}
+
+\section{Discussion}
+Data breaches expose people to theft, extortion, impersonation, and blackmail. When the target is a politician, the social cost of a breach is likely considerably higher. Politicians handle sensitive government information, influence policy, and engage with influential figures. Their public statements shape discourse. The corresponding risks from impersonation, blackmail, etc., are hence greater \citep[for example,][]{dnc2016hack_guardian, macron2017hack, germany2019, twitterhack2020, twitterhackwitman2022}, and compound the substantial cybersecurity gaps documented in government infrastructure worldwide \citep{Ribeiro2025GIQ}. The threat is amplified when we account for systematic efforts to exploit information or election interference, misinformation campaigns, and undermining of democracy \citep{dnc2016hack_guardian, dnc2016hack_crowdstrike, macron2017hack, uk2017breach, germany2019, shires2019, norway2020, finland2020, twitterhack2020, tomz2020}.
+
+In this study, we assemble a large database of politicians' emails to assess the threat faced by them. The results are alarming. Conservatively, more than one in five politicians have had their sensitive data breached at least once. A more realistic rate of sensitive data being compromised is more than 50\%, though even that is a gross underestimate.
+
+There is a sharp skew in exposure, with a small proportion of politicians repeatedly compromised. This pattern could arise from several reasons, including credential reuse, weak passwords, and attacks targeting certain politicians \citep{dnc2016hack_guardian, macron2017hack, germany2019}.
+
+Correspondingly, there is also a sharp skew in the number of politicians entangled in each breach. A few large breaches account for most of the exposure. This pattern mirrors that of the general population \citep{sood2019pwned}. Part of the pattern is founded in leaks from a few widely used online services, such as LinkedIn and Dropbox.
+
+Prior studies of data breaches have focused on the general population. Using the same HIBP database, a study of a representative sample of 5000 American adults found breach rates of 80\% \citep{sood2019pwned}, a smaller online survey of 413 participants found a breach rate of 73\% \citep{mayer2021angry}, and one using over a million Florida registered voters found 84\% \citep{Sood_Have_I_Been_2023}. In comparison, our estimated prevalence of serious breaches of politicians exceeds 50\%. These numbers suggest that politicians are not much better protected than the public despite the higher stakes of compromise.
+The harm does not stop with the individual politician either.
+Breached data feeds hack-and-leak operations \citep{shires2019}.
+And in survey experiments, people who learn that an election was interfered with come away trusting democracy less \citep{tomz2020}.
+The breached politician data we document here plausibly lowers the cost of mounting such compromising operations, at least by reducing the effort needed to obtain compromising material in the first place.
+
+
+
+\subsection{Real-world breaches}
+Political data breaches, though rarely documented systematically \citep{dunncavelty2020}, as in this study, are far from hypothetical.
+Recent years have seen many high-profile incidents of breaches that vividly illustrate the potential fallout when elected officials are compromised \citep{dnc2016hack_guardian, dnc2016hack_crowdstrike, macron2017hack, uk2017breach, germany2019, norway2020, finland2020, twitterhack2020, twitterhackwitman2022}.
+
+For instance, in the lead-up to the 2016 US presidential election, Russian-affiliated actors compromised the email systems of the Democratic National Committee and senior Democrats.
+The leaked emails were widely disseminated online and fueled disinformation campaigns and political attacks, undermining public trust in a deeply polarized election \citep{dnc2016hack_guardian, dnc2016hack_crowdstrike}.
+A year later, in a parallel case, Emmanuel Macron's presidential campaign was hacked just days before the French runoff vote.
+Thousands of authentic internal emails and documents, along with fabricated materials, were leaked in an apparent attempt to compromise his candidacy \citep{macron2017hack, shires2019}.
+In 2019, personal data belonging to hundreds of German politicians, including Chancellor Angela Merkel and others from major political parties, was leaked, exposing contact details, private chats, ID documents, and credit card details \citep{germany2019}.
+%https://www.theguardian.com/world/2019/jan/04/german-politicians-personal-data-hacked-and-posted-online
+In 2020, attackers successfully accessed Twitter's internal tools through social engineering, hijacking the verified accounts of prominent figures such as Barack Obama, Joe Biden, and Michael Bloomberg, among others.
+The breach was used to promote a Bitcoin scam that netted over US\$100,000 in cryptocurrency before getting shut down \citep{twitterhack2020, twitterhackwitman2022}.
+More recently, in 2025, it was revealed that the US Director of National Intelligence, Tulsi Gabbard, had repeatedly reused the same weak password across multiple personal accounts, raising concerns about the cybersecurity practices of top intelligence officials \citep{gabbard2025wired}.
+
+
+\subsection{Implications for practice}
+These incidents, along with the broader patterns we document, highlight the need for stronger safeguards surrounding public officials and political digital infrastructure \citep{Ribeiro2025GIQ}.
+While some breaches involved sophisticated tactics in attacking third-party services \citep{twitterhack2020, twitterhackwitman2022}, many arguably stem from preventable vulnerabilities, such as weak passwords, credential reuse, and the absence of two-factor authentication \citep{consolvo2021democracy, germany2019,germany2019-weak-passwords,twitterhack2020, gabbard2025wired, hegseth2025nyt, Ribeiro2025GIQ}.
+% \cite{germany2019} https://www.bbc.com/news/world-europe-46757009-----suggests password reuse---"A cyber analyst told the BBC there was speculation that hackers might have exploited weaknesses in email software to get hold of passwords that those targeted had also used on social media accounts."
+Interviews with US campaign staff confirm that political campaigns routinely lack dedicated IT support, rely on personal devices and accounts for sensitive work, and adopt security measures on an ad-hoc basis \citep{consolvo2021democracy}.
+At a minimum, governments and political organizations should institutionalize baseline levels of cybersecurity hygiene.
+
+Given our measurement scope, the most effective levers align with the Tier~2/3 risk channels (credential compromise and exposure of highly sensitive attributes): (i) \emph{Eliminate credential reuse} via mandatory password managers and screening new passwords against known‑compromised sets; pair breach notifications with just‑in‑time prompts, which have been shown to increase password changes \citep{albayram2024investigating}, and use password meters as a visual aid \citep{pw_strength_meter}; (ii) \emph{Harden authentication} by enforcing phishing‑resistant multi‑factor authentication on official domains (e.g., security keys/platform authenticators); as precedent, the UK Parliament tightened authentication controls after the 2017 incident \citep{uk2017breach, uk2017breach_update}; (iii) \emph{Monitor and respond at the domain boundary}: centrally track verified government domains against breach corpora, and when an official address appears in a newly added incident, notify the holder, rotate credentials, and revoke third‑party tokens relying on that address; (iv) \emph{Make the secure action the default}: deliver short, role‑specific training embedded in these workflows rather than standalone awareness courses. These steps target the concrete downstream risks we observe (credential‑stuffing, high‑fidelity targeting) without over‑inferring national‑security impacts we do not measure.
+
+\subsection{Limitations}
+First, addresses are a lower‑bound instrument: we miss cases where politicians use unobserved personal addresses, and HIBP suppresses certain sensitive incidents via its public API. Second, some official boxes are role accounts; some personal/campaign domains have professional IT support—classification errors would attenuate differences. Third, not all breaches are public; lags between breach and public availability (median $\approx$ 0.5 years) bias us toward undercounting recent exposure. Fourth, we do not measure compromise of classified networks; our findings concern public breach corpora tied to the address. Finally, cross‑sectional comparisons (e.g., gender or country FE) may reflect correlated behaviors such as tenure, media visibility, or differential address publication rather than inherent susceptibility.
+
+\subsection{Conclusion}
+In summary, frequent data breaches of politicians' data underscore an urgent need for stronger digital security practices. By addressing these vulnerabilities, public institutions can better protect their officials and, by extension, the integrity of political discourse.
+
+
+% \clearpage
+\FloatBarrier
+\singlespacing
+% \clearpage
+\small
+% AEA's own bundle (aeaweb.org/templates/latex_templates.zip) ships aea.bst;
+% Takeda's CTAN package ships econ-aea.bst; this file originally asked for
+% aea-econ.bst, which is neither. Try all three, then fall back to apalike so
+% the paper builds on a machine with none of them. ms/aea.bst is vendored here.
+\IfFileExists{aea-econ.bst}{\bibliographystyle{aea-econ}}{%
+  \IfFileExists{aea.bst}{\bibliographystyle{aea}}{%
+    \IfFileExists{econ-aea.bst}{\bibliographystyle{econ-aea}}{%
+      \bibliographystyle{apalike}}}}
+\bibliography{ms.bib}
+\addcontentsline{toc}{section}{References}
+
+\newpage
+\clearpage
+
+% -----------------------------------------------
+%   Appendix
+% -----------------------------------------------
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\setcounter{equation}{0}
+
+\renewcommand{\thetable}{SI\arabic{table}}
+\renewcommand{\thefigure}{SI\arabic{figure}}
+\renewcommand{\theequation}{SI\arabic{equation}}
+
+\setcounter{secnumdepth}{0}
+\singlespacing
+\section[Supplementary Information]{\large  Supplementary Information}\label{sec:sm}
+\doublespacing
+% -----------------------------------------------
+\begin{figure}[ht]
+\centering
+    \includegraphics[width=\textwidth]{figures/breach_summary-years_until_breach_known-breach_size.pdf}
+\caption{
+    Summary of data breaches recorded in HIBP.
+    The subfigures summarize the time lag between the breach occurrence and its public disclosure on HIBP (\emph{Years until the breach is known}) and the number of accounts compromised (\emph{Size of breach}).
+}
+\label{fig:breach_summary-years_until_breach_known-breach_size}
+\end{figure}
+
+% \clearpage
+% \newpage
+\begin{table}[ht] 
+\centering 
+\small 
+\setlength\tabcolsep{6 pt} 
+\setlength{\defaultaddspace}{0pt}
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Summary of HIBP breaches ($n = 857$)}
+\label{tab:hibp_breach_summary}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{\hspace{0\tabcolsep}}l*{7}{r}@{\hspace{0\tabcolsep}}}
+    \toprule\toprule
+    &Mean&Std dev & Min & 25p & Median & 75p & Max\\
+    &\multicolumn{1}{r}{(1)}         &\multicolumn{1}{r}{(2)}         &\multicolumn{1}{r}{(3)}         &\multicolumn{1}{r}{(4)}         &\multicolumn{1}{r}{(5)}         &\multicolumn{1}{r}{(6)}         &\multicolumn{1}{r}{(7)}\\
+    \midrule
+    Breached accounts (in 100,000s) & 169.59 & 677.67 & 0.01 & 2.7 & 11.29 & 58.15 & 7729.05 \\
+    Number of compromised data types & 5.29 & 2.76 & 1.0 & 4.0 & 5.0 & 7.0 & 25.0 \\
+    Breach date (yyyy-mm-dd) & 2018-10-11 & --- & 2007-07-12 & 2016-02-19 & 2018-12-26 & 2021-04-23 & 2025-01-24 \\
+    Date added to HIBP (yyyy-mm-dd) & 2020-02-21 & --- & 2013-11-30 & 2017-05-16 & 2020-02-20 & 2023-01-02 & 2025-02-02 \\
+    Years till breach is public on HIBP & 1.36 & 1.95 & 0.0 & 0.06 & 0.51 & 1.94 & 12.46 \\
+    \bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption*{\footnotesize 
+    \textit{Note:} Years till the breach is public on HIBP is the lapse between the date of the breach and the date added to the HIBP repository.
+}
+\end{table}
+
+\clearpage
+\newpage
+
+\begin{table}[ht] 
+\centering 
+\setlength\tabcolsep{3 pt} 
+\setlength{\defaultaddspace}{0pt}
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Types of data exposed in breaches ($n = 857$)}
+\label{tab:hibp_breach_datatype}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{\hspace{0\tabcolsep}}rlrr|rlrr|rlrr@{\hspace{0\tabcolsep}}}
+    \toprule\toprule
+    &\multicolumn{3}{c}{1--50}&\multicolumn{3}{c}{51--100}&\multicolumn{3}{c}{101--146}\\
+    \cmidrule(r){1-4}\cmidrule(lr){5-8}\cmidrule(l){9-12}
+    &\multicolumn{1}{l}{Data type}&\multicolumn{1}{r}{\#}&\multicolumn{1}{r}{(\%)}&&\multicolumn{1}{l}{Data type}&\multicolumn{1}{r}{\#}&\multicolumn{1}{r}{(\%)}&&\multicolumn{1}{l}{Data type}&\multicolumn{1}{r}{\#}&\multicolumn{1}{r}{(\%)}\\
+    \midrule
+    \input{tables/hibp_breach_datatypes}
+    \bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption*{\footnotesize 
+    \emph{Note:} This table breaks down the 146 data types compromised across the 857 breaches, listing the number (\#) and percentage (\%) of breaches involving each data type.
+    A breach can expose multiple data types.
+}
+\end{table}
+
+\clearpage
+\newpage
+\twocolumn
+
+\begin{table}
+\captionsetup{justification=centering} % Center the caption for this table only
+\centering
+\footnotesize
+\caption{Classification of the 38 Serious Data Classes in Breaches}
+\label{tab:serious_dataclasses}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{llll}
+    \toprule\toprule
+    \textbf{\#} & \textbf{Category} & \textbf{\#} & \textbf{Category} \\
+    \midrule
+    1  & Audio recordings & 20 & MAC addresses  \\ 
+    2  & Auth tokens & 21 & Mothers' maiden names  \\ 
+    3  & Bank account numbers & 22 & Nationalities  \\ 
+    4  & Biometric data & 23 & Partial credit card data  \\ 
+    5  & Browsing histories & 24 & Partial dates of birth  \\ 
+    6  & Chat logs & 25 & Passport numbers  \\ 
+    7  & Credit card CVV & 26 & Password hints  \\ 
+    8  & Credit cards & 27 & Passwords  \\ 
+    9  & Credit status information & 28 & Personal health data  \\ 
+    10 & Drinking habits & 29 & Photos  \\ 
+    11 & Driver's licenses & 30 & PINs  \\ 
+    12 & Drug habits & 31 & Places of birth  \\ 
+    13 & Email messages & 32 & Private messages  \\ 
+    14 & Encrypted keys & 33 & Security questions and answers  \\ 
+    15 & Government issued IDs & 34 & Sexual fetishes  \\ 
+    16 & Health insurance information & 35 & Sexual orientations  \\ 
+    17 & Historical passwords & 36 & SMS messages  \\ 
+    18 & HIV statuses & 37 & Social security numbers  \\ 
+    19 & Login histories & 38 & Taxation records  \\ 
+    \bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption*{\footnotesize 
+    \emph{Note:} List of data classes that, if exposed or leaked in data breaches, will pose serious security risks to the individual (e.g., used to gain unauthorized access to other accounts, commit identity theft, or personally sensitive information).
+    See also \cref{tab:risk-tiers}.
+}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  % \footnotesize
+  \setlength\tabcolsep{0 pt}
+  \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+  \caption{Country-level predictors of estimated country fixed effects}
+  \label{tab:country_predictors}
+  \begin{adjustbox}{max width=\linewidth}
+  \begin{tabular}{@{\hspace{0\tabcolsep}}l*{4}{D{.}{.}{-1}}@{\hspace{0\tabcolsep}}}
+      \toprule\toprule
+      &\multicolumn{4}{c}{Dependent variable: estimated country fixed effect}\\
+      \cmidrule(l){2-5}
+      &\multicolumn{2}{c}{Breach}&\multicolumn{2}{c}{Serious breach}\\
+      \cmidrule(lr){2-3}\cmidrule(l){4-5}
+      &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+        \midrule
+        Log GDP per capita             & 0.102\sym{***} & 0.001         & 0.055\sym{***} & -0.017        \\
+                                       & (0.019)        & (0.046)       & (0.014)        & (0.034)       \\
+        Digitization (EGDI)            & \multicolumn{1}{c}{--} & 0.457         & \multicolumn{1}{c}{--} &
+  0.517\sym{*}  \\
+                                       &                & (0.335)       &                & (0.248)       \\
+        English official language      & \multicolumn{1}{c}{--} & 0.213\sym{***} & \multicolumn{1}{c}{--} &
+  0.166\sym{***} \\
+                                       &                & (0.049)       &                & (0.036)       \\
+        Cybersecurity investment (GCI) & \multicolumn{1}{c}{--} & 0.001         & \multicolumn{1}{c}{--} & -0.001
+     \\
+                                       &                & (0.001)       &                & (0.001)       \\
+        Electoral democracy (V-Dem)    & \multicolumn{1}{c}{--} & 0.436\sym{*}  & \multicolumn{1}{c}{--} &
+  0.245\sym{+}  \\
+                                       &                & (0.165)       &                & (0.122)       \\
+        Constant                       & -0.561\sym{**} & -0.337        & -0.237\sym{+}  & -0.054        \\
+                                       & (0.177)        & (0.233)       & (0.126)        & (0.173)       \\
+        \midrule
+        Dependent variable mean        & 0.362          & 0.362         & 0.261          & 0.261         \\
+        Countries                      & \multicolumn{1}{c}{52} & \multicolumn{1}{c}{52} & \multicolumn{1}{c}{52} &
+  \multicolumn{1}{c}{52} \\
+        R$^2$                          & 0.359          & 0.610         & 0.244          & 0.501         \\
+        Adjusted R$^2$                 & 0.346          & 0.568         & 0.229          & 0.447         \\
+     \bottomrule
+  \end{tabular}
+  \end{adjustbox}
+  \caption*{\scriptsize
+      \emph{Note:}
+      OLS estimates.
+      The dependent variable is the estimated country fixed effect from \cref{tab:breach_lpm} reported in \cref{tab:fixed_effects}.
+      Standard errors in parentheses.
+      English official language is an indicator, GCI is 0 to 100, EGDI and V-Dem are 0 to 1.
+      \sym{+} $p<0.1$, \sym{*} $p<0.05$, \sym{**} $p<0.01$, \sym{***} $p<0.001$.
+  }
+  \end{table}
+  
+\begin{table}
+\captionsetup{justification=centering} % Center the caption for this table only
+\centering
+\ssmall
+\caption{Estimated country fixed effects (ranked by serious breaches)}
+\label{tab:fixed_effects}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{\hspace{0\tabcolsep}}lllrr@{\hspace{0\tabcolsep}}}
+    \toprule\toprule
+    % &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+    &&\multicolumn{1}{l}{Country}&\multicolumn{1}{c}{Serious breaches}&Breaches\\
+    \midrule
+    1 & AUS & Australia & 0.891 & 0.941\\
+    2 & GBR & UK & 0.798 & 0.830\\
+    3 & JEY & Jersey & 0.788 & 0.879\\
+    4 & HKG & Hong-Kong & 0.633 & 0.659\\
+    5 & DNK & Denmark & 0.457 & 0.687\\
+    \midrule
+    6 & FIN & Finland & 0.427 & 0.695\\
+    7 & NOR & Norway & 0.420 & 0.722\\
+    8 & NLD & Netherlands & 0.406 & 0.737\\
+    9 & NZL & New-Zealand & 0.391 & 0.599\\
+    10 & ZAF & South-Africa & 0.385 & 0.519\\
+    \midrule
+    11 & IND & India & 0.356 & 0.652\\
+    12 & URY & Uruguay & 0.339 & 0.355\\
+    13 & SGP & Singapore & 0.334 & 0.499\\
+    14 & LUX & Luxembourg & 0.333 & 0.407\\
+    15 & NIC & Nicaragua & 0.330 & 0.313\\
+    \midrule
+    16 & PYF & French-Polynesia & 0.330 & 0.321\\
+    17 & KEN & Kenya & 0.302 & 0.581\\
+    18 & SYC & Seychelles & 0.294 & 0.284\\
+    19 & UGA & Uganda & 0.294 & 0.316\\
+    20 & CAN & Canada & 0.293 & 0.865\\
+    \midrule
+    21 & MLT & Malta & 0.291 & 0.612\\
+    22 & BRA & Brazil & 0.289 & 0.716\\
+    23 & ARG & Argentina & 0.279 & 0.483\\
+    24 & BEL & Belgium & 0.278 & 0.430\\
+    25 & NGA & Nigeria & 0.264 & 0.377\\
+    \midrule
+    26 & BTN & Bhutan & 0.263 & 0.254\\
+    27 & GGY & Guernsey & 0.261 & 0.274\\
+    28 & GRC & Greece & 0.260 & 0.491\\
+    29 & ZWE & Zimbabwe & 0.244 & 0.212\\
+    30 & EST & Estonia & 0.244 & 0.324\\
+    \midrule
+    31 & HUN & Hungary & 0.241 & 0.319\\
+    32 & ITA & Italy & 0.232 & 0.354\\
+    33 & CYP & Cyprus & 0.208 & 0.503\\
+    34 & BIH & Bosnia-and-Herzegovina & 0.202 & 0.217\\
+    35 & MDA & Moldova & 0.200 & 0.214\\
+    \midrule
+    36 & SUR & Suriname & 0.198 & 0.188\\
+    37 & COL & Colombia & 0.196 & 0.193\\
+    38 & AND & Andorra & 0.193 & 0.182\\
+    39 & BMU & Bermuda & 0.185 & 0.206\\
+    40 & NAM & Namibia & 0.183 & 0.174\\
+    \midrule
+    41 & GRL & Greenland & 0.181 & 0.172\\
+    42 & GTM & Guatemala & 0.169 & 0.166\\
+    43 & GEO & Georgia & 0.168 & 0.256\\
+    44 & BGR & Bulgaria & 0.163 & 0.207\\
+    45 & ARM & Armenia & 0.163 & 0.297\\
+    \midrule
+    46 & ZMB & Zambia & 0.154 & 0.161\\
+    47 & RWA & Rwanda & 0.154 & 0.145\\
+    48 & MKD & Macedonia & 0.154 & 0.145\\
+    49 & CMR & Cameroon & 0.154 & 0.145\\
+    50 & LKA & Sri-Lanka & 0.154 & 0.145\\
+    \midrule
+    51 & ROU & Romania & 0.149 & 0.159\\
+    52 & BLR & Belarus & 0.146 & 0.136\\
+    53 & TZA & Tanzania & 0.134 & 0.126\\
+    54 & SVK & Slovakia & 0.130 & 0.190\\
+    55 & NPL & Nepal & 0.129 & 0.132\\
+    \midrule
+    56 & ALB & Albania & 0.127 & 0.120\\
+    57 & PNG & Papua-New-Guinea & 0.107 & 0.115\\
+    58 & KOR & South-Korea & 0.074 & 0.084\\
+    59 & IRN & Iran & 0.025 & 0.045\\
+    \bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption*{\scriptsize
+    \emph{Note:} 
+    This table reports the estimated country fixed effects (the $\hat{\gamma}_{c(i)}$'s in \cref{eq:breach_lpm}), partialing out Personal/Official emails and the decade fixed effects, ranked by the Serious Breach country fixed effects.
+    The Serious Breach column reports the fixed effects from Model (3) of \cref{tab:breach_lpm}.
+    The Breach column reports the fixed effects from Model (1) of \cref{tab:breach_lpm}.
+}
+\end{table}
+
+\clearpage
+\newpage
+
+
+\begin{figure*}[!t]
+\centering
+    \includegraphics[width=\textwidth]{figures/fixef_plot_model1_dbreach.pdf}
+\caption{
+    Country and decade mean-centered fixed effects of the probability of a breach.
+    This figure reports the top five and bottom five estimated fixed effects for the country (left panel) and the fixed effects for a decade (right panel) from Model (1) in \cref{tab:breach_lpm}.
+    All plotted effects are centered such that the mean is zero.
+    See \cref{fig:fixef_plot_model3_dseriousbreach} for the same plot for serious breaches.
+    See \cref{tab:fixed_effects} for all countries' estimated effects.
+}
+\label{fig:fixef_plot_model1_dbreach}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+    \includegraphics[width=\textwidth]{figures/breach_rate_evolution_pre2007_fixedcohort.pdf}
+\caption{
+    Breach rate of a fixed cohort of politician emails over time.
+    Similar to \cref{fig:breach_rate_evolution}, except that this plot follows a fixed cohort of n = 679 politician emails where the earliest known date is before 2007 (the first recorded HIBP breach is on 12 July 2007, \cref{tab:hibp_breach_summary}).
+    The top panel annotates a few of the largest jumps in percentage and the corresponding breach incidents.
+    % The middle panel tracks the cumulative number of emails.
+    % The bottom panel tracks the cumulative number of data breaches.
+}
+\label{fig:breach_rate_evolution_pre2007_fixedcohort}
+\end{figure*}
+
+\subsection*{Email classification patterns}
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength\tabcolsep{10 pt}
+\caption{Patterns for Core Government Domains}
+\label{tab:regex_core_government_domains}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{\hspace{0\tabcolsep}}ll@{\hspace{0\tabcolsep}}}
+\toprule
+\textbf{Regex Pattern} & \textbf{Notes} \\
+\midrule
+\verb|\.gov$| & English pattern \\
+\verb|\.gov\.[a-z]{2,3}$| & e.g., gov.uk, gov.sg \\
+\verb|\.gob$| & Spanish pattern \\
+\verb|\.gouv$| & French pattern \\
+\verb|\.go\.[a-z]{2,3}$| & East Asian pattern \\
+\verb|\.gc\.[a-z]{2,3}$| & Canada \\
+\verb|\.fed\.[a-z]{2,3}$| & Federal (e.g., fed.us) \\
+\verb|\.mil$| & Military \\
+\verb|\.admin$| & Administrative (e.g., admin.ch) \\
+\verb|\.bund$| & German federal \\
+\verb|\.fgov$| & Belgian federal \\
+\verb|\.nic\.| & India (e.g., sansad.nic.in) \\
+\verb|\.mil\.za$| & Dept. of Defence of South Africa \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength\tabcolsep{4 pt}
+\caption{Patterns for Political Parties and Organizations}
+\label{tab:regex_political_parties_organizations}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{\hspace{0\tabcolsep}}ll@{\hspace{0\tabcolsep}}}
+\toprule
+\textbf{Regex Pattern} & \textbf{Notes} \\
+\midrule
+\verb|dphk\.org$| & Democratic Party (HK) \\
+\verb|bjpanda\.org$| & BJP and allies (India) \\
+\verb|iyc\.in$| & Indian Youth Congress \\
+\verb|da-mp\.org\.za$| & Democratic Alliance (S.~Africa) \\
+\verb|ifp\.org\.za$| & Inkatha Freedom Party (S.~Africa) \\
+\verb|fondazionecraxi\.org$| & Craxi Foundation (Italy) \\
+\verb|partitodemocratico\.it$| & Democratic Party (Italy) \\
+\verb|ecolo\.be$| & Ecolo (Belgium) \\
+\verb|liberal\.org\.hk$| & Liberal Party (HK) \\
+\verb|dab\.org\.hk$| & Democratic Alliance (HK) \\
+\verb|pap\.org\.sg$| & People's Action Party (Singapore) \\
+\verb|prpg-grc\.sg$| & Grassroots organizations (Singapore) \\
+\verb|wp\.sg$| & Workers' Party (Singapore) \\
+\verb|udm\.org\.za$| & United Democratic Movement (S.~Africa) \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength\tabcolsep{6 pt}
+\caption{Patterns for Commercial or Personal Domains}
+\label{tab:regex_commercial_personal_domains}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{@{\hspace{0\tabcolsep}}ll@{\hspace{0\tabcolsep}}}
+\toprule
+\textbf{Regex Pattern} & \textbf{Notes} \\
+\midrule
+\verb|\.com\.| & Commercial \\
+\verb|\.net\.| & Network \\
+\verb|\.co\.| & Company \\
+\verb|\.biz\.| & Business \\
+\verb|\.info\.| & Informational \\
+\verb|\.corp| & Corporate domain \\
+\verb|libero\.it$| & Italian commercial email provider \\
+\verb|\.ltd| & Limited company domain \\
+\verb|\.inc| & Incorporated company domain \\
+\verb|\.enterprise| & Enterprise domain \\
+\verb|\.business| & Business domain \\
+\verb|yahoo| & Common email provider \\
+\verb|hotmail| & Common email provider \\
+\verb|gmail| & Common email provider \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\tiny
+\setlength\tabcolsep{4 pt}
+\caption{Patterns for Known Parliaments and Ministries}
+\label{tab:regex_known_parliaments_ministries}
+\begin{tabular}{@{\hspace{0\tabcolsep}}ll@{\hspace{0\tabcolsep}}}
+\toprule
+\textbf{Regex Pattern} & \textbf{Notes} \\
+\midrule
+\verb|ft\.dk$| & Danish Parliament \\
+\verb|senato\.it$| & Italian Senate \\
+\verb|camera\.it$| & Italy \\
+\verb|stortinget\.no$| & Norwegian Parliament \\
+\verb|tweedekamer\.nl$| & Netherlands \\
+\verb|cdep\.ro$| & Romania \\
+\verb|eduskunta\.fi$| & Finland \\
+\verb|assnat\.cm$| & Cameroon \\
+\verb|riigikogu\.ee$| & Estonia \\
+\verb|sobranie\.mk$| & Macedonia \\
+\verb|dekamer\.be$| & Belgium \\
+\verb|chd\.lu$| & Luxembourg \\
+\verb|lachambre\.be$| & Belgium \\
+\verb|dna\.sr$| & Suriname \\
+\verb|inatsisartut\.gl$| & Greenland \\
+\verb|nanoq\.gl$| & Greenland government \\
+\verb|um\.dk$| & Danish Ministry of Foreign Affairs \\
+\verb|fm\.dk$| & Danish Ministry of Finance \\
+\verb|skm\.dk$| & Danish Prime Minister's Office \\
+\verb|sum\.dk$| & Danish Ministry of Health \\
+\verb|trm\.dk$| & Danish Ministry of Transport \\
+\verb|uim\.dk$| & Danish Immigration Ministry \\
+\verb|jm\.dk$| & Danish Ministry of Justice \\
+\verb|kum\.dk$| & Danish Ministry of Culture \\
+\verb|bm\.dk$| & Danish Ministry of Employment \\
+\verb|uvm\.dk$| & Danish Ministry of Education \\
+\verb|stm\.dk$| & Danish Prime Minister's Office \\
+\verb|aeldremin\.dk$| & Danish Ministry for Elderly \\
+\verb|fvm\.dk$| & Danish Ministry of Food \\
+\verb|evm\.dk$| & Danish Ministry of Energy \\
+\verb|efkm\.dk$| & Danish Environment Ministry \\
+\verb|km\.dk$| & Danish Church Ministry \\
+\verb|em\.dk$| & Danish Business Ministry \\
+\verb|oim\.dk$| & Other Danish Ministry \\
+\verb|sm\.dk$| & Social Ministry Denmark \\
+\verb|ufm\.dk$| & Higher Education and Science \\
+\verb|mfvm\.dk$| & Food, Agriculture and Fisheries \\
+\verb|mssb\.dk$| & Danish Ministry for Gender Equality \\
+\verb|mfa\.gr$| & Greek Ministry of Foreign Affairs \\
+\verb|istruzione\.it$| & Italian Ministry of Education \\
+\verb|nic\.in$| & Indian Government (generic) \\
+\verb|nrsr\.sk$| & Slovak National Council \\
+\verb|nationalassembly\.sc$| & Seychelles \\
+\verb|parliran\.ir$| & Iranian Parliament \\
+\verb|majles\.ir$| & Iranian Parliament \\
+\verb|europarl\.europa\.eu$| & European Parliament \\
+\verb|giunta\.comune\.verona\.it$| & City of Verona \\
+\verb|comune\.pescara\.it$| & City of Pescara \\
+\verb|comune\.catania\.it$| & City of Catania \\
+\verb|regione\.liguria\.it$| & Liguria Region \\
+\verb|regione\.lazio\.it$| & Lazio Region \\
+\verb|provincia\.venezia\.it$| & Venice Province \\
+\verb|andorra\.ad$| & Andorra \\
+\verb|@.*\.gov(\.[a-z]{2,3})?$| & Catch-all for .gov.* \\
+\verb|@.*parliament\.| & Parliament domains \\
+\verb|@.*senat\.| & Senate domains \\
+\verb|@.*assembly\.| & Assembly domains \\
+\verb|@.*congress\.| & Congress domains \\
+\verb|@.*ministry\.| & Ministry domains \\
+\verb|@.*cabinet\.| & Cabinet domains \\
+\verb|@.*bureau\.| & Bureau domains \\
+\verb|\bparliament\b| & Contains ``parliament'' \\
+\verb|\bparlament\b| & Contains ``parlament'' \\
+\verb|\bparlamento\b| & Contains ``parlamento'' \\
+\verb|\bparl\b| & Contains ``parl'' \\
+\verb|\bsenat\b| & Contains ``senat'' \\
+\verb|\bsenado\b| & Spanish Senate \\
+\verb|\bassembly\b| & Assembly variant \\
+\verb|\bassemblee\b| & French Assembly \\
+\verb|\basamblea\b| & Spanish Assembly \\
+\verb|\bcongress\b| & Congress variant \\
+\verb|\bcongreso\b| & Spanish Congress \\
+\verb|\bministry\b| & Ministry keyword \\
+\verb|\bcabinet\b| & Cabinet keyword \\
+\verb|\bbureau\b| & Bureau keyword \\
+\verb|\bgovernment\b| & Government keyword \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\end{document}

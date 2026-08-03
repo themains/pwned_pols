@@ -7,3 +7,14 @@ pycountry
 fastparquet
 pyarrow
 email-validator
+# 05 reads data/danish_parliament_1_2025.xlsx via openpyxl; without it the
+# notebook stops at its import cell.
+openpyxl
+# figures in 07, 09 and 10
+matplotlib
+# DNS MX lookups in 06_validate_email_domains
+dnspython
+# `make analysis` executes the notebooks headless
+jupyter
+nbconvert
+ipykernel
