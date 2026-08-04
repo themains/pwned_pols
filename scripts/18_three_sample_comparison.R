@@ -118,15 +118,22 @@ pol_emails <- read_csv("../data/email_lvl_cov.csv", show_col_types = FALSE) %>%
   dedupe_email_level()
 stopifnot(!anyDuplicated(pol_emails$email))
 
+## Normalised with clean_dedupe_email_column(), matching 06_everypol_summ.R.
+## Lowercasing alone is not enough: the helper also trims, normalises unicode
+## and strips a leading "1."/"2.", and using only str_to_lower() here matched
+## two fewer addresses than the rest of the pipeline.
+read_hibp <- function(path) {
+  read_csv(path, show_col_types = FALSE) %>%
+    rename(email = Filename, breach = Breach, present = Present) %>%
+    clean_dedupe_email_column(dedup = FALSE)
+}
+
 pol_hits <- bind_rows(
-  read_csv("../data/everypol_hibp.csv", show_col_types = FALSE),
-  read_csv("../data/scraped_pol_hibp.csv", show_col_types = FALSE)
+  read_hibp("../data/everypol_hibp.csv"),
+  read_hibp("../data/scraped_pol_hibp.csv")
 ) %>%
-  rename_with(str_to_lower) %>%
   filter(present) %>%
-  # 382 HIBP filenames keep the capitalisation they were scraped in; joining
-  # raw drops 380 addresses that then score as never breached.
-  mutate(unit = str_to_lower(filename)) %>%
+  rename(unit = email) %>%
   filter(unit %in% pol_emails$email) %>%
   distinct(unit, breach)
 

@@ -299,6 +299,14 @@ def _politician_hits():
         return None, None
     tax = pd.read_csv(tax_path)
 
+    # Normalise with the SAME helper the pipeline uses, not with .str.lower().
+    # utilities.py is the original; utilities.R is a port of it. Lowercasing
+    # alone matches two fewer addresses, because the helper also trims,
+    # normalises unicode and strips a leading "1."/"2.". Re-implementing it here
+    # is how the checker and the pipeline drift apart while both keep passing --
+    # which is exactly what happened before this line was fixed.
+    from utilities import clean_email_column_no_dedupe
+
     hibp = pd.concat(
         [
             pd.read_csv(os.path.join(DATA, "everypol_hibp.csv")),
@@ -307,7 +315,9 @@ def _politician_hits():
         ignore_index=True,
     )
     hibp = hibp[hibp.Present]
-    hibp["email"] = hibp.Filename.str.lower()
+    hibp = clean_email_column_no_dedupe(
+        hibp.rename(columns={"Filename": "email"}), column_name="email"
+    )
 
     cov = pd.read_csv(os.path.join(DATA, "email_lvl_cov.csv"))
     addr = cov.groupby("email").agg(

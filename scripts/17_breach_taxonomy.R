@@ -122,13 +122,23 @@ emails <- read_csv("../data/email_lvl_cov.csv", show_col_types = FALSE) %>%
   dedupe_email_level()
 stopifnot(!anyDuplicated(emails$email))
 
+## The HIBP side must be normalised with clean_dedupe_email_column(), not with
+## str_to_lower(). The helper does more than lowercase -- it trims, normalises
+## unicode, and carries the deliberate lstrip("1.") quirk that maps
+## "1.office@bjpanda.org" to "office@bjpanda.org". 06_everypol_summ.R normalises
+## this way, so lowercasing alone matched two fewer addresses and produced a
+## breached-address count that disagreed with the rest of the pipeline.
+read_hibp <- function(path) {
+  read_csv(path, show_col_types = FALSE) %>%
+    rename(email = Filename, breach = Breach, present = Present) %>%
+    clean_dedupe_email_column(dedup = FALSE)
+}
+
 hits <- bind_rows(
-  read_csv("../data/everypol_hibp.csv", show_col_types = FALSE),
-  read_csv("../data/scraped_pol_hibp.csv", show_col_types = FALSE)
+  read_hibp("../data/everypol_hibp.csv"),
+  read_hibp("../data/scraped_pol_hibp.csv")
 ) %>%
-  rename_with(str_to_lower) %>%
   filter(present) %>%
-  mutate(email = str_to_lower(filename)) %>%
   filter(email %in% emails$email) %>%
   distinct(email, breach) %>%
   left_join(taxonomy, by = c("breach" = "name"))
