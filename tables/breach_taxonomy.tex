@@ -1,0 +1,19 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Breach appearances by how the data was exposed}
+\label{tab:breach_taxonomy}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrr}
+\toprule\toprule
+Provenance & Breach appearances & Addresses & \% of appearances & \% of addresses \\
+\midrule
+Broker / scrape aggregation & 5,570 & 2,915 & 44.5\% & 23.5\% \\
+Credential combolist & 3,277 & 1,948 & 26.2\% & 15.7\% \\
+Service compromise & 3,668 & 1,966 & 29.3\% & 15.9\% \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption*{\scriptsize \emph{Note:} Every breach in the catalogue is assigned to exactly one class: \emph{broker / scrape aggregation} (a data broker, scraper or enrichment service held the address, and the account holder had no relationship with it), \emph{credential combolist} (aggregated credential dumps, spam corpora and stealer logs of mixed or unknown provenance), and \emph{service compromise} (a service the account holder plausibly held an account with was itself breached). Assignment is rule-based on HIBP's \texttt{IsSpamList} flag and the breach description; four breaches are assigned by hand and the overrides, with written rationales, ship in the replication package as \texttt{data/breach\_taxonomy\_overrides.csv}. Column shares of addresses do not sum to the overall breached share because one address can appear in more than one class. HIBP indexes only breaches that have become public and been ingested, and we observe at most one address per politician for most of the sample, so every figure is a lower bound.}
+\end{table}

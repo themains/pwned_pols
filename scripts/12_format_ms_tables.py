@@ -304,6 +304,98 @@ $^{{+}}$ $p<0.1$, $^{{*}}$ $p<0.05$, $^{{**}}$ $p<0.01$, $^{{***}}$ $p<0.001$.
 \\end{{table}}"""
 
 
+# ------------------------------------------------------ breach provenance
+def breach_taxonomy():
+    body = read_fragment("breach_taxonomy_body.tex")
+    header = (
+        r"Provenance & Breach appearances & Addresses & \% of appearances & "
+        r"\% of addresses \\"
+    )
+    return float_wrap(
+        caption="Breach appearances by how the data was exposed",
+        label="tab:breach_taxonomy",
+        align="lrrrr",
+        header=header,
+        body=body,
+        note=(
+            "Every breach in the catalogue is assigned to exactly one class: "
+            "\\emph{broker / scrape aggregation} (a data broker, scraper or "
+            "enrichment service held the address, and the account holder had no "
+            "relationship with it), \\emph{credential combolist} (aggregated "
+            "credential dumps, spam corpora and stealer logs of mixed or unknown "
+            "provenance), and \\emph{service compromise} (a service the account "
+            "holder plausibly held an account with was itself breached). "
+            "Assignment is rule-based on HIBP's \\texttt{IsSpamList} flag and the "
+            "breach description; four breaches are assigned by hand and the "
+            "overrides, with written rationales, ship in the replication package "
+            "as \\texttt{data/breach\\_taxonomy\\_overrides.csv}. Column shares of "
+            "addresses do not sum to the overall breached share because one "
+            "address can appear in more than one class. " + LOWER_BOUND_NOTE
+        ),
+    )
+
+
+# --------------------------------------------- comparison with populations
+def three_sample():
+    body = read_fragment("three_sample_era_matched_body.tex")
+    header = (
+        r"Sample & $n$ & Any & Serious & Service & Broker & Combolist & "
+        r"Stealer log \\"
+    )
+    return float_wrap(
+        caption=(
+            "Politicians and US adults on a common breach catalogue and a "
+            "common exposure window"
+        ),
+        label="tab:three_sample",
+        align="lrrrrrrr",
+        header=header,
+        body=body,
+        note=(
+            "All samples are restricted to the 293 breaches common to this study "
+            "and \\citet{sood2019pwned}, whose catalogues are nested. That catalogue "
+            "spans 2007--2018, so the restriction also bounds the exposure "
+            "window; politicians are therefore further restricted to addresses "
+            "whose earliest legislative term began in 2018 or before. The final "
+            "row restricts politicians to personal-domain addresses, the closest "
+            "match to the personal addresses YouGov respondents supplied. "
+            "\\textbf{This is a benchmark, not a control.} US addresses are "
+            "over-represented in HIBP corpora and the politician sample contains "
+            "no US legislators, so the difference in levels is not identified "
+            "and should not be read as an estimate of relative risk. "
+            + LOWER_BOUND_NOTE
+        ),
+    )
+
+
+# ------------------------------------------------------------ stealer logs
+def stealer_logs():
+    body = read_fragment("stealer_logs_body.tex")
+    header = r"Corpus & Breach date & Addresses & \% of sample & 95\% CI \\"
+    return float_wrap(
+        caption="Politician addresses appearing in stealer-log corpora",
+        label="tab:stealer_logs",
+        align="llrrl",
+        header=header,
+        body=body,
+        note=(
+            "HIBP loads some infostealer and malware corpora into the ordinary "
+            "breach dataset; several originate in documented law-enforcement "
+            "seizures (Emotet, from the FBI and Dutch NHTCU takedown; Qakbot, "
+            "from the US Department of Justice operation). Unlike the rest of the "
+            "catalogue, appearing in one indicates credentials captured from an "
+            "infected machine rather than a third party holding the address. "
+            "Intervals are Wilson binomial intervals. Per-corpus counts sum to "
+            "more than the total because addresses appear in more than one "
+            "corpus. \\textbf{These are lower bounds even by the standards of the "
+            "rest of this paper}: HIBP's dedicated stealer-log endpoint indexes "
+            "more data, and it cannot be queried for this sample at any "
+            "subscription tier, because access requires verified control of the "
+            "address or of its email domain."
+        ),
+    )
+
+
 BUILDERS = {
     "table_1_everypol": table_1_everypol,
     "table_4_pwnpols_number_of_breaches": table_4_number_of_breaches,
@@ -313,6 +405,9 @@ BUILDERS = {
     "country_fixed_effects": country_fixed_effects,
     "serious_sensitivity": serious_sensitivity,
     "regtab": regtab,
+    "breach_taxonomy": breach_taxonomy,
+    "three_sample": three_sample,
+    "stealer_logs": stealer_logs,
 }
 
 

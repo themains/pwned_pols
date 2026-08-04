@@ -1,0 +1,19 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Politicians and US adults on a common breach catalogue and a common exposure window}
+\label{tab:three_sample}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrrrrr}
+\toprule\toprule
+Sample & $n$ & Any & Serious & Service & Broker & Combolist & Stealer log \\
+\midrule
+Politicians & 8,488 & 17.5\% & 17.2\% & 7.7\% & 0.9\% & 14.6\% & 1.0\% \\
+Politicians (personal addr.) & 1,617 & 24.5\% & 23.9\% & 17.0\% & 0.7\% & 17.1\% & 2.0\% \\
+US adults (YouGov) & 5,000 & 82.8\% & 68.1\% & 71.7\% & 2.7\% & 62.9\% & 7.0\% \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption*{\scriptsize \emph{Note:} All samples are restricted to the 293 breaches common to this study and \citet{sood2019pwned}, whose catalogues are nested. That catalogue spans 2007--2018, so the restriction also bounds the exposure window; politicians are therefore further restricted to addresses whose earliest legislative term began in 2018 or before. The final row restricts politicians to personal-domain addresses, the closest match to the personal addresses YouGov respondents supplied. \textbf{This is a benchmark, not a control.} US addresses are over-represented in HIBP corpora and the politician sample contains no US legislators, so the difference in levels is not identified and should not be read as an estimate of relative risk. HIBP indexes only breaches that have become public and been ingested, and we observe at most one address per politician for most of the sample, so every figure is a lower bound.}
+\end{table}

@@ -25,6 +25,7 @@ Usage: python 13_check_ms_numbers.py [--verbose]
 """
 
 import ast
+import json
 import os
 import re
 import sys
@@ -35,6 +36,7 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(_HERE, ".."))
 DATA = os.path.join(REPO, "data")
 TABLES = os.path.join(REPO, "tables")
+ANALYSIS = os.path.join(REPO, "analysis")
 MS = os.path.join(REPO, "ms", "ms.tex")
 
 # private_blacklight's introduction had been pasted into this manuscript at
@@ -243,7 +245,170 @@ def build_claims():
     for name, value in breach_rate_evolution_stats().items():
         claim(name, value)
 
+    # -- SI: breach provenance, population benchmark, stealer logs
+    for name, value in si_stats().items():
+        claim(name, value)
+
+    # -- person-key coverage, cited where the manuscript explains why a
+    # within-politician comparison is not identified
+    for name, value in person_key_stats().items():
+        claim(name, value)
+
     return C
+
+
+def person_key_stats():
+    """Recompute the person-key coverage cited in the robustness discussion.
+
+    EveryPolitician's `id` keys a person WITHIN a legislature, not a person: 68
+    records share a Wikidata QID because the same individual served in two
+    legislatures (Alex Salmond in Holyrood and Westminster; Doris Jakobsen in
+    Greenland and Denmark). The QID is the identifier that resolves to the
+    human, so the pairing counts are computed against it.
+    """
+    ep = pd.read_csv(
+        os.path.join(DATA, "everypol", "everypol_combined_legislature_data.csv"),
+        low_memory=False,
+    )
+    qid = ep[ep.wikidata.notna()]
+    shared = qid.groupby("wikidata").id.nunique()
+
+    withmail = ep[ep.email.notna() & ep.wikidata.notna()].copy()
+    withmail["email"] = withmail.email.str.lower().str.strip()
+    per_person = withmail.groupby("wikidata").email.nunique()
+
+    return {
+        "person-legislature records": f"{ep.id.nunique():,}",
+        "distinct people (Wikidata QID)": f"{qid.wikidata.nunique():,}",
+        "records sharing a QID": f"{shared[shared > 1].sum():,}",
+        "people with an address (by QID)": f"{len(per_person):,}",
+    }
+
+
+def _politician_hits():
+    """One row per (address, breach), joined to the taxonomy.
+
+    email_lvl_cov.csv is NOT keyed on email -- 12,916 rows for 12,385 distinct
+    addresses, because an address found in both sources is stored once per
+    source. Every rate below is therefore computed against distinct addresses;
+    using the row count understates them by ~4%. 4,090/12,385 = 33.0% is the
+    published headline, which is the check that this is the right denominator.
+    """
+    tax_path = os.path.join(ANALYSIS, "breach_taxonomy.csv")
+    if not os.path.exists(tax_path):
+        return None, None
+    tax = pd.read_csv(tax_path)
+
+    hibp = pd.concat(
+        [
+            pd.read_csv(os.path.join(DATA, "everypol_hibp.csv")),
+            pd.read_csv(os.path.join(DATA, "scraped_pol_hibp.csv")),
+        ],
+        ignore_index=True,
+    )
+    hibp = hibp[hibp.Present]
+    hibp["email"] = hibp.Filename.str.lower()
+
+    cov = pd.read_csv(os.path.join(DATA, "email_lvl_cov.csv"))
+    addr = cov.groupby("email").agg(
+        ecategory=("ecategory", "first"), leg_start_year=("leg_start_year", "min")
+    )
+
+    hits = (
+        hibp[hibp.email.isin(addr.index)][["email", "Breach"]]
+        .drop_duplicates()
+        .merge(tax, left_on="Breach", right_on="name", how="left")
+    )
+    assert not hits.tax_class.isna().any(), "unclassified breach in politician hits"
+    return hits, addr
+
+
+def si_stats():
+    """Recompute the SI numbers from the frozen inputs.
+
+    The taxonomy ASSIGNMENT is read from analysis/breach_taxonomy.csv rather
+    than re-derived, so there is exactly one place where a breach's class is
+    decided. What is recomputed here is the arithmetic on top of it, which is
+    what drifts.
+    """
+    hits, addr = _politician_hits()
+    if hits is None:
+        return {"SI stats": "UNTESTABLE -- run scripts/17_breach_taxonomy.R"}
+
+    n = len(addr)
+    pct = lambda emails: f"{100 * len(set(emails)) / n:.1f}"
+
+    out = {
+        "SI service-compromise share (%)": pct(
+            hits.email[hits.tax_class == "service"]
+        ),
+        "SI aggregator share (%)": pct(hits.email[hits.tax_class == "aggregator"]),
+        "SI combolist share (%)": pct(hits.email[hits.tax_class == "combolist"]),
+    }
+
+    stealer = set(hits.email[hits.is_stealer])
+    out["SI stealer addresses (n)"] = f"{len(stealer):,}"
+    out["SI stealer share (%)"] = f"{100 * len(stealer) / n:.2f}"
+    # Repeat appearance across corpora: the SI argues this is hard to explain
+    # as incidental inclusion, so the count is gated rather than asserted.
+    per_addr = hits[hits.is_stealer].groupby("email").Breach.nunique()
+    out["SI stealer, multiple corpora (n)"] = f"{(per_addr > 1).sum():,}"
+    personal = addr.index[addr.ecategory == "Commercial"]
+    official = addr.index[addr.ecategory != "Commercial"]
+    out["SI stealer, personal (%)"] = (
+        f"{100 * len(stealer & set(personal)) / len(personal):.2f}"
+    )
+    out["SI stealer, official (%)"] = (
+        f"{100 * len(stealer & set(official)) / len(official):.2f}"
+    )
+
+    # -- population benchmark, restricted to the shared catalogue and window
+    yg_cat_path = os.path.join(DATA, "benchmark", "yougov_breaches.json")
+    yg_hits_path = os.path.join(DATA, "benchmark", "YGOV1058_pwned.csv")
+    yg_prof_path = os.path.join(DATA, "benchmark", "YGOV1058_profile.csv")
+    if not all(map(os.path.exists, (yg_cat_path, yg_hits_path, yg_prof_path))):
+        return out
+
+    with open(yg_cat_path) as fh:
+        common = {b["Name"] for b in json.load(fh)}
+    cat = pd.read_csv(os.path.join(DATA, "breaches_01_2025.csv"), usecols=["Name"])
+    assert common <= set(cat.Name), "YouGov catalogue is not nested in ours"
+
+    era = addr.index[addr.leg_start_year <= 2018]
+    in_common = hits[hits.Breach.isin(common)]
+    # Catalogue-restricted but NOT era-matched: cited in the SI to show how
+    # much of the gap era matching closes (15.2 -> 17.5), so it is gated too.
+    out["SI catalogue-only politicians breached (%)"] = (
+        f"{100 * in_common.email.nunique() / n:.1f}"
+    )
+    out["SI era-matched politicians service (%)"] = (
+        f"{100 * len(set(in_common.email[in_common.tax_class == 'service']) & set(era)) / len(era):.1f}"
+    )
+    out["SI era-matched politicians (n)"] = f"{len(era):,}"
+    out["SI era-matched politicians breached (%)"] = (
+        f"{100 * len(set(in_common.email) & set(era)) / len(era):.1f}"
+    )
+    era_personal = addr.index[
+        (addr.leg_start_year <= 2018) & (addr.ecategory == "Commercial")
+    ]
+    out["SI era-matched personal breached (%)"] = (
+        f"{100 * len(set(in_common.email) & set(era_personal)) / len(era_personal):.1f}"
+    )
+
+    yg_n = len(pd.read_csv(yg_prof_path))
+    yg = pd.read_csv(yg_hits_path, usecols=["id", "Name"])
+    yg_common = yg[yg.Name.isin(common)]
+    out["SI YouGov breached (%)"] = f"{100 * yg_common.id.nunique() / yg_n:.1f}"
+    # Resolved through the SAME taxonomy as the politician side; that identity
+    # is what makes the construct comparison like-for-like rather than a
+    # comparison of two differently-defined outcomes.
+    tax = pd.read_csv(os.path.join(ANALYSIS, "breach_taxonomy.csv"))
+    yg_service = yg_common.merge(tax, left_on="Name", right_on="name", how="left")
+    assert not yg_service.tax_class.isna().any(), "unclassified breach in YouGov hits"
+    out["SI YouGov service (%)"] = (
+        f"{100 * yg_service[yg_service.tax_class == 'service'].id.nunique() / yg_n:.1f}"
+    )
+    return out
 
 
 def breach_rate_evolution_stats():
