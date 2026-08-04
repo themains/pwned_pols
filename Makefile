@@ -222,6 +222,11 @@ benchmark: crosscountry
 	@# address coverage that determines whether a within-politician comparison
 	@# is identified. It reads a frozen input and touches no network.
 	cd scripts && Rscript 19_person_key.R
+	@# 20 reports what the two discretionary choices in the pipeline cost --
+	@# the deduplication rule and the four hand-coded taxonomy overrides -- and
+	@# fails the build if broker aggregation ever stops exceeding service
+	@# compromise, which is the ordering the provenance argument rests on.
+	cd scripts && Rscript 20_sensitivity.R
 
 .PHONY: check-notebooks
 check-notebooks: ## Fail if an analysis notebook carries stale or errored output

@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Provenance shares under alternative treatment of the hand-coded breaches}
+\label{tab:sensitivity_taxonomy}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrr}
+\toprule\toprule
+Specification & Appearances & Broker & Combolist & Service \\
+\midrule
+\textit{As published} &  & 23.54\% & 15.74\% & 15.90\% \\
+\quad revert B2BUSABusinesses &  76 & 23.54\% & 15.79\% & 15.90\% \\
+\quad revert DemandScience & 205 & 23.04\% & 15.74\% & 16.97\% \\
+\quad revert Epik &  35 & 23.58\% & 15.74\% & 15.77\% \\
+\quad revert LuminPDF &  49 & 23.76\% & 15.74\% & 15.70\% \\
+\textit{All four reverted} &  & 23.32\% & 15.79\% & 16.66\% \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption*{\scriptsize \emph{Note:} Four of the 857 breaches are assigned to a provenance class by hand where the rules misclassify them; they carry roughly 2.7\% of all appearances. Each row reverts the named breach to the class the rules would have assigned, holding the other three at their coded values; the final row reverts all four. Broker aggregation exceeds service compromise in every specification, and the build fails if that ceases to hold.}
+\end{table}

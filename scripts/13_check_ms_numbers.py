@@ -254,7 +254,37 @@ def build_claims():
     for name, value in person_key_stats().items():
         claim(name, value)
 
+    # -- sensitivity bound on the hand-coded taxonomy rows
+    for name, value in sensitivity_stats().items():
+        claim(name, value)
+
     return C
+
+
+def sensitivity_stats():
+    """Bound on how far the hand-coded taxonomy rows move any provenance share.
+
+    Read from the fragment 20_sensitivity.R writes rather than recomputed. The
+    ordering that the provenance argument depends on -- broker aggregation above
+    service compromise -- is enforced there, in the stage that owns the
+    classification, so that a build cannot produce a manuscript whose central
+    claim its own tables contradict. Duplicating that check here would put the
+    enforcement in two places and let them disagree.
+    """
+    path = os.path.join(TABLES, "sensitivity_taxonomy_body.tex")
+    if not os.path.exists(path):
+        return {"taxonomy sensitivity": "UNTESTABLE -- run scripts/20_sensitivity.R"}
+
+    rows = [r for r in read_text(path).splitlines() if r.strip().endswith(r"\\")]
+    pct = re.compile(r"([0-9]+\.[0-9]+)\\%")
+    shares = [[float(x) for x in pct.findall(r)] for r in rows]
+    shares = [s for s in shares if len(s) == 3]
+    if not shares:
+        return {"taxonomy sensitivity": "UNTESTABLE -- fragment has no share rows"}
+
+    published = shares[0]
+    shift = max(abs(v - published[i]) for s in shares for i, v in enumerate(s))
+    return {"max provenance share shift (pp)": f"{shift:.2f}"}
 
 
 def person_key_stats():

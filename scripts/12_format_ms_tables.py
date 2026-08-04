@@ -396,6 +396,57 @@ def stealer_logs():
     )
 
 
+# -------------------------------------------------------------- sensitivity
+def sensitivity_taxonomy():
+    body = read_fragment("sensitivity_taxonomy_body.tex")
+    header = (
+        r"Specification & Appearances & Broker & Combolist & Service \\"
+    )
+    return float_wrap(
+        caption="Provenance shares under alternative treatment of the hand-coded breaches",
+        label="tab:sensitivity_taxonomy",
+        align="lrrrr",
+        header=header,
+        body=body,
+        note=(
+            "Four of the 857 breaches are assigned to a provenance class by hand "
+            "where the rules misclassify them; they carry roughly 2.7\\% of all "
+            "appearances. Each row reverts the named breach to the class the "
+            "rules would have assigned, holding the other three at their coded "
+            "values; the final row reverts all four. Broker aggregation exceeds "
+            "service compromise in every specification, and the build fails if "
+            "that ceases to hold."
+        ),
+    )
+
+
+def sensitivity_dedup():
+    body = read_fragment("sensitivity_dedup_body.tex")
+    header = (
+        r"Year / count rule & Breached & Serious & Mean breaches & "
+        r"Addresses by 2018 \\"
+    )
+    return float_wrap(
+        caption="Headline rates under alternative deduplication rules",
+        label="tab:sensitivity_dedup",
+        align="lrrrr",
+        header=header,
+        body=body,
+        note=(
+            "The address-level file stores one row per source, so 531 of the "
+            "12,385 addresses appear twice and must be collapsed. Rows vary the "
+            "rule used for the legislative start year (minimum or maximum across "
+            "an address's rows) and for the breach counts. Taking the maximum, "
+            "the sum, or the first value gives identical results, because the "
+            "duplicate rows are structured so that one carries every breach and "
+            "the other carries none; only the minimum differs, and it selects "
+            "the row that observed no breach data. The start-year rule changes "
+            "how many addresses fall inside a given exposure window but does not "
+            "change any rate."
+        ),
+    )
+
+
 BUILDERS = {
     "table_1_everypol": table_1_everypol,
     "table_4_pwnpols_number_of_breaches": table_4_number_of_breaches,
@@ -408,6 +459,8 @@ BUILDERS = {
     "breach_taxonomy": breach_taxonomy,
     "three_sample": three_sample,
     "stealer_logs": stealer_logs,
+    "sensitivity_taxonomy": sensitivity_taxonomy,
+    "sensitivity_dedup": sensitivity_dedup,
 }
 
 

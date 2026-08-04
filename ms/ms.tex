@@ -666,6 +666,8 @@ The implication is that the headline rate substantially overstates how often pol
 
 \input{tables/breach_taxonomy}
 
+The four hand-coded assignments are the only discretionary element of this classification, and \cref{sec:sensitivity} reports how much they move the result.
+
 \subsection*{Comparison with population samples}
 
 To place the level of exposure in context we compare against \citet{sood2019pwned}, a survey of 5,000 US adults whose addresses were queried against HIBP in 2018. Three harmonisations are required before the samples are comparable.
@@ -695,6 +697,18 @@ These figures are lower bounds even by the standards of the rest of this paper. 
 This channel is small but is the one that speaks most directly to the security of politicians themselves, because appearance indicates credential capture from a compromised device rather than a third party holding the address. Two features are worth noting. Repeat appearance is common: 71 of the 287 exposed addresses appear in more than one corpus, which is difficult to explain as incidental inclusion. And the rate is roughly four times higher for personal than for official addresses, though this may reflect which address is entered into a browser on a personal device rather than differential infection of politicians' machines. We also note that credentials captured this way typically include session cookies, which authenticate without invoking a second factor; this is the specific threat that motivates our recommendation of phishing-resistant multi-factor authentication rather than one-time codes.
 
 \input{tables/stealer_logs}
+
+\subsection*{Sensitivity to construction choices}\label{sec:sensitivity}
+
+Two steps in building these figures are judgement rather than arithmetic. We report what each costs rather than asserting that either is innocuous.
+
+The first is the classification of four breaches by hand, where the rules described above misassign them; those four carry roughly 2.7\% of all appearances. \cref{tab:sensitivity_taxonomy} reverts each in turn to the class the rules would have given, and then all four together. No share moves by more than 1.07 percentage points under any specification, and the movement is concentrated almost entirely in one breach (\textit{DemandScience}). Broker aggregation exceeds service compromise in every specification, including the one that reverts all four hand-coded rows; the replication package fails the build if that ordering ever ceases to hold.
+
+The second is the rule for collapsing addresses observed in both sources, which affects 531 of the 12,385 addresses. \cref{tab:sensitivity_dedup} varies it. Taking the maximum, the sum, or the first of an address's breach counts gives identical results, because the duplicate rows are structured so that one carries every breach and the other carries none; only taking the minimum differs, and it selects the row that observed no breach data. The choice of legislative start year changes how many addresses fall inside a given exposure window, but leaves every rate unchanged. The seriousness threshold, the third such choice, is reported separately in \cref{tab:serious-sensitivity}.
+
+\input{tables/sensitivity_taxonomy}
+
+\input{tables/sensitivity_dedup}
 
 \subsection*{Email classification patterns}
 
