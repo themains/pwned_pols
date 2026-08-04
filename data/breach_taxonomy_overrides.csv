@@ -1,0 +1,5 @@
+name,class,rationale
+DemandScience,aggregator,"B2B lead-generation data broker. Subjects were never customers; the description uses none of the scrape/aggregator vocabulary the rules key on, so it defaults to service."
+B2BUSABusinesses,aggregator,"HIBP flags IsSpamList, which routes it to combolist, but it is a B2B contact list with no credentials. The exposure is broker-held contact data, not credential theft."
+LuminPDF,service,"PDF management service whose users held accounts. Rule false-positived on the phrase 'publicly exposed' describing the leak, not the collection method."
+Epik,service,"Domain registrar and web host; the exposed people were paying customers. Rule false-positived on an incidental 'scrap' in a later sentence."

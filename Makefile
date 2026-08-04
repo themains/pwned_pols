@@ -102,7 +102,7 @@ jn: ## Launch jupyter notebook in venv
 # equivalent either way, but the analysis conditions on the shipped file, so
 # nothing regenerates it.
 #
-# The analysis therefore starts from these seven frozen inputs:
+# The analysis therefore starts from these frozen inputs:
 FROZEN_INPUTS := \
 	data/everypol/everypol_combined_legislature_data.csv \
 	data/scraped_pol_combined_legislature_data.csv \
@@ -111,7 +111,11 @@ FROZEN_INPUTS := \
 	data/breaches_01_2025.csv \
 	data/edomain_validation.csv \
 	data/popsize.csv \
-	data/country_fes_covariates.csv
+	data/country_fes_covariates.csv \
+	data/benchmark/YGOV1058_pwned.csv \
+	data/benchmark/YGOV1058_profile.csv \
+	data/benchmark/yougov_breaches.json \
+	data/benchmark/florida_breaches.json
 
 FROZEN_NOTEBOOKS := 01_everypol_walkthrough 02_everypol_download_csvs \
 	03_download_hibp_everypol_india_eur_breaches \
@@ -164,8 +168,11 @@ check-inputs: ## Fail if a frozen input changed since the manifest was recorded
 # Manuscript
 ########################################################################
 # Everything below is local-file processing only -- verified no requests.get,
-# dns.resolver, webdriver or EveryPolitician() in 03/05/07/09/10/11. These
-# rebuild every table, figure and manuscript number from the frozen inputs.
+# dns.resolver, webdriver or EveryPolitician() in the analysis stages 06/07/08/
+# 09/11. (The numbers here used to name 03/05/10, which are the *frozen*
+# collection notebooks -- a renumbering artefact. guard-frozen is the machine
+# check; this comment is only the human-readable half.) These rebuild every
+# table, figure and manuscript number from the frozen inputs.
 
 # The notebooks carry a "python3" kernelspec that resolves to whatever python3
 # kernel is registered globally -- on at least one machine that is a deleted
@@ -182,9 +189,9 @@ kernel: ## Register the venv's Jupyter kernel (idempotent, venv-local)
 	@$(abspath $(VENVPATH))/bin/python -m ipykernel install --sys-prefix \
 		--name $(KERNEL) --display-name "$(KERNEL)" >/dev/null 2>&1
 
-.PHONY: analysis first-stage crosscountry
-analysis: ## Re-run analysis stages 06/07/08/09/11
-analysis: crosscountry
+.PHONY: analysis first-stage crosscountry benchmark
+analysis: ## Re-run analysis stages 06/07/08/09/11/17/18
+analysis: benchmark
 	@echo "==> $@ complete"
 
 first-stage: guard-frozen kernel
@@ -202,6 +209,19 @@ first-stage: guard-frozen kernel
 crosscountry: first-stage
 	@echo "==> $@"
 	cd scripts && Rscript 11_crosscountry.R
+
+benchmark: crosscountry
+	@echo "==> $@"
+	@# 17 classifies every breach by how the data got out; 18 compares the
+	@# politician sample against the YouGov (and, once retrieved, Florida)
+	@# population samples on a common catalogue and a common construct. 18
+	@# depends on 17's analysis/breach_taxonomy.rds, so the order is fixed.
+	cd scripts && Rscript 17_breach_taxonomy.R
+	cd scripts && Rscript 18_three_sample_comparison.R
+	@# 19 collapses EveryPolitician to one row per person and reports the
+	@# address coverage that determines whether a within-politician comparison
+	@# is identified. It reads a frozen input and touches no network.
+	cd scripts && Rscript 19_person_key.R
 
 .PHONY: check-notebooks
 check-notebooks: ## Fail if an analysis notebook carries stale or errored output
