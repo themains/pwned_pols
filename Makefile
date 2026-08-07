@@ -115,12 +115,18 @@ FROZEN_INPUTS := \
 	data/benchmark/YGOV1058_pwned.csv \
 	data/benchmark/YGOV1058_profile.csv \
 	data/benchmark/yougov_breaches.json \
-	data/benchmark/florida_breaches.json
+	data/benchmark/florida_breaches.json \
+	data/politician_emails.csv
 
 FROZEN_NOTEBOOKS := 01_everypol_walkthrough 02_everypol_download_csvs \
 	03_download_hibp_everypol_india_eur_breaches \
 	04_hibp_everypol_ind_eur_combine 05_validate_email_domains \
 	10_country_covariates
+
+# Collection adapters under scripts/collect/. These are .py rather than .ipynb
+# and live in a subdirectory, so the notebook glob below would not have seen
+# them -- a hole found while adding the first one. Guarded explicitly.
+FROZEN_COLLECTORS := scripts/collect/openstates.py
 
 .PHONY: guard-frozen
 guard-frozen: ## Assert no build target runs a data collection/assembly notebook
@@ -144,8 +150,23 @@ guard-frozen: ## Assert no build target runs a data collection/assembly notebook
 			echo "  FAIL: $$b makes network calls but is not in FROZEN_NOTEBOOKS"; fail=1; \
 		fi; \
 	done; \
+	for f in $(FROZEN_COLLECTORS); do \
+		if [ ! -f $$f ]; then \
+			echo "  FAIL: $$f is guarded but no such file exists."; fail=1; continue; \
+		fi; \
+		if grep -n "python.*$$f\|Rscript.*$$f" $(MAKEFILE_LIST) | grep -qv '^\s*#'; then \
+			echo "  FAIL: a target would execute $$f"; fail=1; \
+		fi; \
+	done; \
+	for f in scripts/collect/*.py scripts/collect/*.ipynb; do \
+		[ -e "$$f" ] || continue; \
+		case " $(FROZEN_COLLECTORS) " in *" $$f "*) continue;; esac; \
+		if grep -lq "requests\.get\|requests\.post\|urlopen\|dns\.resolver\|webdriver" $$f 2>/dev/null; then \
+			echo "  FAIL: $$f makes network calls but is not in FROZEN_COLLECTORS"; fail=1; \
+		fi; \
+	done; \
 	if [ $$fail -eq 1 ]; then exit 1; fi; \
-	echo "  ok: no target executes a collection/assembly notebook"
+	echo "  ok: no target executes a collection/assembly notebook or adapter"
 
 .PHONY: manifest
 manifest: ## Record checksums of the frozen inputs (run once, after a deliberate data change)
@@ -233,6 +254,11 @@ check-notebooks: ## Fail if an analysis notebook carries stale or errored output
 	@echo "==> $@"
 	cd scripts && $(abspath $(VENVPATH))/bin/python 14_check_notebook_hygiene.py
 
+.PHONY: check-classifier
+check-classifier: ## Assert the email classifier is unchanged on the frozen sample and agrees across Python/R
+	@echo "==> $@"
+	cd scripts && $(abspath $(VENVPATH))/bin/python 24_check_classifier.py
+
 .PHONY: tables-ms
 tables-ms: ## Wrap pipeline fragments into the table_*/regtab files ms.tex inputs
 	@echo "==> $@"
@@ -274,7 +300,7 @@ paper-clean: ## Remove LaTeX build artifacts
 
 .PHONY: verify
 verify: ## Full rebuild from frozen inputs: inputs -> analysis -> tables -> numbers -> paper
-verify: guard-frozen check-inputs analysis check-notebooks tables-ms check-numbers paper
+verify: guard-frozen check-inputs check-classifier analysis check-notebooks tables-ms check-numbers paper
 	@echo "==> $@ complete"
 
 ########################################################################

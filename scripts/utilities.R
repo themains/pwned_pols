@@ -112,7 +112,18 @@ GOV_PATTERNS <- c(
   # institution keywords
   "parliament", "parlament", "parlamento", "parl", "senat", "senado",
   "assembly", "assemblee", "asamblea", "congress", "congreso", "ministry",
-  "cabinet", "gov", "government", "bureau"
+  "cabinet", "gov", "government", "bureau",
+  # US state legislatures. ANCHORED, unlike everything above, and mostly an
+  # explicit list -- see the matching block in utilities.py for why. Short
+  # version: a loose "house" token would catch arkansashouse.org correctly and
+  # werahobhouse.co.uk incorrectly (a sitting UK MP; Hobhouse is her surname),
+  # and US legislatures park institutional mail on .org/.net/.com where no TLD
+  # rule reaches. Self-managed campaign domains are deliberately excluded --
+  # those are personal, which is the whole point of the variable.
+  "^(leg|asm|sen|house|senate)\\.state\\.[a-z]{2}\\.us$",
+  "^co\\.[a-z-]+\\.[a-z]{2}\\.us$",
+  "^njleg\\.org$", "^arkansashouse\\.org$", "^alhouse\\.org$",
+  "^ilhousegop\\.org$", "^pahouse\\.(net|com)$", "^pahousegop\\.com$"
 )
 
 
