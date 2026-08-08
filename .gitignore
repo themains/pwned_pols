@@ -520,3 +520,8 @@ TSWLatexianTemp*
 .Rproj.user
 scripts/scripts.Rproj
 scripts/.Rhistory
+
+# EuRepoC raw snapshots are CC-BY-NC-4.0. The versioned files are pinned by
+# DOI in scripts/collect/eurepoc.py and re-downloadable; the repository commits
+# the derived aggregates rather than redistributing the dataset.
+data/raw/eurepoc/

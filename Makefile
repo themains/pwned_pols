@@ -116,7 +116,9 @@ FROZEN_INPUTS := \
 	data/benchmark/YGOV1058_profile.csv \
 	data/benchmark/yougov_breaches.json \
 	data/benchmark/florida_breaches.json \
-	data/politician_emails.csv
+	data/politician_emails.csv \
+	data/eurepoc_political_incidents.csv \
+	data/eurepoc_incident_profile.csv
 
 FROZEN_NOTEBOOKS := 01_everypol_walkthrough 02_everypol_download_csvs \
 	03_download_hibp_everypol_india_eur_breaches \
@@ -126,7 +128,7 @@ FROZEN_NOTEBOOKS := 01_everypol_walkthrough 02_everypol_download_csvs \
 # Collection adapters under scripts/collect/. These are .py rather than .ipynb
 # and live in a subdirectory, so the notebook glob below would not have seen
 # them -- a hole found while adding the first one. Guarded explicitly.
-FROZEN_COLLECTORS := scripts/collect/openstates.py
+FROZEN_COLLECTORS := scripts/collect/openstates.py scripts/collect/eurepoc.py
 
 .PHONY: guard-frozen
 guard-frozen: ## Assert no build target runs a data collection/assembly notebook
@@ -248,6 +250,15 @@ benchmark: crosscountry
 	@# fails the build if broker aggregation ever stops exceeding service
 	@# compromise, which is the ordering the provenance argument rests on.
 	cd scripts && Rscript 20_sensitivity.R
+	@# 25 bounds the quantity the paper is actually about -- breach-attributable
+	@# account takeover -- between two measured ends, with the three unobservable
+	@# links parameterised in data/risk_parameters.csv so an assumption can be
+	@# argued with by editing a data row rather than by reading code.
+	cd scripts && Rscript 25_risk_funnel.R
+	@# 26 asks whether the mechanism this project measures is the mechanism
+	@# that matters: how observed intrusions against political targets
+	@# actually begin, and whether those targets face a different adversary.
+	cd scripts && Rscript 26_incident_profile.R
 
 .PHONY: check-notebooks
 check-notebooks: ## Fail if an analysis notebook carries stale or errored output
