@@ -112,7 +112,18 @@ GOV_PATTERNS <- c(
   # institution keywords
   "parliament", "parlament", "parlamento", "parl", "senat", "senado",
   "assembly", "assemblee", "asamblea", "congress", "congreso", "ministry",
-  "cabinet", "gov", "government", "bureau"
+  "cabinet", "gov", "government", "bureau",
+  # US state legislatures. ANCHORED, unlike everything above, and mostly an
+  # explicit list -- see the matching block in utilities.py for why. Short
+  # version: a loose "house" token would catch arkansashouse.org correctly and
+  # werahobhouse.co.uk incorrectly (a sitting UK MP; Hobhouse is her surname),
+  # and US legislatures park institutional mail on .org/.net/.com where no TLD
+  # rule reaches. Self-managed campaign domains are deliberately excluded --
+  # those are personal, which is the whole point of the variable.
+  "^(leg|asm|sen|house|senate)\\.state\\.[a-z]{2}\\.us$",
+  "^co\\.[a-z-]+\\.[a-z]{2}\\.us$",
+  "^njleg\\.org$", "^arkansashouse\\.org$", "^alhouse\\.org$",
+  "^ilhousegop\\.org$", "^pahouse\\.(net|com)$", "^pahousegop\\.com$"
 )
 
 
@@ -184,4 +195,38 @@ write_tex_fragment <- function(df, path) {
   body <- do.call(paste, c(cols, sep = " & "))
   writeLines(c("\\midrule", paste0(body, " \\\\")), path)
   invisible(path)
+}
+
+
+#' Collapse email_lvl_cov.csv to one row per email address.
+#'
+#' The file is named "email level" but is NOT keyed on email: it carries 12,916
+#' rows for 12,385 distinct addresses, because 531 addresses were found in both
+#' the EveryPolitician and the scraped source and are stored once per source.
+#'
+#' Using nrow() as a denominator therefore understates every rate by ~4%. The
+#' manuscript's n is 12,385, and 4,090 breached / 12,385 = 33.0% is the
+#' published headline -- which is the check that this is the right denominator.
+#'
+#' The duplicate rows agree on cc3 and ecategory but not on the rest:
+#'
+#'   leg_start_year  disagrees for all 531. Take the MINIMUM: the address
+#'                   existed from the earliest term it appears in, which is what
+#'                   any "did this address exist yet" restriction needs.
+#'   nbreach         disagrees for 340, because each source row was scored
+#'                   against only the HIBP files under that source. Take the
+#'                   MAXIMUM, matching the any(present) dedup in
+#'                   06_everypol_summ.R.
+dedupe_email_level <- function(df) {
+  df %>%
+    group_by(email) %>%
+    summarise(
+      cc3 = first(cc3),
+      country = first(country),
+      ecategory = first(ecategory),
+      leg_start_year = min(leg_start_year, na.rm = TRUE),
+      nbreach = max(nbreach, na.rm = TRUE),
+      nbreach_serious = max(nbreach_serious, na.rm = TRUE),
+      .groups = "drop"
+    )
 }

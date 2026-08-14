@@ -102,7 +102,7 @@ jn: ## Launch jupyter notebook in venv
 # equivalent either way, but the analysis conditions on the shipped file, so
 # nothing regenerates it.
 #
-# The analysis therefore starts from these seven frozen inputs:
+# The analysis therefore starts from these frozen inputs:
 FROZEN_INPUTS := \
 	data/everypol/everypol_combined_legislature_data.csv \
 	data/scraped_pol_combined_legislature_data.csv \
@@ -111,12 +111,24 @@ FROZEN_INPUTS := \
 	data/breaches_01_2025.csv \
 	data/edomain_validation.csv \
 	data/popsize.csv \
-	data/country_fes_covariates.csv
+	data/country_fes_covariates.csv \
+	data/benchmark/YGOV1058_pwned.csv \
+	data/benchmark/YGOV1058_profile.csv \
+	data/benchmark/yougov_breaches.json \
+	data/benchmark/florida_breaches.json \
+	data/politician_emails.csv \
+	data/eurepoc_political_incidents.csv \
+	data/eurepoc_incident_profile.csv
 
 FROZEN_NOTEBOOKS := 01_everypol_walkthrough 02_everypol_download_csvs \
 	03_download_hibp_everypol_india_eur_breaches \
 	04_hibp_everypol_ind_eur_combine 05_validate_email_domains \
 	10_country_covariates
+
+# Collection adapters under scripts/collect/. These are .py rather than .ipynb
+# and live in a subdirectory, so the notebook glob below would not have seen
+# them -- a hole found while adding the first one. Guarded explicitly.
+FROZEN_COLLECTORS := scripts/collect/openstates.py scripts/collect/eurepoc.py
 
 .PHONY: guard-frozen
 guard-frozen: ## Assert no build target runs a data collection/assembly notebook
@@ -140,8 +152,23 @@ guard-frozen: ## Assert no build target runs a data collection/assembly notebook
 			echo "  FAIL: $$b makes network calls but is not in FROZEN_NOTEBOOKS"; fail=1; \
 		fi; \
 	done; \
+	for f in $(FROZEN_COLLECTORS); do \
+		if [ ! -f $$f ]; then \
+			echo "  FAIL: $$f is guarded but no such file exists."; fail=1; continue; \
+		fi; \
+		if grep -n "python.*$$f\|Rscript.*$$f" $(MAKEFILE_LIST) | grep -qv '^\s*#'; then \
+			echo "  FAIL: a target would execute $$f"; fail=1; \
+		fi; \
+	done; \
+	for f in scripts/collect/*.py scripts/collect/*.ipynb; do \
+		[ -e "$$f" ] || continue; \
+		case " $(FROZEN_COLLECTORS) " in *" $$f "*) continue;; esac; \
+		if grep -lq "requests\.get\|requests\.post\|urlopen\|dns\.resolver\|webdriver" $$f 2>/dev/null; then \
+			echo "  FAIL: $$f makes network calls but is not in FROZEN_COLLECTORS"; fail=1; \
+		fi; \
+	done; \
 	if [ $$fail -eq 1 ]; then exit 1; fi; \
-	echo "  ok: no target executes a collection/assembly notebook"
+	echo "  ok: no target executes a collection/assembly notebook or adapter"
 
 .PHONY: manifest
 manifest: ## Record checksums of the frozen inputs (run once, after a deliberate data change)
@@ -164,8 +191,11 @@ check-inputs: ## Fail if a frozen input changed since the manifest was recorded
 # Manuscript
 ########################################################################
 # Everything below is local-file processing only -- verified no requests.get,
-# dns.resolver, webdriver or EveryPolitician() in 03/05/07/09/10/11. These
-# rebuild every table, figure and manuscript number from the frozen inputs.
+# dns.resolver, webdriver or EveryPolitician() in the analysis stages 06/07/08/
+# 09/11. (The numbers here used to name 03/05/10, which are the *frozen*
+# collection notebooks -- a renumbering artefact. guard-frozen is the machine
+# check; this comment is only the human-readable half.) These rebuild every
+# table, figure and manuscript number from the frozen inputs.
 
 # The notebooks carry a "python3" kernelspec that resolves to whatever python3
 # kernel is registered globally -- on at least one machine that is a deleted
@@ -182,9 +212,9 @@ kernel: ## Register the venv's Jupyter kernel (idempotent, venv-local)
 	@$(abspath $(VENVPATH))/bin/python -m ipykernel install --sys-prefix \
 		--name $(KERNEL) --display-name "$(KERNEL)" >/dev/null 2>&1
 
-.PHONY: analysis first-stage crosscountry
-analysis: ## Re-run analysis stages 06/07/08/09/11
-analysis: crosscountry
+.PHONY: analysis first-stage crosscountry benchmark
+analysis: ## Re-run analysis stages 06/07/08/09/11/17/18
+analysis: benchmark
 	@echo "==> $@ complete"
 
 first-stage: guard-frozen kernel
@@ -203,10 +233,42 @@ crosscountry: first-stage
 	@echo "==> $@"
 	cd scripts && Rscript 11_crosscountry.R
 
+benchmark: crosscountry
+	@echo "==> $@"
+	@# 17 classifies every breach by how the data got out; 18 compares the
+	@# politician sample against the YouGov (and, once retrieved, Florida)
+	@# population samples on a common catalogue and a common construct. 18
+	@# depends on 17's analysis/breach_taxonomy.rds, so the order is fixed.
+	cd scripts && Rscript 17_breach_taxonomy.R
+	cd scripts && Rscript 18_three_sample_comparison.R
+	@# 19 collapses EveryPolitician to one row per person and reports the
+	@# address coverage that determines whether a within-politician comparison
+	@# is identified. It reads a frozen input and touches no network.
+	cd scripts && Rscript 19_person_key.R
+	@# 20 reports what the two discretionary choices in the pipeline cost --
+	@# the deduplication rule and the four hand-coded taxonomy overrides -- and
+	@# fails the build if broker aggregation ever stops exceeding service
+	@# compromise, which is the ordering the provenance argument rests on.
+	cd scripts && Rscript 20_sensitivity.R
+	@# 25 bounds the quantity the paper is actually about -- breach-attributable
+	@# account takeover -- between two measured ends, with the three unobservable
+	@# links parameterised in data/risk_parameters.csv so an assumption can be
+	@# argued with by editing a data row rather than by reading code.
+	cd scripts && Rscript 25_risk_funnel.R
+	@# 26 asks whether the mechanism this project measures is the mechanism
+	@# that matters: how observed intrusions against political targets
+	@# actually begin, and whether those targets face a different adversary.
+	cd scripts && Rscript 26_incident_profile.R
+
 .PHONY: check-notebooks
 check-notebooks: ## Fail if an analysis notebook carries stale or errored output
 	@echo "==> $@"
 	cd scripts && $(abspath $(VENVPATH))/bin/python 14_check_notebook_hygiene.py
+
+.PHONY: check-classifier
+check-classifier: ## Assert the email classifier is unchanged on the frozen sample and agrees across Python/R
+	@echo "==> $@"
+	cd scripts && $(abspath $(VENVPATH))/bin/python 24_check_classifier.py
 
 .PHONY: tables-ms
 tables-ms: ## Wrap pipeline fragments into the table_*/regtab files ms.tex inputs
@@ -249,7 +311,7 @@ paper-clean: ## Remove LaTeX build artifacts
 
 .PHONY: verify
 verify: ## Full rebuild from frozen inputs: inputs -> analysis -> tables -> numbers -> paper
-verify: guard-frozen check-inputs analysis check-notebooks tables-ms check-numbers paper
+verify: guard-frozen check-inputs check-classifier analysis check-notebooks tables-ms check-numbers paper
 	@echo "==> $@ complete"
 
 ########################################################################
