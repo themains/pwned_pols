@@ -33,7 +33,9 @@ jobs:
         shell: Rscript {0}
         run: |
           install.packages(c("tidyverse", "fixest", "relaimpo", "sandwich", "jsonlite", "lmtest", "dqrng", "remotes"))
+          remotes::install_github("s3alfisc/summclust@2d25c68eb046028b680fdc8c9827820f7e791827", upgrade = "never")
           remotes::install_github("s3alfisc/fwildclusterboot@336bb574eba169ac0183317f01d0564791d8122f", upgrade = "never")
+          stopifnot(requireNamespace("fwildclusterboot", quietly = TRUE))
       - name: Install LaTeX
         run: sudo apt-get update && sudo apt-get install -y latexmk texlive-latex-extra texlive-fonts-recommended texlive-bibtex-extra
       - run: make setup
