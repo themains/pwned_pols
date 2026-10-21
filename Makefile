@@ -35,23 +35,8 @@ endif
 REQUIREMENTS := requirements.txt
 setup: ## Set up venv	
 setup: $(REQUIREMENTS)
-	@echo "==> $@"
-	@echo "==> Creating and initializing virtual environment..."
-	rm -rf $(VENVPATH)
-	python -m venv $(VENVPATH)
-	. $(ACTIVATE_PATH) && \
-		pip install --upgrade pip && \
-		which pip && \
-		pip list && \
-		echo "==> Installing requirements" && \
-		pip install -r $< && \
-		jupyter contrib nbextensions install --sys-prefix --skip-running-check && \
-		echo "==> Packages available:" && \
-		which pip && \
-		pip list && \
-		which jupyter && \
-		deactivate
-	@echo "==> Setup complete."
+	python3 -m venv $(VENVPATH)
+	$(VENVPATH)/bin/python -m pip install -r $(REQUIREMENTS)
 
 
 # ============================================================================
