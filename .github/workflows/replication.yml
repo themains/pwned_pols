@@ -28,6 +28,8 @@ jobs:
           r-version: "4.6.0"
           use-public-rspm: true
       - name: Install R dependencies
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         shell: Rscript {0}
         run: |
           install.packages(c("tidyverse", "fixest", "relaimpo", "sandwich", "jsonlite", "lmtest", "dqrng", "remotes"))
