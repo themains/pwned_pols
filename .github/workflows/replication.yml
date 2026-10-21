@@ -29,7 +29,9 @@ jobs:
           use-public-rspm: true
       - name: Install R dependencies
         shell: Rscript {0}
-        run: install.packages(c("tidyverse", "fixest", "relaimpo", "sandwich", "jsonlite"))
+        run: |
+          install.packages(c("tidyverse", "fixest", "relaimpo", "sandwich", "jsonlite", "lmtest", "dqrng", "remotes"))
+          remotes::install_github("s3alfisc/fwildclusterboot@336bb574eba169ac0183317f01d0564791d8122f", upgrade = "never")
       - name: Install LaTeX
         run: sudo apt-get update && sudo apt-get install -y latexmk texlive-latex-extra texlive-fonts-recommended texlive-bibtex-extra
       - run: make setup
