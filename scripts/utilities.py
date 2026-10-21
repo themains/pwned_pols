@@ -467,8 +467,44 @@ def get_gov_patterns():
             r"government",
             r"bureau",
         ],
+        # US state legislatures.
+        #
+        # These are ANCHORED, unlike every pattern above, and mostly an explicit
+        # list. Two reasons.
+        #
+        # First, the loose token matching used above is unsafe here. A bare
+        # "house" pattern would catch arkansashouse.org correctly and
+        # werahobhouse.co.uk incorrectly -- the personal domain of a sitting UK
+        # MP whose surname is Hobhouse. Checked: that is the only address in the
+        # existing 12,385 that a loose rule would flip, and one wrongly
+        # reclassified politician is one too many for a variable this analysis
+        # turns on.
+        #
+        # Second, US legislatures park institutional mail on .org, .net and .com
+        # (njleg.org, pahouse.net, pahousegop.com), which no TLD rule can reach.
+        # Enumeration is the honest option; the list is short and every entry is
+        # verifiable.
+        #
+        # Deliberately NOT included: self-managed campaign domains such as
+        # repaaronortiz.com, lashawnford.com or gailfornewmexico.com. Those are
+        # the politician's own, which is what the manuscript means by a personal
+        # address, and roughly 168 US state legislators publish one.
+        "US State Legislature Patterns": [
+            r"^(?:leg|asm|sen|house|senate)\.state\.[a-z]{2}\.us$",
+            r"^co\.[a-z-]+\.[a-z]{2}\.us$",
+            r"^njleg\.org$",
+            r"^arkansashouse\.org$",
+            r"^alhouse\.org$",
+            r"^ilhousegop\.org$",
+            r"^pahouse\.(?:net|com)$",
+            r"^pahousegop\.com$",
+        ],
     }
-    return gov_dict["Core Patterns"] + gov_dict["Institution Patterns"]
+    return (
+        gov_dict["Core Patterns"]
+        + gov_dict["Institution Patterns"]
+        + gov_dict["US State Legislature Patterns"]
+    )
 
 
 def get_commercial_patterns() -> list[str]:

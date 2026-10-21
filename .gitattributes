@@ -1,0 +1,4 @@
+# Raw source snapshots must be stored exactly as fetched. Line-ending
+# normalisation would rewrite them on checkout and break the guarantee that a
+# snapshot is byte-for-byte what the source served.
+data/raw/** -text

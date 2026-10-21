@@ -1,0 +1,24 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Headline rates under alternative deduplication rules}
+\label{tab:sensitivity_dedup}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrr}
+\toprule\toprule
+Year / count rule & Breached & Serious & Mean breaches & Addresses by 2018 \\
+\midrule
+min / max \textit{(used)} & 33.05\% & 21.58\% & 1.011 & 8,488 \\
+min / sum & 33.05\% & 21.58\% & 1.011 & 8,488 \\
+min / first & 33.05\% & 21.58\% & 1.011 & 8,488 \\
+min / min & 30.30\% & 20.36\% & 0.949 & 8,488 \\
+max / max & 33.05\% & 21.58\% & 1.011 & 7,957 \\
+max / sum & 33.05\% & 21.58\% & 1.011 & 7,957 \\
+max / first & 33.05\% & 21.58\% & 1.011 & 7,957 \\
+max / min & 30.30\% & 20.36\% & 0.949 & 7,957 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption*{\scriptsize \emph{Note:} The address-level file stores one row per source, so 531 of the 12,385 addresses appear twice and must be collapsed. Rows vary the rule used for the legislative start year (minimum or maximum across an address's rows) and for the breach counts. Taking the maximum, the sum, or the first value gives identical results, because the duplicate rows are structured so that one carries every breach and the other carries none; only the minimum differs, and it selects the row that observed no breach data. The start-year rule changes how many addresses fall inside a given exposure window but does not change any rate.}
+\end{table}
