@@ -6,7 +6,7 @@ produced by a hand-maintained regex list duplicated across two languages. That
 arrangement has failed twice here, both times silently:
 
   * 1bbc95f -- the verification script and the pipeline drifted onto different
-    address normalisations. They agreed with each other and both were wrong, so
+    address normalizations. They agreed with each other and both were wrong, so
     every gate passed.
   * The US patterns added alongside this file were nearly written as loose token
     matches. A bare "house" rule classifies arkansashouse.org correctly and

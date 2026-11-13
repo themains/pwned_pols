@@ -18,9 +18,9 @@
 ## mapping. That is what makes the politician / YouGov / Florida comparison
 ## like-for-like on construct rather than only on level.
 ##
-## Rules first, overrides second. Rules are preferred wherever they generalise
-## to the whole catalogue; ../data/breach_taxonomy_overrides.csv carries only
-## the cases needing human judgement, each with a written rationale, so the
+## Rules first, overrides second. Rules are preferred wherever they generalize
+## to the whole catalog; ../data/breach_taxonomy_overrides.csv carries only
+## the cases needing human judgment, each with a written rationale, so the
 ## hand-coding is auditable rather than buried in a regex.
 
 suppressPackageStartupMessages({
@@ -112,8 +112,8 @@ write_csv(taxonomy, "../analysis/breach_taxonomy.csv")
 ## Apply to the politician sample.
 ##
 ## Rebuilt from the raw HIBP files rather than from nbreach, because nbreach is
-## a count and the split needs the breach names behind it. Case normalisation
-## matters here: 382 HIBP filenames keep the capitalisation they were scraped
+## a count and the split needs the breach names behind it. Case normalization
+## matters here: 382 HIBP filenames keep the capitalization they were scraped
 ## in, and joining raw drops 380 addresses that then score as never breached.
 ## ---------------------------------------------------------------------------
 ## Keyed on email, not on row: the file stores 12,916 rows for 12,385 distinct
@@ -122,10 +122,10 @@ emails <- read_csv("../data/email_lvl_cov.csv", show_col_types = FALSE) %>%
   dedupe_email_level()
 stopifnot(!anyDuplicated(emails$email))
 
-## The HIBP side must be normalised with clean_dedupe_email_column(), not with
-## str_to_lower(). The helper does more than lowercase -- it trims, normalises
+## The HIBP side must be normalized with clean_dedupe_email_column(), not with
+## str_to_lower(). The helper does more than lowercase -- it trims, normalizes
 ## unicode, and carries the deliberate lstrip("1.") quirk that maps
-## "1.office@bjpanda.org" to "office@bjpanda.org". 06_everypol_summ.R normalises
+## "1.office@bjpanda.org" to "office@bjpanda.org". 06_everypol_summ.R normalizes
 ## this way, so lowercasing alone matched two fewer addresses and produced a
 ## breached-address count that disagreed with the rest of the pipeline.
 read_hibp <- function(path) {
@@ -173,7 +173,7 @@ write_tex_fragment(by_class, "../tables/breach_taxonomy_body.tex")
 ## HIBP loads some infostealer and malware corpora into the ordinary breach
 ## dataset, so they are searchable by any subscriber. Several come from
 ## documented law-enforcement seizures (Emotet: FBI/NHTCU; Qakbot: US DOJ).
-## Unlike the rest of the catalogue these indicate credential capture from an
+## Unlike the rest of the catalog these indicate credential capture from an
 ## infected machine rather than a third party holding the address.
 ##
 ## This is a LOWER BOUND. HIBP's dedicated /stealerLogsByEmail endpoint covers

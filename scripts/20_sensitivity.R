@@ -1,6 +1,6 @@
 ## 20_sensitivity.R -- what the two discretionary choices in this pipeline cost.
 ##
-## Two steps are judgement rather than arithmetic, and a reader has no way to
+## Two steps are judgment rather than arithmetic, and a reader has no way to
 ## tell how much either one is doing:
 ##
 ##   1. Collapsing email_lvl_cov.csv to one row per address. The file holds
@@ -35,7 +35,7 @@ CLASSES <- c("aggregator", "combolist", "service")
 taxonomy <- readRDS("../analysis/breach_taxonomy.rds")
 cov_raw <- read_csv("../data/email_lvl_cov.csv", show_col_types = FALSE)
 
-## Same normalisation as 06/17/18. Lowercasing alone matches two fewer
+## Same normalization as 06/17/18. Lowercasing alone matches two fewer
 ## addresses; bypassing this helper is what caused the drift fixed in 1bbc95f.
 read_hibp <- function(path) {
   read_csv(path, show_col_types = FALSE) %>%

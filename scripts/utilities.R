@@ -43,7 +43,7 @@ clean_dedupe_email_column <- function(df, column_name = "email", dedup = TRUE,
   stopifnot(column_name %in% names(df))
   e <- df[[column_name]]
 
-  # 1. basic normalisation
+  # 1. basic normalization
   e <- str_trim(e)
   e <- str_to_lower(e)
   e <- str_replace_all(e, ",", "")
@@ -91,7 +91,7 @@ clean_dedupe_email_column <- function(df, column_name = "email", dedup = TRUE,
 ## Government / institutional domain patterns, ported verbatim from
 ## utilities.py::get_gov_patterns(). Hand-maintained and visibly country-skewed
 ## -- this classifier is what makes the paper's "Personal email" category, and
-## it has never been validated against a labelled sample.
+## it has never been validated against a labeled sample.
 GOV_PATTERNS <- c(
   "\\.gov$", "\\.gob$", "\\.gouv$", "\\.go\\.", "\\.gc\\.", "\\.fed\\.",
   "\\.mil$", "\\.admin$", "\\.bund$", "\\.fgov$", "\\.regering$",
@@ -169,7 +169,7 @@ LIST_SERIOUS_DATACLASSES <- c(
 ## NOT absent from HIBP -- it was queried as "Dhanwatichandela498@gmail.com" and
 ## has 39 rows with 1 hit. It only looked missing because the scraped side of
 ## the HIBP join was not case-normalised, so it was excluded by hand to paper
-## over that. Both sides are normalised now, so it is a real, breached
+## over that. Both sides are normalized now, so it is a real, breached
 ## politician and stays in. The other six are genuinely absent (0 rows each,
 ## verified against both HIBP files).
 DELINQUENTS <- c(

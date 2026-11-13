@@ -329,10 +329,10 @@ def _politician_hits():
         return None, None
     tax = pd.read_csv(tax_path)
 
-    # Normalise with the SAME helper the pipeline uses, not with .str.lower().
+    # Normalize with the SAME helper the pipeline uses, not with .str.lower().
     # utilities.py is the original; utilities.R is a port of it. Lowercasing
     # alone matches two fewer addresses, because the helper also trims,
-    # normalises unicode and strips a leading "1."/"2.". Re-implementing it here
+    # normalizes unicode and strips a leading "1."/"2.". Re-implementing it here
     # is how the checker and the pipeline drift apart while both keep passing --
     # which is exactly what happened before this line was fixed.
     from utilities import clean_email_column_no_dedupe
@@ -402,7 +402,7 @@ def si_stats():
         f"{100 * len(stealer & set(official)) / len(official):.2f}"
     )
 
-    # -- population benchmark, restricted to the shared catalogue and window
+    # -- population benchmark, restricted to the shared catalog and window
     yg_cat_path = os.path.join(DATA, "benchmark", "yougov_breaches.json")
     yg_hits_path = os.path.join(DATA, "benchmark", "YGOV1058_pwned.csv")
     yg_prof_path = os.path.join(DATA, "benchmark", "YGOV1058_profile.csv")
@@ -459,7 +459,7 @@ def breach_rate_evolution_stats():
     figure and the prose are checked against the same source.
 
     The join key must be lowercased: 382 HIBP filenames preserve scraped
-    capitalisation (Mark.Coulton.MP@aph.gov.au) while email_lvl_cov.csv is
+    capitalization (Mark.Coulton.MP@aph.gov.au) while email_lvl_cov.csv is
     lowercased, and joining raw silently scores 380 addresses -- mostly CAN,
     AUS and GBR -- as never breached.
     """

@@ -19,7 +19,7 @@
 ##            because the rest of the exposure carries no credential at all.
 ##
 ##   FLOOR    addresses appearing in malware-derived stealer corpora. This is
-##            not a probability of compromise -- it is evidence of a realised
+##            not a probability of compromise -- it is evidence of a realized
 ##            one, because malware ran on the device. It is a lower bound twice
 ##            over: HIBP holds only publicly dumped stealer corpora, and only
 ##            those loaded into the breach dataset.
