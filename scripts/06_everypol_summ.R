@@ -93,12 +93,12 @@ scraped_emails <- read_csv(file.path(DATA, "scraped_pol_combined_legislature_dat
 stopifnot(all(scraped_emails$nemail_cc3 >= 30))
 
 # ---------------------------------------------------------------- HIBP merge
-# Both sides are normalised. The original normalised only the EP side ("needed
+# Both sides are normalized. The original normalized only the EP side ("needed
 # to normalize strings -- do not remove") and left the scraped side raw, which
 # is the same defect that cost notebook 10 four percentage points: HIBP
-# filenames keep the capitalisation they were scraped in (381 in the EP file,
+# filenames keep the capitalization they were scraped in (381 in the EP file,
 # 1 in the scraped file), so a raw join scores those addresses as never
-# breached. Normalising one side and not the other cannot be right under any
+# breached. Normalizing one side and not the other cannot be right under any
 # reading.
 ep_hibp <- read_csv(file.path(DATA, "everypol_hibp.csv"), show_col_types = FALSE) %>%
   rename(email = Filename, breach = Breach, present = Present) %>%
@@ -129,7 +129,7 @@ sc_expanded <- scraped_emails %>%
 # "bholasingh.mp@sansad.nic.in." (trailing dot), "mos4ud@gmail.com," (trailing
 # comma) and "1.office@bjpanda.org" -- because the malformed forms were in the
 # source data. HIBP returns nothing for the malformed spelling and the real
-# hits for the clean one. Normalisation then merges each pair into duplicate
+# hits for the clean one. Normalization then merges each pair into duplicate
 # (email, breach) rows, one TRUE and one FALSE.
 #
 # The original took `keep="first"` after sorting on (source, email) only, so

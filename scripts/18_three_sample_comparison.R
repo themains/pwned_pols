@@ -1,18 +1,18 @@
 ## 18_three_sample_comparison.R -- politicians vs. general-population samples,
-## on a common breach catalogue and a common construct.
+## on a common breach catalog and a common construct.
 ##
 ## The paper reports that ~33% of politician addresses appear in a breach, and
 ## calls that alarming, but nothing anchors the level. Two sibling studies by
 ## the same authors supply population benchmarks:
 ##
-##   YouGov  5,000 US adults, queried 2018 against a 293-breach catalogue
+##   YouGov  5,000 US adults, queried 2018 against a 293-breach catalog
 ##   Florida ~1.35M voter-file addresses, queried 2023 against 680 breaches
 ##
 ## Two things have to be harmonised before any comparison means anything.
 ##
 ## 1. THE CATALOGUE. Scoring a 2018 sample against 293 breaches and a 2025
 ##    sample against 857 is not a robustness detail -- it is most of the gap.
-##    The three catalogues are perfectly nested (asserted below), so the
+##    The three catalogs are perfectly nested (asserted below), so the
 ##    comparison restricts every sample to their intersection. No fuzzy
 ##    matching, no name harmonisation.
 ##
@@ -21,7 +21,7 @@
 ##    public. Every sample is therefore also split by 17_breach_taxonomy.R's
 ##    classification, which resolves through one shared mapping.
 ##
-## Breach metadata (data classes, taxonomy) is taken from the 2025 catalogue for
+## Breach metadata (data classes, taxonomy) is taken from the 2025 catalog for
 ## BOTH samples rather than from each study's own snapshot. HIBP revises breach
 ## records over time, so using one snapshot is what makes "serious" mean the
 ## same thing on both sides. It does mean the YouGov rows are scored against
@@ -64,7 +64,7 @@ catalogue <- taxonomy %>%
 
 ## ---------------------------------------------------------------------------
 ## Catalogue nesting. The whole comparison rests on this, so it is asserted
-## rather than assumed -- a future catalogue refresh that breaks it must fail
+## rather than assumed -- a future catalog refresh that breaks it must fail
 ## the build loudly instead of silently producing an incomparable table.
 ## ---------------------------------------------------------------------------
 cat_pol <- breaches$Name
@@ -88,7 +88,7 @@ cat(sprintf(
 ## ---------------------------------------------------------------------------
 ## Why the harmonised panel cannot be read on its own.
 ##
-## The common catalogue is a 2018 draw, so restricting to it also restricts the
+## The common catalog is a 2018 draw, so restricting to it also restricts the
 ## ERA. Every broker corpus that dominates politician exposure post-dates it --
 ## db8151dd (2020), PDL (2019), VerificationsIO (2019), DemandScience (2024),
 ## LinkedInScrape (2021), Twitter200M (2021). So the politician aggregator share
@@ -118,8 +118,8 @@ pol_emails <- read_csv("../data/email_lvl_cov.csv", show_col_types = FALSE) %>%
   dedupe_email_level()
 stopifnot(!anyDuplicated(pol_emails$email))
 
-## Normalised with clean_dedupe_email_column(), matching 06_everypol_summ.R.
-## Lowercasing alone is not enough: the helper also trims, normalises unicode
+## Normalized with clean_dedupe_email_column(), matching 06_everypol_summ.R.
+## Lowercasing alone is not enough: the helper also trims, normalizes unicode
 ## and strips a leading "1."/"2.", and using only str_to_lower() here matched
 ## two fewer addresses than the rest of the pipeline.
 read_hibp <- function(path) {
@@ -163,7 +163,7 @@ if (file.exists(FLORIDA_HITS)) {
 }
 
 ## ---------------------------------------------------------------------------
-## Rates, restricted to the common catalogue.
+## Rates, restricted to the common catalog.
 ## ---------------------------------------------------------------------------
 rates <- function(hits, n, restrict) {
   h <- hits %>%
@@ -183,7 +183,7 @@ rates <- function(hits, n, restrict) {
   )
 }
 
-## Era matching. The common catalogue closes in 2018, so an address created
+## Era matching. The common catalog closes in 2018, so an address created
 ## after that could not have been exposed by any breach in it. Politicians are
 ## structurally young (median legislative start 2015, 25% starting in 2025);
 ## every YouGov respondent existed in 2018. Comparing without this restriction

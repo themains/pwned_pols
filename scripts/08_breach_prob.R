@@ -28,7 +28,7 @@ COEF_LABELS <- c(
 )
 
 # fixest >= 0.12 drops singleton fixed-effect groups by default; earlier
-# versions kept them. The published table was produced under the old behaviour
+# versions kept them. The published table was produced under the old behavior
 # (7,188 obs / 465 parties); the new default gives 7,082 / 359, because 106
 # parties contain exactly one email each. Singletons contribute no identifying
 # variation, so dropping them is the defensible choice -- but it has to be

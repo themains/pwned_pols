@@ -17,12 +17,12 @@ Every adapter does exactly four things, in this order:
 2. **Snapshot** the untouched payload to `data/raw/<source_id>/` **before
    parsing anything.** A parser bug must never cost a refetch, and the snapshot
    is what makes a row's provenance checkable later.
-3. **Normalise** the address with `clean_email_column_no_dedupe()` from
+3. **Normalize** the address with `clean_email_column_no_dedupe()` from
    `scripts/utilities.py`, and classify it with `classify_comm_gov_email()`.
    Do not write a new normaliser. Two of the defects found in this repo came
    from re-deriving a rule that already existed — most recently `1bbc95f`, where
    the verification script and the pipeline had drifted onto different
-   normalisations and agreed with each other while both were wrong.
+   normalizations and agreed with each other while both were wrong.
 4. **Emit** canonical rows, appending to `data/politician_emails.csv`.
 
 ## Canonical schema
@@ -39,13 +39,13 @@ Every adapter does exactly four things, in this order:
 | `level` | `national`, `state`, `local`, `supranational` |
 | `chamber` | as published, may be empty |
 | `term_start` | year, may be empty |
-| `email` | normalised |
-| `email_raw` | exactly as published, before normalisation |
+| `email` | normalized |
+| `email_raw` | exactly as published, before normalization |
 | `ecategory` | `Official` or `Commercial`, from `classify_comm_gov_email()` |
 | `retrieved_date` | ISO date the fetch ran |
 | `source_url` | the specific URL this row came from |
 
-`email_raw` is kept because normalisation is lossy and deliberately so: it strips
+`email_raw` is kept because normalization is lossy and deliberately so: it strips
 a leading `1.`/`2.`, which is right for the source data and wrong in general.
 Keeping the original means that choice stays auditable.
 
